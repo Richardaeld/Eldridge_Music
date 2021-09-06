@@ -22,26 +22,10 @@ body {
     font-family: "Raleway", sans-serif!important;
 }
 
-/* -------------------------------------------------------------------Index---------------------------------------------------------------- */
 
-.index-background {
-    background: url('/media/heromod.jpg') no-repeat 43% 43% ;
-    background-size: cover;
-    height: 100vh;
-    position: absolute;
-}
 
-.index-overlay {
-    position: absolute;
-    height: 100%;
-    background: rgba(0, 0, 0, .5);
-    z-index: 4;
-}
-
-/* sheen */
-/* text color -- #cea52b, highlight color -- #ffe492  */
-
-.title-header1 {
+/* -------------------------------------------------------------------Base---------------------------------------------------------------- */
+.logo-title {
     font-family: "LimeLight", sans-serif;
     font-size: 3rem;
     position: relative;
@@ -51,29 +35,6 @@ body {
                 0px 0px 3px rgba(0, 0, 0, .75)
                 ;
     -webkit-background-clip: text;
-}
-
-.title-header {
-    font-family: "LimeLight", sans-serif;
-    font-size: 4rem;
-    text-align: center;
-    background-color: rgba(0, 0, 0, .75);
-    position: relative;
-    color: transparent;
-    text-shadow: -4px -4px 5px #faedc65b,
-                -2px -2px 0px #cea52b,
-                0px 0px 3px rgba(0, 0, 0, .75)
-                ;
-    -webkit-background-clip: text;
-    top:50%;
-    transform: translateY(-50%);
-    z-index: 3;
-}
-
-.title-header-background {
-    position: absolute;
-    /* height: 25rem; */
-    width: 100%;
 }
 
 nav li {
@@ -86,6 +47,75 @@ a:link,
 a {
     color: #333!important;
 }
+
+/* -------------------------------------------------------------------Index---------------------------------------------------------------- */
+
+.index-background {
+    background: url('/media/heromod.jpg') no-repeat 43% 43% ;
+    background-size: cover;
+    height: 100vh;
+    position: absolute;
+}
+
+.index-overlay {
+    position: absolute;
+    height: 100%;
+    background: rgba(0, 0, 0, .1);
+    /* z-index: 1; */
+}
+
+.index-signup {
+    background-color: #6296d5b4;
+    text-align: center;
+}
+
+.index-container-position {
+    position: relative;
+    top:200px;
+}
+
+.header-shadow {
+    transition-duration: .5s;
+    color: #faf9f6;
+    text-shadow: -1px -1px 2px #333,
+                0px 0px 3px rgba(0, 0, 0, .25);
+}
+
+.header-font {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: transparent;
+    text-shadow: -2px -2px 0px #faf9f6,
+                0px 0px 3px rgba(0, 0, 0, .75);
+}
+
+.header-box {
+    border: none;
+    transition-duration: .5s;
+    box-shadow: 3px 3px 2px  rgba(0, 0, 0, .25);
+}
+
+.header-box:hover {
+    background-color: #283D57;
+    box-shadow: 0px 0px rgba(0, 0, 0, .25),
+    inset -4px -4px 2px #010203,
+    inset 4px 4px 2px #010203;
+}
+
+.header-box p {
+    color: transparent;
+    text-shadow: -1px -1px 0px #333,
+                0px 0px 1px rgba(122, 122, 122, 0.5);
+}
+
+.header-box:hover p {
+    text-shadow: -1px -1px 0px #faf9f6,
+                0px 0px 1px rgb(172, 172, 172);
+}
+
+
+
+
 
 .font-aws {
     font-size: 3rem;
@@ -118,7 +148,13 @@ a {
 /* ---------------------------piano header */
 /* ----- general settings */
 .piano-container {
-    background-color: rgb(169, 213, 228);
+    /* background-color: rgb(169, 213, 228); */
+    background-color: rgba(0, 0, 0, .5);
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    transition-duration: 1s;
     /* background-color: #36A2CF; */
 }
 
@@ -126,6 +162,23 @@ a {
     position: relative;
     min-height:50rem;
     max-height:95vh;
+}
+
+.piano-header {
+    font-family: "LimeLight", sans-serif;
+    font-size: 4rem;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .75);
+    position: relative;
+    color: transparent;
+    text-shadow: -4px -4px 5px #faedc65b,
+                -2px -2px 0px #cea52b,
+                0px 0px 3px rgba(0, 0, 0, .75)
+                ;
+    -webkit-background-clip: text;
+    top:50%;
+    transform: translateY(-50%);
+    z-index: 3;
 }
 
 /* ----- keys */
