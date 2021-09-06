@@ -35,17 +35,19 @@
       <div class="header-flex">
 
         <div class="header-logo">
-          <p class="logo-title" style="margin:0;">Eldridge Music Studio</p>
+          <a href="{% url 'home' %}">
+            <p class="logo-title mb-0">Eldridge Music Studio</p>
+          </a>
         </div>
 
         <div class="header-search">
-          <input class="y-center" type="text" placeholder="Search Classes" style="width:90%;">
-            <button class="y-center">
-              <span>
-                <i class="fas fa-search"></i>
-              </span>
-            </button>
-          </div>
+          <input class="y-center" type="text" placeholder="Search Classes">
+          <button class="y-center">
+            <span>
+              <i class="fas fa-search"></i>
+            </span>
+          </button>
+        </div>
 
         <div class="header-profile">
           <i class="fas fa-user-circle font-aws y-center"></i>
@@ -56,7 +58,7 @@
         <ul class="nav justify-content-center">
 
           <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
         </li>
 
         <li class="nav-item">
@@ -98,7 +100,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">Online Piano</a>
+          <a class="nav-link" href="{% url 'coaxsio' %}">Online Piano</a>
         </li>
 
       </ul>
