@@ -13,7 +13,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
+    <link rel="icon" href="media/EE_favicon.jpg" type="image/gif">
 
+    <script src="https://kit.fontawesome.com/377083d8a9.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
@@ -22,51 +24,190 @@
   </head>
   <body>
 
-    <header class="container-fluid piano-container" style="height:23rem;">
-        <div class="row">
+    <header class="container-fluid fixed-top" style="background: #faf9f6;">
+      <div class="row" style="flex-wrap:nowrap; display:flex; justify-content: space-between; flex-direction: row;">
 
-            <!-- piano keys -->
-            <div class="col-12 piano-size" style="position:relative;">
+        <div class="" style="flex-basis:40%; flex-shrink:0; white-space:nowrap">
+          <p class="title-header1" style="margin:0;">Eldridge Music Studio</p>
+        </div>
 
-                <div class="piano-side-top"></div>
-                <div class="piano-side-bottom"></div>
-                <!-- first octive -->
-                <div class="key-white" style="left:8%"></div>
-                <div class="key-black" style="left:12.25%"></div>
-                <div class="key-white" style="left:14%"></div>
-                <div class="key-black" style="left:18.5%"></div>
-                <div class="key-white" style="left:20%"></div>
-                <div class="key-white" style="left:26%"></div>
-                <div class="key-black" style="left:30.25%"></div>
-                <div class="key-white" style="left:32%"></div>
-                <div class="key-black" style="left:36.25%"></div>
-                <div class="key-white" style="left:38%"></div>
-                <div class="key-black" style="left:42.25%"></div>
-                <div class="key-white" style="left:44%"></div>
-                <!-- second octive -->
-                <div class="key-white" style="left:50%"></div>
-                <div class="key-black" style="left:54.25%"></div>
-                <div class="key-white" style="left:56%"></div>
-                <div class="key-black" style="left:60.25%"></div>
-                <div class="key-white" style="left:62%"></div>
-                <div class="key-white" style="left:68%"></div>
-                <div class="key-black" style="left:72.25%"></div>
-                <div class="key-white" style="left:74%"></div>
-                <div class="key-black" style="left:78.3%"></div>
-                <div class="key-white" style="left:80%"></div>
-                <div class="key-black" style="left:84.5%"></div>
-                <div class="key-white" style="left:86%"></div>
+        <div class="" style="flex-basis:30%; flex-shrink:1;">
+          <input class="y-center" type="text" placeholder="Search Classes" style="width:90%;">
+            <button class="y-center" style="">
+              <span>
+                <i class="fas fa-search" style=""></i>
+              </span>
+            </button>
+          </div>
 
-                <div class="piano-lid" >
-                    <div class="col-12 col-md-6 align-self-center" style="position:relative; height:100%; width:100%">
-                        <p class="title-header">Eldridge Music Studio</p>
-                    </div>
-                </div>
+        <div class="" style="flex-basis:10%;  flex-shrink:2">
+          <i class="fas fa-user-circle font-aws xy-center"></i>
+        </div>
+      </div>
 
-            </div>
+      <nav class="row" style="border-bottom: 2px solid #2EDBB1">
+        <ul class="nav justify-content-center">
+
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">All Classes</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Piano</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Piano Beginner</a></li>
+            <li><a class="dropdown-item" href="#">Piano Intermediate</a></li>
+            <li><a class="dropdown-item" href="#">Piano Advanced</a></li>
+            <li><a class="dropdown-item" href="#">Piano Professional</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Guitar</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Guitar Beginner</a></li>
+            <li><a class="dropdown-item" href="#">Guitar Intermediate</a></li>
+            <li><a class="dropdown-item" href="#">Guitar Advanced</a></li>
+            <li><a class="dropdown-item" href="#">Guitar Professional</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Flute</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Flute Beginner</a></li>
+            <li><a class="dropdown-item" href="#">Flute Intermediate</a></li>
+            <li><a class="dropdown-item" href="#">Flute Advanced</a></li>
+            <li><a class="dropdown-item" href="#">Flute Professional</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Specials</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Online Piano</a>
+        </li>
+
+      </ul>
+    </nav>
+    <div class="row">
+      <div class="col-12" style="height:2rem; background-color: #333;">
+        <p class="y-center" style="color:#faf9f6; text-align: center;">Not convinced? Try a Free Lesson!</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- background image -->
+  <div class="container-fluid index-background">
+    <div class="row">
+      <div class="col-12 index-overlay"></div>
+    </div>
+  </div>
+
+
+
+
+  <div class="container-fluid" style="position: relative; z-index: 4; top:10rem;">
+    <div class="row">
+
+      <div class="col-8">
+        <div class="row justify-content-center">
+          <div class="col-10 mt-3" style="color: #faf9f6">
+            <p class="y-center"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="row justify-content-center">
+
+          <div class="col-8 mt-3" style="color: #faf9f6">
+            <h1 class="text-uppercase y-center" style="text-align: center;">Sign up now and get one free lesson!</h1>
+          </div>
+
+          <div class="col-8 mt-3 btn btn-light">
+            <button class="y-center remove-button">
+              <p class="text-uppercase mb-0"><strong>Sign up now</strong></p>
+            </button>
+          </div>
+
+          <div class="col-8 mt-3" style="color: #faf9f6">
+            <h1 class="text-uppercase" style="text-align: center;">Or</h1>
+          </div>
+
+          <div class="col-8 mt-3 btn btn-light">
+            <button class="y-center remove-button">
+              <p id="play-piano" class="text-uppercase mb-0"><strong>Play of our Online Piano</strong></p>
+            </button>
+          </div>
 
         </div>
-    </header>
+      </div>
+
+    </div>
+  </div>
+
+
+    <!-- <p>Coming soon Guitar!</p> -->
+    <div class="container-fluid piano-container" style="display:none;">
+      <div class="row">
+
+        <div class="col-6">
+          <button class="remove-button">
+            <h3>Return</h3>
+          </button>
+        </div>
+
+        <!-- filter for hero image -->
+        <!-- <div class="col-12 piano-overlay"></div> -->
+        <!-- genreal size settings -->
+        <div class="col-12 piano-size" style="position:relative;">
+          <!-- Piano sides -->
+          <div class="piano-side-top"></div>
+          <div class="piano-side-bottom"></div>
+          <!-- piano keys -->
+          <!-- first octive -->
+          <div class="key-white" style="left:8%"></div>
+          <div class="key-black" style="left:12.25%"></div>
+          <div class="key-white" style="left:14%"></div>
+          <div class="key-black" style="left:18.5%"></div>
+          <div class="key-white" style="left:20%"></div>
+          <div class="key-white" style="left:26%"></div>
+          <div class="key-black" style="left:30.25%"></div>
+          <div class="key-white" style="left:32%"></div>
+          <div class="key-black" style="left:36.25%"></div>
+          <div class="key-white" style="left:38%"></div>
+          <div class="key-black" style="left:42.25%"></div>
+          <div class="key-white" style="left:44%"></div>
+          <!-- second octive -->
+          <div class="key-white" style="left:50%"></div>
+          <div class="key-black" style="left:54.25%"></div>
+          <div class="key-white" style="left:56%"></div>
+          <div class="key-black" style="left:60.25%"></div>
+          <div class="key-white" style="left:62%"></div>
+          <div class="key-white" style="left:68%"></div>
+          <div class="key-black" style="left:72.25%"></div>
+          <div class="key-white" style="left:74%"></div>
+          <div class="key-black" style="left:78.3%"></div>
+          <div class="key-white" style="left:80%"></div>
+          <div class="key-black" style="left:84.5%"></div>
+          <div class="key-white" style="left:86%"></div>
+          <!-- Piano Lid -->
+          <div class="piano-lid" >
+              <div class="col-12 col-md-6 align-self-center" style="position:relative; height:100%; width:100%">
+                  <p class="title-header">Coaxsio</p>
+              </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
 
 
     <script src="{% static 'js/borderjs.js' %}"></script>
