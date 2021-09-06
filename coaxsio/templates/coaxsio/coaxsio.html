@@ -1,0 +1,65 @@
+{%%}
+{% block content %}
+
+    <div class="container-fluid " style=" position: absolute;">
+        <div class="row justify-content-center piano-container" style="opacity:0;">
+
+            <div class="col-12" style="height:170px"></div>
+
+            <div id="stop-coaxsio" class="col-6 btn btn-light" style="z-index: 5;">
+                <button class="remove-button">
+                <h3 class="mb-0 mt-2" style="color: white; z-index: inherit; position: relative; ">Return</h3>
+                </button>
+            </div>
+
+            <!-- filter for hero image -->
+            <!-- <div class="col-12 piano-overlay"></div> -->
+            <!-- genreal size settings -->
+            <div class="col-12 piano-size" style="position:relative;">
+                <!-- Piano sides -->
+                <div class="piano-side-top"></div>
+                <div class="piano-side-bottom"></div>
+                <!-- piano keys -->
+                <!-- first octive -->
+                <div class="key-white" style="left:8%"></div>
+                <div class="key-black" style="left:12.25%"></div>
+                <div class="key-white" style="left:14%"></div>
+                <div class="key-black" style="left:18.5%"></div>
+                <div class="key-white" style="left:20%"></div>
+                <div class="key-white" style="left:26%"></div>
+                <div class="key-black" style="left:30.25%"></div>
+                <div class="key-white" style="left:32%"></div>
+                <div class="key-black" style="left:36.25%"></div>
+                <div class="key-white" style="left:38%"></div>
+                <div class="key-black" style="left:42.25%"></div>
+                <div class="key-white" style="left:44%"></div>
+                <!-- second octive -->
+                <div class="key-white" style="left:50%"></div>
+                <div class="key-black" style="left:54.25%"></div>
+                <div class="key-white" style="left:56%"></div>
+                <div class="key-black" style="left:60.25%"></div>
+                <div class="key-white" style="left:62%"></div>
+                <div class="key-white" style="left:68%"></div>
+                <div class="key-black" style="left:72.25%"></div>
+                <div class="key-white" style="left:74%"></div>
+                <div class="key-black" style="left:78.3%"></div>
+                <div class="key-white" style="left:80%"></div>
+                <div class="key-black" style="left:84.5%"></div>
+                <div class="key-white" style="left:86%"></div>
+                <!-- Piano Lid -->
+                <div class="piano-lid" >
+                    <div class="" style="position:relative; height:100%; width:100%">
+                        <p class="piano-header">Coaxsio</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block core_js %}
+    <script src="{% static 'js/borderjs.js' %}"></script>
+
+{% endblock %}
