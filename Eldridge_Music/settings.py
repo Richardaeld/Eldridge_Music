@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     # Created apps
     'home',
+    'lessons',
     'coaxsio',
 
 
