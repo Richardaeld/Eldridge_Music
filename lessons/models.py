@@ -15,7 +15,7 @@ class Lesson(models.Model):
     instrument = models.ForeignKey('Instrument', null=True, blank=True, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
-    instrument_level = models.DecimalField(max_digits=2, decimal_place=0)
+    instrument_level = models.DecimalField(max_digits=2, decimal_places=0)
     description = models.TextField()
     price = models.DecimalField(max_digits=7, decimal_places=2)
     new_lesson_day = models.DecimalField(max_digits=1, decimal_places=0)
