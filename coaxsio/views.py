@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+def coaxsio(request):
+    """ This view is for the online piano the coaxsio """
+    return render(request, 'coaxsio/coaxsio.html')

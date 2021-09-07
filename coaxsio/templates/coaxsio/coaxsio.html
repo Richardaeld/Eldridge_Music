@@ -1,16 +1,20 @@
-{%%}
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'coaxsio/css/coaxsio.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'coaxsio/js/coaxsio.js' %}"></script>
+{% endblock %}
+
 {% block content %}
 
-    <div class="container-fluid " style=" position: absolute;">
-        <div class="row justify-content-center piano-container" style="opacity:0;">
+    <div class="container-fluid" style="background-color:rgba(0,0,0,.75); height:100vh; width:100%; position:relative">
+        <div class="row justify-content-center">
 
-            <div class="col-12" style="height:170px"></div>
-
-            <div id="stop-coaxsio" class="col-6 btn btn-light" style="z-index: 5;">
-                <button class="remove-button">
-                <h3 class="mb-0 mt-2" style="color: white; z-index: inherit; position: relative; ">Return</h3>
-                </button>
-            </div>
+            <!-- <div class="col-12" style="height:200px"></div> -->
 
             <!-- filter for hero image -->
             <!-- <div class="col-12 piano-overlay"></div> -->
@@ -56,10 +60,5 @@
             </div>
         </div>
     </div>
-
-{% endblock %}
-
-{% block core_js %}
-    <script src="{% static 'js/borderjs.js' %}"></script>
 
 {% endblock %}
