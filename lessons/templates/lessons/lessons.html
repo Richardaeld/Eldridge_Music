@@ -1,8 +1,34 @@
 {% extends "base.html" %}
 {% load static %}
+{% load lesson_tags %}
 
 {% block content %}
 
+<div class="container-fluid" style="">
+    <div class="row justify-content-around">
 
+        {% for lesson in lessons %}
+        <div class="col-5 col-lg-4 col-xl-3">
+            <div class="card mb-3 class-card" style="position: relative;">
+              <div class="class-banner">{% convert_str lesson.instrument_level %}</div>
+              <img src="{{ lesson.image.url }}" class="card-img-top card-image" alt="{% reduce_image_name lesson.image %}">
+              <div class="card-body custom-scroll">
+                  <p class="class-card-header">
+                    {% convert_str lesson.instrument %}
+                    
+                  <p>
+                  <!-- <p class="">
+                    {% convert_str lesson.instrument_level %} class
+                  </p> -->
+                  <p class="card-text class-card-body" style="">{{ lesson.description }}</p>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+</div>
 
 {% endblock %}

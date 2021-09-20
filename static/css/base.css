@@ -13,6 +13,10 @@ body {
     /* background-color: #36A2CF; */
     /* background-color: #faf9f6; */
     /* background-color: #2FF5C3; */
+    background: url('/media/heromod.jpg') no-repeat 43% 43% ;
+    background-size: cover;
+    min-height: 100vh;
+    /* position: absolute; */
 }
 
 .remove-button {
@@ -30,15 +34,33 @@ body {
     transform: translateY(-50%);
 }
 
+.custom-scroll::-webkit-scrollbar-track {
+    background: #ddd;
+    border-radius: 5px;
 
+  }
+
+.custom-scroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+.custom-scroll::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #858585;
+  }
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+    background: #252525;
+  }
 
 /* -------------------------------------------------------------------Base---------------------------------------------------------------- */
-.base-background {
+/* .base-background {
     background: url('/media/heromod.jpg') no-repeat 43% 43% ;
     background-size: cover;
     height: 100vh;
     position: absolute;
-}
+} */
 
 .base-overlay {
     position: absolute;
@@ -126,7 +148,7 @@ a {
 
 .index-container-position {
     position: relative;
-    top: 200px;
+    /* top: 200px; */
 }
 
 .header-shadow {
@@ -168,6 +190,46 @@ a {
                 0px 0px 1px rgb(172, 172, 172);
 }
 
+/* -------------------------------------------------------------------all classes---------------------------------------------------------------- */
+.class-card {
+    height:25rem;
+}
+.card-image {
+    min-height: 200px;
+    /* width: 200px; */
+    position: relative;
+    background-size: cover;
+}
+.class-card-header {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.card-body {
+    overflow-y: scroll;
+}
+
+.class-card-footer {
+
+}
+
+.class-banner {
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    top:5%!important;
+    color: white;
+    /* font-size: 2rem; */
+    text-shadow: 
+    1px 0px 2px #333,
+    -1px 0px #333,
+    0px 1px #333,
+    0px -1px 2px #333
+    ;
+    background-color: rgba(255, 255, 255, .75);
+    /* background-color: red; */
+}
+
 /* -------------------------------------------------------------------breakpoints---------------------------------------------------------------- */
 
 /* @media (min-width: 575.98px) {
@@ -204,6 +266,9 @@ a {
     }
     .header-search button span i {
         font-size: 1rem;
+    }
+    .custom-scroll::-webkit-scrollbar {
+        width: 7px;
     }
 
 }
