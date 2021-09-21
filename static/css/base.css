@@ -72,20 +72,24 @@ header {
     background-color: #faf9f6;
 }
 
-.header-flex {
+/* .header-flex {
     flex-wrap: nowrap;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-}
+} */
 
-.header-logo {
-    flex-basis: 40%;
+/* .header-logo {
+    flex-basis: 20%;
     flex-shrink: 0;
     white-space: nowrap
+} */
+
+.header-logo h1 {
+    font-size: 2rem;
 }
 
-.header-search {
+/* .header-search {
     text-align: center;
     flex-basis: 45%;
     flex-shrink: 2;
@@ -94,9 +98,26 @@ header {
     width: 80%;
 }
 
+.header-search span {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;}
+
 .header-profile {
     flex-basis: 3%;
-    flex-shrink: 0
+    flex-shrink: 0;
+} */
+
+.header-profile {
+    /* position: relative; */
+}
+
+.header-profile i {
+    /* position: absolute; */
+    /* position: relative; */
+    /* right: 15px; */
 }
 
 .logo-title {
@@ -137,7 +158,12 @@ a {
 }
 
 .font-aws {
+    text-align: end;
+}
+
+.font-aws i {
     font-size: 3rem;
+
 }
 
 /* -------------------------------------------------------------------Index---------------------------------------------------------------- */
@@ -244,32 +270,67 @@ a {
 } */
 
 @media (max-width: 767.98px) {
-
+    .logo-title {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 991.98px) {
     .logo-title {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
     }
     nav li {
         font-size: 1rem;
     }
-    .font-aws {
+    /* .font-aws {
         font-size: 2rem;
     }
     .header-search {
 
+    } */
+
+    /* .header-search input {
+        height:1.5rem
+    } */
+    /* .header-search button span i {
+        font-size: 1rem;
+    } */
+
+    .font-aws {
+        top: inherit;
+        transform: translateY(0);
     }
 
-    .header-search input {
-        height:1.5rem
+    .header-profile {
+        position: absolute;
+
+        /* background-color: red; */
     }
-    .header-search button span i {
-        font-size: 1rem;
-    }
+
     .custom-scroll::-webkit-scrollbar {
         width: 7px;
     }
+
+    .mobile-button {
+        /* position: sticky; */
+        /* position: relative;
+        top:-50px; */
+        /* height: 10px; */
+
+    }
+
+    .mobile-button-height button {
+        /* height: 1px; */
+        /* position: sticky; */
+    }
+
+    .mobile-button-height {
+        /* height: auto; */
+    }
+
+    /* .mobile-button nav {
+        position: relative;
+    } */
 
 }
 

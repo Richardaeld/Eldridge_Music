@@ -32,78 +32,89 @@
   <body>
 
     <!-- background image -->
-    <div class="container-fluid base-background">
-      <div class="row">
-        <div class="col-12 base-overlay"></div>
-      </div>
-    </div>
+    <div class="base-overlay"></div>
 
     <header class="container-fluid fixed-top">
-      <div class="header-flex">
+      <div class="row justify-content-end">
 
-        <div class="header-logo">
-          <a href="{% url 'home' %}">
-            <p class="logo-title mb-0">Eldridge Music Studio</p>
-          </a>
+        <div class="header-logo col-4 d-none d-lg-block">
+          <div class="">
+            <a href="{% url 'home' %}">
+              <h1 class="logo-title mb-0 mt-1">
+                <span class="">Eldridge <br>Music Studio</span>
+              </h1>
+            </a>
+          </div>
         </div>
 
-        <div class="header-search">
-          <input class="y-center" type="text" placeholder="Search Classes">
-          <button class="y-center">
-            <span>
-              <i class="fas fa-search"></i>
-            </span>
-          </button>
+        <div class="col-6 my-auto d-none d-lg-block">
+          <div class="">
+            <div class="input-group">
+              <input class="form-control rounded-0" type="text" placeholder="Search Lessons">
+              <div class="input-group-append">
+                <button class="btn btn-dark rounded-0">
+                  <span>
+                    <i class="fas fa-search"></i>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="header-profile">
-          <i class="fas fa-user-circle font-aws y-center"></i>
+
+        <div class="header-profile col-10 col-lg-2 mt-2 pt-1 mt-lg-0" style="">
+            <div class=" font-aws y-center" >
+              <i class="fas fa-user-circle font-aws"></i>
+            </div>
         </div>
       </div>
 
-      <nav class="row">
-        <ul class="nav justify-content-center">
+
+
+
+
+
+
+
+<div class=" mobile-button">
+      <nav class="navbar navbar-expand-lg navbar-light">
+
+        <div class="container-fluid mobile-button-height">
+          <button class="navbar-toggler my-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
 
           <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+          <a class="nav-link active me-5" aria-current="page" href="{% url 'home' %}">
+            <span class="d-none d-lg-block">Home</span>
+            <span class="d-block d-lg-none d-xl-none d-xxl-none logo-title pt-2 pb-0">Eldridge Music Studio</span>
+          </a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'lessons' %}">All Classes</a>
-        </li>
+        <li class="d-block d-lg-none d-xl-none d-xxl-none"><hr class="dropdown-divider"></li>
+        <!-- <span class="d-none d-lg-block">Home</span>
+        <span class="d-none d-sm-block d-md-block d-lg-none">Eldridge Music Studio</span> -->
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Piano</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Piano Beginner</a></li>
-            <li><a class="dropdown-item" href="#">Piano Intermediate</a></li>
-            <li><a class="dropdown-item" href="#">Piano Advanced</a></li>
-            <li><a class="dropdown-item" href="#">Piano Professional</a></li>
-          </ul>
-        </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Guitar</a>
+          <a class="nav-link dropdown-toggle me-5" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Lessons</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Guitar Beginner</a></li>
-            <li><a class="dropdown-item" href="#">Guitar Intermediate</a></li>
-            <li><a class="dropdown-item" href="#">Guitar Advanced</a></li>
-            <li><a class="dropdown-item" href="#">Guitar Professional</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Flute</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Flute Beginner</a></li>
-            <li><a class="dropdown-item" href="#">Flute Intermediate</a></li>
-            <li><a class="dropdown-item" href="#">Flute Advanced</a></li>
-            <li><a class="dropdown-item" href="#">Flute Professional</a></li>
+            <li><a class="dropdown-item" href="#">All Lessons</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Piano</a></li>
+            <li><a class="dropdown-item" href="#">Guitar</a></li>
+            <li><a class="dropdown-item" href="#">Vocal</a></li>
+            <li><a class="dropdown-item" href="#">Flute</a></li>
           </ul>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">Specials</a>
+          <a class="nav-link me-5" href="#">Specials</a>
         </li>
 
         <li class="nav-item">
@@ -111,10 +122,23 @@
         </li>
 
       </ul>
+
+
+
+    </div>
+      </div>
     </nav>
+  </div>
+
+
+
+
+
+
+
     <div class="row">
       <div class="col-12 header-special">
-        <p class="y-center mb-0">Try a Free Lesson!</p>
+        <p class="y-center mb-0">New Students Recieve a Free Lesson</p>
       </div>
     </div>
   </header>
