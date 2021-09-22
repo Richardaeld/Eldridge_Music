@@ -122,6 +122,10 @@ a {
 
 }
 
+.nav-header-height {
+    height: 188px;
+}
+
 /* -------------------------------------------------------------------Index---------------------------------------------------------------- */
 .index-signup {
     background-color: #6296d5b4;
@@ -258,6 +262,10 @@ a {
     /* index */
     .header-font {
         font-size: 1.75rem;
+    }
+
+    .nav-header-height {
+        height: 112px;
     }
 
 }
