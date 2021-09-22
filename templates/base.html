@@ -48,16 +48,18 @@
         </div>
 
         <div class="col-6 my-auto d-none d-lg-block">
-          <div class="input-group">
-            <input class="form-control rounded-0" type="text" placeholder="Search Lessons">
-            <div class="input-group-append">
-              <button class="btn btn-dark rounded-0">
-                <span>
-                  <i class="fas fa-search"></i>
-                </span>
-              </button>
+          <form method="GET" action="{% url 'lessons' %}">
+            <div class="input-group">
+              <input class="form-control rounded-0" name="userquery" type="text" placeholder="Search Lessons">
+              <div class="input-group-append">
+                <button class="btn btn-dark rounded-0" type='submit'>
+                  <span>
+                    <i class="fas fa-search"></i>
+                  </span>
+                </button>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
 
         <div class="header-profile col-10 col-lg-2 mt-2 pt-1 mt-lg-0">

@@ -22,6 +22,14 @@ def lessons(request):
             instruments = request.GET['instrument']
             lessons = lessons.filter(instrument__name=(instruments))
 
+        if 'userquery' in request.GET:
+            query = request.GET['userquery']
+            if not query:
+                messages.error(request, "No search criteria input!")
+                return redirect(reverse('lessons'))
+
+            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            lessons = lessons.filter(queries)
 
 
     context = {
