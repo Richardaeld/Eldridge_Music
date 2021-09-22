@@ -1,32 +1,31 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib import messages
+from django.db.models import Q
 from . models import Instrument, Lesson
 
 
 def lessons(request):
     """ This view returns the all category specific lessons """
 
-    adminLessons = Lesson.objects.all()
+    lessons = Lesson.objects.all()
+    instruments = None
+    query = None
 
 
+    for lesson in lessons:
+        print(lesson.instrument_level)
 
-    test = adminLessons
-    for le in test:
-        # print(le)
-        # print(isinstance(le, (float, int, str, list, dict, tuple)))
-        # print(type(le))
-        # print(le.keys())
+    print(lessons.filter(instrument_level__level=("Beginner")))
 
-        print(le.instrument)
-        print(le.instrument_level)
-        # if le.instrument_level:
-        #     le.instrument_level = str(le.instrument_level)
-        # if str(le.instrument_level) == "Beginner":
-        #     print("It workded")
+    if request.GET:
+        if 'instrument' in request.GET:
+            instruments = request.GET['instrument']
+            lessons = lessons.filter(instrument__name=(instruments))
 
 
 
     context = {
-        'lessons': adminLessons,
+        'lessons': lessons,
     }
 
 

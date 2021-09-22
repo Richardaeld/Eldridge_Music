@@ -88,12 +88,14 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle me-5" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Lessons</a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">All Lessons</a></li>
+                  <li><a class="dropdown-item" href="{% url 'lessons' %}">All Lessons</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Piano</a></li>
-                  <li><a class="dropdown-item" href="#">Guitar</a></li>
-                  <li><a class="dropdown-item" href="#">Vocal</a></li>
-                  <li><a class="dropdown-item" href="#">Flute</a></li>
+                  <!-- <form method="GET" action="{% url 'lessons' %}"> -->
+                    <li><a class="dropdown-item" href="{% url 'lessons' %}?instrument=Piano">Piano</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lessons' %}?instrument=Guitar">Guitar</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lessons' %}?instrument=Vocal">Vocal</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lessons' %}?instrument=Flute">Flute</a></li>
+                  <!-- </form> -->
                 </ul>
               </li>
 
