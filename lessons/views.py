@@ -25,7 +25,8 @@ def lessons(request):
         if 'userquery' in request.GET:
             query = request.GET['userquery']
             if not query:
-                messages.error(request, "No search criteria input!")
+                # messages.error(request, "No search criteria input!")
+                messages.info(request, "No search information input!")
                 return redirect(reverse('lessons'))
 
             queries = Q(name__icontains=query) | Q(description__icontains=query)

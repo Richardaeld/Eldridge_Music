@@ -277,3 +277,43 @@ a {
 @media (max-width: 1399.98px) {
 
 }
+
+
+/* -------------------------------------------------------------------toasts---------------------------------------------------------------- */
+
+
+.message-container {
+    position: fixed;
+    z-index: 99999999;
+    height: 0%;
+    top: 72px;
+    right: 15px;
+}
+
+.custom-toast {
+    transition-duration: 1s;
+    background: #fff;
+}
+
+.pointer {
+    position: absolute;
+    border-top: 7px solid transparent;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #cea52b;
+    top: -12px;
+    right: 14px;
+}
+
+.pointer-header {
+    border-top: 2px solid #cea52b
+}
+
+.close-button {
+    background: transparent;
+    border: none;
+}
+
+.close-button i {
+    font-size: 2em;
+}
