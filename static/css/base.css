@@ -54,6 +54,14 @@ body {
     background: #252525;
   }
 
+  a:visited,
+  a:hover,
+  a:link,
+  a {
+      color: #333;
+      text-decoration: none;
+  }
+
 /* -------------------------------------------------------------------Base---------------------------------------------------------------- */
 /* .base-background {
     background: url('/media/heromod.jpg') no-repeat 43% 43% ;
@@ -72,15 +80,22 @@ header {
     background-color: #faf9f6;
 }
 
-.header-logo h1 {
+/* .header-logo h1 {
     font-size: 2rem;
+} */
+
+.logo-title,
+.logo-title a:visited,
+.logo-title a:link {
+    color: transparent;
 }
 
-.logo-title {
+.logo-title,
+.logo-title a:visited,
+.logo-title a:link {
     font-family: "LimeLight", sans-serif;
-    font-size: 3rem;
+    font-size: 2rem;
     position: relative;
-    color: transparent;
     text-shadow: -4px -4px 5px #faedc65b,
                 -2px -2px 0px #cea52b,
                 0px 0px 3px rgba(0, 0, 0, .75);
@@ -91,13 +106,7 @@ nav li {
     font-size: 1.5rem;
 }
 
-a:visited,
-a:hover,
-a:link,
-a {
-    color: #333!important;
-    text-decoration: none;
-}
+
 
 .header-special {
     height: 2.5rem;
