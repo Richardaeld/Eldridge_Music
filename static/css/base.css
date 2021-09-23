@@ -80,10 +80,6 @@ header {
     background-color: #faf9f6;
 }
 
-/* .header-logo h1 {
-    font-size: 2rem;
-} */
-
 .logo-title,
 .logo-title a:visited,
 .logo-title a:link {
@@ -105,8 +101,6 @@ header {
 nav li {
     font-size: 1.5rem;
 }
-
-
 
 .header-special {
     height: 2.5rem;
