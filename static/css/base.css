@@ -89,6 +89,7 @@ header {
 .logo-title,
 .logo-title a:visited,
 .logo-title a:link {
+    /* background:  #474747; */ /*    -------------------alter me, I need to be fit proper with text-sahdow I over write text-shadow   faedc65b --    rgba(0, 0, 0, .75)           */
     font-family: "LimeLight", sans-serif;
     font-size: 2rem;
     position: relative;
@@ -127,6 +128,10 @@ nav li {
 
 .nav-header-height {
     height: 188px;
+}
+
+.active {
+    text-shadow: 1px 1px 1px #555!important;
 }
 
 /* -------------------------------------------------------------------Index---------------------------------------------------------------- */
@@ -190,7 +195,7 @@ nav li {
     height:25rem;
 }
 .card-image {
-    min-height: 200px;
+    height: 200px;
     /* width: 200px; */
     position: relative;
     background-size: cover;
