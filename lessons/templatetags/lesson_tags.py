@@ -8,5 +8,6 @@ def convert_str(instance):
 
 
 @register.simple_tag
-def reduce_image_name(name):
-    return str(name)[:str(name).find("_")].title()
+def title_image_name(name):
+    # return str(name)[:str(name).find("_")].title()
+    return str(name).title()

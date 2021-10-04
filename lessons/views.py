@@ -1,21 +1,32 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from . models import Instrument, Lesson
+from . models import Instrument, Lesson, Image
 
 
 def lessons(request):
     """ This view returns the all category specific lessons """
 
     lessons = Lesson.objects.all()
-    instruments = None
-    query = None
-
 
     for lesson in lessons:
-        print(lesson.instrument_level)
+        image = Image.objects.filter(name=lesson.image)
+        image = image.get()
+        # print(image.image)
+        # lesson.test = image.image
+        lesson.test = image
 
-    print(lessons.filter(instrument_level__level=("Beginner")))
+        print(lesson.test)
+
+        # print(base)
+        # print(lesson.test)
+        # print(Image.objects.filter(name=lesson.image))
+    # for lesson in lessons :
+    #     for image in lesson.image:
+    #         # image.objects.get()
+    #         print(image)
+    instruments = None
+    query = None
 
     if request.GET:
         if 'instrument' in request.GET:
@@ -25,7 +36,6 @@ def lessons(request):
         if 'userquery' in request.GET:
             query = request.GET['userquery']
             if not query:
-                # messages.error(request, "No search criteria input!")
                 messages.info(request, "No search information input!")
                 return redirect(reverse('lessons'))
 

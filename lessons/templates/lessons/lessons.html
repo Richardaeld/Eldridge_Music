@@ -11,11 +11,11 @@
         <div class="col-5 col-lg-4 col-xl-3 mt-5">
             <div class="card mb-3 class-card" style="position: relative;">
               <div class="class-banner">{% convert_str lesson.instrument_level %}</div>
-              <img src="{{ lesson.image.url }}" class="card-img-top card-image" alt="{% reduce_image_name lesson.image %}">
+              <img src="{{ lesson.test.image.url }}" class="card-img-top card-image" alt="A {% title_image_name lesson.image %}">
               <div class="card-body custom-scroll">
                   <p class="class-card-header">
                     {% convert_str lesson.instrument %}
-                    
+                    {{ lesson.image }}
                   <p>
                   <!-- <p class="">
                     {% convert_str lesson.instrument_level %} class
