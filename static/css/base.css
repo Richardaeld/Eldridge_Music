@@ -7,7 +7,6 @@ body {
 
     position: relative;
     font-family: "Roboto", sans-serif;
-    /* top:2rem; */
     /* background-color: #faf9f6; */
     /* background-color: rgb(169, 213, 228); */ /*   --- original*/
     /* background-color: #36A2CF; */
@@ -16,7 +15,6 @@ body {
     background: url('/media/heromod.jpg') no-repeat 43% 43% ;
     background-size: cover;
     min-height: 100vh;
-    /* position: absolute; */
 }
 
 .remove-button {
@@ -228,6 +226,20 @@ nav li {
     ;
     background-color: rgba(255, 255, 255, .75);
     /* background-color: red; */
+}
+
+/* -------------------------------------------------------------------all subscriptions---------------------------------------------------------------- */
+.lesson-key,
+.lesson-value {
+    display:inline;
+}
+
+.lesson-key {
+    width: 50%;
+}
+
+.lesson-value {
+    width:40%;
 }
 
 /* -------------------------------------------------------------------breakpoints---------------------------------------------------------------- */

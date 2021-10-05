@@ -47,53 +47,53 @@ class Subscription(models.Model):
     one_lesson  = '1'
     two_lesson = '2'
     three_lesson = '3'
-    SUB_LESSONS_PER_WEEK = (
+    SUB_LESSONS_PER_WEEK = [
         (one_lesson, '1'),
         (two_lesson, '2'),
         (three_lesson, '3'),
-    )
+    ]
 
-    three_months = '.97'
-    six_months = '.94'
-    nine_months = '.91'
-    twelve_months = '.88'
-    SUB_MONTHS_LENGTH = (
-        (three_months, '.97'),
-        (six_months, '.94'),
-        (nine_months, '.91'),
-        (twelve_months, '.88'),
-    )
+    three_months = '3'
+    six_months = '6'
+    nine_months = '9'
+    twelve_months = '12'
+    SUB_MONTHS_LENGTH = [
+        (three_months, '3'),
+        (six_months, '6'),
+        (nine_months, '9'),
+        (twelve_months, '12'),
+    ]
 
     private = 'private'
     group = 'group'
     prerecorded = 'prerecorded'
-    SUB_LESSONS_TYPE = (
+    SUB_LESSONS_TYPE = [
         (private, 'private'),
         (group, 'group'),
         (prerecorded, 'prerecorded'),
-    )
+    ]
 
-    thirty_minutes = '0.50'
-    forty_five_minutes = '0.75'
-    sixty_minutes = '1.00'
-    SUB_TIME_LENGTH = (
-        (thirty_minutes, '0.50'),
-        (forty_five_minutes, '0.75'),
-        (sixty_minutes, '1.00'),
-    )
+    thirty_minutes = '30'
+    forty_five_minutes = '45'
+    sixty_minutes = '60'
+    SUB_TIME_LENGTH = [
+        (thirty_minutes, '30'),
+        (forty_five_minutes, '45'),
+        (sixty_minutes, '60'),
+    ]
 
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
     instrument_included = models.ManyToManyField('Instrument')
     level_included = models.ManyToManyField('Instrument_Level')
+    image = models.ForeignKey('Image', null=True, blank=True, on_delete=models.SET_NULL)
     lesson_class_type = models.CharField(max_length=11, choices=SUB_LESSONS_TYPE, default=prerecorded)
-    subscription_duration_months = models.DecimalField(max_digits=2, decimal_places=0, choices=SUB_MONTHS_LENGTH, default=twelve_months)
-    lessons_per_week = models.DecimalField(max_digits=1, decimal_places=1, choices=SUB_LESSONS_PER_WEEK, default=one_lesson)
-    lesson_time_length = models.DecimalField(max_digits=2, decimal_places=0, null=True, blank=True, choices=SUB_TIME_LENGTH, default=sixty_minutes)
+    subscription_duration_months = models.CharField(max_length=2, choices=SUB_MONTHS_LENGTH, default=twelve_months)
+    lessons_per_week = models.CharField(max_length=1, choices=SUB_LESSONS_PER_WEEK, default=one_lesson)
+    lesson_minutes_length = models.CharField(max_length=2, choices=SUB_TIME_LENGTH, default=sixty_minutes)
     description = models.TextField()
     active_subscription = models.BooleanField(default=True)
-    image = models.ForeignKey('Image', null=True, blank=True, on_delete=models.SET_NULL)
 
     # price = models.DecimalField(max_digits=7, decimal_places=2)
 
