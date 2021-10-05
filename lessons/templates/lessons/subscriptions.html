@@ -3,17 +3,23 @@
 {% load lesson_tags %}
 
 {% block content %}
-
-<div class="container-fluid">
+  <div class="container-fluid">
     <div class="row justify-content-around">
-
-        {% for sub in subs %}
+      {% for sub in subs %}
         <div class="col-5 col-lg-4 col-xl-3 mt-5">
             <div class="card mb-3 class-card" style="position: relative;">
+
               <!-- sub name header -->
               <div class="class-banner">
+                {% for avail_instruments in sub.instrument %}
+                  {{ avail_instruments }}
+                  {% if not forloop.last %}
+                    and
+                  {% endif %}
+                {% endfor %}
+                for
                 {% for avail_levels in sub.instrument_level %}
-                  {{ avail_levels }}
+                  {{ avail_levels }}s
                   {% if not forloop.last %}
                     and
                   {% endif %}
@@ -21,81 +27,76 @@
               </div>
               <img src="{{ sub.image.image.url }}" class="card-img-top card-image" alt="A {% title_image_name sub.image %}">
               <div class="card-body custom-scroll">
-                  <!-- name header -->
-                  <!-- <p class="class-card-header text-center">
-                    {{ sub.friendly_name }}
-                  <p> -->
+                <!-- name header -->
+                <!-- <p class="class-card-header text-center">
+                  {{ sub.friendly_name }}
+                <p> -->
 
-                  <!-- details -->
-                  <p class="card-text class-card-body">{{ sub.description }}</p>
-                  <hr>
+                <!-- details -->
+                <p class="card-text class-card-body">{{ sub.description }}</p>
+                <hr>
 
-                  <!-- instruments included -->
-                  <div class="d-flex justify-content-between pb-3">
-                    <p class="card-text class-card-body my-auto lesson-key">Instrument(s):</p>
-                    {% if sub.instrument|length <= 1 %}
+                <!-- instruments -->
+                <div class="d-flex justify-content-between pb-3">
+                  <p class="card-text class-card-body my-auto lesson-key">Instrument(s):</p>
+                  {% if sub.instrument|length <= 1 %}
+                    {% for avail_instruments in sub.instrument %}
+                      <span>{{ avail_instruments }}</span>
+                    {% endfor %}
+                  {% else %}
+                    <select class="lesson-value" name="" id="">
                       {% for avail_instruments in sub.instrument %}
-                        <span>{{ avail_instruments }}</span>
+                      <option value="{{ avail_instruments }}">{{ avail_instruments }}</option>
                       {% endfor %}
-                    {% else %}
-                      <select class="lesson-value" name="" id="">
-                        {% for avail_instruments in sub.instrument %}
-                        <option value="{{ avail_instruments }}">{{ avail_instruments }}</option>
-                        {% endfor %}
-                      </select>
-                    {% endif %}
-                  </div>
-
-                  <!-- skill levels included -->
-                  <div class="d-flex justify-content-between pb-3">
-                    <p class="card-text class-card-body my-auto lesson-key">Level(s):</p>
-                    {% if sub.instrument_level|length <= 1 %}
-                      {% for avail_instruments in sub.instrument_level %}
-                        <span class="lesson-value">{{ avail_instruments }}</span>
-                      {% endfor %}
-                    {% else %}
-                      <select class="lesson-value" name="" id="">
-                        {% for avail_levels in sub.instrument_level %}
-                          <option value="{{ avail_instruments }}">{{ avail_levels }}</option>
-                        {% endfor %}
-                      </select>
-                    {% endif %}
-                  </div>
-
-                  <!-- lesson type -->
-                  <div class="d-flex justify-content-between pb-3">
-                    <p class="card-text class-card-body my-auto lesson-key">Lesson type:</p>
-                    <span class="lesson-value">{{ sub.lesson_class_type }}</span>
-                  </div>
-
-                  <!-- length in months of sub -->
-                  <div class="d-flex justify-content-between pb-3">
-                    <p class="card-text class-card-body my-auto lesson-key">Months:</p>
-                    <span class="lesson-value">{{ sub.subscription_duration_months }}</span>
-                  </div>
-
-                  <!-- lessons per week -->
-                  <div class="d-flex justify-content-between pb-3">
-                    <p class="card-text class-card-body my-auto lesson-key">Weekly lessons:</p>
-                    <span class="lesson-value">{{ sub.lessons_per_week }}</span>
-                  </div>
-
-                  <!-- duration of lessons -->
-                  <div class="d-flex justify-content-between pb-3">
-                    <p class="card-text class-card-body my-auto lesson-key">Lesson duration:</p>
-                    <span class="lesson-value">{{ sub.lesson_minutes_length }} minutes</span>
-                  </div>
-
-
-
+                    </select>
+                  {% endif %}
                 </div>
+
+                <!-- skill levels -->
+                <div class="d-flex justify-content-between pb-3">
+                  <p class="card-text class-card-body my-auto lesson-key">Level(s):</p>
+                  {% if sub.instrument_level|length <= 1 %}
+                    {% for avail_instruments in sub.instrument_level %}
+                      <span class="lesson-value">{{ avail_instruments }}</span>
+                    {% endfor %}
+                  {% else %}
+                    <select class="lesson-value" name="" id="">
+                      {% for avail_levels in sub.instrument_level %}
+                        <option value="{{ avail_instruments }}">{{ avail_levels }}</option>
+                      {% endfor %}
+                    </select>
+                  {% endif %}
+                </div>
+
+                <!-- lesson type -->
+                <div class="d-flex justify-content-between pb-3">
+                  <p class="card-text class-card-body my-auto lesson-key">Lesson type:</p>
+                  <span class="lesson-value">{{ sub.lesson_class_type }}</span>
+                </div>
+
+                <!-- length of subscription in months  -->
+                <div class="d-flex justify-content-between pb-3">
+                  <p class="card-text class-card-body my-auto lesson-key">Months:</p>
+                  <span class="lesson-value">{{ sub.subscription_duration_months }}</span>
+                </div>
+
+                <!-- lessons per week -->
+                <div class="d-flex justify-content-between pb-3">
+                  <p class="card-text class-card-body my-auto lesson-key">Weekly lessons:</p>
+                  <span class="lesson-value">{{ sub.lessons_per_week }}</span>
+                </div>
+
+                <!-- Lessons minutes length -->
+                <div class="d-flex justify-content-between pb-3">
+                  <p class="card-text class-card-body my-auto lesson-key">Lesson duration:</p>
+                  <span class="lesson-value">{{ sub.lesson_minutes_length }} minutes</span>
+                </div>
+
               </div>
+            </div>
         </div>
-
-        {% endfor %}
-
+      {% endfor %}
     </div>
-</div>
-
+  </div>
 {% endblock %}
 
