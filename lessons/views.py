@@ -9,22 +9,6 @@ def lessons(request):
 
     lessons = Lesson.objects.all()
 
-    for lesson in lessons:
-        image = Image.objects.filter(name=lesson.image)
-        image = image.get()
-        # print(image.image)
-        # lesson.test = image.image
-        lesson.test = image
-
-        print(lesson.test)
-
-        # print(base)
-        # print(lesson.test)
-        # print(Image.objects.filter(name=lesson.image))
-    # for lesson in lessons :
-    #     for image in lesson.image:
-    #         # image.objects.get()
-    #         print(image)
     instruments = None
     query = None
 
@@ -39,9 +23,13 @@ def lessons(request):
                 messages.info(request, "No search information input!")
                 return redirect(reverse('lessons'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(instrument__name__icontains=query) | Q(name__icontains=query)
             lessons = lessons.filter(queries)
 
+    for lesson in lessons:
+        image = Image.objects.filter(name=lesson.image)
+        image = image.get()
+        lesson.image = image
 
     context = {
         'lessons': lessons,
