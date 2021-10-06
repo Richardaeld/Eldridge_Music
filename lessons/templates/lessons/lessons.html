@@ -14,12 +14,22 @@
               <img src="{{ lesson.test.image.url }}" class="card-img-top card-image" alt="A {% title_image_name lesson.image %}">
               <div class="card-body custom-scroll">
                   <p class="class-card-header">
-                    {% convert_str lesson.instrument %}
-                    {{ lesson.image }}
+                    <!-- {% convert_str lesson.instrument %} -->
+                    {{ lesson.name }}
                   <p>
 
                   <p class="card-text class-card-body" style="">{{ lesson.description }}</p>
+
                   <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
+                  <div class="d-flex justify-content-center pb-3 mt-4">
+                    <a href="#">
+                      <button class="button-custom header-box">
+                        <span class="p-2 ms-1">Details</span>
+                      </button>
+                    </a>
+                  </div>
+
                 </div>
               </div>
         </div>

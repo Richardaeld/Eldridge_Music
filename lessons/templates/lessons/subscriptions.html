@@ -25,7 +25,9 @@
                   {% endif %}
                 {% endfor %}
               </div>
-              <img src="{{ sub.image.image.url }}" class="card-img-top card-image" alt="A {% title_image_name sub.image %}">
+              <a href="{% url 'subs_details' sub.id %}">
+                <img src="{{ sub.image.image.url }}" class="card-img-top card-image" alt="A {% title_image_name sub.image %}">
+              </a>
               <div class="card-body custom-scroll">
                 <!-- name header -->
                 <!-- <p class="class-card-header text-center">
@@ -34,10 +36,10 @@
 
                 <!-- details -->
                 <p class="card-text class-card-body">{{ sub.description }}</p>
-                <hr>
+                <!-- <hr> -->
 
                 <!-- instruments -->
-                <div class="d-flex justify-content-between pb-3">
+                <!-- <div class="d-flex justify-content-between pb-3">
                   <p class="card-text class-card-body my-auto lesson-key">Instrument(s):</p>
                   {% if sub.instrument|length <= 1 %}
                     {% for avail_instruments in sub.instrument %}
@@ -50,10 +52,10 @@
                       {% endfor %}
                     </select>
                   {% endif %}
-                </div>
+                </div> -->
 
                 <!-- skill levels -->
-                <div class="d-flex justify-content-between pb-3">
+                <!-- <div class="d-flex justify-content-between pb-3">
                   <p class="card-text class-card-body my-auto lesson-key">Level(s):</p>
                   {% if sub.instrument_level|length <= 1 %}
                     {% for avail_instruments in sub.instrument_level %}
@@ -66,32 +68,39 @@
                       {% endfor %}
                     </select>
                   {% endif %}
-                </div>
+                </div> -->
 
                 <!-- lesson type -->
-                <div class="d-flex justify-content-between pb-3">
+                <!-- <div class="d-flex justify-content-between pb-3">
                   <p class="card-text class-card-body my-auto lesson-key">Lesson type:</p>
                   <span class="lesson-value">{{ sub.lesson_class_type }}</span>
-                </div>
+                </div> -->
 
                 <!-- length of subscription in months  -->
-                <div class="d-flex justify-content-between pb-3">
+                <!-- <div class="d-flex justify-content-between pb-3">
                   <p class="card-text class-card-body my-auto lesson-key">Months:</p>
-                  <span class="lesson-value">{{ sub.subscription_duration_months }}</span>
-                </div>
+                  <span class="lesson-value">{{ sub.subscription_duration_months }} months</span>
+                </div> -->
 
                 <!-- lessons per week -->
-                <div class="d-flex justify-content-between pb-3">
+                <!-- <div class="d-flex justify-content-between pb-3">
                   <p class="card-text class-card-body my-auto lesson-key">Weekly lessons:</p>
-                  <span class="lesson-value">{{ sub.lessons_per_week }}</span>
-                </div>
+                  <span class="lesson-value">{{ sub.lessons_per_week }} per week</span>
+                </div> -->
 
                 <!-- Lessons minutes length -->
-                <div class="d-flex justify-content-between pb-3">
+                <!-- <div class="d-flex justify-content-between pb-3">
                   <p class="card-text class-card-body my-auto lesson-key">Lesson duration:</p>
                   <span class="lesson-value">{{ sub.lesson_minutes_length }} minutes</span>
-                </div>
+                </div> -->
 
+                <div class="d-flex justify-content-center pb-3 mt-4">
+                  <a href="{% url 'subs_details' sub.id %}">
+                    <button class="button-custom header-box">
+                      <span class="p-2 ms-1">Subscribe</span>
+                    </button>
+                  </a>
+                </div>
               </div>
             </div>
         </div>

@@ -84,3 +84,34 @@ def subscriptions(request):
     }
 
     return render(request, 'lessons/subscriptions.html', context)
+
+
+def subs_details(request, sub_id):
+
+    subscription = get_object_or_404(Subscription, pk=sub_id)
+
+    print(subscription)
+
+    # Creates iterable lists in subscription objects
+    # Queries foreign and manytomany fields
+    image = Image.objects.filter(name=subscription.image)
+    image = image.get()
+    subscription.image = image
+
+    # Create list for offered instruments
+    instrument = []
+    for instruments in subscription.instrument_included.all():
+            instrument.append(instruments)
+    subscription.instrument = instrument
+
+    # Create list for instrument levels
+    instrument_level = []
+    for instrument_levels in subscription.level_included.all():
+        instrument_level.append(instrument_levels)
+    subscription.instrument_level = instrument_level
+
+    context = {
+        'sub': subscription
+    }
+
+    return render(request, 'lessons/subs_details.html', context)

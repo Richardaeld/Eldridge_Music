@@ -60,6 +60,10 @@ body {
       text-decoration: none;
   }
 
+.button-custom {
+    border-radius: 5px;
+}
+
 /* -------------------------------------------------------------------Base---------------------------------------------------------------- */
 /* .base-background {
     background: url('/media/heromod.jpg') no-repeat 43% 43% ;
@@ -177,13 +181,13 @@ nav li {
     inset 4px 4px 2px #010203;
 }
 
-.header-box p {
+.header-box span {
     color: transparent;
     text-shadow: -1px -1px 0px #333,
                 0px 0px 1px rgba(122, 122, 122, 0.5);
 }
 
-.header-box:hover p {
+.header-box:hover span {
     text-shadow: -1px -1px 0px #faf9f6,
                 0px 0px 1px rgb(172, 172, 172);
 }
@@ -192,19 +196,27 @@ nav li {
 .class-card {
     height:25rem;
 }
+
+.class-details {
+    height: 30rem;
+}
+
 .card-image {
     height: 200px;
-    /* width: 200px; */
     position: relative;
     background-size: cover;
+    border-bottom: 2px solid #333;
 }
+
+
+
 .class-card-header {
     font-size: 1rem;
     font-weight: 600;
 }
 
 .card-body {
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .class-card-footer {
@@ -227,6 +239,13 @@ nav li {
     background-color: rgba(255, 255, 255, .75);
     /* background-color: red; */
 }
+
+.image-details {
+    /* width: 200px; */
+    border: none;
+    /* float: left; */
+}
+
 
 /* -------------------------------------------------------------------all subscriptions---------------------------------------------------------------- */
 .lesson-key,

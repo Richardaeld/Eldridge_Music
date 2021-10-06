@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models.fields import TimeField
 
-
+# ------------------------------------------Many To Many Models
 # Creats sharable Images
 class Image(models.Model):
     name = models.CharField(max_length=254)
@@ -10,6 +10,7 @@ class Image(models.Model):
 
     def __str__(self):
         return self.name
+
 
 # Creates instrument difficulty levels
 class Instrument_Level(models.Model):
@@ -27,6 +28,72 @@ class Instrument(models.Model):
         return self.name
 
 
+# Creates lessons per week
+class Lessons_Per_Week(models.Model):
+    one_lesson  = '1'
+    two_lesson = '2'
+    three_lesson = '3'
+    LESSONS_PER_WEEK = [
+        (one_lesson, '1'),
+        (two_lesson, '2'),
+        (three_lesson, '3'),
+    ]
+    weekly_lessons = models.CharField(max_length=1, choices=LESSONS_PER_WEEK, default=one_lesson)
+
+    def __str__(self):
+        return self.weekly_lessons
+
+
+# Creates total length of subscription
+class Subscription_Months(models.Model):
+    three_months = '3'
+    six_months = '6'
+    nine_months = '9'
+    twelve_months = '12'
+    MONTHS_LENGTH = [
+        (three_months, '3'),
+        (six_months, '6'),
+        (nine_months, '9'),
+        (twelve_months, '12'),
+    ]
+    months = models.CharField(max_length=2, choices=MONTHS_LENGTH, default=three_months)
+
+    def __str__(self):
+        return self.months
+
+
+# Creates types of lesson offered
+class Lesson_Style(models.Model):
+    private = 'private'
+    group = 'group'
+    prerecorded = 'prerecorded'
+    LESSONS_TYPE = [
+        (private, 'private'),
+        (group, 'group'),
+        (prerecorded, 'prerecorded'),
+    ]
+    style = models.CharField(max_length=11, choices=LESSONS_TYPE, default=prerecorded)
+
+    def __str__(self):
+        return self.style
+
+# Creates minute length of lessons offered
+class Lesson_Minutes(models.Model):
+    thirty_minutes = '30'
+    forty_five_minutes = '45'
+    sixty_minutes = '60'
+    TIME_LENGTH = [
+        (thirty_minutes, '30'),
+        (forty_five_minutes, '45'),
+        (sixty_minutes, '60'),
+    ]
+    minutes = models.CharField(max_length=2, choices=TIME_LENGTH, default=sixty_minutes)
+
+    def __str__(self):
+        return self.minutes
+
+
+# ------------------------------------------Lessons and Subscription Models
 # Creates lessons/classes
 class Lesson(models.Model):
     instrument = models.ForeignKey('Instrument', null=True, blank=True, on_delete=models.SET_NULL)
@@ -37,6 +104,10 @@ class Lesson(models.Model):
     price = models.DecimalField(max_digits=7, decimal_places=2)
     duration = models.DecimalField(max_digits=5, decimal_places=0)
     image = models.ForeignKey('Image', null=True, blank=True, on_delete=models.SET_NULL)
+    lesson_class_type = models.ManyToManyField('Lesson_Style')
+    subscription_duration_months = models.ManyToManyField('Subscription_Months')
+    lessons_per_week = models.ManyToManyField('Lessons_Per_week')
+    lesson_minutes_length = models.ManyToManyField('Lesson_Minutes')
 
     def __str__(self):
         return self.name
@@ -44,54 +115,16 @@ class Lesson(models.Model):
 
 # Creates subscription types
 class Subscription(models.Model):
-    one_lesson  = '1'
-    two_lesson = '2'
-    three_lesson = '3'
-    SUB_LESSONS_PER_WEEK = [
-        (one_lesson, '1'),
-        (two_lesson, '2'),
-        (three_lesson, '3'),
-    ]
-
-    three_months = '3'
-    six_months = '6'
-    nine_months = '9'
-    twelve_months = '12'
-    SUB_MONTHS_LENGTH = [
-        (three_months, '3'),
-        (six_months, '6'),
-        (nine_months, '9'),
-        (twelve_months, '12'),
-    ]
-
-    private = 'private'
-    group = 'group'
-    prerecorded = 'prerecorded'
-    SUB_LESSONS_TYPE = [
-        (private, 'private'),
-        (group, 'group'),
-        (prerecorded, 'prerecorded'),
-    ]
-
-    thirty_minutes = '30'
-    forty_five_minutes = '45'
-    sixty_minutes = '60'
-    SUB_TIME_LENGTH = [
-        (thirty_minutes, '30'),
-        (forty_five_minutes, '45'),
-        (sixty_minutes, '60'),
-    ]
-
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
     instrument_included = models.ManyToManyField('Instrument')
     level_included = models.ManyToManyField('Instrument_Level')
     image = models.ForeignKey('Image', null=True, blank=True, on_delete=models.SET_NULL)
-    lesson_class_type = models.CharField(max_length=11, choices=SUB_LESSONS_TYPE, default=prerecorded)
-    subscription_duration_months = models.CharField(max_length=2, choices=SUB_MONTHS_LENGTH, default=twelve_months)
-    lessons_per_week = models.CharField(max_length=1, choices=SUB_LESSONS_PER_WEEK, default=one_lesson)
-    lesson_minutes_length = models.CharField(max_length=2, choices=SUB_TIME_LENGTH, default=sixty_minutes)
+    lesson_class_type = models.ManyToManyField('Lesson_Style')
+    subscription_duration_months = models.ManyToManyField('Subscription_Months')
+    lessons_per_week = models.ManyToManyField('Lessons_Per_week')
+    lesson_minutes_length = models.ManyToManyField('Lesson_Minutes')
     description = models.TextField()
     active_subscription = models.BooleanField(default=True)
 
@@ -102,5 +135,3 @@ class Subscription(models.Model):
 
     def user_friendly_name(self):
         return self.friendly_name
-
-
