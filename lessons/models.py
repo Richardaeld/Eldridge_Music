@@ -46,11 +46,13 @@ class Lessons_Per_Week(models.Model):
 
 # Creates total length of subscription
 class Subscription_Months(models.Model):
+    one_month = '1'
     three_months = '3'
     six_months = '6'
     nine_months = '9'
     twelve_months = '12'
     MONTHS_LENGTH = [
+        (one_month, '1'),
         (three_months, '3'),
         (six_months, '6'),
         (nine_months, '9'),
@@ -102,12 +104,12 @@ class Lesson(models.Model):
     name = models.CharField(max_length=254)
     description = models.TextField()
     price = models.DecimalField(max_digits=7, decimal_places=2)
-    duration = models.DecimalField(max_digits=5, decimal_places=0)
+    duration = models.DecimalField(max_digits=5, decimal_places=0, null=True, blank=True)
     image = models.ForeignKey('Image', null=True, blank=True, on_delete=models.SET_NULL)
-    lesson_class_type = models.ManyToManyField('Lesson_Style')
-    subscription_duration_months = models.ManyToManyField('Subscription_Months')
+    class_type = models.ManyToManyField('Lesson_Style')
+    subscription_months = models.ManyToManyField('Subscription_Months')
     lessons_per_week = models.ManyToManyField('Lessons_Per_week')
-    lesson_minutes_length = models.ManyToManyField('Lesson_Minutes')
+    lesson_minutes = models.ManyToManyField('Lesson_Minutes')
 
     def __str__(self):
         return self.name
@@ -118,13 +120,13 @@ class Subscription(models.Model):
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
-    instrument_included = models.ManyToManyField('Instrument')
-    level_included = models.ManyToManyField('Instrument_Level')
+    instrument = models.ManyToManyField('Instrument')
+    instrument_level = models.ManyToManyField('Instrument_Level')
     image = models.ForeignKey('Image', null=True, blank=True, on_delete=models.SET_NULL)
-    lesson_class_type = models.ManyToManyField('Lesson_Style')
-    subscription_duration_months = models.ManyToManyField('Subscription_Months')
+    class_type = models.ManyToManyField('Lesson_Style')
+    subscription_months = models.ManyToManyField('Subscription_Months')
     lessons_per_week = models.ManyToManyField('Lessons_Per_week')
-    lesson_minutes_length = models.ManyToManyField('Lesson_Minutes')
+    lesson_minutes = models.ManyToManyField('Lesson_Minutes')
     description = models.TextField()
     active_subscription = models.BooleanField(default=True)
 

@@ -50,16 +50,16 @@ def subscriptions(request):
         subscription.image = image
 
         # Create list for offered instruments
-        instrument = []
-        for instruments in subscription.instrument_included.all():
-                instrument.append(instruments)
-        subscription.instrument = instrument
+        instruments = []
+        for each_instrument in subscription.instrument.all():
+                instruments.append(each_instrument)
+        subscription.instruments = instruments
 
         # Create list for instrument levels
-        instrument_level = []
-        for instrument_levels in subscription.level_included.all():
-            instrument_level.append(instrument_levels)
-        subscription.instrument_level = instrument_level
+        instrument_levels = []
+        for levels in subscription.instrument_level.all():
+            instrument_levels.append(levels)
+        subscription.instrument_levels = instrument_levels
 
         # create list for lesson types
         # lesson_type = []
@@ -74,32 +74,61 @@ def subscriptions(request):
     return render(request, 'lessons/subscriptions.html', context)
 
 
-def subs_details(request, sub_id):
+def details(request, sub_id):
 
-    subscription = get_object_or_404(Subscription, pk=sub_id)
+    if request.GET:
+        if 'subscription' in request.GET:
+            lesson = get_object_or_404(Subscription, pk=sub_id)
 
-    print(subscription)
+            # Create list for offered instruments
+            instruments = []
+            for each_instrument in lesson.instrument.all():
+                    instruments.append(each_instrument)
+            lesson.instruments = instruments
+            lesson.lesson = False
 
-    # Creates iterable lists in subscription objects
-    # Queries foreign and manytomany fields
-    image = Image.objects.filter(name=subscription.image)
+            # Create list for instrument levels
+            instrument_levels = []
+            for levels in lesson.instrument_level.all():
+                instrument_levels.append(levels)
+            lesson.instrument_levels = instrument_levels
+
+        elif 'lesson' in request.GET:
+            lesson = get_object_or_404(Lesson, pk=sub_id)
+            lesson.instruments = lesson.instrument
+            lesson.instrument_levels = lesson.instrument_level
+            lesson.lesson = True
+
+        else:
+            messages.error(request, "Sorry, something went wrong!")
+            return redirect('lessons')
+
+    image = Image.objects.filter(name=lesson.image)
     image = image.get()
-    subscription.image = image
+    lesson.image = image
 
-    # Create list for offered instruments
-    instrument = []
-    for instruments in subscription.instrument_included.all():
-            instrument.append(instruments)
-    subscription.instrument = instrument
+    lesson_style = []
+    for lesson_type in lesson.class_type.all():
+        lesson_style.append(lesson_type)
+    lesson.lesson_style = lesson_style
 
-    # Create list for instrument levels
-    instrument_level = []
-    for instrument_levels in subscription.level_included.all():
-        instrument_level.append(instrument_levels)
-    subscription.instrument_level = instrument_level
+    sub_duration = []
+    for duration in lesson.subscription_months.all():
+        sub_duration.append(duration)
+    lesson.sub_duration = sub_duration
+
+    lesson_per_week = []
+    for per_week in lesson.lessons_per_week.all():
+        lesson_per_week.append(per_week)
+    lesson.per_week = lesson_per_week
+
+    lesson_minutes = []
+    for minutes in lesson.lesson_minutes.all():
+        lesson_minutes.append(minutes)
+    lesson.minutes = lesson_minutes
 
     context = {
-        'sub': subscription
+        'lesson': lesson
     }
 
-    return render(request, 'lessons/subs_details.html', context)
+    return render(request, 'lessons/details.html', context)

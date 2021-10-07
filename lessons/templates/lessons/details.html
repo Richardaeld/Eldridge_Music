@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% load static %}
+{% load lesson_tags %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row justify-content-around">
+
+            <div class="col-10 col-lg-8 col-xl-6 mt-5">
+                <div class="card mb-3 class-details" style="position: relative;">
+                    <div class="row">
+
+                        <!-- image -->
+                        <div class="col-4">
+                            <img src="{{ lesson.image.image.url }}" class="card-img-top card-image image-details ps-1" alt="A {% title_image_name lesson.image %}">
+                        </div>
+
+                        <!-- details -->
+                        <div class="col-7">
+
+                            <!-- lesson name header -->
+                            <div class="y-center">
+                                <p class="class-card-header text-center mt-3">
+                                    {% if lesson.lesson %}
+                                        {{ lesson.instruments }}
+                                    {% else %}
+                                        {% for avail_instruments in lesson.instruments %}
+                                            {{ avail_instruments }}
+                                            {% if not forloop.last %}
+                                                and
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+
+                                    for
+                                    {% if lesson.lesson %}
+                                        {{ lesson.instrument_levels }}
+                                    {% else %}
+                                        {% for avail_levels in lesson.instrument_levels %}
+                                            {{ avail_levels }}
+                                            {% if not forloop.last %}
+                                                and
+                                            {% endif %}
+                                        {% endfor %}
+                                        Students
+                                    {% endif %}
+
+                                <p>
+                                <p class="card-text class-card-body  px-3 text-center ">{{ lesson.description }}</p>
+                            </div>
+
+                        </div>
+
+                        <div class="card-body custom-scroll pt-0">
+
+                            <hr>
+                            <!-- instruments -->
+                            <div class="d-flex justify-content-between pb-3">
+                                <p class="card-text class-card-body my-auto lesson-key">Instrument(s):</p>
+                                {% if lesson.lesson %}
+                                    <span class="lesson-value">{{ lesson.instruments }}</span>
+                                {% else %}
+                                    {% if lesson.instruments|length <= 1 %}
+                                        {% for avail_instruments in lesson.instruments %}
+                                            <span>{{ avail_instruments }}</span>
+                                        {% endfor %}
+                                    {% else %}
+                                        <select class="lesson-value" name="" id="">
+                                            {% for avail_instruments in lesson.instruments %}
+                                                <option value="{{ avail_instruments }}">{{ avail_instruments }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    {% endif %}
+                                {% endif %}
+
+                            </div>
+
+                            <!-- skill levels -->
+                            <div class="d-flex justify-content-between pb-3">
+                                <p class="card-text class-card-body my-auto lesson-key">Level(s):</p>
+                                {% if lesson.lesson %}
+                                    <span class="lesson-value">{{ lesson.instrument_levels }}</span>
+                                {% else %}
+                                    {% if lesson.instrument_levels|length <= 1 %}
+                                        {% for avail_levels in lesson.instrument_levels %}
+                                            <span class="lesson-value">{{ avail_levels }}</span>
+                                        {% endfor %}
+                                    {% else %}
+                                        <select class="lesson-value" name="" id="">
+                                            {% for avail_levels in lesson.instrument_levels %}
+                                                <option value="{{ avail_levels }}">{{ avail_levels }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+
+                            <!-- lesson type -->
+                            <div class="d-flex justify-content-between pb-3">
+                                <p class="card-text class-card-body my-auto lesson-key">Lesson type:</p>
+                                {% if lesson.lesson_style|length <= 1 %}
+                                    {% for avail_styles in lesson.lesson_style %}
+                                        <span class="lesson-value">{{ avail_styles|title }}</span>
+                                    {% endfor %}
+                                {% else %}
+                                    <select class="lesson-value" name="" id="">
+                                        {% for avail_styles in lesson.lesson_style %}
+                                            <option value="{{ avail_styles }}">{{ avail_styles|title }}</option>
+                                        {% endfor %}
+                                    </select>
+                                {% endif %}
+                            </div>
+
+                            <!-- length of subscription in months  -->
+                            <div class="d-flex justify-content-between pb-3">
+                                <p class="card-text class-card-body my-auto lesson-key">Months:</p>
+                                {% if lesson.sub_duration|length <= 1 %}
+                                    {% for sub_duration in lesson.sub_duration %}
+                                        <span class="lesson-value">{{ sub_duration }}</span>
+                                    {% endfor %}
+                                {% else %}
+                                    <select class="lesson-value" name="" id="">
+                                        {% for sub_duration in lesson.sub_duration %}
+                                            <option value="{{ sub_duration }}">{{ sub_duration }}</option>
+                                        {% endfor %}
+                                    </select>
+                                {% endif %}
+                            </div>
+
+                            <!-- lessons per week -->
+                            <div class="d-flex justify-content-between pb-3">
+                                <p class="card-text class-card-body my-auto lesson-key">Weekly lessons:</p>
+                                {% if lesson.per_week|length <= 1 %}
+                                    {% for per_week in lesson.per_week %}
+                                        <span class="lesson-value">{{ per_week }}</span>
+                                    {% endfor %}
+                                {% else %}
+                                    <select class="lesson-value" name="" id="">
+                                        {% for per_week in lesson.per_week %}
+                                            <option value="{{ per_week }}">{{ per_week }}</option>
+                                        {% endfor %}
+                                    </select>
+                                {% endif %}
+                            </div>
+
+                            <!-- Lessons minutes length -->
+                            <div class="d-flex justify-content-between pb-3">
+                                <p class="card-text class-card-body my-auto lesson-key">Lesson duration:</p>
+                                {% if lesson.minutes|length <= 1 %}
+                                    {% for minutes in lesson.minutes %}
+                                        <span class="lesson-value">{{ minutes }}</span>
+                                    {% endfor %}
+                                {% else %}
+                                    <select class="lesson-value" name="" id="">
+                                        {% for minutes in lesson.minutes %}
+                                            <option value="{{ minutes }}">{{ minutes }}</option>
+                                        {% endfor %}
+                                    </select>
+                                {% endif %}
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
