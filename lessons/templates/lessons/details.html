@@ -12,7 +12,7 @@
 
                         <!-- image -->
                         <div class="col-4">
-                            <img src="{{ lesson.image.image.url }}" class="card-img-top card-image image-details ps-1" alt="A {% title_image_name lesson.image %}">
+                            <img src="{{ lesson.image.image.url }}" class="card-img-top card-image image-details p-1 ms-3 mt-3" alt="A {% title_image_name lesson.image %}">
                         </div>
 
                         <!-- details -->
@@ -46,17 +46,17 @@
                                     {% endif %}
 
                                 <p>
-                                <p class="card-text class-card-body  px-3 text-center ">{{ lesson.description }}</p>
+                                <p class="card-text class-card-body px-3 text-center">{{ lesson.description }}</p>
                             </div>
 
                         </div>
 
-                        <div class="card-body custom-scroll pt-0">
+                        <div class="card-body custom-scroll pt-0 mx-3">
 
                             <hr>
                             <!-- instruments -->
                             <div class="d-flex justify-content-between pb-3">
-                                <p class="card-text class-card-body my-auto lesson-key">Instrument(s):</p>
+                                <p class="card-text my-auto lesson-key">Instrument(s):</p>
                                 {% if lesson.lesson %}
                                     <span class="lesson-value">{{ lesson.instruments }}</span>
                                 {% else %}
@@ -77,7 +77,7 @@
 
                             <!-- skill levels -->
                             <div class="d-flex justify-content-between pb-3">
-                                <p class="card-text class-card-body my-auto lesson-key">Level(s):</p>
+                                <p class="card-text my-auto lesson-key">Level(s):</p>
                                 {% if lesson.lesson %}
                                     <span class="lesson-value">{{ lesson.instrument_levels }}</span>
                                 {% else %}
@@ -97,7 +97,7 @@
 
                             <!-- lesson type -->
                             <div class="d-flex justify-content-between pb-3">
-                                <p class="card-text class-card-body my-auto lesson-key">Lesson type:</p>
+                                <p class="card-text my-auto lesson-key">Lesson type:</p>
                                 {% if lesson.lesson_style|length <= 1 %}
                                     {% for avail_styles in lesson.lesson_style %}
                                         <span class="lesson-value">{{ avail_styles|title }}</span>
@@ -113,7 +113,7 @@
 
                             <!-- length of subscription in months  -->
                             <div class="d-flex justify-content-between pb-3">
-                                <p class="card-text class-card-body my-auto lesson-key">Months:</p>
+                                <p class="card-text my-auto lesson-key">Months:</p>
                                 {% if lesson.sub_duration|length <= 1 %}
                                     {% for sub_duration in lesson.sub_duration %}
                                         <span class="lesson-value">{{ sub_duration }}</span>
@@ -129,7 +129,7 @@
 
                             <!-- lessons per week -->
                             <div class="d-flex justify-content-between pb-3">
-                                <p class="card-text class-card-body my-auto lesson-key">Weekly lessons:</p>
+                                <p class="card-text my-auto lesson-key">Weekly lessons:</p>
                                 {% if lesson.per_week|length <= 1 %}
                                     {% for per_week in lesson.per_week %}
                                         <span class="lesson-value">{{ per_week }}</span>
@@ -145,7 +145,7 @@
 
                             <!-- Lessons minutes length -->
                             <div class="d-flex justify-content-between pb-3">
-                                <p class="card-text class-card-body my-auto lesson-key">Lesson duration:</p>
+                                <p class="card-text my-auto lesson-key">Lesson duration:</p>
                                 {% if lesson.minutes|length <= 1 %}
                                     {% for minutes in lesson.minutes %}
                                         <span class="lesson-value">{{ minutes }}</span>
@@ -157,6 +157,51 @@
                                         {% endfor %}
                                     </select>
                                 {% endif %}
+                            </div>
+
+                            <div class="">
+                                <p class="text-muted">
+                                    * Students are required to have a phone with a camera (or other recording device) and camera stand for group or private lessons.
+                                    <!-- convert object to str variable or list -->
+                                    {% if lesson.lesson %}
+                                        {% convert_str lesson.instruments as vocal %}
+                                    {% else %}
+                                        {% convert_str_list lesson.instruments as vocal %}
+                                    {% endif %}
+
+                                    <!-- Add in instrument or period depending on if vocal is instrument -->
+                                    {% if lesson.lesson and vocal == 'Vocal' %}
+
+                                    {% elif lesson.lesson and vocal != 'Vocal' %}
+                                        Students are also required to have access to a {{ lesson.instruments }} for these lessons.
+                                    {% elif not lesson.lesson %}
+                                        {% for instrument in vocal %}
+                                            {% if instrument != 'Vocal' and forloop.first and not forloop.last %}
+                                                Students are also required to have access to a {{ instrument }},
+                                            {% elif instrument != 'Vocal' and forloop.first and forloop.last %}
+                                                Students are also required to have access to a {{ instrument }}.
+                                            {% elif instrument != 'Vocal' and not forloop.last %}
+                                                 {{instrument}},
+                                            {% elif instrument != 'Vocal' and forloop.last %}
+                                                or {{ instrument }}.
+                                            {% elif instrument != 'Vocal' %}
+                                                or {{ instrument }}
+                                            {% elif instrument == 'Vocal' and forloop.last and forloop.first %}
+
+                                            {% elif instrument == 'Vocal' and forloop.last %}
+                                                .
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </p>
+                            </div>
+
+                            <div class="d-flex justify-content-center pb-3 mt-2">
+                                <a href="#">
+                                  <button class="button-custom header-box">
+                                    <span class="p-2 ms-1">Purchase</span>
+                                  </button>
+                                </a>
                             </div>
 
                         </div>
