@@ -131,6 +131,6 @@ def details(request, sub_id):
         'lesson': lesson
     }
 
-    print(type(lesson.instruments))
+    # print(type(lesson.instruments))
 
     return render(request, 'lessons/details.html', context)

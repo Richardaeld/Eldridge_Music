@@ -51,21 +51,21 @@
 
                         </div>
 
-                        <div class="card-body custom-scroll pt-0 mx-3">
-
+                        <form id="lesson-form" action="{% url 'checkout_lesson' lesson.id lesson.lesson %}" method="POST" class="card-body custom-scroll pt-0 mx-3">
+                            {% csrf_token %}
                             <hr>
                             <!-- instruments -->
                             <div class="d-flex justify-content-between pb-3">
-                                <p class="card-text my-auto lesson-key">Instrument(s):</p>
+                                <label for="instrument" class="card-text my-auto lesson-key">Instrument(s):</label>
                                 {% if lesson.lesson %}
-                                    <span class="lesson-value">{{ lesson.instruments }}</span>
+                                    <input value="{{ lesson.instruments }}" type="text" name="instrument" id="instrument" class="lesson-value" readonly="true">
                                 {% else %}
                                     {% if lesson.instruments|length <= 1 %}
                                         {% for avail_instruments in lesson.instruments %}
-                                            <span>{{ avail_instruments }}</span>
+                                            <input value="{{ avail_instruments }}" type="text" name="instrument" id="instrument" class="lesson-value" readonly="true">
                                         {% endfor %}
                                     {% else %}
-                                        <select class="lesson-value" name="" id="">
+                                        <select class="lesson-value" name="instrument" id="instrument">
                                             {% for avail_instruments in lesson.instruments %}
                                                 <option value="{{ avail_instruments }}">{{ avail_instruments }}</option>
                                             {% endfor %}
@@ -77,16 +77,16 @@
 
                             <!-- skill levels -->
                             <div class="d-flex justify-content-between pb-3">
-                                <p class="card-text my-auto lesson-key">Level(s):</p>
+                                <label for="level" class="card-text my-auto lesson-key">Level(s):</label>
                                 {% if lesson.lesson %}
-                                    <span class="lesson-value">{{ lesson.instrument_levels }}</span>
+                                    <input value="{{ lesson.instrument_levels }}" type="text" name="level" id="level" class="lesson-value" readonly="true">
                                 {% else %}
                                     {% if lesson.instrument_levels|length <= 1 %}
                                         {% for avail_levels in lesson.instrument_levels %}
-                                            <span class="lesson-value">{{ avail_levels }}</span>
+                                            <input value="{{ avail_levels }}" type="text" name="level" id="level" class="lesson-value" readonly="true">
                                         {% endfor %}
                                     {% else %}
-                                        <select class="lesson-value" name="" id="">
+                                        <select class="lesson-value" name="level" id="level">
                                             {% for avail_levels in lesson.instrument_levels %}
                                                 <option value="{{ avail_levels }}">{{ avail_levels }}</option>
                                             {% endfor %}
@@ -97,13 +97,13 @@
 
                             <!-- lesson type -->
                             <div class="d-flex justify-content-between pb-3">
-                                <p class="card-text my-auto lesson-key">Lesson type:</p>
+                                <label for="style" class="card-text my-auto lesson-key">Lesson type:</label>
                                 {% if lesson.lesson_style|length <= 1 %}
                                     {% for avail_styles in lesson.lesson_style %}
-                                        <span class="lesson-value">{{ avail_styles|title }}</span>
+                                        <input vlue="{{ avail_styles|title }}" type="text" name="style" id="style" class="lesson-value" readonly="true">
                                     {% endfor %}
                                 {% else %}
-                                    <select class="lesson-value" name="" id="">
+                                    <select class="lesson-value" name="style" id="style">
                                         {% for avail_styles in lesson.lesson_style %}
                                             <option value="{{ avail_styles }}">{{ avail_styles|title }}</option>
                                         {% endfor %}
@@ -113,13 +113,13 @@
 
                             <!-- length of subscription in months  -->
                             <div class="d-flex justify-content-between pb-3">
-                                <p class="card-text my-auto lesson-key">Months:</p>
+                                <label for="month_duration" class="card-text my-auto lesson-key">Months:</label>
                                 {% if lesson.sub_duration|length <= 1 %}
                                     {% for sub_duration in lesson.sub_duration %}
-                                        <span class="lesson-value">{{ sub_duration }}</span>
+                                        <input value="{{ sub_duration }}" type="text" name="month_duration" id="month_duration" class="lesson-value" readonly="true">
                                     {% endfor %}
                                 {% else %}
-                                    <select class="lesson-value" name="" id="">
+                                    <select class="lesson-value" name="month_duration" id="month_duration">
                                         {% for sub_duration in lesson.sub_duration %}
                                             <option value="{{ sub_duration }}">{{ sub_duration }}</option>
                                         {% endfor %}
@@ -129,13 +129,13 @@
 
                             <!-- lessons per week -->
                             <div class="d-flex justify-content-between pb-3">
-                                <p class="card-text my-auto lesson-key">Weekly lessons:</p>
+                                <label for="per_week" class="card-text my-auto lesson-key">Weekly lessons:</label>
                                 {% if lesson.per_week|length <= 1 %}
                                     {% for per_week in lesson.per_week %}
-                                        <span class="lesson-value">{{ per_week }}</span>
+                                        <input value="{{ per_week }}" type="text" name="per_week" id="per_week" class="lesson-value" readonly="true">
                                     {% endfor %}
                                 {% else %}
-                                    <select class="lesson-value" name="" id="">
+                                    <select class="lesson-value" name="per_week" id="per_week">
                                         {% for per_week in lesson.per_week %}
                                             <option value="{{ per_week }}">{{ per_week }}</option>
                                         {% endfor %}
@@ -145,13 +145,13 @@
 
                             <!-- Lessons minutes length -->
                             <div class="d-flex justify-content-between pb-3">
-                                <p class="card-text my-auto lesson-key">Lesson duration:</p>
+                                <label for="minutes" class="card-text my-auto lesson-key">Lesson duration:</label>
                                 {% if lesson.minutes|length <= 1 %}
                                     {% for minutes in lesson.minutes %}
-                                        <span class="lesson-value">{{ minutes }}</span>
+                                        <input value="{{ minutes }}" type="text" name="minutes" id="minutes" class="lesson-value" readonly="true">
                                     {% endfor %}
                                 {% else %}
-                                    <select class="lesson-value" name="" id="">
+                                    <select class="lesson-value" name="minutes" id="minutes">
                                         {% for minutes in lesson.minutes %}
                                             <option value="{{ minutes }}">{{ minutes }}</option>
                                         {% endfor %}
@@ -197,14 +197,14 @@
                             </div>
 
                             <div class="d-flex justify-content-center pb-3 mt-2">
-                                <a href="#">
-                                  <button class="button-custom header-box">
+                                <!-- <a href="{% url 'checkout_lesson' lesson.id lesson.lesson %}"> -->
+                                  <button id="form-submit" class="button-custom header-box">
                                     <span class="p-2 ms-1">Purchase</span>
                                   </button>
-                                </a>
+                                <!-- </a> -->
                             </div>
 
-                        </div>
+                        </form>
 
                     </div>
                 </div>
@@ -212,4 +212,3 @@
         </div>
     </div>
 {% endblock %}
-

@@ -64,6 +64,12 @@ body {
     border-radius: 5px;
 }
 
+input:read-only {
+    background-color: rgba(239, 239, 239, 0.3);
+    color: rgb(84, 84, 84);
+    border-color: rgba(118, 118, 118, 0.3);
+}
+
 /* -------------------------------------------------------------------Base---------------------------------------------------------------- */
 /* .base-background {
     background: url('/media/heromod.jpg') no-repeat 43% 43% ;
