@@ -26,8 +26,12 @@ def lessons(request):
             queries = Q(instrument__name__icontains=query) | Q(name__icontains=query)
             lessons = lessons.filter(queries)
 
+
+
     for lesson in lessons:
         image = Image.objects.filter(name=lesson.image)
+        if not image:
+            image = Image.objects.filter(name="blank")
         image = image.get()
         lesson.image = image
 
@@ -46,6 +50,8 @@ def subscriptions(request):
     for subscription in subscriptions:
         # Queries foreign and manytomany fields
         image = Image.objects.filter(name=subscription.image)
+        if not image:
+            image = Image.objects.filter(name="blank")
         image = image.get()
         subscription.image = image
 
@@ -104,6 +110,8 @@ def details(request, sub_id):
             return redirect('lessons')
 
     image = Image.objects.filter(name=lesson.image)
+    if not image:
+        image = Image.objects.filter(name="blank")
     image = image.get()
     lesson.image = image
 
