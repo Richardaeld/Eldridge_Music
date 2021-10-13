@@ -1,11 +1,11 @@
 from django.db import models
 from django.db.models.fields import DateField
 from django_countries.fields import CountryField
-
+from profile_history.models import User_Profile_History
 
 class Invoice(models.Model ):
     order_number = models.CharField(max_length=52, null=False, blank=False, editable=False)
-    # user_profile = models.ForeignKey('userProfile', null=False, blank=False, on_delete=models.SET_NULL)
+    user_profile = models.ForeignKey(User_Profile_History, null=True, blank=True, on_delete=models.SET_NULL, related_name='orders')
     name = models.CharField(max_length=75, null=False, blank=False)
     email = models.EmailField(max_length=254, blank=False, null=False)
     phone = models.CharField(max_length=20, null=False, blank=False)
