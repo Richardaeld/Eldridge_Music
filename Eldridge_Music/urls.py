@@ -24,4 +24,5 @@ urlpatterns = [
     path('', include('home.urls')),
     path('lessons/', include('lessons.urls')),
     path('coaxsio/', include('coaxsio.urls')),
+    path('invoice/', include('invoice.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

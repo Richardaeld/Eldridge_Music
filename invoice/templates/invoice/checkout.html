@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+{% load lesson_tags %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row justify-content-around">
+            <div class="blank-overlay"></div>
+
+            <div class="col-10 mt-5 custom-form box-shadow"> <!--   col-lg-8 col-xl-6   -->
+                <div class="row">
+
+                    <form action="#" method="POST" class="custom-scroll pt-0 mx-3 col-8">
+
+                        <h3>General Information</h3>
+                        <hr>
+
+                        <label for="" class="card-text my-auto">Full Name</label>
+                        <input value="" type="text" name="" id="" class="">
+                        <br>
+
+                        <label for="" class="card-text my-auto">Prefered name</label>
+                        <input value="" type="text" name="" id="" class="">
+                        <br>
+
+                        <label for="" class="card-text my-auto">Pronouns</label>
+                        <input value="" type="text" name="" id="" class="">
+                        <br>
+
+                        <label for="" class="card-text my-auto">Email</label>
+                        <input value="" type="text" name="" id="" class="">
+                        <br>
+
+                        <label for="" class="card-text my-auto">Phone Number</label>
+                        <input value="" type="text" name="" id="" class="">
+                        <br>
+
+                        <h3>Shipping Information</h3>
+                        <hr>
+
+                        <label for="" class="card-text my-auto">Name</label>
+                        <input value="" type="text" name="" id="" class="">
+                        <br>
+
+                        <label for="" class="card-text my-auto">Phone Number</label>
+                        <input value="" type="text" name="" id="" class="">
+                        <br>
+
+                        <label for="" class="card-text my-auto">Email</label>
+                        <input value="" type="text" name="" id="" class="">
+                        <br>
+
+                        <label for="" class="card-text my-auto">Street Address</label>
+                        <input value="" type="text" name="" id="" class="">
+                        <br>
+
+                        <label for="" class="card-text my-auto">City</label>
+                        <input value="" type="text" name="" id="" class="">
+                        <br>
+
+                        <label for="" class="card-text my-auto">County</label>
+                        <input value="" type="text" name="" id="" class="">
+                        <br>
+
+                        <label for="" class="card-text my-auto">Post Code</label>
+                        <input value="" type="text" name="" id="" class="">
+                        <br>
+
+                        <label for="" class="card-text my-auto">Country</label>
+                        <input value="" type="text" name="" id="" class="">
+                        <br>
+
+                        <button id="form-submit" class="button-custom header-box">
+                            <span class="p-2 ms-1">Purchase</span>
+                        </button>
+
+                    </form>
+
+
+                    <div class="col-3 checkout-summery">
+                        <h3 class="">Lesson Summary</h3>
+                        <hr class="">
+
+                        <img src="{{ lesson.image.image.url }}" alt="A {% title_image_name lesson.image %}" class="image-form">
+
+                        <div class="pt-2 w-100" style="position:relative">
+                            <span class="summery-key">Instrument: </span>
+                            <span class="summery-value"><strong>{{ lesson_summery.instrument }}</strong></span>
+
+                            <span class="summery-key">Level: </span>
+                            <span class="summery-value"><strong>{{ lesson_summery.level }}</strong></span>
+
+                            <span class="summery-key">Style: </span>
+                            <span class="summery-value"><strong>{{ lesson_summery.style }}</strong></span>
+
+                            <span class="summery-key">Weekly: </span>
+                            <span class="summery-value"><strong>{{ lesson_summery.per_week }} lesson(s)</strong></span>
+
+                            <span class="summery-key">Length: </span>
+                            <span class="summery-value"><strong>{{ lesson_summery.minutes }} minutes</strong></span>
+
+                            <span class="summery-key">Recurring: </span>
+                            <span class="summery-value"><strong>{{ lesson_summery.month_duration }} month(s)</strong></span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
