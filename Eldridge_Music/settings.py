@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'lessons',
     'coaxsio',
     'invoice',
+    'profile_history',
 
 
 ]
