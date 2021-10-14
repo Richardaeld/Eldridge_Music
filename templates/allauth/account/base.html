@@ -1,1 +1,13 @@
 {% extends "base.html" %}
+
+{% block content %}
+    <div class="blank-overlay"></div>
+    <div class="container-fluid index-container-position">
+        <div class="row col-6 ms-3 mt-4 custom-allauth box-shadow ">
+            <div class="">
+                {% block inner_content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
