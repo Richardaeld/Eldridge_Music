@@ -25,4 +25,4 @@ class User_Profile_History(models.Model):
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     if created:
         User_Profile_History.objects.create(user=instance)
-    instance.userprofile.save()
+    instance.user_profile_history.save()

@@ -60,9 +60,39 @@
           </form>
         </div>
 
-        <div class="header-profile col-10 col-lg-2 mt-2 pt-1 mt-lg-0">
-            <div class=" font-aws y-center" >
-              <i class="fas fa-user-circle font-aws"></i>
+        <div class="header-profile col-10 col-lg-2 " > <!--  mt-2 mt-lg-0-->
+            <div class=" font-aws dropdown">
+              <button class="remove-button" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false" style="">
+                <i class="fas fa-user-circle font-aws"></i>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+
+                {% if request.user.is_authenticated %}
+                  <li>
+                    <button class="dropdown-item" type="button">
+                      <a href="{% url 'profile' %}">Profile</a>
+                    </button>
+                  </li>
+                  <li>
+                    <button class="dropdown-item" type="button">
+                      <a href="{% url 'account_logout' %}">logout</a>
+                    </button>
+                  </li>
+                  {% if request.user.is_superuser %}
+                  {% endif %}
+                {% else %}
+                  <li>
+                    <button class="dropdown-item" type="button">
+                      <a href="{% url 'account_login' %}">login</a>
+                    </button>
+                  </li>
+                  <li>
+                    <button class="dropdown-item" type="button">
+                      <a href="{% url 'account_signup' %}">Creat account</a>
+                    </button>
+                  </li>
+                {% endif %}
+              </ul>
             </div>
         </div>
       </div>

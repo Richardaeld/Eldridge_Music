@@ -155,12 +155,22 @@ nav li {
 }
 
 .font-aws {
-    text-align: end;
+    position: relative;
+    display: flex;
+    justify-content: end;
+}
+
+.font-aws button {
+    top:-25%;
+    transform: translateY(25%);
 }
 
 .font-aws i {
     font-size: 3rem;
-
+    /* vertical-align: bottom; */
+    /* flex: 120px; */
+    /* top:-25%;
+    transform: translateY(25%); */
 }
 
 .nav-header-height {
