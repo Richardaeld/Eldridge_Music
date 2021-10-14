@@ -69,27 +69,27 @@
 
                 {% if request.user.is_authenticated %}
                   <li>
-                    <button class="dropdown-item" type="button">
-                      <a href="{% url 'profile' %}">Profile</a>
-                    </button>
+                    <a href="{% url 'profile' %}">
+                      <button class="dropdown-item" type="button">Profile</button>
+                    </a>
                   </li>
                   <li>
-                    <button class="dropdown-item" type="button">
-                      <a href="{% url 'account_logout' %}">logout</a>
-                    </button>
+                    <a href="{% url 'account_logout' %}">
+                      <button class="dropdown-item" type="button">logout</button>
+                    </a>
                   </li>
                   {% if request.user.is_superuser %}
                   {% endif %}
                 {% else %}
                   <li>
-                    <button class="dropdown-item" type="button">
-                      <a href="{% url 'account_login' %}">login</a>
-                    </button>
+                    <a href="{% url 'account_login' %}">
+                      <button class="dropdown-item" type="button">login</button>
+                    </a>
                   </li>
                   <li>
-                    <button class="dropdown-item" type="button">
-                      <a href="{% url 'account_signup' %}">Create account</a>
-                    </button>
+                    <a href="{% url 'account_signup' %}">
+                      <button class="dropdown-item" type="button">Create account</button>
+                    </a>
                   </li>
                 {% endif %}
               </ul>
