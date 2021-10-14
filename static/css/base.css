@@ -182,60 +182,7 @@ nav li {
 }
 
 /* -------------------------------------------------------------------Index---------------------------------------------------------------- */
-.index-signup {
-    background-color: #6296d5b4;
-    text-align: center;
-}
 
-/* .index-intro {
-    background-color: #5de1e3b6;
-    text-align: center;
-    padding: 2em;
-    color: #faf9f6
-} */
-
-.index-container-position {
-    position: relative;
-}
-
-.header-shadow {
-    transition-duration: .5s;
-    color: #faf9f6;
-    text-shadow: -1px -1px 2px #333,
-                0px 0px 3px rgba(0, 0, 0, .25);
-}
-
-.header-font {
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: transparent;
-    text-shadow: -2px -2px 0px #faf9f6,
-                0px 0px 3px rgba(0, 0, 0, .75);
-}
-
-.header-box {
-    border: none;
-    transition-duration: .5s;
-    box-shadow: 3px 3px 2px  rgba(0, 0, 0, .25);
-}
-
-.header-box:hover {
-    background-color: #283D57;
-    box-shadow: 0px 0px rgba(0, 0, 0, .25),
-    inset -4px -4px 2px #010203,
-    inset 4px 4px 2px #010203;
-}
-
-.header-box span {
-    color: transparent;
-    text-shadow: -1px -1px 0px #333,
-                0px 0px 1px rgba(122, 122, 122, 0.5);
-}
-
-.header-box:hover span {
-    text-shadow: -1px -1px 0px #faf9f6,
-                0px 0px 1px rgb(172, 172, 172);
-}
 
 /* -------------------------------------------------------------------all classes---------------------------------------------------------------- */
 .class-card {
