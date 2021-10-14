@@ -7,11 +7,6 @@ body {
 
     position: relative;
     font-family: "Roboto", sans-serif;
-    /* background-color: #faf9f6; */
-    /* background-color: rgb(169, 213, 228); */ /*   --- original*/
-    /* background-color: #36A2CF; */
-    /* background-color: #faf9f6; */
-    /* background-color: #2FF5C3; */
     background: url('/media/heromod.jpg') no-repeat 43% 43% ;
     background-size: cover;
     min-height: 100vh;
@@ -35,13 +30,11 @@ body {
 .custom-scroll::-webkit-scrollbar-track {
     background: #ddd;
     border-radius: 5px;
-
   }
 
 .custom-scroll::-webkit-scrollbar {
     width: 10px;
 }
-
 
 .custom-scroll::-webkit-scrollbar-thumb {
     border-radius: 5px;
@@ -70,24 +63,15 @@ input:read-only {
     border-color: rgba(118, 118, 118, 0.3);
 }
 
-
-
-
-
 .box-shadow {
-    box-shadow:  
-    -1px 0px 2px  rgba(0, 0, 0, .5),
-inset -1px -1px 2px  rgba(0, 0, 0, .25),
-    0px -1px 2px  rgba(0, 0, 0, .5)
-;
+    box-shadow: -1px 0px 2px  rgba(0, 0, 0, .5),
+            inset -1px -1px 2px  rgba(0, 0, 0, .25),
+                0px -1px 2px  rgba(0, 0, 0, .5);
+}
 
-                }
 .text-shadow {
     text-shadow: -1px -1px 0px #a7a7a7;
 }
-
-
-
 
 .blank-overlay {
     position: absolute;
@@ -95,18 +79,12 @@ inset -1px -1px 2px  rgba(0, 0, 0, .25),
     width: 100%;
     height: 100%;
     /* background: linear-gradient(135deg, #fff, #faf9f6, #a7a7a7, #838383, #575757, #444); */
-    background: linear-gradient(135deg, #36a2cf, #30DFE6, #cea52b, #9c19e6, #6021cf);
+    /* background: linear-gradient(135deg, #36a2cf, #30DFE6, #cea52b, #9c19e6, #6021cf); */
+    background: linear-gradient(135deg, #36a2cf, #30DFE6, #82650E, #9c19e6, #6021cf);
     color:#575757c0
 }
 
 /* -------------------------------------------------------------------Base---------------------------------------------------------------- */
-/* .base-background {
-    background: url('/media/heromod.jpg') no-repeat 43% 43% ;
-    background-size: cover;
-    height: 100vh;
-    position: absolute;
-} */
-
 .base-overlay {
     position: absolute;
     height: 100%;
@@ -126,7 +104,6 @@ header {
 .logo-title,
 .logo-title a:visited,
 .logo-title a:link {
-    /* background:  #474747; */ /*    -------------------alter me, I need to be fit proper with text-sahdow I over write text-shadow   faedc65b --    rgba(0, 0, 0, .75)           */
     font-family: "LimeLight", sans-serif;
     font-size: 2rem;
     position: relative;
@@ -143,7 +120,8 @@ nav li {
 .header-special {
     height: 2.5rem;
     background-color: #4e4e4e;
-    /* border-bottom: 2px solid #40A5CF; */
+    background-color: #cea52b;
+    /* border-bottom: 2px solid #474747; */
 }
 
 .header-special p {
@@ -167,10 +145,6 @@ nav li {
 
 .font-aws i {
     font-size: 3rem;
-    /* vertical-align: bottom; */
-    /* flex: 120px; */
-    /* top:-25%;
-    transform: translateY(25%); */
 }
 
 .nav-header-height {
@@ -181,162 +155,7 @@ nav li {
     text-shadow: 1px 1px 1px #555!important;
 }
 
-/* -------------------------------------------------------------------Index---------------------------------------------------------------- */
-
-
-
-
-/* ------------------------------------------------------------------- form ---------------------------------------------------------------- */
-
-
-
-/* -------------------------------------------------------------------allauth---------------------------------------------------------------- */
-
-.link,
-.link:visited,
-.link:link {
-    color: #5CCEFF;
-    text-shadow: none;
-}
-
-.custom-allauth input,
-.custom-allauth select,
-.custom-allauth label {
-    display: inline-flex;
-    margin-top: 1em;
-}
-
-.custom-allauth {
-    background-color: #faf9f6;
-    /* background: linear-gradient(-45deg, #faf9f6, #d1d1d1); */
-    border: 2px solid #444;
-    border-radius: 10px;
-    padding: 0 1.75em 2em 1.75em;
-}
-
-/* .custom-allauth label {
-    width: 50%;
-} */
-
-/* .custom-allauth input,
-.custom-allauth select {
-    width:40%;
-    align-self: center;
-} */
-
-/* .custom-allauth button, */
-/* .custom-allauth hr {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-} */
-
-.input-button,
-.custom-allauth button {
-    border: 2px outset #5CCEFF!important;
-    border-radius: 5px;
-    background-color: #fff!important;
-    /* font-weight: bold; */
-    padding: .5em 1em;
-    /* border-top-left-radius: 5px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius:5px; */
-    box-shadow: 2px 2px rgba(0, 0, 0, .5);
-}
-
-.custom-allauth h2 {
-    /* width: fit-content; */
-    /* padding: .25em; */
-    /* margin: 1.25em auto .5em auto; */
-    /* text-shadow: 1px 1px 2px rgba(0, 0, 0, .5); */
-    /* text-shadow: none; */
-    /* color: #; */
-    text-shadow: 
-    1px 0px 2px #a7a7a7,
-    -1px 0px #a7a7a7,
-    0px 1px #a7a7a7,
-    0px -1px 2px #a7a7a7
-    ;
-    /* background: linear-gradient(#474747, #a7a7a7); */
-    color:transparent;
-    /* font-family: "LimeLight", sans-serif; */
-    font-size: 2rem;
-    position: relative;
-    text-shadow: -4px -4px 5px #faedc65b,
-                -2px -2px 0px #cea52b,
-                0px 0px 1px rgba(0, 0, 0, .75);
-    -webkit-background-clip: text;
-}
-
-/* .custom-allauth button {
-    margin: 1.25em auto .5em auto;
-} */
-
-.custom-allauth hr {
-    width: 50%;
-}
-
-/* -------------------------------------------------------------------breakpoints---------------------------------------------------------------- */
-
-@media (max-width: 575.98px) {
-    .header-special p {
-        font-size: .9rem;
-    }
-}
-
-@media (max-width: 767.98px) {
-    .logo-title {
-        font-size: 1rem;
-    }
-
-
-
-}
-
-@media (max-width: 991.98px) {
-    .logo-title {
-        font-size: 1.5rem;
-    }
-    nav li {
-        font-size: 1rem;
-    }
-    .font-aws {
-        top: inherit;
-        transform: translateY(0);
-    }
-
-    .header-profile {
-        position: absolute;
-
-    }
-
-    .custom-scroll::-webkit-scrollbar {
-        width: 7px;
-    }
-    /* index */
-    .header-font {
-        font-size: 1.75rem;
-    }
-
-    .nav-header-height {
-        height: 112px;
-    }
-
-}
-
-@media (max-width: 1199.98px) {
-
-}
-
-@media (max-width: 1399.98px) {
-
-}
-
-
 /* -------------------------------------------------------------------toasts---------------------------------------------------------------- */
-
-
 .message-container {
     position: fixed;
     z-index: 99999999;
@@ -371,4 +190,102 @@ nav li {
 
 .close-button i {
     font-size: 2em;
+}
+
+/* -------------------------------------------------------------------allauth---------------------------------------------------------------- */
+.link,
+.link:visited,
+.link:link {
+    color: #5CCEFF;
+    text-shadow: none;
+}
+
+.custom-allauth input,
+.custom-allauth select,
+.custom-allauth label {
+    display: inline-flex;
+    margin-top: 1em;
+}
+
+.custom-allauth {
+    background-color: #faf9f6;
+    /* background: linear-gradient(-45deg, #faf9f6, #d1d1d1); */
+    border: 2px solid #444;
+    border-radius: 10px;
+    padding: 0 1.75em 2em 1.75em;
+}
+
+.input-button,
+.custom-allauth button {
+    border: 2px outset #5CCEFF!important;
+    border-radius: 5px;
+    background-color: #fff!important;
+    padding: .5em 1em;
+    box-shadow: 2px 2px rgba(0, 0, 0, .5);
+}
+
+.custom-allauth h2 {
+    text-shadow: 1px 0px 2px #a7a7a7,
+                -1px 0px #a7a7a7,
+                0px 1px #a7a7a7,
+                0px -1px 2px #a7a7a7;
+    color: transparent;
+    font-size: 2rem;
+    position: relative;
+    text-shadow: -4px -4px 5px #faedc65b,
+                -2px -2px 0px #cea52b,
+                0px 0px 1px rgba(0, 0, 0, .75);
+    -webkit-background-clip: text;
+}
+
+.custom-allauth hr {
+    width: 50%;
+}
+
+/* -------------------------------------------------------------------breakpoints---------------------------------------------------------------- */
+@media (max-width: 575.98px) {
+    .header-special p {
+        font-size: .9rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .logo-title {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .logo-title {
+        font-size: 1.5rem;
+    }
+    nav li {
+        font-size: 1rem;
+    }
+    .font-aws {
+        top: inherit;
+        transform: translateY(0);
+    }
+
+    .header-profile {
+        position: absolute;
+
+    }
+
+    .custom-scroll::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    .nav-header-height {
+        height: 112px;
+    }
+
+}
+
+@media (max-width: 1199.98px) {
+
+}
+
+@media (max-width: 1399.98px) {
+
 }
