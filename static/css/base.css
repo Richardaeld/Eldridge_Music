@@ -184,76 +184,11 @@ nav li {
 /* -------------------------------------------------------------------Index---------------------------------------------------------------- */
 
 
-/* -------------------------------------------------------------------all classes---------------------------------------------------------------- */
-.class-card {
-    height:25rem;
-}
 
-.class-details {
-    /* height: 30rem; */
-}
-
-.card-image {
-    height: 200px;
-    position: relative;
-    background-size: cover;
-    border-bottom: 2px solid #333;
-}
-
-
-
-.class-card-header {
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-.card-body {
-    overflow-y: auto;
-}
-
-.class-card-footer {
-
-}
-
-.class-banner {
-    width: 100%;
-    position: absolute;
-    z-index: 1;
-    top:5%!important;
-    color: white;
-    /* font-size: 2rem; */
-    text-shadow: 
-    1px 0px 2px #333,
-    -1px 0px #333,
-    0px 1px #333,
-    0px -1px 2px #333
-    ;
-    background-color: rgba(255, 255, 255, .75);
-    /* background-color: red; */
-}
-
-.image-details {
-    /* width: 200px; */
-    border: none;
-    /* float: left; */
-}
 
 /* ------------------------------------------------------------------- form ---------------------------------------------------------------- */
 
 
-/* -------------------------------------------------------------------all subscriptions---------------------------------------------------------------- */
-.lesson-key,
-.lesson-value {
-    /* display:inline; */
-}
-
-.lesson-key {
-    width: 50%;
-}
-
-.lesson-value {
-    width:40%;
-}
 
 /* -------------------------------------------------------------------allauth---------------------------------------------------------------- */
 

@@ -2,6 +2,10 @@
 {% load static %}
 {% load lesson_tags %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'lessons/css/lessons.css' %}">
+{% endblock %}
+
 {% block content %}
   <div class="container-fluid">
     <div class="row justify-content-around">
