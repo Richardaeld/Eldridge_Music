@@ -80,6 +80,7 @@ input:read-only {
     /* background: linear-gradient(135deg, #fff, #faf9f6, #a7a7a7, #838383, #575757, #444); */
     /* background: linear-gradient(135deg, #36a2cf, #30DFE6, #cea52b, #9c19e6, #6021cf); */
     background: linear-gradient(135deg, #36a2cf, #30DFE6, #82650E, #9c19e6, #6021cf);
+    background: linear-gradient(135deg, #36a2cf, #39ABDB, #30DFE6, #39ABDB, #36a2cf);
     color:#575757c0
 }
 
@@ -196,15 +197,58 @@ nav li {
 .link:visited,
 .link:link {
     color: #5CCEFF;
-    text-shadow: none;
+    /* color: #E67730; */
+    transition-duration: .25s;
+}
+
+.link:hover {
+    color: #459BBF;
 }
 
 .custom-allauth input,
-.custom-allauth select,
-.custom-allauth label {
+.custom-allauth select {
     display: inline-flex;
-    margin-top: 1em;
+    margin-top: .25rem;
+    width:80%;
+    border: 2px solid #333;
+    border-radius: 5px;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, .5);
 }
+
+.custom-allauth input[type=checkbox] {
+    filter: drop-shadow(3px 3px 1px rgba(0, 0, 0, .5));
+    box-shadow: none;
+}
+
+.custom-allauth input:active,
+.custom-allauth input:focus {
+    outline: none;
+    /* box-shadow: inset 2px 2px rgba(0, 0, 0, .5),
+                inset -2px -2px rgba(0, 0, 0, .5);
+    padding: .25em; */
+    /* border: 4px solid #40CF5A; */
+    border: 3px solid #BD17CF;
+    border: 3px solid #EB36FF;
+
+
+}
+
+.custom-allauth label:not([for='id_remember']){
+    display: none;
+}
+
+
+
+.custom-allauth label[for='id_remember'],
+.custom-allauth input[id='id_remember'] {
+    width:fit-content;
+}
+
+.custom-allauth input[id='id_remember'] {
+    margin-left: .75rem;
+}
+
+/* .custom-allauth input[type=submit] */
 
 .custom-allauth {
     background-color: #faf9f6;
@@ -214,15 +258,31 @@ nav li {
     padding: 0 1.75em 2em 1.75em;
 }
 
-.input-button,
+/* .input-button ----------------FIND AND REMOVE */
+
+.custom-allauth input[type='submit'],
 .custom-allauth button {
-    border: 2px outset #5CCEFF!important;
+    border: 3px outset #5CCEFF!important;
+    border: 3px solid #5CCEFF!important;
+    /* border: 3px solid #E67730!important; */
     border-radius: 5px;
     background-color: #fff!important;
     padding: .5em 1em;
-    box-shadow: 2px 2px rgba(0, 0, 0, .5);
+    box-shadow: 3px 3px 2px rgba(0, 0, 0, .5);
+    margin-bottom: .5rem;
+    width: fit-content;
+    transition-duration: .25s;
+    color: #333;
 }
 
+.custom-allauth input[type='submit']:hover,
+.custom-allauth button:hover {
+    transform: scale(1.1);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .25);
+
+}
+
+/* add something for the single h3 in email */
 .custom-allauth h2 {
     text-shadow: 1px 0px 2px #a7a7a7,
                 -1px 0px #a7a7a7,
@@ -235,6 +295,7 @@ nav li {
                 -2px -2px 0px #cea52b,
                 0px 0px 1px rgba(0, 0, 0, .75);
     -webkit-background-clip: text;
+    margin-top: .75rem;
 }
 
 .custom-allauth hr {
