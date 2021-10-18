@@ -2,6 +2,8 @@ from django.db import models
 from django.db.models.fields import DateField
 from django_countries.fields import CountryField
 from profile_history.models import User_Profile_History
+import uuid
+
 
 class Invoice(models.Model ):
     order_number = models.CharField(max_length=52, null=False, blank=False, editable=False)
@@ -18,3 +20,20 @@ class Invoice(models.Model ):
     state_county = models.CharField(max_length=80, null=True, blank=True)
     post_code = models.CharField(max_length=20, null=True, blank=True)
     country = CountryField(blank_label='Select Your Country', null=False, blank=False)
+
+    def _create_order_number(self):
+        """
+        Creates order number with UUID that is unique to this Invoice
+        """
+        return uuid.uuid4().hex.upper()
+
+    def save(self, *args, **kwargs):
+        """
+        Sets new save method that ensures order number has been created
+        """
+        if not self.order_number:
+            self.order_number = self._create_order_number()
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.order_number
