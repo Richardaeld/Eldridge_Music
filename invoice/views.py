@@ -1,9 +1,14 @@
 from django.shortcuts import render, get_object_or_404
+from invoice.forms import InvoiceForm
 from lessons.models import Lesson, Subscription, Image
-
+from profile_history.models import User_Profile_History
+from .forms import InvoiceForm
 
 def checkout_lesson(request, lesson_id, lesson_subscription):
 
+    user = None
+    if request.user != 'AnonymousUser':
+        user = get_object_or_404(User_Profile_History, user=request.user)
 
     if lesson_subscription:
         lesson = get_object_or_404(Lesson, pk=lesson_id)
@@ -35,12 +40,17 @@ def checkout_lesson(request, lesson_id, lesson_subscription):
     if lesson_summery:
         print(lesson_summery)
 
+    invoice = InvoiceForm()
+    template = 'invoice/checkout.html'
+
     context = {
         'is_lesson': lesson_subscription,
         'pk': lesson.pk,
         'lesson_summery': lesson_summery,
         'lesson': lesson,
-        'lesson_subscription': lesson_subscription
+        'lesson_subscription': lesson_subscription,
+        'user': user,
+        'invoice': invoice
     }
 
-    return render(request, 'invoice/checkout.html', context)
+    return render(request, template, context)

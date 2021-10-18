@@ -301,6 +301,23 @@ nav li {
 .custom-allauth hr {
     width: 50%;
 }
+/* -------------------------------------------------------------------crispy forms---------------------------------------------------------------- */
+
+.form-group input,
+.form-group select {
+    width:80%;
+    border: 2px solid #333;
+    border-radius: 5px;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, .5);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.form-group select:invalid {
+    color: rgb(118, 118, 118);
+    /* color: red!important; */
+}
 
 /* -------------------------------------------------------------------breakpoints---------------------------------------------------------------- */
 @media (max-width: 575.98px) {

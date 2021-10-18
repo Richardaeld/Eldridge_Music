@@ -17,63 +17,78 @@
 
                     <form action="#" method="POST" class="custom-scroll pt-0 mx-3 col-8">
 
-                        <h3>General Information</h3>
+                        <!-- <h3>General Information</h3>
+                        <hr> -->
+
+                        <!-- <label for="full_name" class="card-text my-auto">Full Name</label>
+                        <input type="text" name="full_name" id="full_name" class="" value="{% if  user.default_full_name != None %}{{ user.default_full_name }}{% endif %}">
+                        <br> -->
+
+                        <!-- <label for="prefered_name" class="card-text my-auto">Prefered name</label>
+                        <input type="text" name="prefered_name" id="prefered_name" class="" value="{% if user.default_prefered_name != None %}{{ user.default_prefered_name }}{% endif %}">
+                        <br> -->
+
+                        <!-- <label for="default_pronouns" class="card-text my-auto">Pronouns</label> -->
+                        <!-- <input type="text" name="" id="" class="" value="{% if  user.default_pronouns != None %}{{ user.default_pronouns }}{% endif %}"> -->
+                        <!-- <select name="default_pronouns" id="default_pronouns">
+                            <option value="ask" {% if user.default_pronouns == "ask" %}{% elif user.default_pronouns == None %} selected {% endif %}>Ask</option>
+                            <option value="she/her" {% if user.default_pronouns == "she/her" %} selected {% endif %}>She/Her</option>
+                            <option value="they/them" {% if user.default_pronouns == "they/them" %} selected {% endif %}>They/Them</option>
+                            <option value="he/him" {% if user.default_pronouns == "he/him" %} selected {% endif %}>He/Him</option>
+                        </select>
+                        <br> -->
+
+                        <!-- <label for="email" class="card-text my-auto">Email</label>
+                        <input type="email" name="email" id="email" class="" value="{% if  user.default_email != None %}{{ user.default_email }}{% endif %}">
+                        <br>
+
+                        <label for="phone" class="card-text my-auto">Phone Number</label>
+                        <input type="text" name="phone" id="phone" class="" value="{% if  user.default_phone != None %}{{ user.default_phone }}{% endif %}">
+                        <br> -->
+
+                        <h3>Invoice Information</h3>
+
                         <hr>
+                        {{ invoice.name | as_crispy_field}}
+                        {{ invoice.email | as_crispy_field }}
+                        {{ invoice.phone | as_crispy_field }}
+                        {{ invoice.street_address_billing | as_crispy_field }}
+                        {{ invoice.city | as_crispy_field }}
+                        {{ invoice.state_county | as_crispy_field }}
+                        {{ invoice.post_code | as_crispy_field }}
+                        {{ invoice.country | as_crispy_field }}
 
-                        <label for="" class="card-text my-auto">Full Name</label>
-                        <input value="" type="text" name="" id="" class="">
+                        <!-- <label for="full_name" class="card-text my-auto">Name</label>
+                        <input type="text" name="full_name" id="full_name" class="" value="{% if  user.default_full_name != None %}{{ user.default_full_name }}{% endif %}">
                         <br>
 
-                        <label for="" class="card-text my-auto">Prefered name</label>
-                        <input value="" type="text" name="" id="" class="">
+                        <label for="phone" class="card-text my-auto">Phone Number</label>
+                        <input type="text" name="phone" id="phone" class="" value="{% if  user.default_phone != None %}{{ user.default_phone }}{% endif %}">
                         <br>
 
-                        <label for="" class="card-text my-auto">Pronouns</label>
-                        <input value="" type="text" name="" id="" class="">
-                        <br>
-
-                        <label for="" class="card-text my-auto">Email</label>
-                        <input value="" type="text" name="" id="" class="">
-                        <br>
-
-                        <label for="" class="card-text my-auto">Phone Number</label>
-                        <input value="" type="text" name="" id="" class="">
-                        <br>
-
-                        <h3>Shipping Information</h3>
-                        <hr>
-
-                        <label for="" class="card-text my-auto">Name</label>
-                        <input value="" type="text" name="" id="" class="">
-                        <br>
-
-                        <label for="" class="card-text my-auto">Phone Number</label>
-                        <input value="" type="text" name="" id="" class="">
-                        <br>
-
-                        <label for="" class="card-text my-auto">Email</label>
-                        <input value="" type="text" name="" id="" class="">
+                        <label for="email" class="card-text my-auto">Email</label>
+                        <input type="text" name="email" id="email" class="" value="{% if  user.default_email != None %}{{ user.default_email }}{% endif %}">
                         <br>
 
                         <label for="" class="card-text my-auto">Street Address</label>
-                        <input value="" type="text" name="" id="" class="">
+                        <input type="text" name="" id="" class="" value="{% if  user.default_street_address != None %}{{ user.default_street_address }}{% endif %}">
                         <br>
 
                         <label for="" class="card-text my-auto">City</label>
-                        <input value="" type="text" name="" id="" class="">
+                        <input type="text" name="" id="" class="" value="{% if  user.default_city != None %}{{ user.default_city }}{% endif %}">
                         <br>
 
-                        <label for="" class="card-text my-auto">County</label>
-                        <input value="" type="text" name="" id="" class="">
+                        <label for="" class="card-text my-auto">State</label>
+                        <input type="text" name="" id="" class="" value="{% if  user.default_state_county != None %}{{ user.default_state_county }}{% endif %}">
                         <br>
 
                         <label for="" class="card-text my-auto">Post Code</label>
-                        <input value="" type="text" name="" id="" class="">
+                        <input type="text" name="" id="" class="" value="{% if  user.default_post_code != None %}{{ user.default_post_code }}{% endif %}">
                         <br>
 
                         <label for="" class="card-text my-auto">Country</label>
-                        <input value="" type="text" name="" id="" class="">
-                        <br>
+                        <input type="text" name="" id="" class="" value="{% if  user.default_country != None %}{{ user.default_country }}{% endif %}">
+                        <br> -->
 
                         <button id="form-submit" class="button-custom header-box">
                             <span class="p-2 ms-1">Purchase</span>
