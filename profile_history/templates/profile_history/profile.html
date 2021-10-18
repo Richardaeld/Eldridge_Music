@@ -1,6 +1,24 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profile_history/css/profile_history.css' %}">
+{% endblock %}
+
 {% block content %}
-    <h1>PROFILES ARE HERE!!!!!</h1>
-    <h1>PROFILES ARE HERE!!!!!</h1>
-    <h1>PROFILES ARE HERE!!!!!</h1>
+
+
+    <div class="container-fluid">
+        <div class="row justify-content-around">
+            <div class="blank-overlay"></div>
+            <div class="col-10 mt-5 custom-form box-shadow">
+
+                <h3>Profile</h3>
+                <hr>
+                {{user}}
+
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
