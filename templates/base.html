@@ -50,7 +50,7 @@
             <div class="input-group">
               <input class="form-control rounded-0" name="userquery" type="text" placeholder="Search Lessons">
               <div class="input-group-append">
-                <button class="btn btn-dark rounded-0" type='submit'>
+                <button id="user-search-bar" class="btn btn-dark rounded-0" type='submit'>
                   <span>
                     <i class="fas fa-search"></i>
                   </span>
@@ -60,8 +60,8 @@
           </form>
         </div>
         <!-- Profile button -->
-        <div class="header-profile col-10 col-lg-2 " > <!--  mt-2 mt-lg-0-->
-            <div class=" font-aws dropdown">
+        <div class="header-profile col-2 mt-2 mt-lg-0" > <!--  mt-2 mt-lg-0-->
+            <div class="font-aws dropdown test">
               <button class="remove-button" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false" style="">
                 <i class="fas fa-user-circle font-aws"></i>
               </button>
@@ -69,27 +69,19 @@
 
                 {% if request.user.is_authenticated %}
                   <li>
-                    <a href="{% url 'profile' %}">
-                      <button class="dropdown-item" type="button">Profile</button>
-                    </a>
+                    <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
                   </li>
                   <li>
-                    <a href="{% url 'account_logout' %}">
-                      <button class="dropdown-item" type="button">logout</button>
-                    </a>
+                    <a class="dropdown-item" href="{% url 'account_logout' %}">logout</a>
                   </li>
                   {% if request.user.is_superuser %}
                   {% endif %}
                 {% else %}
                   <li>
-                    <a href="{% url 'account_login' %}">
-                      <button class="dropdown-item" type="button">login</button>
-                    </a>
+                    <a class="dropdown-item" href="{% url 'account_login' %}">login</a>
                   </li>
                   <li>
-                    <a href="{% url 'account_signup' %}">
-                      <button class="dropdown-item" type="button">Create account</button>
-                    </a>
+                    <a class="dropdown-item" href="{% url 'account_signup' %}">Create account</a>
                   </li>
                 {% endif %}
               </ul>

@@ -56,6 +56,25 @@ a {
     border-radius: 5px;
 }
 
+button[type='submit'],
+button[type='submit']:not #user-search-bar {
+    border: 3px solid #5CCEFF;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: .25em .5em;
+    box-shadow: 3px 3px 2px rgba(0, 0, 0, .5);
+    margin-bottom: .5rem;
+    width: fit-content;
+    transition-duration: .25s;
+    color: #333;
+}
+
+button[type='submit']:hover {
+    transform: scale(1.1);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .25);
+
+}
+
 input:read-only {
     background-color: rgba(239, 239, 239, 0.3);
     color: rgb(84, 84, 84);
@@ -155,6 +174,11 @@ nav li {
     text-shadow: 1px 1px 1px #555!important;
 }
 
+.test {
+    position: relative;
+    z-index: 1;
+}
+
 /* -------------------------------------------------------------------toasts---------------------------------------------------------------- */
 .message-container {
     position: fixed;
@@ -213,6 +237,7 @@ nav li {
     border: 2px solid #333;
     border-radius: 5px;
     box-shadow: 2px 2px 1px rgba(0, 0, 0, .5);
+    transition-duration: .25s;
 }
 
 .custom-allauth input[type=checkbox] {
@@ -227,8 +252,14 @@ nav li {
                 inset -2px -2px rgba(0, 0, 0, .5);
     padding: .25em; */
     /* border: 4px solid #40CF5A; */
-    border: 3px solid #BD17CF;
+    /* border: 3px solid #BD17CF; */
     border: 3px solid #EB36FF;
+    border: 2px solid #8ab5f9;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, .5),
+                3px 3px #bcd8f5,
+                -3px 3px #bcd8f5,
+                -3px -3px #bcd8f5,
+                3px -3px #bcd8f5;
 
 
 }
