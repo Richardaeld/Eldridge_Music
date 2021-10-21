@@ -12,10 +12,12 @@
     <div class="row justify-content-around">
       <div class="blank-overlay"></div>
         {% for lesson in lessons %}
-        <div class="col-11 col-sm-5 col-lg-4 col-xl-3 mt-5">
-            <div class="card mb-3 lesson-card box-shadow">
+        <div class="col-12 col-sm-5 col-lg-4 col-xxl-3 mt-5">
+            <div class="card mb-3 lesson-card">
               <div class="image-banner">{% convert_str lesson.instrument_level %}</div>
-              <img src="{{ lesson.image.image.url }}" class="card-img-top lesson-card-image" alt="A {% title_image_name lesson.image %}">
+              <a href="{% url 'details' lesson.id %}?lesson">
+                <img src="{{ lesson.image.image.url }}" class="card-img-top lesson-card-image" alt="A {% title_image_name lesson.image %}">
+              </a>
               <div class="card-body custom-scroll">
                   <p class="lesson-card-header">
                     {{lesson}}
