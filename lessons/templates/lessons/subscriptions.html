@@ -12,10 +12,10 @@
       <div class="blank-overlay"></div>
       {% for sub in subs %}
         <div class="col-5 col-lg-4 col-xl-3 mt-5">
-            <div class="card mb-3 class-card" style="position: relative;">
+            <div class="card mb-3 lesson-card">
 
               <!-- sub name header -->
-              <div class="class-banner">
+              <div class="image-banner">
                 {% for avail_instruments in sub.instruments %}
                   {{ avail_instruments }}
                   {% if not forloop.last %}
@@ -31,21 +31,19 @@
                 {% endfor %}
               </div>
               <a href="{% url 'details' sub.id %}?subscription">
-                <img src="{{ sub.image.image.url }}" class="card-img-top card-image" alt="A {% title_image_name sub.image %}">
+                <img src="{{ sub.image.image.url }}" class="card-img-top lesson-card-image" alt="A {% title_image_name sub.image %}">
               </a>
               <div class="card-body custom-scroll">
-                <!-- name header -->
-                <!-- <p class="class-card-header text-center">
-                  {{ sub.friendly_name }}
-                <p> -->
+
+                <p class="lesson-card-header">{{ sub }}</p>
 
                 <!-- details -->
-                <p class="card-text class-card-body">{{ sub.description }}</p>
+                <p class="card-text">{{ sub.description }}</p>
                 <!-- <hr> -->
 
                 <div class="d-flex justify-content-center pb-3 mt-4">
                   <a href="{% url 'details' sub.id %}?subscription">
-                    <button type="submit" class="button-custom header-box">
+                    <button type="submit">
                       <span class="p-2">Details</span>
                     </button>
                   </a>

@@ -11,12 +11,12 @@
         <div class="row justify-content-around">
             <div class="blank-overlay"></div>
             <div class="col-10 col-lg-8 col-xl-6 mt-5">
-                <div class="card mb-3 class-details" style="position: relative;">
+                <div class="card mb-3">
                     <div class="row">
 
                         <!-- image -->
                         <div class="col-4">
-                            <img src="{{ lesson.image.image.url }}" class="card-img-top card-image image-details p-1 ms-3 mt-3" alt="A {% title_image_name lesson.image %}">
+                            <img src="{{ lesson.image.image.url }}" class="card-img-top lesson-card-image image-details p-1 ms-3 mt-3" alt="A {% title_image_name lesson.image %}">
                         </div>
 
                         <!-- details -->
@@ -24,7 +24,7 @@
 
                             <!-- lesson name header -->
                             <div class="y-center">
-                                <p class="class-card-header text-center mt-3">
+                                <p class="lesson-card-header text-center mt-3">
                                     {% if lesson.lesson %}
                                         {{ lesson.instruments }}
                                     {% else %}
@@ -50,7 +50,7 @@
                                     {% endif %}
 
                                 <p>
-                                <p class="card-text class-card-body px-3 text-center">{{ lesson.description }}</p>
+                                <p class="card-text px-3 text-center">{{ lesson.description }}</p>
                             </div>
 
                         </div>
@@ -60,16 +60,16 @@
                             <hr>
                             <!-- instruments -->
                             <div class="d-flex justify-content-between pb-3">
-                                <label for="instrument" class="card-text my-auto lesson-key">Instrument(s):</label>
+                                <label for="instrument" class="card-text my-auto details-key">Instrument(s):</label>
                                 {% if lesson.lesson %}
-                                    <input value="{{ lesson.instruments }}" type="text" name="instrument" id="instrument" class="lesson-value" readonly="true">
+                                    <input value="{{ lesson.instruments }}" type="text" name="instrument" id="instrument" class="details-value" readonly="true">
                                 {% else %}
                                     {% if lesson.instruments|length <= 1 %}
                                         {% for avail_instruments in lesson.instruments %}
-                                            <input value="{{ avail_instruments }}" type="text" name="instrument" id="instrument" class="lesson-value" readonly="true">
+                                            <input value="{{ avail_instruments }}" type="text" name="instrument" id="instrument" class="details-value" readonly="true">
                                         {% endfor %}
                                     {% else %}
-                                        <select class="lesson-value" name="instrument" id="instrument">
+                                        <select class="details-value" name="instrument" id="instrument">
                                             {% for avail_instruments in lesson.instruments %}
                                                 <option value="{{ avail_instruments }}">{{ avail_instruments }}</option>
                                             {% endfor %}
@@ -81,16 +81,16 @@
 
                             <!-- skill levels -->
                             <div class="d-flex justify-content-between pb-3">
-                                <label for="level" class="card-text my-auto lesson-key">Level(s):</label>
+                                <label for="level" class="card-text my-auto details-key">Level(s):</label>
                                 {% if lesson.lesson %}
-                                    <input value="{{ lesson.instrument_levels }}" type="text" name="level" id="level" class="lesson-value" readonly="true">
+                                    <input value="{{ lesson.instrument_levels }}" type="text" name="level" id="level" class="details-value" readonly="true">
                                 {% else %}
                                     {% if lesson.instrument_levels|length <= 1 %}
                                         {% for avail_levels in lesson.instrument_levels %}
-                                            <input value="{{ avail_levels }}" type="text" name="level" id="level" class="lesson-value" readonly="true">
+                                            <input value="{{ avail_levels }}" type="text" name="level" id="level" class="details-value" readonly="true">
                                         {% endfor %}
                                     {% else %}
-                                        <select class="lesson-value" name="level" id="level">
+                                        <select class="details-value" name="level" id="level">
                                             {% for avail_levels in lesson.instrument_levels %}
                                                 <option value="{{ avail_levels }}">{{ avail_levels }}</option>
                                             {% endfor %}
@@ -101,13 +101,13 @@
 
                             <!-- lesson type -->
                             <div class="d-flex justify-content-between pb-3">
-                                <label for="style" class="card-text my-auto lesson-key">Lesson type:</label>
+                                <label for="style" class="card-text my-auto details-key">Lesson type:</label>
                                 {% if lesson.lesson_style|length <= 1 %}
                                     {% for avail_styles in lesson.lesson_style %}
-                                        <input vlue="{{ avail_styles|title }}" type="text" name="style" id="style" class="lesson-value" readonly="true">
+                                        <input vlue="{{ avail_styles|title }}" type="text" name="style" id="style" class="details-value" readonly="true">
                                     {% endfor %}
                                 {% else %}
-                                    <select class="lesson-value" name="style" id="style">
+                                    <select class="details-value" name="style" id="style">
                                         {% for avail_styles in lesson.lesson_style %}
                                             <option value="{{ avail_styles }}">{{ avail_styles|title }}</option>
                                         {% endfor %}
@@ -117,13 +117,13 @@
 
                             <!-- length of subscription in months  -->
                             <div class="d-flex justify-content-between pb-3">
-                                <label for="month_duration" class="card-text my-auto lesson-key">Months:</label>
+                                <label for="month_duration" class="card-text my-auto details-key">Months:</label>
                                 {% if lesson.sub_duration|length <= 1 %}
                                     {% for sub_duration in lesson.sub_duration %}
-                                        <input value="{{ sub_duration }}" type="text" name="month_duration" id="month_duration" class="lesson-value" readonly="true">
+                                        <input value="{{ sub_duration }}" type="text" name="month_duration" id="month_duration" class="details-value" readonly="true">
                                     {% endfor %}
                                 {% else %}
-                                    <select class="lesson-value" name="month_duration" id="month_duration">
+                                    <select class="details-value" name="month_duration" id="month_duration">
                                         {% for sub_duration in lesson.sub_duration %}
                                             <option value="{{ sub_duration }}">{{ sub_duration }}</option>
                                         {% endfor %}
@@ -133,13 +133,13 @@
 
                             <!-- lessons per week -->
                             <div class="d-flex justify-content-between pb-3">
-                                <label for="per_week" class="card-text my-auto lesson-key">Weekly lessons:</label>
+                                <label for="per_week" class="card-text my-auto details-key">Weekly lessons:</label>
                                 {% if lesson.per_week|length <= 1 %}
                                     {% for per_week in lesson.per_week %}
-                                        <input value="{{ per_week }}" type="text" name="per_week" id="per_week" class="lesson-value" readonly="true">
+                                        <input value="{{ per_week }}" type="text" name="per_week" id="per_week" class="details-value" readonly="true">
                                     {% endfor %}
                                 {% else %}
-                                    <select class="lesson-value" name="per_week" id="per_week">
+                                    <select class="details-value" name="per_week" id="per_week">
                                         {% for per_week in lesson.per_week %}
                                             <option value="{{ per_week }}">{{ per_week }}</option>
                                         {% endfor %}
@@ -149,13 +149,13 @@
 
                             <!-- Lessons minutes length -->
                             <div class="d-flex justify-content-between pb-3">
-                                <label for="minutes" class="card-text my-auto lesson-key">Lesson duration:</label>
+                                <label for="minutes" class="card-text my-auto details-key">Lesson duration:</label>
                                 {% if lesson.minutes|length <= 1 %}
                                     {% for minutes in lesson.minutes %}
-                                        <input value="{{ minutes }}" type="text" name="minutes" id="minutes" class="lesson-value" readonly="true">
+                                        <input value="{{ minutes }}" type="text" name="minutes" id="minutes" class="details-value" readonly="true">
                                     {% endfor %}
                                 {% else %}
-                                    <select class="lesson-value" name="minutes" id="minutes">
+                                    <select class="details-value" name="minutes" id="minutes">
                                         {% for minutes in lesson.minutes %}
                                             <option value="{{ minutes }}">{{ minutes }}</option>
                                         {% endfor %}
@@ -163,7 +163,7 @@
                                 {% endif %}
                             </div>
 
-                            <div class="">
+                            <div>
                                 <p class="text-muted">
                                     * Students are required to have a phone with a camera (or other recording device) and camera stand for group or private lessons.
                                     <!-- convert object to str variable or list -->
@@ -202,7 +202,7 @@
 
                             <div class="d-flex justify-content-center pb-3 mt-2">
                                 <!-- <a href="{% url 'checkout_lesson' lesson.id lesson.lesson %}"> -->
-                                  <button type="submit" id="form-submit" class="button-custom header-box">
+                                  <button type="submit" id="form-submit">
                                     <span class="p-2">Purchase</span>
                                   </button>
                                 <!-- </a> -->

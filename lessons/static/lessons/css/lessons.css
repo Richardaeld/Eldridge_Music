@@ -1,67 +1,57 @@
-/* -------------------------------------------------------------------all classes---------------------------------------------------------------- */
-.class-card {
+/* -------------------------------------------------------------------General---------------------------------------------------------------- */
+.lesson-card {
     height:25rem;
+    border: 2px solid #333;
 }
 
-.class-details {
-    /* height: 30rem; */
-}
-
-.card-image {
-    height: 200px;
+.lesson-card-image {
+    min-height: 200px;
     position: relative;
     background-size: cover;
     border-bottom: 2px solid #333;
 }
 
+.image-banner {
+    padding-left: .25em;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    top:5%;
+    color: white;
+    text-shadow: 1px 0px 2px #333,
+                -1px 0px #333,
+                0px 1px #333,
+                0px -1px 2px #333;
+    background-color: rgba(255, 255, 255, .75);
+}
 
-
-.class-card-header {
+.lesson-card-header {
     font-size: 1rem;
     font-weight: 600;
 }
-
+/* centers bootstrap class .card-body content */
 .card-body {
     overflow-y: auto;
 }
 
-.class-card-footer {
+select {
+    padding: .25rem;
+}
+
+input:read-only {
+    padding: .15rem .15rem .15rem .4rem;
 
 }
 
-.class-banner {
-    width: 100%;
-    position: absolute;
-    z-index: 1;
-    top:5%!important;
-    color: white;
-    /* font-size: 2rem; */
-    text-shadow: 
-    1px 0px 2px #333,
-    -1px 0px #333,
-    0px 1px #333,
-    0px -1px 2px #333
-    ;
-    background-color: rgba(255, 255, 255, .75);
-    /* background-color: red; */
-}
-
+/* ------------------------------------------------------------------- details ---------------------------------------------------------------- */
 .image-details {
-    /* width: 200px; */
     border: none;
-    /* float: left; */
 }
 
-/* -------------------------------------------------------------------all subscriptions---------------------------------------------------------------- */
-.lesson-key,
-.lesson-value {
-    /* display:inline; */
-}
-
-.lesson-key {
+.details-key {
     width: 50%;
 }
 
-.lesson-value {
+.details-value {
     width:40%;
 }

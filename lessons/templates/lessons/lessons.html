@@ -8,32 +8,26 @@
 
 {% block content %}
 
-<div class="container-fluid" style="">
+<div class="container-fluid">
     <div class="row justify-content-around">
       <div class="blank-overlay"></div>
         {% for lesson in lessons %}
-        <div class="col-5 col-lg-4 col-xl-3 mt-5">
-            <div class="card mb-3 class-card" style="position: relative;">
-              <div class="class-banner">{% convert_str lesson.instrument_level %}</div>
-              <img src="{{ lesson.image.image.url }}" class="card-img-top card-image" alt="A {% title_image_name lesson.image %}">
+        <div class="col-11 col-sm-5 col-lg-4 col-xl-3 mt-5">
+            <div class="card mb-3 lesson-card box-shadow">
+              <div class="image-banner">{% convert_str lesson.instrument_level %}</div>
+              <img src="{{ lesson.image.image.url }}" class="card-img-top lesson-card-image" alt="A {% title_image_name lesson.image %}">
               <div class="card-body custom-scroll">
-                  <p class="class-card-header">
-                    <!-- {% convert_str lesson.instrument %} -->
-                    <!-- {{ lesson.name }}
-                    {{ lesson.test.image }}
-                    {{ lesson.te }} -->
-
+                  <p class="lesson-card-header">
                     {{lesson}}
-
                   <p>
 
-                  <p class="card-text class-card-body" style="">{{ lesson.description }}</p>
-
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  <p class="card-text">
+                    {{ lesson.description }}
+                  </p>
 
                   <div class="d-flex justify-content-center pb-3 mt-4">
                     <a href="{% url 'details' lesson.id %}?lesson">
-                      <button type="submit" class="button-custom header-box">
+                      <button type="submit">
                         <span class="p-2">Details</span>
                       </button>
                     </a>
