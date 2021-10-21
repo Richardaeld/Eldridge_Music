@@ -1,22 +1,21 @@
 
+/* ------------------------------------------------------------------- General ---------------------------------------------------------------- */
 .custom-form input,
-.custom-form select,
-.custom-form label {
-    display: inline-flex;
+/* .custom-form label, */
+.custom-form select {
     margin-top: 1em;
 }
 
 .custom-form {
     background-color: #faf9f6;
-    /* background: linear-gradient(-45deg, #faf9f6, #d1d1d1); */
     border: 2px solid #444;
     border-radius: 10px;
     padding: 0 1.75em 2em 1.75em;
 }
 
-.custom-form label {
+/* .custom-form label {
     width: 50%;
-}
+} */
 
 .custom-form input,
 .custom-form select {
@@ -24,9 +23,9 @@
     align-self: center;
 }
 
-/* .custom-form button, */
 .custom-form hr {
     position: relative;
+    width: 50%;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -36,35 +35,41 @@
     margin: 1.25em auto .5em auto;
 }
 
-.custom-form button {
+/* -------------------------------------------------------------------Header Button and JS add/remove classes---------------------------------------------------------------- */
+.header-button {
+    padding: .25em .5em;
+    border: 3px solid #1bc732!important;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #138722, #1bc732, #18AD2C);
+    box-shadow: 3px 3px 2px rgba(0, 0, 0, .5);
+    transition-duration: .25s;
+    color: #fff;
+    text-shadow: 1px 1px #333;
     margin: 1.25em auto .5em auto;
+
 }
 
-.custom-form hr {
-    width: 50%;
+.header-button:hover {
+    transform: scale(1.1);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .25);
 }
 
-.image-form {
-    object-fit: contain;
-    position: relative;
-    max-height: 150px;
-    max-width: 150px;
-    left: 50%;
-    transform: translateX(-50%);
+.header-button-inactive {
+    background: linear-gradient(45deg, #cacaca, #a7a7a7, #cacaca);
 }
 
-.checkout-summery {
-    position: relative;
-    height: fit-content;
+.hide-content {
+    display: none;
 }
 
-.summery-key,
-.summery-value {
-    width:49%;
-    display: inline-block;
-    padding-bottom: .25em;
-}
-
-.summery-value {
-    text-align: right;
+/* -------------------------------------------------------------------breakpoints---------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+    .header-button:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    .custom-form input,
+    .custom-form select {
+        width:95%;
+    }
 }

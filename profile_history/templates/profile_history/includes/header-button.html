@@ -1,0 +1,46 @@
+<script type=text/javascript>
+
+// Changes general information button color and hides general information content
+document.getElementById("general-information-button").addEventListener("click", function() {
+    let button = document.getElementById("general-information-button");
+    let content = document.getElementById("general-information");
+    if(button.classList.contains("header-button-inactive")){
+        button.classList.remove("header-button-inactive");
+        content.classList.remove("hide-content");
+        content.scrollIntoView({block: "nearest"});
+    } else {
+        button.classList.add("header-button-inactive");
+        content.classList.add("hide-content");
+    }
+});
+
+// Changes current lessons button color and hides general information content
+document.getElementById("current-lessons-button").addEventListener("click", function() {
+    let button = document.getElementById("current-lessons-button");
+    let content = document.getElementById("current-lessons");
+    if(button.classList.contains("header-button-inactive")){
+        button.classList.remove("header-button-inactive");
+        content.classList.remove("hide-content");
+        content.scrollIntoView({block: "nearest"});
+    } else {
+        button.classList.add("header-button-inactive");
+        content.classList.add("hide-content");
+
+    }
+});
+
+// Changes previous lessons button color and hides general information content
+document.getElementById("previous-lessons-button").addEventListener("click", function() {
+    let button = document.getElementById("previous-lessons-button");
+    let content = document.getElementById("previous-lessons");
+    if(button.classList.contains("header-button-inactive")){
+        button.classList.remove("header-button-inactive");
+        content.classList.remove("hide-content");
+        content.scrollIntoView({block: "nearest"});
+    } else {
+        button.classList.add("header-button-inactive");
+        content.classList.add("hide-content");
+    }
+});
+
+</script>
