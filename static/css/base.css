@@ -26,24 +26,6 @@ body {
     transform: translateY(-50%);
 }
 
-.custom-scroll::-webkit-scrollbar-track {
-    background: #ddd;
-    border-radius: 5px;
-}
-
-.custom-scroll::-webkit-scrollbar {
-    width: 10px;
-}
-
-.custom-scroll::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    background: #858585;
-}
-
-.custom-scroll::-webkit-scrollbar-thumb:hover {
-    background: #252525;
-}
-
 a:visited,
 a:hover,
 a:link,
@@ -52,21 +34,19 @@ a {
     text-decoration: none;
 }
 
-.button-custom {
-    border-radius: 5px;
-}
-
-button[type='submit'],
-button[type='submit']:not #user-search-bar {
-    border: 3px solid #5CCEFF;
-    border-radius: 5px;
-    background-color: #fff;
+button[type='submit']:not(#user-search-bar) {
     padding: .25em .5em;
+    border: 3px solid #1bc732!important;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #138722, #1bc732, #18AD2C);
+    /* padding: .5em 1em; */
     box-shadow: 3px 3px 2px rgba(0, 0, 0, .5);
     margin-bottom: .5rem;
     width: fit-content;
     transition-duration: .25s;
-    color: #333;
+    color: #fff;
+    text-shadow: 1px 1px #333;
+
 }
 
 button[type='submit']:hover {
@@ -96,11 +76,28 @@ input:read-only {
     z-index: -1;
     width: 100%;
     height: 100%;
-    /* background: linear-gradient(135deg, #fff, #faf9f6, #a7a7a7, #838383, #575757, #444); */
-    /* background: linear-gradient(135deg, #36a2cf, #30DFE6, #cea52b, #9c19e6, #6021cf); */
     background: linear-gradient(135deg, #36a2cf, #30DFE6, #82650E, #9c19e6, #6021cf);
     background: linear-gradient(135deg, #36a2cf, #39ABDB, #30DFE6, #39ABDB, #36a2cf);
     color:#575757c0
+}
+
+/* custom scroll bar */
+.custom-scroll::-webkit-scrollbar-track {
+    background: #ddd;
+    border-radius: 5px;
+}
+
+.custom-scroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #858585;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+    background: #252525;
 }
 
 /* -------------------------------------------------------------------Base---------------------------------------------------------------- */
@@ -140,6 +137,7 @@ nav li {
     height: 2.5rem;
     background-color: #4e4e4e;
     background-color: #9C7D21;
+    background-color: #993C02;
     /* border-bottom: 2px solid #474747; */
 }
 
