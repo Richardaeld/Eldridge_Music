@@ -1,98 +1,82 @@
-
-.custom-form input,
-.custom-form select,
-.custom-form label {
-    /* display: inline-flex; */
+/* ------------------------------------------------------------------- invoice card general ---------------------------------------------------------------- */
+.invoice-card input,
+.invoice-card select {
     margin-top: 1em;
 }
 
-.custom-form {
+.invoice-card {
     background-color: #faf9f6;
-    /* background: linear-gradient(-45deg, #faf9f6, #d1d1d1); */
     border: 2px solid #444;
     border-radius: 10px;
     padding: 0 1.75em 2em 1.75em;
 }
 
-/* .custom-form label {
-    width: 50%;
-}
-
-.custom-form input,
-.custom-form select {
-    width:40%;
-    align-self: center;
-} */
-
-/* .custom-form select {
-    padding-top: 5px;
-    padding-bottom: 5px;
-
-} */
-
-/* .custom-form button, */
-.custom-form hr {
+.invoice-card hr {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.custom-form h3 {
+.invoice-card h3 {
+    text-align: center;
     width: fit-content;
     margin: 1.25em auto .5em auto;
 }
 
-.custom-form button {
+.invoice-card button {
     margin: 1.25em auto .5em auto;
 }
 
-.custom-form hr {
-    width: 50%;
-}
-
-.image-form {
+/* ------------------------------------------------------------------- Lesson summery ---------------------------------------------------------------- */
+.summary-image {
     object-fit: contain;
     position: relative;
     max-height: 150px;
     max-width: 150px;
     left: 50%;
     transform: translateX(-50%);
+    border: 2px solid #333;
+    border-radius: 10px;
 }
 
-.checkout-summery {
+.summary-checkout {
     position: relative;
     height: fit-content;
 }
 
-.summery-key,
-.summery-value {
+.summary-key,
+.summary-value {
     width:49%;
     display: inline-block;
     padding-bottom: .25em;
+    text-align: center;
+    left: 0;
+    right: 0;
 }
 
-.summery-value {
-    text-align: right;
+.summary-key {
 }
 
-.custom-form button {
-    border: 3px solid #5CCEFF!important;
-    border-radius: 5px;
-    background-color: #a7a7a7!important;
-    background-color: #fff!important;
-    padding: .5em 1em;
-    box-shadow: 3px 3px 2px rgba(0, 0, 0, .5);
+.summary-value {
+}
 
-    margin-bottom: .5rem;
-    width: fit-content;
-    transition-duration: .25s;
-    color: #333;
+/* ------------------------------------------------------------------- Submit button ---------------------------------------------------------------- */
+.invoice-card button {
     position: relative;
     left:50%;
     transform: translateX(-50%);
 }
 
-.custom-form button:hover {
+.invoice-card button:hover {
     transform: translateX(-50%) scale(1.1);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, .25);
+}
+/* ------------------------------------------------------------------- break points ---------------------------------------------------------------- */
+
+@media (max-width: 767.98px) {
+    .invoice-card input,
+    .invoice-card select {
+        width:95%;
+    }
+
 }
