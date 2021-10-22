@@ -104,7 +104,7 @@
                                 <label for="style" class="card-text my-auto details-key">Lesson type:</label>
                                 {% if lesson.lesson_style|length <= 1 %}
                                     {% for avail_styles in lesson.lesson_style %}
-                                        <input vlue="{{ avail_styles|title }}" type="text" name="style" id="style" class="details-value" readonly="true">
+                                        <input value="{{ avail_styles|title }}" type="text" name="style" id="style" class="details-value" readonly="true">
                                     {% endfor %}
                                 {% else %}
                                     <select class="details-value" name="style" id="style">
