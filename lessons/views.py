@@ -4,14 +4,36 @@ from django.db.models import Q
 from . models import Instrument, Lesson, Image,Subscription
 
 
+# Finds image, if exists or returns a blank
+# returns a None if blank is also missing
+def findImage(image):
+    image = Image.objects.filter(name=image)
+    if not image:
+        image = Image.objects.filter(name="blank")
+    if not image:
+        image = None
+        return image
+    else:
+        image = image.get()
+        return image
+
+
+# Creates a list to be returned for entery into a dictionary
+def createDictList(dictionary):
+    dictList = []
+    for x in dictionary:
+        dictList.append(x)
+    return dictList
+
+
 def lessons(request):
-    """ This view returns the all category specific lessons """
+    """ This view returns the all instrument specific lessons """
 
     lessons = Lesson.objects.all()
-
     instruments = None
     query = None
 
+    # Used by user search bar
     if request.GET:
         if 'instrument' in request.GET:
             instruments = request.GET['instrument']
@@ -26,14 +48,8 @@ def lessons(request):
             queries = Q(instrument__name__icontains=query) | Q(name__icontains=query)
             lessons = lessons.filter(queries)
 
-
-
     for lesson in lessons:
-        image = Image.objects.filter(name=lesson.image)
-        if not image:
-            image = Image.objects.filter(name="blank")
-        image = image.get()
-        lesson.image = image
+        lesson.image = findImage(lesson.image)
 
     context = {
         'lessons': lessons,
@@ -43,35 +59,16 @@ def lessons(request):
 
 
 def subscriptions(request):
+    """ This view returns the all current specials/subscriptions offered """
 
     subscriptions = Subscription.objects.all()
 
     # Creates iterable lists in subscription objects
     for subscription in subscriptions:
         # Queries foreign and manytomany fields
-        image = Image.objects.filter(name=subscription.image)
-        if not image:
-            image = Image.objects.filter(name="blank")
-        image = image.get()
-        subscription.image = image
-
-        # Create list for offered instruments
-        instruments = []
-        for each_instrument in subscription.instrument.all():
-                instruments.append(each_instrument)
-        subscription.instruments = instruments
-
-        # Create list for instrument levels
-        instrument_levels = []
-        for levels in subscription.instrument_level.all():
-            instrument_levels.append(levels)
-        subscription.instrument_levels = instrument_levels
-
-        # create list for lesson types
-        # lesson_type = []
-        # for lesson_types in subscription.lesson_class_type.all():
-        #     lesson_type.append(lesson_types)
-        # subscription.lesson_type = lesson_type
+        subscription.image = findImage(subscription.image)
+        subscription.instruments = createDictList(subscription.instrument.all())
+        subscription.instrument_levels = createDictList(subscription.instrument_level.all())
 
     context = {
         'subs': subscriptions,
@@ -81,23 +78,17 @@ def subscriptions(request):
 
 
 def details(request, sub_id):
+    """
+    This view returns a selection screen for users to select options
+    offered for specific lessons/sepcials/subscriptions
+    """
 
     if request.GET:
         if 'subscription' in request.GET:
             lesson = get_object_or_404(Subscription, pk=sub_id)
-
-            # Create list for offered instruments
-            instruments = []
-            for each_instrument in lesson.instrument.all():
-                    instruments.append(each_instrument)
-            lesson.instruments = instruments
+            lesson.instruments = createDictList(lesson.instrument.all())
+            lesson.instrument_levels = createDictList(lesson.instrument_level.all())
             lesson.lesson = False
-
-            # Create list for instrument levels
-            instrument_levels = []
-            for levels in lesson.instrument_level.all():
-                instrument_levels.append(levels)
-            lesson.instrument_levels = instrument_levels
 
         elif 'lesson' in request.GET:
             lesson = get_object_or_404(Lesson, pk=sub_id)
@@ -109,36 +100,14 @@ def details(request, sub_id):
             messages.error(request, "Sorry, something went wrong!")
             return redirect('lessons')
 
-    image = Image.objects.filter(name=lesson.image)
-    if not image:
-        image = Image.objects.filter(name="blank")
-    image = image.get()
-    lesson.image = image
-
-    lesson_style = []
-    for lesson_type in lesson.class_type.all():
-        lesson_style.append(lesson_type)
-    lesson.lesson_style = lesson_style
-
-    sub_duration = []
-    for duration in lesson.subscription_months.all():
-        sub_duration.append(duration)
-    lesson.sub_duration = sub_duration
-
-    lesson_per_week = []
-    for per_week in lesson.lessons_per_week.all():
-        lesson_per_week.append(per_week)
-    lesson.per_week = lesson_per_week
-
-    lesson_minutes = []
-    for minutes in lesson.lesson_minutes.all():
-        lesson_minutes.append(minutes)
-    lesson.minutes = lesson_minutes
+    lesson.image = findImage(lesson.image)
+    lesson.lesson_style = createDictList(lesson.class_type.all())
+    lesson.sub_duration = createDictList(lesson.subscription_months.all())
+    lesson.per_week = createDictList(lesson.lessons_per_week.all())
+    lesson.minutes = createDictList(lesson.lesson_minutes.all())
 
     context = {
         'lesson': lesson
     }
-
-    # print(type(lesson.instruments))
 
     return render(request, 'lessons/details.html', context)
