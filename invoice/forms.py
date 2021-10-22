@@ -5,7 +5,7 @@ from .models import Invoice
 class InvoiceForm(forms.ModelForm):
     class Meta:
         model = Invoice
-        fields = ('name', 'email', 'phone', 'street_address_billing', 'city', 'state_county', 'post_code', 'country')
+        fields = ('name', 'email', 'phone', 'street_address_billing', 'city', 'state_county', 'post_code', 'country',)
 
     def __init__(self, *args, **kwargs):
         """
