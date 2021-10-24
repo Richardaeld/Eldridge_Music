@@ -1,9 +1,13 @@
 <script type=text/javascript>
 
-// Changes general information button color and hides general information content
-document.getElementById("general-information-button").addEventListener("click", function() {
-    let button = document.getElementById("general-information-button");
-    let content = document.getElementById("general-information");
+// Hides and reveals content from push of button
+function hideRevealProfile() {
+    // Finds and sets variables from this.id
+    let buttonId = this.id
+    let button = document.getElementById(buttonId);
+    let contentId = buttonId.split("-", 2).join("-")
+    let content = document.getElementById(contentId)
+    // Hides and reveals content
     if(button.classList.contains("header-button-inactive")){
         button.classList.remove("header-button-inactive");
         content.classList.remove("hide-content");
@@ -12,35 +16,11 @@ document.getElementById("general-information-button").addEventListener("click", 
         button.classList.add("header-button-inactive");
         content.classList.add("hide-content");
     }
-});
+}
 
-// Changes current lessons button color and hides general information content
-document.getElementById("current-lessons-button").addEventListener("click", function() {
-    let button = document.getElementById("current-lessons-button");
-    let content = document.getElementById("current-lessons");
-    if(button.classList.contains("header-button-inactive")){
-        button.classList.remove("header-button-inactive");
-        content.classList.remove("hide-content");
-        content.scrollIntoView({block: "nearest"});
-    } else {
-        button.classList.add("header-button-inactive");
-        content.classList.add("hide-content");
-
-    }
-});
-
-// Changes previous lessons button color and hides general information content
-document.getElementById("previous-lessons-button").addEventListener("click", function() {
-    let button = document.getElementById("previous-lessons-button");
-    let content = document.getElementById("previous-lessons");
-    if(button.classList.contains("header-button-inactive")){
-        button.classList.remove("header-button-inactive");
-        content.classList.remove("hide-content");
-        content.scrollIntoView({block: "nearest"});
-    } else {
-        button.classList.add("header-button-inactive");
-        content.classList.add("hide-content");
-    }
-});
+// Sets up listeners for button clicks
+document.getElementById("general-information-button").addEventListener("click", hideRevealProfile);
+document.getElementById("current-lessons-button").addEventListener("click", hideRevealProfile);
+document.getElementById("previous-lessons-button").addEventListener("click", hideRevealProfile);
 
 </script>
