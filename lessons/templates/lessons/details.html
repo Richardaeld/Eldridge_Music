@@ -157,10 +157,20 @@
                                 {% else %}
                                     <select class="details-value" name="minutes" id="minutes">
                                         {% for minutes in lesson.minutes %}
-                                            <option value="{{ minutes }}">{{ minutes }}</option>
+                                            <option value="{{ minutes }}">{{ minutes }} minutes</option>
                                         {% endfor %}
                                     </select>
                                 {% endif %}
+                            </div>
+
+                            <!-- Lesson payment type -->
+                            <div class="d-flex justify-content-between pb-3">
+                                <label for="payment_type" class="card-text my-auto details-key">Payment Frequency:</label>
+                                <select class="details-value" name="payment_type" id="payment_type">
+                                    <option value="week">Weekly</option>
+                                    <option value="month">Monthly</option>
+                                    <option value="full">Full</option>
+                                </select>
                             </div>
 
                             <!-- Lessons price per hour -->
@@ -169,6 +179,10 @@
                                 <label for="minutes" class="card-text my-auto details-key">Lesson Price:</label>
                                 <input value="" type="text" name="price" id="price" class="details-value" readonly="true">
                             </div>
+                            <!-- <span id="price-week" class="price-button price-button-active">Week</span>
+                            <span id="price-month" class="price-button price-button-inactive">Month</span>
+                            <span id="price-total" class="price-button price-button-inactive">Total</span> -->
+
 
                             <div>
                                 <p class="text-muted">
