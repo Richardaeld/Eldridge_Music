@@ -71,7 +71,7 @@
                                     {% else %}
                                         <select class="details-value" name="instrument" id="instrument">
                                             {% for avail_instruments in lesson.instruments %}
-                                                <option value="{{ avail_instruments }}">{{ avail_instruments }}</option>
+                                                <option value="{{ avail_instruments }}" {% if forloop.first %}selected{% endif %}>{{ avail_instruments }}</option>
                                             {% endfor %}
                                         </select>
                                     {% endif %}
@@ -92,7 +92,7 @@
                                     {% else %}
                                         <select class="details-value" name="level" id="level">
                                             {% for avail_levels in lesson.instrument_levels %}
-                                                <option value="{{ avail_levels }}">{{ avail_levels }}</option>
+                                                <option value="{{ avail_levels }}" {% if forloop.first %}selected{% endif %}>{{ avail_levels }}</option>
                                             {% endfor %}
                                         </select>
                                     {% endif %}
@@ -109,7 +109,7 @@
                                 {% else %}
                                     <select class="details-value" name="style" id="style">
                                         {% for avail_styles in lesson.lesson_style %}
-                                            <option value="{{ avail_styles }}">{{ avail_styles|title }}</option>
+                                            <option value="{{ avail_styles }}" {% if forloop.first %}selected{% endif %}>{{ avail_styles|title }}</option>
                                         {% endfor %}
                                     </select>
                                 {% endif %}
@@ -125,7 +125,7 @@
                                 {% else %}
                                     <select class="details-value" name="month_duration" id="month_duration">
                                         {% for sub_duration in lesson.sub_duration %}
-                                            <option value="{{ sub_duration }}">{{ sub_duration }}</option>
+                                            <option value="{{ sub_duration }}" {% if forloop.first %}selected{% endif %}>{{ sub_duration }}</option>
                                         {% endfor %}
                                     </select>
                                 {% endif %}
@@ -141,7 +141,7 @@
                                 {% else %}
                                     <select class="details-value" name="per_week" id="per_week">
                                         {% for per_week in lesson.per_week %}
-                                            <option value="{{ per_week }}">{{ per_week }}</option>
+                                            <option value="{{ per_week }}" {% if forloop.first %}selected{% endif %}>{{ per_week }}</option>
                                         {% endfor %}
                                     </select>
                                 {% endif %}
@@ -157,7 +157,7 @@
                                 {% else %}
                                     <select class="details-value" name="minutes" id="minutes">
                                         {% for minutes in lesson.minutes %}
-                                            <option value="{{ minutes }}">{{ minutes }} minutes</option>
+                                            <option value="{{ minutes }}" {% if forloop.first %}selected{% endif %}>{{ minutes }} minutes</option>
                                         {% endfor %}
                                     </select>
                                 {% endif %}
@@ -167,7 +167,7 @@
                             <div class="d-flex justify-content-between pb-3">
                                 <label for="payment_type" class="card-text my-auto details-key">Payment Frequency:</label>
                                 <select class="details-value" name="payment_type" id="payment_type">
-                                    <option value="week">Weekly</option>
+                                    <option value="week" selected>Weekly</option>
                                     <option value="month">Monthly</option>
                                     <option value="full">Full</option>
                                 </select>
@@ -241,4 +241,5 @@
 {% block postload_js %}
 {{ block.super }}
 <script src="{% static 'lessons/js/price-conversion.js' %}"></script>
+<script src="{% static 'lessons/js/update-select.js' %}"></script>
 {% endblock %}
