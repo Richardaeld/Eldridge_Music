@@ -129,7 +129,7 @@ class Subscription(models.Model):
     lesson_minutes = models.ManyToManyField('Lesson_Minutes')
     description = models.TextField()
     active_subscription = models.BooleanField(default=True)
-    discount = models.DecimalField(max_digits=4, decimal_places=2)
+    price = models.DecimalField(max_digits=7, decimal_places=2)
 
     # price = models.DecimalField(max_digits=7, decimal_places=2)
 
