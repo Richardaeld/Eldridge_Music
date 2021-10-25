@@ -10,17 +10,17 @@
     <div class="container-fluid">
         <div class="row justify-content-around">
             <div class="blank-overlay"></div>
-            <div class="col-10 col-lg-8 col-xl-6 mt-5">
+            <div class="col-12 col-lg-8 col-xl-6 mt-5">
                 <div class="card mb-3">
-                    <div class="row">
+                    <div class="row justify-content-center">
 
                         <!-- image -->
-                        <div class="col-4">
-                            <img src="{{ lesson.image.image.url }}" class="card-img-top lesson-card-image image-details p-1 ms-3 mt-3" alt="A {% title_image_name lesson.image %}">
+                        <div class=" col-10 col-sm-6 col-md-4">
+                            <img src="{{ lesson.image.image.url }}" class="card-img-top lesson-card-image image-details box-shadow mt-3" alt="A {% title_image_name lesson.image %}"> <!-- p-1 ms-3 mt-3  -->
                         </div>
 
                         <!-- details -->
-                        <div class="col-7">
+                        <div class="col-11 col-sm-10 col-md-7">
 
                             <!-- lesson name header -->
                             <div class="y-center">
