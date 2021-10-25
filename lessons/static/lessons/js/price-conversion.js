@@ -15,11 +15,11 @@ function CalcCost() {
     console.log(totalCost)
     console.log(totalMonths)
     // Calculate payment total per selected type
-    if (totalType == "week") {
+    if (totalType == "weekly") {
         // do nothing
-    } else if (totalType == "month") {
+    } else if (totalType == "monthly") {
         totalCost *= 4
-    } else if (totalType == "full") {
+    } else if (totalType == "one time") {
         totalCost *= 4 * totalMonths
     }
     // Display final total cost
