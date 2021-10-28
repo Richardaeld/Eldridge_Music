@@ -94,6 +94,7 @@
       {% url 'coaxsio' as coaxsio_url  %}
       {% url 'lessons' as lesson_url %}
       {% url 'subscriptions' as subs_url %}
+      {% url 'merchandise' as merch_url %}
       {% details_page request.get_full_path as details_url %}
       <!-- Sets url variables with query parameters in url -->
       {% find_active_search lesson_url "?instrument=Piano" as lesson_piano_url %}
@@ -117,6 +118,11 @@
                   <span class="d-block d-lg-none d-xl-none d-xxl-none mb-4"><hr class="dropdown-divider"></span>
                   <span>Home</span>
                 </a>
+              </li>
+
+              <!-- Merchandise links -->
+              <li class="nav-item">
+                <a class="nav-link me-5 {% if request.path == merch_url  %} active {% endif %}" {% if request.path == merch_url  %} aria-current="page" {% endif %} href="{% url 'merchandise' %}">Merchandise</a>
               </li>
               <!-- lessons links -->
               <li class="nav-item dropdown">
