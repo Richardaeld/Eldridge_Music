@@ -2,11 +2,18 @@ from django.contrib import admin
 from .models import Instrument, Instrument_Level, Subscription, Lesson, Image, Lesson_Minutes, Lesson_Style, Subscription_Months, Lessons_Per_Week
 
 
+class SubscriptionAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'sku',
+        'pk',
+    )
+
+
 class InstrumentAdmin(admin.ModelAdmin):
     list_display = (
         'name',
     )
-
 
 
 class LessonAdmin(admin.ModelAdmin):
@@ -14,12 +21,14 @@ class LessonAdmin(admin.ModelAdmin):
         'instrument',
         'instrument_level',
         'sku',
+        'pk',
         'name',
     )
 
+
 admin.site.register(Image)
 admin.site.register(Instrument, InstrumentAdmin)
-admin.site.register(Subscription)
+admin.site.register(Subscription, SubscriptionAdmin)
 admin.site.register(Instrument_Level)
 admin.site.register(Lesson, LessonAdmin)
 admin.site.register(Lesson_Minutes)
