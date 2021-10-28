@@ -1,3 +1,9 @@
 from django.shortcuts import render
 
-# Create your views here.
+def merchandise(request):
+
+    template = 'merchandise/merchandise.html'
+
+    context = {}
+
+    return render(request, template, context)
