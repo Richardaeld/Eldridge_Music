@@ -100,7 +100,7 @@ class Lesson_Minutes(models.Model):
 class Lesson(models.Model):
     instrument = models.ForeignKey('Instrument', null=True, blank=True, on_delete=models.SET_NULL)
     instrument_level = models.ForeignKey('Instrument_level', null=True, blank=True, on_delete=models.SET_NULL)
-    sku = models.CharField(max_length=254, null=True, blank=True)
+    sku = models.CharField(max_length=254, null=True, blank=True, unique=True)
     name = models.CharField(max_length=254)
     description = models.TextField()
     price = models.DecimalField(max_digits=7, decimal_places=2)
@@ -117,7 +117,7 @@ class Lesson(models.Model):
 
 # Creates subscription types
 class Subscription(models.Model):
-    sku = models.CharField(max_length=254, null=True, blank=True)
+    sku = models.CharField(max_length=254, null=True, blank=True, unique=True)
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
     instrument = models.ManyToManyField('Instrument')
