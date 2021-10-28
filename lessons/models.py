@@ -14,7 +14,7 @@ class Image(models.Model):
 
 # Creates instrument difficulty levels
 class Instrument_Level(models.Model):
-    level = models.CharField(max_length=254)
+    level = models.CharField(max_length=50)
 
     def __str__(self):
         return self.level
@@ -22,7 +22,7 @@ class Instrument_Level(models.Model):
 
 # Creates instruments
 class Instrument(models.Model):
-    name = models.CharField(max_length=254)
+    name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
