@@ -1,8 +1,62 @@
 {% extends "base.html" %}
 {% load static %}
+{% load lesson_tags %}
+
 
 {% block extra_css %}
+    <link rel="stylesheet" href="{% static 'merchandise/css/merch.css' %}">
 {% endblock %}
 
 {% block content %}
+
+<div class="container-fluid">
+    <div class="row justify-content-around">
+      <div class="blank-overlay"></div>
+        {% for merch in merchandise %}
+        <div class="col-12 col-sm-5 col-lg-4 col-xxl-3 mt-5">
+            <div class="card mb-3 lesson-card">
+                <!-- Floating Header for cards -- tells if discount or used book -->
+                {% if merch.special or merch.used %}
+                <div class="image-banner">
+                    {% if merch.used %}
+                    <span>Used</span>
+                    {% endif %}
+                    {% if merch.special and merch.used %}
+                    <br>
+                    {% endif %}
+                    {% if merch.special %}
+                    <span>{{ merch.discount }}% Off!</span>
+                    {% endif %}
+                </div>
+                {% endif %}
+                <a href="#" class="merch-image">
+                    <div class="image-background"></div>
+                    <img src=" {% if merch.image %}{{ merch.image.url }}{% else %}/media/blank.jpg{% endif %}" class="card-img-top" alt="{{ merch.name }} Music Book"> <!--  update alt name -->
+                </a>
+                <div class="card-body custom-scroll">
+                    <p class="lesson-card-header">
+                        {{ merch | title }}
+                    <p>
+
+                    <p class="card-text">
+                        {{ merch.description }}
+                    </p>
+
+                    <div class="d-flex justify-content-center pb-3 mt-4">
+                        <a href="#">
+                        <button type="submit">
+                            <span class="p-2">Details</span>
+                        </button>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+</div>
+
 {% endblock %}
