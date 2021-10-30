@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from .models import Merch
 
 def merchandise(request):
@@ -9,6 +9,19 @@ def merchandise(request):
 
     context = {
         'merchandise': merch,
+    }
+
+    return render(request, template, context)
+
+
+def details(request, merch_id):
+
+    merch = get_object_or_404(Merch, pk=merch_id)
+
+    template = 'merchandise/details.html'
+
+    context = {
+        'merch': merch,
     }
 
     return render(request, template, context)

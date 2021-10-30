@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+{% load lesson_tags %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'merchandise/css/merch.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row justify-content-around">
+            <div class="blank-overlay"></div>
+            <div class="col-12 col-lg-8 col-xl-6 mt-5">
+                <div class="card mb-3">
+                    <div class="row justify-content-center">
+
+                        <!-- image -->
+                        <div class=" col-10 col-sm-6 col-md-4">
+                            <img src="{% if merch.image %}{{ merch.image.url }}{% else %}/media/blank.jpg{% endif %}" class="card-img-top image-details box-shadow mt-3" alt=""> <!-- p-1 ms-3 mt-3  -->
+                        </div>
+
+                        <!-- details -->
+                        <div class="col-11 col-sm-10 col-md-7">
+
+                            <!-- merch name header -->
+                            <div class="y-center">
+                                <p class="merch-card-header text-center mt-3">
+                                    {{ merch.name }}
+                                <p>
+                                <p class="card-text px-3 text-center">{{ merch.description }}</p>
+                            </div>
+
+                        </div>
+
+                        <form id="merch-form" action="#" method="POST" class="card-body custom-scroll pt-0 mx-3">
+                            {% csrf_token %}
+                            <hr>
+
+                            <!-- Merch Genreal Information -->
+                            <div class="pt-2 w-100"> <!-- d-flex justify-content-between pb-3  -->
+                                <span class="summary-key">Name: </span>
+                                <span class="summary-value"><strong>{{ merch.name }}</strong></span>
+
+                                <span class="summary-key">Author: </span>
+                                <span class="summary-value"><strong>{{ merch.author }}</strong></span>
+
+                                <span class="summary-key">Style: </span>
+                                <span class="summary-value"><strong>{{ merch.style }}</strong></span>
+
+                                <span class="summary-key">Release Date: </span>
+                                <span class="summary-value"><strong>{{ merch.release_date }}</strong></span>
+
+                                <span class="summary-key">Price: </span>
+                                <span class="summary-value"><strong>{{ merch.price }}</strong></span>
+
+                                <span class="summary-key">Rating: </span>
+                                <span class="summary-value"><strong>{{ merch.rating }}</strong></span>
+
+
+
+
+
+                            </div>
+
+                            <div class="d-flex justify-content-center pb-3 mt-2">
+                                  <button type="submit" id="form-submit">
+                                    <span class="p-2">Purchase</span>
+                                  </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block postload_js %}
+{{ block.super }}
+
+{% endblock %}
