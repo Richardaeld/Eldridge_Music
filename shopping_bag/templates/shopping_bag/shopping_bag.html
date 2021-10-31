@@ -6,37 +6,27 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid index-container-position">
-        <div class="row justify-content-center justify-content-md-end">
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="blank-overlay"></div>
 
-            <!-- <div class="col-5 index-intro header-shadow">
-                <p>
-                    <strong>EM Studio</strong> was designed to increase music exposure to people of all ages and locations. 
-                    Our music lessons are presented in an online environment to allow them to fit into anyones schedule.
+            <div class="col-10 card">
 
-                </p>
-            </div> -->
+            <h2 class="mb-0">Cart</h2>
+            <hr>
 
-            <div class=" col-10 col-md-4 me-0 me-md-4 mt-5 index-signup">
-                <div class="row mb-4 justify-content-center">
-
-                    <div class="col-12 mt-3">
-                        <h2 class="text-uppercase y-center header-font px-3">We now offer Shopping Bag!</h2>
-                        {% if bag_contents %}
-                            I has stuffs!
-                        {% else %}
-                            I is empty!
-                        {% endif %}
+            {% if cart_items %}
+                {% for item in cart_items %}
+                    <div>
+                        <p>{{ item.item.name }}</p>
+                        <p>{{ item.amount }}</p>
                     </div>
-
-                    <div id="sign-up" class="col-8 mt-3 btn btn-light header-box">
-                        <button class="y-center remove-button">
-                            <span class="text-uppercase mb-0"><strong>Sign up</strong></span>
-                        </button>
-                    </div>
-
-                </div>
-            </div>
+                {% endfor %}
+                <!-- {{ cart_items }} -->
+            {% else %}
+                I is empty!
+            {% endif %}
+        </div>
 
         </div>
     </div>
