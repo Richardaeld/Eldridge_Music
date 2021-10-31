@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'home',
     'merchandise',
     'lessons',
+    'shopping_bag',
     'coaxsio',
     'invoice',
     'profile_history',

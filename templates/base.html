@@ -63,10 +63,12 @@
         <div class="header-profile col-2 mt-2 mt-lg-0"> <!--  mt-2 mt-lg-0-->
           <div class="font-aws dropdown">
             <!-- Shopping bag button -->
-            <button class="remove-button shopping-bag-button">
-              <i class="fas fa-shopping-basket shopping-bag-i"></i>
-              <span>$0.00</span>
-            </button>
+            <a href="{% url 'shopping_bag' %}">
+              <button class="remove-button shopping-bag-button">
+                <i class="fas fa-shopping-basket shopping-bag-i"></i>
+                <span>$0.00</span>
+              </button>
+            </a>
             <!-- profile button -->
             <button class="remove-button profile-button" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false" style="">
               <i class="fas fa-user-circle"></i>
