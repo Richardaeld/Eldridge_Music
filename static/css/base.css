@@ -152,7 +152,10 @@ nav li {
 .font-aws {
     position: relative;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
+    flex-direction: row;
+    position: relative;
+    z-index: 1;
 }
 
 .font-aws button {
@@ -160,8 +163,20 @@ nav li {
     transform: translateY(25%);
 }
 
-.font-aws i {
+.profile-button i {
     font-size: 3rem;
+    font-size: 1.5rem;
+}
+
+.shopping-bag-button i {
+    font-size: 1.5rem;
+}
+
+.shopping-bag-button i,
+.shopping-bag-button span,
+.profile-button i,
+.profile-button span {
+    display: block;
 }
 
 .nav-header-height {
@@ -170,11 +185,6 @@ nav li {
 
 .active {
     text-shadow: 1px 1px 1px #555!important;
-}
-
-.test {
-    position: relative;
-    z-index: 1;
 }
 
 /* -------------------------------------------------------------------toasts---------------------------------------------------------------- */
