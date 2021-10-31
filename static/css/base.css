@@ -84,7 +84,7 @@ input:read-only {
 /* custom scroll bar */
 .custom-scroll::-webkit-scrollbar-track {
     background: #ddd;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .custom-scroll::-webkit-scrollbar {
@@ -92,7 +92,7 @@ input:read-only {
 }
 
 .custom-scroll::-webkit-scrollbar-thumb {
-    border-radius: 5px;
+    border-radius: 10px;
     background: #858585;
 }
 
