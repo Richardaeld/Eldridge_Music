@@ -102,6 +102,12 @@
       {% find_active_search lesson_url "?instrument=Vocal" as lesson_vocal_url %}
       {% find_active_search lesson_url "?instrument=Flute" as lesson_flute_url %}
 
+      {% find_active_search merch_url "?genre=Seasonal" as merch_seasonal_url %}
+      {% find_active_search merch_url "?genre=Music Education" as merch_edu_url %}
+      {% find_active_search merch_url "?genre=Classical" as merch_classical_url %}
+      {% find_active_search merch_url "?genre=Video Game" as merch_video_game_url %}
+      {% find_active_search merch_url "?genre=Score" as merch_score_url %}
+
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
           <button class="navbar-toggler my-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -121,9 +127,19 @@
               </li>
 
               <!-- Merchandise links -->
-              <li class="nav-item">
-                <a class="nav-link me-5 {% if request.path == merch_url  %} active {% endif %}" {% if request.path == merch_url  %} aria-current="page" {% endif %} href="{% url 'merchandise' %}">Merchandise</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle {% if request.path == merch_url  %} active {% endif %} me-5" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Merchandise</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item {% if request.get_full_path == merch_url  %} active {% endif %}" {% if request.get_full_path == merch_url  %} aria-current="page" {% endif %} href="{% url 'merchandise' %}">All Merchandise</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item {% if request.get_full_path == merch_seasonal %} active {% endif %}" {% if request.get_full_path == merch_seasonal %} aria-current="page" {% endif %} href="{% url 'merchandise' %}?genre=Seasonal">Seasonal</a></li>
+                    <li><a class="dropdown-item {% if request.get_full_path == merch_edu_url %} active {% endif %}" {% if request.get_full_path == merch_edu_url %} aria-current="page" {% endif %} href="{% url 'merchandise' %}?genre=Music Education">Music Education</a></li>
+                    <li><a class="dropdown-item {% if request.get_full_path == merch_classical_url %} active {% endif %}" {% if request.get_full_path == merch_classical_url %} aria-current="page" {% endif %} href="{% url 'merchandise' %}?genre=Classical">Classical</a></li>
+                    <li><a class="dropdown-item {% if request.get_full_path == merch_video_game_url %} active {% endif %}" {% if request.get_full_path == merch_video_game_url %} aria-current="page" {% endif %} href="{% url 'merchandise' %}?genre=Video Game">Video Game</a></li>
+                    <li><a class="dropdown-item {% if request.get_full_path == merch_score_url %} active {% endif %}" {% if request.get_full_path == merch_score_url %} aria-current="page" {% endif %} href="{% url 'merchandise' %}?genre=Score">Score</a></li>
+                </ul>
               </li>
+
               <!-- lessons links -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle {% if request.path == lesson_url  %} active {% endif %} me-5" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Lessons</a>

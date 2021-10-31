@@ -9,9 +9,9 @@ def merchandise(request):
 
     # Used by user search bar
     if request.GET:
-        # if 'instrument' in request.GET:
-        #     instruments = request.GET['instrument']
-        #     merch = merch.filter(merchandise__name=(Merchandise))
+        if 'genre' in request.GET:
+            genre = request.GET['genre']
+            merch = merch.filter(style__style=(genre))
 
         if 'userquery' in request.GET:
             query = request.GET['userquery']
