@@ -2,9 +2,19 @@
 .merch-card {
     height:25rem;
     /* border: 2px solid #333; */
-    box-shadow: 4px 4px 2px rgba(0, 0, 0, .35);
+    box-shadow: 
+    4px 4px 2px rgba(0, 0, 0, .35),
+    
+    inset 2px 2px 4px rgba(51, 51, 51, 0.493),
+    inset -2px -2px 4px rgba(51, 51, 51, 0.493),
+    -2px -2px 4px rgba(51, 51, 51, 0.699)
+    ;
+    
+    
     background-color: #faf9f6;
     position: relative;
+    border-radius: 10px;
+    /* border: 2px solid #333 */
 }
 
 .merch-image {
@@ -16,7 +26,16 @@
     height: 25rem;
     width: 100%;
     /* background-color: #333; */
-    background: linear-gradient(45deg, #F2F2F2, #B3B3B3, #D9D9D9 )
+    background: linear-gradient(45deg, #F2F2F2, #B3B3B3, #D9D9D9 );
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: 
+    0px 2px rgba(0, 0, 0, .35),
+    
+    inset 2px 2px 2px rgba(51, 51, 51, 0.493),
+    inset 0px -2px 2px rgba(51, 51, 51, 0.493),
+    -2px -2px rgba(51, 51, 51, 0.699)
+    ;
 }
 
 .merch-image img {
@@ -54,6 +73,7 @@
     font-size: 1rem;
     font-weight: 600;
     margin-top: 1rem;
+    margin-bottom: 0;
 }
 
 .merch-author {
@@ -83,25 +103,49 @@ input:read-only {
 }
 
 /* ------------------------------------------------------------------- details ---------------------------------------------------------------- */
-/* .image-details {
-    border: 2px solid #333;
-    border-radius: 10px;
-} */
-
-.details-key {
-    width: 50%;
+/* changes height for details */
+.merch-card,
+.merch-image-background {
+    height: 30rem;
 }
 
-.details-value {
-    width:40%;
+#bag {
+    width:100%;
+    font-size: 0;
+    margin-bottom: 1rem;
 }
 
-.summary-key,
-.summary-value {
-    width:49%;
+#bag div {
     display: inline-block;
-    padding-bottom: .25em;
-    text-align: center;
-    left: 0;
-    right: 0;
+
+}
+
+#remove-button,
+#in-bag,
+#add-button {
+    height: 40px;
+    line-height: 40px;
+    font-size: 1rem;
+    color: #fff;
+    vertical-align: middle;
+}
+
+
+#remove-button,
+#add-button {
+    background-color: #333;
+    width: 20%;
+    cursor: pointer;
+}
+
+#remove-button {
+}
+
+#in-bag {
+    width:50%;
+    background-color: rgba(0, 0, 0, .50);
+}
+
+#add-button {
+    
 }
