@@ -32,6 +32,22 @@ def merchandise(request):
     return render(request, template, context)
 
 
+def specials(request):
+
+    merch = Merch.objects.all()
+
+    merch = merch.filter(special=True)
+
+    template = 'merchandise/merchandise.html'
+
+    context={
+        'merchandise': merch,
+    }
+
+    return render(request, template, context)
+
+
+
 def details(request, merch_id):
 
     merch = get_object_or_404(Merch, pk=merch_id)

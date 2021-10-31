@@ -155,12 +155,12 @@
               <!-- Specific lesson/subscription/special name -->
               {% if details_url %}
                 <li class="nav-item">
-                  <a class="nav-link me-5 active" aria-current="page" href="#">{{ lesson.name|title }}</a>
+                  <a class="nav-link me-5 active" aria-current="page" href="#">{{ merch.name | truncatechars:15 }}</a>
                 </li>
               {% endif %}
               <!-- Specials/Subscritions -->
               <li class="nav-item">
-                <a class="nav-link me-5 {% if request.path == subs_url  %} active {% endif %}" {% if request.path == subs_url  %} aria-current="page" {% endif %} href="{% url 'subscriptions' %}">Specials</a>
+                <a class="nav-link me-5 {% if request.path == subs_url  %} active {% endif %}" {% if request.path == subs_url  %} aria-current="page" {% endif %} href="{% url 'specials' %}">Specials</a>
               </li>
               <!-- Online piano -->
               <li class="nav-item">
