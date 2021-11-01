@@ -18,17 +18,17 @@
                 {% if cart_items %}
                     <table>
                         <tr class="bottom-hr">
-                            <th scope='col'>Merch General Info</th>
-                            <th scope='col'></th>
-                            <th scope='col'>Price</th>
-                            <th scope='col'>Quantity</th>
-                            <th scope='col'>Subtotal</th>
+                            <th scope='col' class="px-3">Image</th>
+                            <th scope='col' class="px-3">Name</th>
+                            <th scope='col' class="px-3">Price</th>
+                            <th scope='col' class="px-3">Quantity</th>
+                            <th scope='col' class="px-3">Subtotal</th>
                         </tr>
 
                     {% for item in cart_items %}
                         <tr class="{% if not forloop.first %}top-hr{% endif %}">
                             <td class="px-3">
-                                <img class="card-image" src="{% if item.item.image %}{{ item.item.image.url }}{% else %}/media/blank.png{% endif %}" alt="{{ item.item.name }}">
+                                <img class="card-image py-2" src="{% if item.item.image %}{{ item.item.image.url }}{% else %}/media/blank.png{% endif %}" alt="{{ item.item.name }}">
                             </td>
                             <td>
                                 <p class="merch-name px-3">
@@ -56,13 +56,48 @@
                         </tr>
 
                     {% endfor %}
+                        <tr aria-hidden="true">
+                            <td colspan="2"></td>
+                            <td colspan="3" class="bottom-hr"><p class="mt-5"></p></td>
+                        </tr>
                         <tr>
-                            <td colspan="5" text-right>
-                                <p>
+                            <td colspan="2" aria-hidden="true"></td>
+                            <td colspan="2">
+                                <p class="text-end pe-3 mt-2">
                                     Sub-Total:
                                 </p>
-                                <p>
-                                    {{ total }}
+                            </td>
+                            <td>
+                                <p class="mt-2">
+                                    <strong>${{ total | floatformat:2 }}</strong>
+                                </p>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <td colspan="1" aria-hidden="true"></td>
+                            <td colspan="3">
+                                <p class="{% if delivery == 0 %} text-muted small{% endif %} text-end pe-3">
+                                    Delivery:
+                                </p>
+                            </td>
+                            <td>
+                                <p {% if delivery == 0 %} class="text-muted small"{% endif %}>
+                                    <strong>${{ delivery|floatformat:2 }}</strong>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" aria-hidden="true"></td>
+                            <td colspan="3" class="text-end pe-3">
+                                <p class="grand-total">
+                                    <strong>Grand Total:</strong>
+                                </p>
+                            </td>
+                            <td>
+                                <p class="grand-total">
+                                    <strong>${{ grand_total|floatformat:2 }}</strong>
                                 </p>
                             </td>
                         </tr>
@@ -81,36 +116,6 @@
                 {% endif %}
 
 
-
-
-
-                <!-- <div class="totals-content">
-                    <p>
-                        <span class="totals-key">
-                            Sub-Total:
-                        </span>
-                        <span class="totals-value">
-                            {{ total|floatformat:2 }}
-                        </span>
-                    </p>
-                    <p class="totals-bottom-hr">
-                        <span class="totals-key">
-                            Delivery Cost:
-                        </span>
-                        <span class="totals-value">
-                            {{ delivery|floatformat:2 }}
-                        </span>
-                    </p>
-                    <p>
-
-                        <span class="totals-key">
-                            Grand Total:
-                        </span>
-                        <span class="totals-value">
-                            {{ grand_total|floatformat:2 }}
-                        </span>
-                    </p>
-                </div> -->
 
             </div>
 
