@@ -104,16 +104,17 @@
 
       <!-- Sets url variables -->
       {% url 'home' as home_url  %}
-      {% url 'coaxsio' as coaxsio_url  %}
-      {% url 'lessons' as lesson_url %}
-      {% url 'subscriptions' as subs_url %}
+      <!-- {% url 'coaxsio' as coaxsio_url  %} -->
+      <!-- {% url 'lessons' as lesson_url %} -->
+      <!-- {% url 'subscriptions' as subs_url %} -->
       {% url 'merchandise' as merch_url %}
-      {% details_page request.get_full_path as details_url %}
+      {% find_page request.get_full_path 'details' as details_url %}
+      {% find_page request.get_full_path 'specials' as specials_url %}
       <!-- Sets url variables with query parameters in url -->
-      {% find_active_search lesson_url "?instrument=Piano" as lesson_piano_url %}
+      <!-- {% find_active_search lesson_url "?instrument=Piano" as lesson_piano_url %}
       {% find_active_search lesson_url "?instrument=Guitar" as lesson_guitar_url %}
       {% find_active_search lesson_url "?instrument=Vocal" as lesson_vocal_url %}
-      {% find_active_search lesson_url "?instrument=Flute" as lesson_flute_url %}
+      {% find_active_search lesson_url "?instrument=Flute" as lesson_flute_url %} -->
 
       {% find_active_search merch_url "?genre=Seasonal" as merch_seasonal_url %}
       {% find_active_search merch_url "?genre=Music Education" as merch_edu_url %}
@@ -141,9 +142,9 @@
 
               <!-- Merchandise links -->
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle {% if request.path == merch_url  %} active {% endif %} me-5" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Merchandise</a>
+                <a class="nav-link dropdown-toggle {% if request.path == merch_url or details_url %} active {% endif %} me-5" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Music Books</a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item {% if request.get_full_path == merch_url  %} active {% endif %}" {% if request.get_full_path == merch_url  %} aria-current="page" {% endif %} href="{% url 'merchandise' %}">All Merchandise</a></li>
+                  <li><a class="dropdown-item {% if request.get_full_path == merch_url  %} active {% endif %}" {% if request.get_full_path == merch_url  %} aria-current="page" {% endif %} href="{% url 'merchandise' %}">All Music Books</a></li>
                   <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item {% if request.get_full_path == merch_seasonal %} active {% endif %}" {% if request.get_full_path == merch_seasonal %} aria-current="page" {% endif %} href="{% url 'merchandise' %}?genre=Seasonal">Seasonal</a></li>
                     <li><a class="dropdown-item {% if request.get_full_path == merch_edu_url %} active {% endif %}" {% if request.get_full_path == merch_edu_url %} aria-current="page" {% endif %} href="{% url 'merchandise' %}?genre=Music Education">Music Education</a></li>
@@ -154,7 +155,7 @@
               </li>
 
               <!-- lessons links -->
-              <li class="nav-item dropdown">
+              <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle {% if request.path == lesson_url  %} active {% endif %} me-5" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Lessons</a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item {% if request.get_full_path == lesson_url  %} active {% endif %}" {% if request.get_full_path == lesson_url  %} aria-current="page" {% endif %} href="{% url 'lessons' %}">All Lessons</a></li>
@@ -164,21 +165,21 @@
                     <li><a class="dropdown-item {% if request.get_full_path == lesson_vocal_url %} active {% endif %}" {% if request.get_full_path == lesson_vocal_url  %} aria-current="page" {% endif %} href="{% url 'lessons' %}?instrument=Vocal">Vocal</a></li>
                     <li><a class="dropdown-item {% if request.get_full_path == lesson_flute_url %} active {% endif %}" {% if request.get_full_path == lesson_flute_url  %} aria-current="page" {% endif %} href="{% url 'lessons' %}?instrument=Flute">Flute</a></li>
                 </ul>
-              </li>
+              </li> -->
               <!-- Specific lesson/subscription/special name -->
-              {% if details_url %}
+              <!-- {% if details_url %}
                 <li class="nav-item">
-                  <a class="nav-link me-5 active" aria-current="page" href="#">{{ merch.name | truncatechars:15 }}</a>
+                  <a class="nav-link me-5 active" aria-current="page" href="#">{{ merch.name | truncatechars:25 }}</a>
                 </li>
-              {% endif %}
-              <!-- Specials/Subscritions -->
+              {% endif %} -->
+              <!-- Specials -->
               <li class="nav-item">
-                <a class="nav-link me-5 {% if request.path == subs_url  %} active {% endif %}" {% if request.path == subs_url  %} aria-current="page" {% endif %} href="{% url 'specials' %}">Specials</a>
+                <a class="nav-link me-5 {% if specials_url  %} active {% endif %}" {% if specials_url  %} aria-current="page" {% endif %} href="{% url 'specials' %}">Specials</a>
               </li>
               <!-- Online piano -->
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link {% if request.path == coaxsio_url  %} active {% endif %}" {% if request.path == coaxsio_url  %} aria-current="page" {% endif %} href="{% url 'coaxsio' %}">Online Piano</a>
-              </li>
+              </li> -->
 
             </ul>
 

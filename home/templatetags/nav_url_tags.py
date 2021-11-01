@@ -8,9 +8,9 @@ def find_active_search(url, search_str):
 
 
 @register.simple_tag
-def details_page(url):
+def find_page(url, name):
     url = url.split('/')
-    if 'details' in url:
+    if name in url:
         return True
     else:
         return False
