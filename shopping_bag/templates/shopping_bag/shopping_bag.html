@@ -2,31 +2,117 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'shopping_bag/css/shopping_bag.css' %}">
 {% endblock %}
 
 {% block content %}
     <div class="container-fluid">
-        <div class="row ">
+        <div class="row justify-content-center">
             <div class="blank-overlay"></div>
 
-            <div class="col-10 card">
+            <div class="col-11 card">
 
-            <h2 class="mb-0">Cart</h2>
-            <hr>
+                <h2 class="mb-0">Cart</h2>
+                <hr>
 
-            {% if cart_items %}
-                {% for item in cart_items %}
-                    <div>
-                        <p>{{ item.item.name }}</p>
-                        <p>{{ item.amount }}</p>
-                    </div>
-                {% endfor %}
-                <!-- {{ cart_items }} -->
-            {% else %}
-                I is empty!
-            {% endif %}
-        </div>
+                {% if cart_items %}
+                    <table>
+                        <tr class="bottom-hr">
+                            <th scope='col'>Merch General Info</th>
+                            <th scope='col'></th>
+                            <th scope='col'>Price</th>
+                            <th scope='col'>Quantity</th>
+                            <th scope='col'>Subtotal</th>
+                        </tr>
+
+                    {% for item in cart_items %}
+                        <tr class="{% if not forloop.first %}top-hr{% endif %}">
+                            <td class="px-3">
+                                <img class="card-image" src="{% if item.item.image %}{{ item.item.image.url }}{% else %}/media/blank.png{% endif %}" alt="{{ item.item.name }}">
+                            </td>
+                            <td>
+                                <p class="merch-name px-3">
+                                    {{ item.item.name }}
+                                </p>
+                                <p class="text-muted small px-3">
+                                    {{ item.item.sku }}
+                                </p>
+                            </td>
+                            <td>
+                                <p class="px-3">
+                                    ${{ item.item.price }}
+                                </p>
+                            </td>
+                            <td>
+                                <p class="px-3">
+                                    {{ item.amount }}
+                                </p>
+                            </td>
+                            <td>
+                                <p class="px-3">
+                                    ${{ total }}
+                                </p>
+                            </td>
+                        </tr>
+
+                    {% endfor %}
+                        <tr>
+                            <td colspan="5" text-right>
+                                <p>
+                                    Sub-Total:
+                                </p>
+                                <p>
+                                    {{ total }}
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!-- {{ cart_items }} -->
+                {% else %}
+
+                    <h3>Your cart is empty.</h3>
+                    <a href="{% url 'merchandise' %}">
+                        <button class="keep-shopping-button">
+                            keep shopping
+                        </button>
+                    </a>
+
+                {% endif %}
+
+
+
+
+
+                <!-- <div class="totals-content">
+                    <p>
+                        <span class="totals-key">
+                            Sub-Total:
+                        </span>
+                        <span class="totals-value">
+                            {{ total|floatformat:2 }}
+                        </span>
+                    </p>
+                    <p class="totals-bottom-hr">
+                        <span class="totals-key">
+                            Delivery Cost:
+                        </span>
+                        <span class="totals-value">
+                            {{ delivery|floatformat:2 }}
+                        </span>
+                    </p>
+                    <p>
+
+                        <span class="totals-key">
+                            Grand Total:
+                        </span>
+                        <span class="totals-value">
+                            {{ grand_total|floatformat:2 }}
+                        </span>
+                    </p>
+                </div> -->
+
+            </div>
 
         </div>
     </div>
