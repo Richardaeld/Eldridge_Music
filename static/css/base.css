@@ -34,25 +34,60 @@ a {
     text-decoration: none;
 }
 
-button[type='submit']:not(#user-search-bar) {
+button[type='submit']:not(#user-search-bar),
+.keep-shopping-button {
     padding: .25em .5em;
-    border: 3px solid #1bc732!important;
     border-radius: 5px;
-    background: linear-gradient(45deg, #138722, #1bc732, #18AD2C);
-    /* padding: .5em 1em; */
     box-shadow: 3px 3px 2px rgba(0, 0, 0, .5);
     margin-bottom: .5rem;
     width: fit-content;
     transition-duration: .25s;
     color: #fff;
+}
+/* General submit button */
+button[type='submit']:not(#user-search-bar) {
+    /* padding: .25em .5em; */
+    border: 2px solid #1bc732!important;
+    /* border-radius: 5px; */
+    background: linear-gradient(45deg, #138722, #1bc732, #18AD2C);
+    /* box-shadow: 3px 3px 2px rgba(0, 0, 0, .5); */
+    /* margin-bottom: .5rem; */
+    /* width: fit-content; */
+    /* transition-duration: .25s; */
+    /* color: #fff; */
     text-shadow: 1px 1px #333;
-
 }
 
 button[type='submit']:hover {
     transform: scale(1.1);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, .25);
 
+}
+
+
+
+/* Keep shopping button */
+.keep-shopping-button {
+    /* padding: .25em .5em; */
+    border: 2px solid #705a18;
+    /* border-radius: 5px; */
+    background: linear-gradient(45deg, #CEA52B, #705a18, #CEA52B);
+    /* box-shadow: 3px 3px 2px rgba(0, 0, 0, .5); */
+    /* margin-bottom: .5rem; */
+    /* margin-top: .5rem; */
+    /* width: fit-content; */
+    /* transition-duration: .25s; */
+    /* color: #fff; */
+    text-shadow: 1px 1px #5e5e5e;
+}
+
+.white-text {
+    color:#fff!important;
+}
+
+.keep-shopping-button:hover {
+    transform: scale(1.1);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .25);
 }
 
 input:read-only {
@@ -98,19 +133,6 @@ input:read-only {
 
 .custom-scroll::-webkit-scrollbar-thumb:hover {
     background: #252525;
-}
-
-.card {
-    margin: 2em;
-    padding: 2em;
-    box-shadow: 4px 4px 2px rgba(0, 0, 0, .35),
-                inset 2px 2px 4px rgba(51, 51, 51, 0.493),
-                inset -2px -2px 4px rgba(51, 51, 51, 0.493),
-                -2px -2px 4px rgba(51, 51, 51, 0.699);
-    background-color: #faf9f6;
-    position: relative;
-    border-radius: 10px;
-    /* border: 2px solid #333 */
 }
 
 /* -------------------------------------------------------------------Base---------------------------------------------------------------- */
