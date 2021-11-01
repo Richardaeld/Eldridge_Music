@@ -12,89 +12,89 @@
             <div class="blank-overlay"></div>
             <div id="card" class="col-10 col-lg-8 col-xl-6 mt-5"> <!-- custom-scroll -->
                 <!-- <div class=""> -->
-                    <div class="row g-0 merch-card mb-3">
+                <div class="row g-0 merch-card mb-3">
 
-                        <!-- image -->
-                        <div class="col-10 col-sm-6 col-md-4 merch-image">
-                            <div class="merch-image-background"></div>
-                            <img src="{% if merch.image %}{{ merch.image.url }}{% else %}/media/blank.png{% endif %}" class="" alt="{{ merch.name }} Music Book"> <!-- p-1 ms-3 mt-3  -->
-                        </div>
+                    <!-- image -->
+                    <div class="col-10 col-sm-6 col-md-4 merch-image">
+                        <div class="merch-image-background"></div>
+                        <!-- Floating header for cards -- tells if discount or used book -->
+                        {% if merch.special or merch.used %}
+                            <div class="image-banner">
+                                {% if merch.special and merch.used %}
+                                    <span>Used</span>
+                                    <br>
+                                    <span>{{ merch.discount }}% Off!</span>
+                                {% elif merch.special %}
+                                    <span>{{ merch.discount }}% Off!</span>
+                                {% elif merch.used %}
+                                    <span>Used</span>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                        <img src="{% if merch.image %}{{ merch.image.url }}{% else %}/media/blank.png{% endif %}" class="" alt="{{ merch.name }} Music Book"> <!-- p-1 ms-3 mt-3  -->
+                    </div>
 
-                        <!-- details -->
-                        <div class="col-11 col-sm-10 col-md-7">
+                    <!-- details -->
+                    <div id="card-body" class="col-11 col-sm-10 col-md-7">
 
-                            <!-- merch name header -->
-                            <!-- <div class="y-center">
-                                <p class="merch-name text-center mt-3">
-                                    {{ merch.name }}
+                        <!-- Merch Genreal Information -->
+                        <div class="merch-text-body"> <!-- d-flex justify-content-between pb-3  -->
+                            <!-- Merch name -->
+                            <p class="merch-name mb-0">
+                                {{ merch | title }}
+                            </p>
+                            <!-- Merch composer -->
+                            <p class="text-muted small">
+                                By: {{ merch.author }}
+                            </p>
+                            <!-- Merch description -->
+                            <p class="my-4">
+                                {{ merch.description }}
+                            </p>
+                            <!-- Merch rating -->
+                            <p>
+                                <i class="fas fa-star"></i>
+                                {{ merch.rating }} / 5
+                            </p>
+
+                            <!-- Merch price -->
+                            {% if merch.special %}
                                 <p>
-                                <p class="card-text px-3 text-center">{{ merch.description }}</p>
-                            </div> -->
+                                    <strong class="text-muted small"><s>${{ merch.price }}</s></strong>
+                                    <br>
+                                    <strong>${% discount merch %}</strong>
+                                </p>
+                            {% else %}
+                                <p>
+                                    <strong>${{ merch.price }}</strong>
+                                </p>
+                            {% endif %}
 
-                            <form id="merch-form" action="{% url 'add_to_cart' merch.id %}" method="POST" class="mt-3 mx-3 merch-text-body">
+                            <form action="{% url 'add_to_cart' merch.id %}" method="POST">
                                 {% csrf_token %}
-                                <!-- <hr> -->
-
-                                <!-- Merch Genreal Information -->
-                                <div class="pt-2 w-100"> <!-- d-flex justify-content-between pb-3  -->
-                                    <p class="merch-name">
-                                        {{ merch | title }}
-                                    </p>
-            
-                                    <p class="">
-                                        By: {{ merch.author }}
-                                    </p>
-            
-                                    <hr>
-                                    <p class="">
-                                        {{ merch.description }}
-                                    </p>
-            
-                                    <p>
-                                        Rating: {{ merch.rating }} of 5
-                                    </p>
-            
-                                    <div id="bag" class="mx-0 px-0">
-                                        <div id="remove-button" class="mx-0 px-0">
-                                            <span>-</span>
-                                        </div>
-                                        <div id="in-bag" class="mx-0 px-0">
-                                            <input id="id_qty_{{ merch.id }}" type="number" name="amount" value=1 min="1" max="99" data_item_id="{{ merch.id }}" >
-                                        </div>
-                                        <div id="add-button" class="mx-0 px-0">
-                                            <span>+</span>
-                                        </div>
+                                <p class="merch-name">Quantity:</p>
+                                <div id="bag" class="mx-0 px-0">
+                                    <div id="remove-button" class="mx-0 px-0">
+                                        <span>-</span>
                                     </div>
-            
-                                    {% if merch.special %}
-                                    <p>
-                                        <s>${{ merch.price }}</s>
-                                        <br>
-                                        ${% discount merch %}
-                                    </p>
-                                    {% else %}
-                                    <p>
-                                        ${{ merch.price }}
-                                    </p>
-                                    {% endif %}
-
-
+                                    <div id="in-bag" class="mx-0 px-0">
+                                        <input id="id_qty_{{ merch.id }}" type="number" name="amount" value=1 min="1" max="99" data_item_id="{{ merch.id }}" >
+                                    </div>
+                                    <div id="add-button" class="mx-0 px-0">
+                                        <span>+</span>
+                                    </div>
                                 </div>
-                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                <div class="d-flex justify-content-center pb-3 mt-2">
-                                      <button type="submit" id="form-submit">
-                                        <span class="p-2">Purchase</span>
-                                      </button>
-                                </div>
-
                             </form>
 
                         </div>
-
-
-
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            <div class="d-flex justify-content-center pb-3 mt-2">
+                                    <button type="submit" id="form-submit">
+                                    <span class="p-2">Purchase</span>
+                                    </button>
+                            </div>
                     </div>
-                <!-- </div> -->
+                </div>
             </div>
         </div>
     </div>

@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-{% load lesson_tags %}
 {% load discount %}
 
 
@@ -14,91 +13,70 @@
     <div class="row justify-content-around">
       <div class="blank-overlay"></div>
         {% for merch in merchandise %}
-        <div class="col-sm-12 col-md-6 col-lg-4 mt-5"> <!-- col-12 col-sm-5 col-lg-4 col-xxl-3-->
-            <div class="row g-0 mb-3 merch-card">
+            <div class="col-sm-12 col-md-6 col-lg-4 mt-5 "> <!-- col-12 col-sm-5 col-lg-4 col-xxl-3-->
+                <div class="row g-0 mb-3 merch-card">
+                    <!-- Image and floating header -->
+                    <a href="{% url 'merch_details' merch.id %}" class="merch-image col-5">
+                        <div class="merch-image-background"></div>
 
-
-
-                <a href="" class="merch-image col-5">
-                    <div class="merch-image-background"></div>
-
-                    <!-- Floating Header for cards -- tells if discount or used book -->
-                    {% if merch.special or merch.used %}
-                        <div class="image-banner">
-                            {% if merch.used %}
-                                <span>Used</span>
-                            {% endif %}
-
-                            {% if merch.special and merch.used %}
-                                <br>
-                            {% endif %}
-
-                            {% if merch.special and merch.used %}
-                                <span>{{ merch.discount }}% Off!</span>
-                            {% elif merch.special %}
-                                <span>{{ merch.discount }}% Off!</span>
-                            {% endif %}
-                        </div>
-                    {% endif %}
-
-
-                    <img src=" {% if merch.image %}{{ merch.image.url }}{% else %}/media/blank.png{% endif %}" class="" alt="{{ merch.name }} Music Book"> <!--  update alt name -->
-                </a>
-
-                <div class="col-7 custom-scroll" >
-                    <div class="merch-text-body ">
-
-                        <p class="merch-name">
-                            {{ merch | title }}
-                        </p>
-
-                        <p class="">
-                            By: {{ merch.author | truncatewords:3 }}
-                        </p>
-
-                        <hr>
-                        <p class="">
-                            {{ merch.description | truncatewords:14 }}
-                        </p>
-
-                        <p>
-                            Rating: {{ merch.rating }} of 5
-                        </p>
-
-
-
-                        {% if merch.special %}
-                        <p>
-                            <s>${{ merch.price }}</s>
-                            <br>
-                            ${% discount merch %}
-                        </p>
-                        {% else %}
-                        <p>
-                            ${{ merch.price }}
-                        </p>
+                        <!-- Floating header for cards -- tells if discount or used book -->
+                        {% if merch.special or merch.used %}
+                            <div class="image-banner">
+                                {% if merch.special and merch.used %}
+                                    <span>Used</span>
+                                    <br>
+                                    <span>{{ merch.discount }}% Off!</span>
+                                {% elif merch.special %}
+                                    <span>{{ merch.discount }}% Off!</span>
+                                {% elif merch.used %}
+                                    <span>Used</span>
+                                {% endif %}
+                            </div>
                         {% endif %}
 
-                        <div class="d-flex justify-content-center pb-3">
-                            <a href="{% url 'merch_details' merch.id %}">
-                                <button type="submit">
-                                    <span class="p-2">Details</span>
-                                </button>
-                            </a>
+                        <img src=" {% if merch.image %}{{ merch.image.url }}{% else %}/media/blank.png{% endif %}" alt="{{ merch.name }} Music Book">
+                    </a>
+                    <!-- General merch information -->
+                    <a href="{% url 'merch_details' merch.id %}" class="col-7 custom-scroll" >
+                        <div class="merch-text-body ">
+                            <!-- Merch name -->
+                            <p class="merch-name mb-0">
+                                {{ merch | truncatewords:8 }}
+                            </p>
+
+                            <!-- Merch composer -->
+                            <p class="text-muted small">
+                                By: {{ merch.author | truncatewords:3 }}
+                            </p>
+
+                            <!-- Merch description -->
+                            <p class="my-4">
+                                {{ merch.description | truncatewords:14 }}
+                            </p>
+
+                            <!-- Merch rating -->
+                            <p>
+                                <i class="fas fa-star"></i>
+                                {{ merch.rating }} / 5
+                            </p>
+
+                            <!-- Merch price -->
+                            {% if merch.special %}
+                                <p>
+                                    <strong class="text-muted small"><s>${{ merch.price }}</s></strong>
+                                    <br>
+                                    <strong>${% discount merch %}</strong>
+                                </p>
+                            {% else %}
+                                <p>
+                                    <strong>${{ merch.price }}</strong>
+                                </p>
+                            {% endif %}
                         </div>
-
-                    </div>
-
-
-
+                    </a>
                 </div>
-
-
             </div>
-        </div>
-
         {% endfor %}
-
     </div>
 </div>
 

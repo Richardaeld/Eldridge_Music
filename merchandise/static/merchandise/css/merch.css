@@ -1,41 +1,41 @@
 /* -------------------------------------------------------------------General---------------------------------------------------------------- */
+.custom-scroll {
+    overflow-y:auto;
+}
+
+select {
+    padding: .25rem;
+}
+
+/* Height of cards -- set for proper scroll wheel function and appearance */
+.merch-card,
+.merch-image-background,
+.custom-scroll {
+    height: 25rem;
+}
+/* ------------------ General body for cards */
 .merch-card {
-    height:25rem;
-    /* border: 2px solid #333; */
-    box-shadow: 
-    4px 4px 2px rgba(0, 0, 0, .35),
-    
-    inset 2px 2px 4px rgba(51, 51, 51, 0.493),
-    inset -2px -2px 4px rgba(51, 51, 51, 0.493),
-    -2px -2px 4px rgba(51, 51, 51, 0.699)
-    ;
-    
-    
+    box-shadow: 4px 4px 2px rgba(0, 0, 0, .35),
+                inset 2px 2px 4px rgba(51, 51, 51, 0.493),
+                inset -2px -2px 4px rgba(51, 51, 51, 0.493),
+                -2px -2px 4px rgba(51, 51, 51, 0.699);
     background-color: #faf9f6;
     position: relative;
     border-radius: 10px;
-    /* border: 2px solid #333 */
 }
 
+.merch-name {
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+.merch-text-body {
+    padding: 1rem;
+}
+
+/* ------------------ General image*/
 .merch-image {
     position: relative;
-}
-
-.merch-image-background {
-    position: absolute;
-    height: 25rem;
-    width: 100%;
-    /* background-color: #333; */
-    background: linear-gradient(45deg, #F2F2F2, #B3B3B3, #D9D9D9 );
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    box-shadow: 
-    0px 2px rgba(0, 0, 0, .35),
-    
-    inset 2px 2px 2px rgba(51, 51, 51, 0.493),
-    inset 0px -2px 2px rgba(51, 51, 51, 0.493),
-    -2px -2px rgba(51, 51, 51, 0.699)
-    ;
 }
 
 .merch-image img {
@@ -43,13 +43,23 @@
     position: relative;
     background-size: contain;
     width: auto;
-    /* background-color: #333; */
-    /* border-bottom: 2px solid #333; */
     left: 50%;
     top:50%;
     transform: translateX(-50%) translateY(-50%);
 }
 
+.merch-image-background {
+    position: absolute;
+    width: 100%;
+    background: linear-gradient(45deg, #F2F2F2, #B3B3B3, #D9D9D9 );
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: 0px 2px rgba(0, 0, 0, .35),
+                inset 2px 2px 2px rgba(51, 51, 51, 0.493),
+                inset 0px -2px 2px rgba(51, 51, 51, 0.493),
+                -2px -2px rgba(51, 51, 51, 0.699);
+}
+/* Floating header for image */
 .image-banner {
     padding-left: .25em;
     width: 100%;
@@ -64,51 +74,7 @@
     background-color: rgba(253, 253, 253, 0.75);
 }
 
-.merch-text-body {
-    padding: 1rem;
-    text-align: center;
-}
-
-.merch-name {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-top: 1rem;
-    margin-bottom: 0;
-}
-
-.merch-author {
-
-}
-
-.merch-descript {
-
-}
-
-.merch-card-header {
-
-}
-
-.custom-scroll {
-    overflow-y:auto;
-    height:25rem;
-}
-
-select {
-    padding: .25rem;
-}
-
-input:read-only {
-    padding: .15rem .15rem .15rem .4rem;
-
-}
-
 /* ------------------------------------------------------------------- details ---------------------------------------------------------------- */
-/* changes height for details */
-.merch-card,
-.merch-image-background {
-    height: 30rem;
-}
-
 #bag {
     width:100%;
     font-size: 0;
@@ -123,27 +89,38 @@ input:read-only {
 #remove-button,
 #in-bag,
 #add-button {
-    height: 40px;
-    line-height: 40px;
+    height: 30px;
+    line-height: 25px;
     font-size: 1rem;
     color: #fff;
-    vertical-align: middle;
+    vertical-align:middle;
+
 }
 
 
 #remove-button,
 #add-button {
     background-color: #333;
+    /* color: #333; */
+    font-weight: bold;
+    border: 2px solid #333;
     width: 20%;
     cursor: pointer;
+    text-align: center;
 }
 
 #remove-button {
 }
 
-#in-bag {
-    width:50%;
-    background-color: rgba(0, 0, 0, .50);
+#in-bag  {
+    width:60%;
+}
+
+#in-bag input {
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    border: 2px solid #333;
 }
 
 #add-button {
