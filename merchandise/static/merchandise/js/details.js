@@ -6,11 +6,13 @@ if (contentHeight > cardHeight) {
     document.getElementsByClassName("merch-image-background")[0].style.height = contentHeight + "px"
 }
 
-// Removes one from bag total, to a min of 0
+//-------------------- Form and form control for quantity
+let bag = document.getElementById("in-bag").getElementsByTagName("input")[0];
+
+// Removes one from bag total, to a min of 1
 document.getElementById("remove-button").addEventListener("click", function() {
-    let bag = document.getElementById("in-bag").getElementsByTagName("input")[0];
     let bagContent = parseInt(bag.value);
-    if (bagContent > 0) {
+    if (bagContent > 1) {
         bagContent = bagContent - 1;
         bag.value = bagContent;
     }
@@ -18,10 +20,18 @@ document.getElementById("remove-button").addEventListener("click", function() {
 
 // Adds one to bag total, to a max of 99
 document.getElementById("add-button").addEventListener("click", function() {
-    let bag = document.getElementById("in-bag").getElementsByTagName("input")[0];
     let bagContent = parseInt(bag.value);
     if (bagContent < 99) {
         bagContent = bagContent + 1;
         bag.value = bagContent;
     }
 })
+
+// Doesn't allow users to change numbers with direct keyboard input past 1-99
+document.getElementById("in-bag").getElementsByTagName("input")[0].addEventListener("change", function() {
+    if (bag.value > 99) {
+        bag.value = 99;
+    } else if (bag.value < 1) {
+        bag.value = 1;
+    }
+});
