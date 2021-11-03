@@ -7,7 +7,7 @@ class InvoiceForm(forms.ModelForm):
         model = Invoice
         fields = (
             'name', 'email', 'phone', 'street_address_billing',
-            'street_address_Shipping''city', 'state_county',
+            'street_address_shipping','city', 'state_county',
             'post_code', 'country',
             )
 
@@ -22,7 +22,8 @@ class InvoiceForm(forms.ModelForm):
             'email': 'Email Address',
             'phone': 'Phone Number',
             'city': 'City',
-            'street_address_billing': 'Street Address',
+            'street_address_billing': 'Street Address Billing',
+            'street_address_shipping': 'Street Address Shipping',
             'state_county': 'State',
             'post_code': 'Post Code',
             'country': 'Country',

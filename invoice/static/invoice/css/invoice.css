@@ -1,63 +1,40 @@
 /* ------------------------------------------------------------------- invoice card general ---------------------------------------------------------------- */
-.invoice-card input,
-.invoice-card select {
+.invoice input,
+.invoice select {
     margin-top: 1em;
+    width: 95%;
 }
 
-.invoice-card {
-    background-color: #faf9f6;
-    border: 2px solid #444;
-    border-radius: 10px;
+.invoice {
+    /* background-color: #faf9f6; */
+    /* border: 2px solid #444; */
+    /* border-radius: 10px; */
     padding: 0 1.75em 2em 1.75em;
 }
 
-.invoice-card hr {
+.invoice hr {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.invoice-card h3 {
-    text-align: center;
-    width: fit-content;
+.invoice h3 {
+    /* text-align: center; */
+    /* width: fit-content; */
     margin: 1.25em auto .5em auto;
 }
 
-.invoice-card button {
+.invoice button {
     margin: 1.25em auto .5em auto;
 }
 
-/* ------------------------------------------------------------------- Lesson summery ---------------------------------------------------------------- */
+.invoice-bottom-hr {
+    border-bottom: 1px solid #a7a7a7;
+}
+
+/* ------------------------------------------------------------------- Merchandise summery ---------------------------------------------------------------- */
 .summary-image {
-    object-fit: contain;
-    position: relative;
-    max-height: 150px;
-    max-width: 150px;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 2px solid #333;
-    border-radius: 10px;
-}
-
-.summary-checkout {
-    position: relative;
-    height: fit-content;
-}
-
-.summary-key,
-.summary-value {
-    width:49%;
-    display: inline-block;
-    padding-bottom: .25em;
-    text-align: center;
-    left: 0;
-    right: 0;
-}
-
-.summary-key {
-}
-
-.summary-value {
+    height:100px;
 }
 
 /* ------------------------------------------------------------------- Submit button ---------------------------------------------------------------- */
@@ -71,6 +48,9 @@
     transform: translateX(-50%) scale(1.1);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, .25);
 }
+
+
+
 /* ------------------------------------------------------------------- break points ---------------------------------------------------------------- */
 
 @media (max-width: 767.98px) {
