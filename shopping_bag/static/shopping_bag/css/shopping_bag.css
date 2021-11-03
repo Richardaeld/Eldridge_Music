@@ -1,4 +1,4 @@
-/* -------------------------------------------------------------------General---------------------------------------------------------------- */
+/* card body */
 .card {
     margin: 2em;
     padding: 2em;
@@ -11,21 +11,20 @@
     border-radius: 10px;
 }
 
-
+/* images */
 .card-image {
     height: 200px;
     background-size: contain;
     width: auto;
 
 }
-
+/* name header */
 .merch-name {
     font-size: 1rem;
     font-weight: 600;
-    /* margin-top: 1rem; */
     margin-bottom: 0;
 }
-
+/* creates dividers */
 .top-hr {
     border-top: 1px solid #a7a7a7;
 }
@@ -33,45 +32,68 @@
 .bottom-hr {
     border-bottom: 2px solid #333;
 }
-
-.totals-bottom-hr {
-    border-bottom: 2px solid #333;
-    width:50%
-}
-
-.totals-content {
-    text-align: right;
-    display: flex;
-    /* justify-content: flex-end; */
-    flex-direction: column;
-    /* align-content: flex-end; */
-}
-
-.totals-content hr {
-    position: relative;
-    right: 0;
-    text-align: right;
-    width: 50%
-}
-
-.totals-key,
-.totals-value {
-    width: 45%
-}
-
-.totals-key {
-
-}
-
-.totals-value {
-    font-weight: bold;
-
-}
-
-
-
-
-
+/* grand total */
 .grand-total {
     font-size: 1.5rem;
+}
+/* Quantity update buttons */
+.remove-quantity,
+.update-quantity {
+    text-shadow: 1px 1px #333;
+    margin-top: .5rem;
+    font-size: .75rem;
+    position: absolute;
+}
+
+.update-quantity {
+    border: 2px solid #1bc732!important;
+    background: linear-gradient(45deg, #138722, #1bc732, #18AD2C);
+    left: 0;
+}
+
+.remove-quantity {
+    border: 2px solid #C71C49!important;
+    background: linear-gradient(45deg, #871332, #C71C49, #AD1840);
+    right: 0;
+}
+/* Quantity adjustment buttons */
+.bag {
+    position: relative;
+    font-size: 0;
+    margin-bottom: 1rem;
+}
+
+.bag div {
+    display: inline-block;
+}
+
+.sub-button,
+.in-bag,
+.add-button {
+    height: 30px;
+    line-height: 25px;
+    font-size: 1rem;
+    color: #fff;
+    vertical-align:middle;
+}
+
+.sub-button,
+.add-button {
+    background-color: #333;
+    font-weight: bold;
+    border: 2px solid #333;
+    width: 20%;
+    cursor: pointer;
+    text-align: center;
+}
+
+.in-bag  {
+    width:60%;
+}
+
+.in-bag input {
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    border: 2px solid #333;
 }

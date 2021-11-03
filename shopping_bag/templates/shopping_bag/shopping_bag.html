@@ -1,65 +1,102 @@
 {% extends "base.html" %}
 {% load static %}
+{% load form_calc %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'shopping_bag/css/shopping_bag.css' %}">
-{% endblock %}
+    {% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="blank-overlay"></div>
-
-            <div class="col-11 card">
-
+    <div class="container-fluid"> <!-- container-fluid -->
+        <div class="row justify-content-center"> <!-- row justify-content-center -->
+            <!-- <div class="blank-overlay"></div> -->
+            <div class="white-overlay"></div>
+            <!-- Cards body -->
+            <div class="col-11 mt-4"> <!-- col-12 card -->
+                <!-- header -->
                 <h2 class="mb-0">Cart</h2>
                 <hr>
-
+                <!-- Tables header -->
                 {% if cart_items %}
-                    <table>
+                    <table class="w-100">
                         <tr class="bottom-hr">
                             <th scope='col' class="px-3">Image</th>
                             <th scope='col' class="px-3">Name</th>
-                            <th scope='col' class="px-3">Price</th>
+                            <th scope='col' class="px-3 text-center">Price</th>
                             <th scope='col' class="px-3">Quantity</th>
-                            <th scope='col' class="px-3">Subtotal</th>
+                            <th scope='col' class="ps-3 text-end">Subtotal</th>
                         </tr>
-
+                    <!-- Each item in table -->
                     {% for item in cart_items %}
                         <tr class="{% if not forloop.first %}top-hr{% endif %}">
-                            <td class="px-3">
+                            <!-- Image -->
+                            <td class="px-3 width-15">
                                 <img class="card-image py-2" src="{% if item.item.image %}{{ item.item.image.url }}{% else %}/media/blank.png{% endif %}" alt="{{ item.item.name }}">
                             </td>
-                            <td>
-                                <p class="merch-name px-3">
+                            <!-- Name and sku -->
+                            <td class="px-3 width-20">
+                                <p class="merch-name">
                                     {{ item.item.name }}
                                 </p>
-                                <p class="text-muted small px-3">
+                                <p class="text-muted small">
                                     {{ item.item.sku }}
                                 </p>
                             </td>
-                            <td>
-                                <p class="px-3">
+                            <!-- Item's price -->
+                            <td class="px-3">
+                                <p class="text-center">
                                     ${{ item.item.price }}
                                 </p>
                             </td>
-                            <td>
-                                <p class="px-3">
-                                    {{ item.amount }}
-                                </p>
+                            <!-- Items quantity and ability to adjust quantity -->
+                            <td class="px-3">
+                                <!-- <form action="{% url 'adjust_cart' item.item_id %}" method="POST"> -->
+
+                                <div class="bag" style="position: relative;">
+                                    <!-- {% csrf_token %} -->
+                                    <div id="" class="sub-button">
+                                        <span>-</span>
+                                    </div>
+                                    <div id="" class="in-bag">
+                                        <input type="number" name="amount" value="{{ item.amount }}" min="1" max="99"  > <!-- data_item_id="{{ item.item.id }}"   id="id_qty_{{ item.item_id }}"-->
+                                    </div>
+                                    <div id="" class="add-button">
+                                        <span>+</span>
+                                    </div>
+                                    <div class="d-flex justify-content-around">
+                                        <form action="{% url 'adjust_cart' item.item_id %}" method="POST">
+                                            {% csrf_token %}
+                                            <input type="hidden" style="font-size: 1rem;" name='amount' value="{{ item.amount }}" class="invisBag">
+                                            <button type="submit" class="update-quantity">
+                                                Update
+                                            </button>
+                                        </form>
+                                        <form action="{% url 'remove_cart_item' item.item_id %}">
+                                            {% csrf_token %}
+                                            <button type=submit class="remove-quantity">
+                                                Remove
+                                            </button>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            <!-- </form> -->
                             </td>
-                            <td>
-                                <p class="px-3">
-                                    ${{ total }}
+                            <!-- Items total -- quantity * price -->
+                            <td class="ps-3 width-15">
+                                <p class="text-end">
+                                    <strong>${% sub_total item.item.price item.amount %}</strong>
                                 </p>
                             </td>
                         </tr>
 
                     {% endfor %}
+                        <!-- Divider bar for total checkout cost -->
                         <tr aria-hidden="true">
                             <td colspan="2"></td>
                             <td colspan="3" class="bottom-hr"><p class="mt-5"></p></td>
                         </tr>
+                        <!-- Sub-Total -->
                         <tr>
                             <td colspan="2" aria-hidden="true"></td>
                             <td colspan="2">
@@ -72,9 +109,8 @@
                                     <strong>${{ total | floatformat:2 }}</strong>
                                 </p>
                             </td>
-
-
                         </tr>
+                        <!-- Delivery cost -->
                         <tr>
                             <td colspan="1" aria-hidden="true"></td>
                             <td colspan="3">
@@ -88,6 +124,7 @@
                                 </p>
                             </td>
                         </tr>
+                        <!-- Grand total -->
                         <tr>
                             <td colspan="1" aria-hidden="true"></td>
                             <td colspan="3" class="text-end pe-3">
@@ -103,23 +140,22 @@
                         </tr>
                     </table>
 
-                    <!-- {{ cart_items }} -->
                 {% else %}
-
+                    <!-- Empty cart -->
                     <h3>Your cart is empty.</h3>
                     <a href="{% url 'merchandise' %}">
                         <button class="keep-shopping-button">
                             Keep Shopping
                         </button>
                     </a>
-
                 {% endif %}
-
-
-
             </div>
-
         </div>
     </div>
 {% endblock %}
 
+{% block postload_js %}
+{{ block.super }}
+<script src="{% static 'shopping_bag/js/adjust_quantity.js' %}"></script>
+
+{% endblock %}
