@@ -5,7 +5,11 @@ from .models import Invoice
 class InvoiceForm(forms.ModelForm):
     class Meta:
         model = Invoice
-        fields = ('name', 'email', 'phone', 'street_address_billing', 'city', 'state_county', 'post_code', 'country',)
+        fields = (
+            'name', 'email', 'phone', 'street_address_billing',
+            'street_address_Shipping''city', 'state_county',
+            'post_code', 'country',
+            )
 
     def __init__(self, *args, **kwargs):
         """
@@ -22,6 +26,7 @@ class InvoiceForm(forms.ModelForm):
             'state_county': 'State',
             'post_code': 'Post Code',
             'country': 'Country',
+
         }
 
         self.fields['name'].widget.attrs['autofocus'] = True
@@ -33,3 +38,4 @@ class InvoiceForm(forms.ModelForm):
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
+
