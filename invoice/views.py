@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404,redirect, reverse
+from django.shortcuts import render, get_object_or_404,redirect, redirect, reverse
 from django.conf import settings
 # from lessons.models import Lesson, Subscription, Image
 from profile_history.models import User_Profile_History
@@ -7,6 +7,9 @@ from .forms import InvoiceForm
 # from lessons.models import Lesson, Subscription
 from django.contrib import messages
 from shopping_bag.contexts import cart_contents
+from .forms import InvoiceForm
+from merchandise.models import Merch
+from .models import Invoice, InvoiceLineItem
 
 import stripe
 
@@ -15,22 +18,72 @@ def invoice(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
-    cart = request.session.get('cart', {})
-    if not cart:
-        messages.error(request, "Your cart is currently empty")
-        return redirect(reverse('merchandise'))
+    if request.method == 'POST':
+        cart = request.session.get('cart', {})
+        
+        form_data = {
+            'name': request.POST['name'],
+            'email': request.POST['email'],
+            'phone': request.POST['phone'],
+            'city': request.POST['city'],
+            'street_address_billing': request.POST['street_address_billing'],
+            'street_address_shipping': request.POST['street_address_shipping'],
+            'state_county': request.POST['state_county'],
+            'post_code': request.POST['post_code'],
+            'country': request.POST['country'],
+        }
+        invoice_form = InvoiceForm(form_data)
+        if invoice_form.is_valid():
+            invoice = invoice_form.save()
+            for item_id, item_data in cart.items():
+                try:
+                    item = Merch.objects.get(id=item_id)
+                    invoice_line_item = InvoiceLineItem(
+                        invoice=invoice,
+                        item=item,
+                        amount=item_data,
+                    )
+                    invoice_line_item.save()
+                except Merch.DoesNotExist:
+                    messages.error(request, (
+                        "One of the products in you bag wasn't found in our database."
+                        "Please call us for help!"
+                    ))
+                    invoice.delete()
+                    return redirect(reverse('shopping_bag'))
+            
+            print('---------------------------------------------------')
+            print(invoice.invoice_number)
+            print(invoice)
+            print(invoice.name)
+            print(invoice.email)
+            print('---------------------------------------------------')
 
-    current_cart = cart_contents(request)
-    total = current_cart['grand_total']
-    stripe_total = round(total * 100)
-    stripe.api_key = stripe_secret_key
-    intent = stripe.PaymentIntent.create(
-        amount=stripe_total,
-        currency=settings.STRIPE_CURRENCY,
-    )
+            request.session['save_info'] = 'save-info' in request.POST
+            return redirect(reverse('checkout_success', args=[invoice.invoice_number]))
+
+        else:
+            messages.error(request, 'There was an error with your form submission \
+                please check your form information')
+
+    else:
+
+        cart = request.session.get('cart', {})
+        if not cart:
+            messages.error(request, "Your cart is currently empty")
+            return redirect(reverse('merchandise'))
+
+        current_cart = cart_contents(request)
+        total = current_cart['grand_total']
+        stripe_total = round(total * 100)
+        stripe.api_key = stripe_secret_key
+        intent = stripe.PaymentIntent.create(
+            amount=stripe_total,
+            currency=settings.STRIPE_CURRENCY,
+        )
 
 
-    invoice_form = InvoiceForm()
+        invoice_form = InvoiceForm()
 
     if not stripe_secret_key:
         messages.warning(request, 'Stripe Public key is missing.')
@@ -44,6 +97,27 @@ def invoice(request):
 
     return render(request,template, context)
 
+
+def checkout_success(request, invoice_number):
+    """
+    Shows a success page for processed orders
+    """
+
+    save_info = request.session.get('save_info')
+    invoice = get_object_or_404(Invoice, invoice_number=invoice_number)
+    messages.success(request, f'Your Invoice was successfully processed! \
+        Your invoice number is {invoice_number}. A Confirmation \
+            email will be sent to {invoice.email}')
+
+    if 'cart' in request.session:
+        del request.session['cart']
+
+    template = 'invoice/checkout_success.html'
+    context = {
+        'invoice': invoice,
+    }
+
+    return render(request, template, context)
 
 
 # def checkout_lesson(request, lesson_id, lesson_sku):
