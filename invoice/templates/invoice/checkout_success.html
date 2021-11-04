@@ -20,6 +20,141 @@
                 <!-- <div class="row">
                     add latest deals here
                 </div> -->
+                <div class="row">
+                    <div class="col">
+
+                        <!-- General invoice information -->
+                        <h4 class="receipt-hr my-3">Invoice Information</h4>
+
+                        <!-- Invoice number -->
+                        <p class="success-key">
+                            Invoice Number:
+                        </p>
+
+                        <p class="success-value">
+                            {{ invoice.invoice_number }}
+                        </p>
+                        <!-- Order date -->
+                        <p class="success-key">
+                            Order Date:
+                        </p>
+
+                        <p class="success-value">
+                            {{ invoice.date_time }}
+                        </p>
+
+                        <!-- Items in cart -->
+                        <h4 class="receipt-hr my-3">Cart Details</h4>
+                        {% for item in invoice.lineitems.all %}
+                            <!-- Item name -->
+                            <p class="success-key">
+                                {{ item.item.name }}
+                            </p>
+                            <!-- Item quantity and amount -->
+                            <p class="success-value">
+                                {{ item.amount }} @ {{ item.item.price }} each
+                            </p>
+                        {% endfor %}
+
+                        <!-- Delivery information -->
+                        <h4 class="receipt-hr my-3">Delivery Information</h4>
+
+                        <!-- name -->
+                        <p class="success-key">
+                            Name:
+                        </p>
+                        <p class="success-value">
+                            {{ invoice.name }}
+                        </p>
+
+                        <!-- Street Address -->
+                        <p class="success-key">
+                            Shipping Address:
+                        </p>
+                        <p class="success-value">
+                            {{ invoice.street_address_shipping }}
+                        </p>
+
+                        <!-- if invoice has street_address_billing -->
+                        {% if invoice.street_address_billing %}
+                            <p class="success-key">
+                                Billing Address:
+                            </p>
+                            <p class="success-value">
+                                {{ invoice.street_address_billing }}
+                            </p>
+                        {% endif %}
+
+                        <!-- county -->
+                        <p class="success-key">
+                            County:
+                        </p>
+                        <p class="success-value">
+                            {{ invoice.state_county }}
+                        </p>
+
+                        <!-- city -->
+                        <p class="success-key">
+                            City:
+                        </p>
+                        <p class="success-value">
+                            {{ invoice.city }}
+                        </p>
+
+                        <!-- post code -->
+                        <p class="success-key">
+                            Post Code:
+                        </p>
+                        <p class="success-value">
+                            {{ invoice.post_code }}
+                        </p>
+
+                        <!-- country -->
+                        <p class="success-key">
+                            Country:
+                        </p>
+                        <p class="success-value">
+                            {{ invoice.country }}
+                        </p>
+
+                        <!-- Phone -->
+                        <p class="success-key">
+                            Phone Number:
+                        </p>
+                        <p class="success-value">
+                            {{ invoice.phone }}
+                        </p>
+
+                        <!-- Billing information -->
+                        <h4 class="receipt-hr my-3">Billing Info</h4>
+                        
+                        <!-- Sub-total -->
+                        <p class="success-key">
+                            Cart Sub-Total:
+                        </p>
+                        <p class="success-value">
+                            {{ invoice.invoice_total }}
+                        </p>
+
+                        <!-- Delivery total -->
+                        <p class="success-key">
+                            Delivery Total:
+                        </p>
+                        <p class="success-value">
+                            {{ invoice.delivery_total }}
+                        </p>
+
+                        <!-- Grand Total -->
+                        <p class="success-key">
+                            Grand Total:
+                        </p>
+                        <p class="success-value">
+                            {{ invoice.grand_total }}
+                        </p>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>

@@ -68,6 +68,28 @@ legend {
     transform: translateX(-50%);
 }
 
+/* ------------------------------------------------------------------- checkout success ---------------------------------------------------------------- */
+
+.receipt-hr {
+    width: fit-content;
+    border-bottom: 1px solid #a7a7a7;
+}
+
+.success-key,
+.success-value {
+    display: inline-block;
+    width: 45%;
+}
+
+.success-key {
+
+}
+
+.success-value {
+
+}
+
+
 /* ------------------------------------------------------------------- break points ---------------------------------------------------------------- */
 
 @media (max-width: 767.98px) {
