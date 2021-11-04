@@ -1,22 +1,40 @@
 from django.shortcuts import render, get_object_or_404,redirect, reverse
+from django.conf import settings
 # from lessons.models import Lesson, Subscription, Image
 from profile_history.models import User_Profile_History
 from .forms import InvoiceForm
 # from lessons.views import findImage, createDictList
 # from lessons.models import Lesson, Subscription
 from django.contrib import messages
+from shopping_bag.contexts import cart_contents
 
+import stripe
 
 def invoice(request):
+
+    stripe_public_key = settings.STRIPE_PUBLIC_KEY
+    stripe_secret_key = settings.STRIPE_SECRET_KEY
+
     cart = request.session.get('cart', {})
     if not cart:
         messages.error(request, "Your cart is currently empty")
         return redirect(reverse('merchandise'))
 
+    current_cart = cart_contents(request)
+    total = current_cart['grand_total']
+    stripe_total = round(total * 100)
+    stripe.api_key = stripe_secret_key
+    intent = stripe.PaymentIntent.create(
+        amount=stripe_total,
+        currency=settings.STRIPE_CURRENCY,
+    )
+
     invoice_form = InvoiceForm()
     template = "invoice/invoice.html"
     context = {
         'invoice_form': invoice_form,
+        'stripe_public_key': stripe_public_key,
+        'client_secret': intent.client_secret,
     }
 
     return render(request,template, context)
