@@ -67,6 +67,38 @@ legend {
     left: 50%;
     transform: translateX(-50%);
 }
+/* loading overlay with animation */
+.loading-overlay {
+    display: none;
+    position:fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #28a9d477;
+    z-index: 100000;
+}
+
+.loading-spinner {
+    position: fixed;
+    left: 50%;
+    top: calc(50% - 94px);
+    transform: translate(-50% -50%) scale(2.5);
+}
+
+.loading-spinner i {
+    font-size: 10rem;
+    /* transform: scale(10); */
+    color: #21ec3c;
+}
+
+.animate-spin {
+    animation: 2s linear 0s infinite normal forwards circle-spin;
+}
+@keyframes circle-spin {
+    0%{transform: rotate(0turn);}
+    100%{transform: rotate(1turn);}
+
+}
 
 /* ------------------------------------------------------------------- checkout success ---------------------------------------------------------------- */
 
