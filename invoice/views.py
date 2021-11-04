@@ -29,7 +29,12 @@ def invoice(request):
         currency=settings.STRIPE_CURRENCY,
     )
 
+
     invoice_form = InvoiceForm()
+
+    if not stripe_secret_key:
+        messages.warning(request, 'Stripe Public key is missing.')
+
     template = "invoice/invoice.html"
     context = {
         'invoice_form': invoice_form,
