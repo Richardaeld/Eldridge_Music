@@ -126,6 +126,7 @@ input:read-only {
     z-index: -1;
     width: 100%;
     height: 100%;
+    height: calc(100% - 188px);
     background-color: #faf9f6;
     /* background-color: #fff; */
 }
