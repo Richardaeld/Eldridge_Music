@@ -27,12 +27,11 @@ class StripeWH_Handler:
         Contorls payment_intent.succeeded webhook
         """
         intent = event.data.object
-        print(intent)
         pid = intent.id
         cart = intent.metadata.cart
         save_info = intent.metadata.save_info
 
-        biling_details = intent.charges.data[0].billing_details
+        billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
         grand_total = round(intent.charges.data[0].amount / 100, 2)
 
