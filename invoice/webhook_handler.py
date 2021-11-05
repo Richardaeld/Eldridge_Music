@@ -19,8 +19,7 @@ class StripeWH_Handler:
         """
         return HttpResponse(
             content=f'Generic/Unknown/Unexpected webhook received: {event["type"]}',
-            status=200
-            )
+            status=200)
 
     def handle_payment_intent_succeeded(self,event):
         """
@@ -62,15 +61,14 @@ class StripeWH_Handler:
                 invoice_exists = True
                 break
 
-
             except Invoice.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
+
         if invoice_exists:
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
-                status=200
-                )
+                status=200)
         else:
             invoice = None
             try:
@@ -104,8 +102,7 @@ class StripeWH_Handler:
 
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Created invoice in webhooks',
-            status=200
-            )
+            status=200)
 
 
     def handle_payment_intent_payment_failed(self,event):
@@ -114,5 +111,4 @@ class StripeWH_Handler:
         """
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
-            status=200
-            )
+            status=200)
