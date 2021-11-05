@@ -1,5 +1,7 @@
-from django.shortcuts import render, get_object_or_404,redirect, redirect, reverse
+from django.http.response import HttpResponse
+from django.shortcuts import render, get_object_or_404, redirect, redirect, reverse
 from django.conf import settings
+from django.views.decorators.http import require_POST
 # from lessons.models import Lesson, Subscription, Image
 from profile_history.models import User_Profile_History
 from .forms import InvoiceForm
@@ -12,6 +14,25 @@ from merchandise.models import Merch
 from .models import Invoice, InvoiceLineItem
 
 import stripe
+import json
+
+
+@require_POST
+def cache_checkout_data(request):
+    try:
+        pid = request.POST.get('client_secret').split('_secret')[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe.PaymentIntent.modify(pid, metadata={
+            'cart': json.dumps(request.session.get('cart', {})),
+            'save_info': request.POST.get('save_info'),
+            'username': request.user,
+        })
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(request, "Your invoice cannot be processed \
+            right now. Try again later.")
+        return HttpResponse(content=e, status=400)
+
 
 def invoice(request):
 
@@ -20,7 +41,7 @@ def invoice(request):
 
     if request.method == 'POST':
         cart = request.session.get('cart', {})
-        
+
         form_data = {
             'name': request.POST['name'],
             'email': request.POST['email'],
@@ -51,15 +72,9 @@ def invoice(request):
                     ))
                     invoice.delete()
                     return redirect(reverse('shopping_bag'))
-            
-            print('---------------------------------------------------')
-            print(invoice.invoice_number)
-            print(invoice)
-            print(invoice.name)
-            print(invoice.email)
-            print('---------------------------------------------------')
 
             request.session['save_info'] = 'save-info' in request.POST
+
             return redirect(reverse('checkout_success', args=[invoice.invoice_number]))
 
         else:
