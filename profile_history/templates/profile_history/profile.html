@@ -48,7 +48,42 @@
                     <div class="col-12">
                         <h3>Previous Lesson(s)</h3>
                         <hr>
-                        {{ invoice }}
+                        <table class='w-100'>
+                            <tr class="w-100">
+                                <th>Invoice Number</th>
+                                <th>Date</th>
+                                <th>Items</th>
+                                <th>Order Total</th>
+                            </tr>
+                            {% for invoice in invoices %}
+                            <tr>
+                                <th>
+                                    <a href="{% url 'invoice_history' invoice.invoice_number %}">
+                                        {{ invoice.invoice_number | truncatechars:8 }}
+                                    </a>
+                                </th>
+                                <th>
+                                    {{ invoice.date_time }}
+                                </th>
+
+                                <th>
+                                    <ul class="list-unstyled">
+                                        {% for item in invoice.lineitems.all %}
+                                        <li>
+                                            ({{ item.amount }}) {{ item.item.name }}
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </th>
+
+                                <th>
+                                    {{ invoice.grand_total }}
+                                </th>
+
+                            </tr>
+                            {% endfor %}
+                        </table>
+
                     </div>
                 </div>
 

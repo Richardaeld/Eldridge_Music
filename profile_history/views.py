@@ -1,4 +1,6 @@
 from django.shortcuts import get_object_or_404, render
+
+from invoice.models import Invoice
 from .models import User_Profile_History
 from invoice.forms import InvoiceForm
 from django.contrib import messages
@@ -10,7 +12,7 @@ def profile(request):
     userProfile = get_object_or_404(User_Profile_History, user=request.user)
     
     form = User_Profile_History_Form(instance=userProfile)
-    invoice = userProfile.invoices.all()
+    invoices = userProfile.invoices.all()
 
     if request.method == 'POST':
         form = User_Profile_History_Form(request.POST, instance=userProfile)
@@ -54,7 +56,7 @@ def profile(request):
 
     context = {
         'form': form,
-        'invoice': invoice,
+        'invoices': invoices,
         'on_profile_history_page': True
 
 
@@ -65,3 +67,18 @@ def profile(request):
 
     return render(request, 'profile_history/profile.html', context)
     
+
+def invoice_history(request, invoice_number):
+    invoice = get_object_or_404(Invoice, invoice_number=invoice_number)
+
+    messages.info(request, (
+        f'This is a past confirmation for invoice number {invoice_number}. '
+        'A conformation email was sent on the invoice date.'
+    ))
+
+    template = 'invoice/checkout_success.html'
+    context = {
+        'invoice': invoice,
+        'from_profile': True
+    }
+    return render(request, template, context)
