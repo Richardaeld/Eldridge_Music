@@ -107,8 +107,10 @@ def invoice(request):
     if not stripe_secret_key:
         messages.warning(request, 'Stripe Public key is missing.')
 
+    MEDIA_URL = settings.MEDIA_URL
     template = "invoice/invoice.html"
     context = {
+        'MEDIA_URL': MEDIA_URL,
         'invoice_form': invoice_form,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,

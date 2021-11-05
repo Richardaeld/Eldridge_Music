@@ -80,7 +80,7 @@
                                     <tr>
                                         <!-- Image -->
                                         <td>
-                                            <img class="w-100 summary-image {% if forloop.last %}mb-3{% endif %}" src="{% if item.item.image %}{{ item.item.image.url }}{% else %}/media/blank.png{% endif %}" alt="{{ item.item.name }}">
+                                            <img class="w-100 summary-image {% if forloop.last %}mb-3{% endif %}" src="{% if item.item.image %}{{ item.item.image.url }}{% else %}{{ MEDIA_URL }}blank.png{% endif %}" alt="{{ item.item.name }}">
                                         </td>
                                         <!-- Item name and item amount -->
                                         <td>

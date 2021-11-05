@@ -2,6 +2,8 @@ from django.shortcuts import get_object_or_404, render, redirect, reverse
 from django.contrib import messages
 from django.db.models import Q
 from .models import Merch
+from django.conf import settings
+
 
 def merchandise(request):
 
@@ -22,10 +24,11 @@ def merchandise(request):
             queries = Q(name__icontains=query) | Q(author__icontains=query)
             merch = merch.filter(queries)
 
-
+    MEDIA_URL = settings.MEDIA_URL
     template = 'merchandise/merchandise.html'
 
     context = {
+        'MEDIA_URL': MEDIA_URL,
         'merchandise': merch,
     }
 
@@ -38,9 +41,11 @@ def specials(request):
 
     merch = merch.filter(special=True)
 
+    MEDIA_URL = settings.MEDIA_URL
     template = 'merchandise/merchandise.html'
 
     context={
+        'MEDIA_URL': MEDIA_URL,
         'merchandise': merch,
     }
 
@@ -52,9 +57,11 @@ def details(request, merch_id):
 
     merch = get_object_or_404(Merch, pk=merch_id)
 
+    MEDIA_URL = settings.MEDIA_URL
     template = 'merchandise/details.html'
 
     context = {
+        'MEDIA_URL': MEDIA_URL,
         'merch': merch,
     }
 
