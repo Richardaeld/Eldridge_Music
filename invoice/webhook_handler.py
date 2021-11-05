@@ -32,6 +32,6 @@ class StripeWH_Handler:
         Contorls payement_intent.payment_failed webhook
         """
         return HttpResponse(
-            content=f'Webhook failed received: {event["type"]}',
+            content=f'Webhook received: {event["type"]}',
             status=200
             )
