@@ -27,6 +27,7 @@ class StripeWH_Handler:
         Contorls payment_intent.succeeded webhook
         """
         intent = event.data.object
+        print(intent)
         pid = intent.id
         cart = intent.metadata.cart
         save_info = intent.metadata.save_info

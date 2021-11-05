@@ -45,7 +45,7 @@ card.addEventListener('change', function (event) {
 // Handle form submit
 var form = document.getElementById('invoice-form');
 
-form.addEventListener("submit", function(ev) {
+form.addEventListener('submit', function(ev) {
     ev.preventDefault();
     card.update({'disabled': true});
     $('#form-submit').attr('disabled', true);
