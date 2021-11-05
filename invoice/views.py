@@ -2,6 +2,7 @@ from django.http.response import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect, redirect, reverse
 from django.conf import settings
 from django.views.decorators.http import require_POST
+from profile_history.forms import User_Profile_History_Form
 # from lessons.models import Lesson, Subscription, Image
 from profile_history.models import User_Profile_History
 from .forms import InvoiceForm
@@ -101,8 +102,24 @@ def invoice(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-
-        invoice_form = InvoiceForm()
+        if request.user.is_authenticated:
+            try:
+                profile = User_Profile_History.objects.get(user=request.user)
+                invoice_form = InvoiceForm(initial={
+                    'name': profile.user.get_full_name(),
+                    'email': profile.user.email,
+                    'phone': profile.default_phone,
+                    'city': profile.default_city,
+                    'street_address_billing': profile.default_street_address_billing,
+                    'street_address_shipping': profile.default_street_address_shipping,
+                    'state_county': profile.default_state_county,
+                    'post_code': profile.default_post_code,
+                    'country': profile.default_country,
+                })
+            except User_Profile_History.DoesNotExist:
+                invoice_form = InvoiceForm()
+        else:
+            invoice_form = InvoiceForm()
 
     if not stripe_secret_key:
         messages.warning(request, 'Stripe Public key is missing.')
@@ -126,6 +143,28 @@ def checkout_success(request, invoice_number):
 
     save_info = request.session.get('save_info')
     invoice = get_object_or_404(Invoice, invoice_number=invoice_number)
+
+    if request.user.is_authenticated:
+        profile = User_Profile_History.objects.get(user=request.user)
+        # This attaches user's profile to order
+        invoice.user_profile = profile
+        invoice.save()
+
+        # Save the user's info
+        if save_info:
+            profile_data = {
+                'default_phone': 'invoice.phone',
+                'default_city': 'invoice.city',
+                'default_street_address_billing': 'invoice.street_address_billing',
+                'default_street_address_shipping': 'invoice.street_address_shipping',
+                'default_state_county': 'invoice.state_county',
+                'default_post_code': 'invoice.post_code',
+                'default_country': 'invoice.country',
+            }
+            user_profile_history_form = User_Profile_History_Form(profile_data, instance=profile)
+            if user_profile_history_form.is_valid():
+                user_profile_history_form.save()
+
     messages.success(request, f'Your Invoice was successfully processed! \
         Your invoice number is {invoice_number}. A Confirmation \
             email will be sent to {invoice.email}')

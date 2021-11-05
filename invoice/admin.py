@@ -14,7 +14,7 @@ class InvoiceAdmin(admin.ModelAdmin):
                         'invoice_total', 'grand_total', 'original_cart',
                         'stripe_pid',)
 
-    fields = ('invoice_number', 'date_time', 'name', 'email', 'phone',
+    fields = ('invoice_number', 'user_profile', 'date_time', 'name', 'email', 'phone',
             'country', 'post_code', 'state_county', 'street_address_billing',
             'street_address_shipping', 'city', 'delivery_total',
             'invoice_total', 'grand_total', 'original_cart', 'stripe_pid',)
