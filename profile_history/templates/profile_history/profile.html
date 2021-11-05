@@ -29,14 +29,11 @@
                     <div class="col-12">
                         <h3>Profile General Information</h3>
                         <hr>
-                        {{ invoice.name | as_crispy_field }}
-                        {{ invoice.email | as_crispy_field }}
-                        {{ invoice.phone | as_crispy_field }}
-                        {{ invoice.street_address_billing | as_crispy_field }}
-                        {{ invoice.city | as_crispy_field }}
-                        {{ invoice.state_county | as_crispy_field }}
-                        {{ invoice.post_code | as_crispy_field }}
-                        {{ invoice.country | as_crispy_field }}
+                        <form action="{% url 'profile' %}" method="POST">
+                            {% csrf_token %}
+                            {{ form | crispy }}
+                            <button type="submit" class="mt-4">Update Profile</button>
+                        </form>
                     </div>
                 </div>
 
@@ -51,6 +48,7 @@
                     <div class="col-12">
                         <h3>Previous Lesson(s)</h3>
                         <hr>
+                        {{ invoice }}
                     </div>
                 </div>
 
