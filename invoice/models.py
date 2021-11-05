@@ -11,7 +11,7 @@ from django.db.models import Sum
 class Invoice(models.Model ):
     # User/General Information
     invoice_number = models.CharField(max_length=52, null=False, blank=False, editable=False)
-    user_profile = models.ForeignKey(User_Profile_History, null=True, blank=True, on_delete=models.SET_NULL, related_name='orders')
+    user_profile = models.ForeignKey(User_Profile_History, null=True, blank=True, on_delete=models.SET_NULL, related_name='invoices')
     name = models.CharField(max_length=75, null=False, blank=False)
     email = models.EmailField(max_length=254, blank=False, null=False)
     phone = models.CharField(max_length=20, null=False, blank=False)
@@ -21,7 +21,7 @@ class Invoice(models.Model ):
     city = models.CharField(max_length=40, null=False, blank=False)
     state_county = models.CharField(max_length=80, null=True, blank=True)
     post_code = models.CharField(max_length=20, null=True, blank=True)
-    country = CountryField(blank_label='Select Your Country', null=False, blank=False)
+    country = CountryField(blank_label='Country *', null=False, blank=False)
     date_time = models.DateTimeField(auto_now_add=True)
     delivery_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     invoice_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
