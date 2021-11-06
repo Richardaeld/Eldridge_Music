@@ -1,0 +1,17 @@
+Thank you {{ invoice.full_name }}!
+
+This is a confirmation of your order at Eldridge Music Book Emporium. Your invoice information is below:
+
+Invoice Number: {{ invoice.invoice_number }}
+Order Date/Time: {{ order.date_time }}
+Order Total: ${{ invoice_invoice_total }}
+Deivery Total: ${{ invoice.delivery_total }}
+Grand Total: ${{ invoice.grand_total }}
+
+Your merchandise will be shipped to {{ invoice.street_address_shipping }} in {{ invoice.city }}, {{ invoice.country }}.
+We have your phone number on file as {{ invoice.phone }}.
+If you have any questions, please contact us at {{ contact_email }}.
+
+Thank you for your purchase!
+Sincerely,
+Eldridge Music Book Emporium

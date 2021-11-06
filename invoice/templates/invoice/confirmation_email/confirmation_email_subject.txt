@@ -1,0 +1,1 @@
+Eldridge Music Book Emporium confirmation for Invoice number {{ invoice.invoice_number }}
