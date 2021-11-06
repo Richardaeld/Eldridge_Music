@@ -15,8 +15,8 @@ class User_Profile_History_Form(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
-            'default_full_name': 'Full Name',
-            'default_email': 'Email Address',
+            # 'default_full_name': 'Full Name',
+            # 'default_email': 'Email Address',
             'default_phone': 'Phone Number',
             'default_city': 'City',
             'default_street_address_billing': 'Billing Street Address',
@@ -26,7 +26,7 @@ class User_Profile_History_Form(forms.ModelForm):
             'default_country': 'Country',
         }
 
-        self.fields['default_full_name'].widget.attrs['autofocus'] = True
+        self.fields['default_phone'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if field != 'default_country':
                 if self.fields[field].required:

@@ -44,6 +44,9 @@
                         {{ invoice_form.post_code | as_crispy_field }}
                         {{ invoice_form.country | as_crispy_field }}
 
+                        <label for="save-info" class=""><strong>Remember my information</strong></label>
+                        <input type="checkbox" name="save-info" id="id-save-info" class="remember-checkbox-input">
+
                         <fieldset class="">
                             <legend class="small mt-3 pb-2"><strong>Payment</strong></legend>
                             <!-- A Stripe card element will go here -->
@@ -54,7 +57,6 @@
                             <input type="hidden" value="{{ client_secret }}" name="client_secret">
                         </fieldset>
 
-                        <input type="checkbox" id="id-save-info">
 
                         <button type="submit" id="form-submit">
                             <span class="p-2 ms-1">Purchase</span>

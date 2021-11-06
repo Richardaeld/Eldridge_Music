@@ -153,14 +153,15 @@ def checkout_success(request, invoice_number):
         # Save the user's info
         if save_info:
             profile_data = {
-                'default_phone': 'invoice.phone',
-                'default_city': 'invoice.city',
-                'default_street_address_billing': 'invoice.street_address_billing',
-                'default_street_address_shipping': 'invoice.street_address_shipping',
-                'default_state_county': 'invoice.state_county',
-                'default_post_code': 'invoice.post_code',
-                'default_country': 'invoice.country',
+                'default_phone': invoice.phone,
+                'default_city': invoice.city,
+                'default_street_address_billing': invoice.street_address_billing,
+                'default_street_address_shipping': invoice.street_address_shipping,
+                'default_state_county': invoice.state_county,
+                'default_post_code': invoice.post_code,
+                'default_country': invoice.country,
             }
+            print(profile_data)
             user_profile_history_form = User_Profile_History_Form(profile_data, instance=profile)
             if user_profile_history_form.is_valid():
                 user_profile_history_form.save()

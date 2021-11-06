@@ -46,7 +46,16 @@
     color: #fff;
     text-shadow: 1px 1px #333;
     margin: 1.25em auto .5em auto;
+}
 
+button[type="submit"] {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+button[type="submit"]:hover {
+    transform: translateX(-50%) scale(1.1);
 }
 
 .header-button:hover {

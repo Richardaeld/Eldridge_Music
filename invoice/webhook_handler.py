@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from merchandise.models import Merch
+from profile_history.models import User_Profile_History
 from .models import Invoice, InvoiceLineItem
 import json
 import time
@@ -39,6 +40,21 @@ class StripeWH_Handler:
             if value == "":
                 shipping_details.address[field] = None
 
+        # Updates profile information upon save_info being checked
+        profile = None
+        username = intent.metadata.username
+        if username != "AnonymousUser":
+            profile = User_Profile_History.objects.get(user__username=username)
+            if save_info:
+                profile.phone__iexact = shipping_details.phone,
+                profile.country__iexact = shipping_details.address.country,
+                profile.post_code__iexact = shipping_details.address.postal_code,
+                profile.city__iexact = shipping_details.address.city,
+                profile.street_address_billing__iexact = shipping_details.address.line1,
+                profile.street_address_shipping__iexact = shipping_details.address.line2,
+                profile.state_county__iexact = shipping_details.address.state,
+                profile.save()
+
         invoice_exists = False
         attempt = 1
         while attempt <= 5:
@@ -75,6 +91,7 @@ class StripeWH_Handler:
                 invoice = Invoice.objects.create(
                     name=shipping_details.name,
                     email=shipping_details.email,
+                    user_profile=profile,
                     phone=shipping_details.phone,
                     country=shipping_details.address.country,
                     post_code=shipping_details.address.postal_code,
