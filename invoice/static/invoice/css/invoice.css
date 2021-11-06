@@ -36,6 +36,12 @@ legend {
     border-bottom: 1px solid #a7a7a7;
 }
 
+
+
+.remember-checkbox-input {
+    width: fit-content!important;
+}
+
 /* ------------------------------------------------------------------- Merchandise summery ---------------------------------------------------------------- */
 .summary-image {
     height:100px;
