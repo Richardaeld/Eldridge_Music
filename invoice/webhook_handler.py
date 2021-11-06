@@ -46,13 +46,13 @@ class StripeWH_Handler:
         if username != "AnonymousUser":
             profile = User_Profile_History.objects.get(user__username=username)
             if save_info:
-                profile.phone__iexact = shipping_details.phone,
-                profile.country__iexact = shipping_details.address.country,
-                profile.post_code__iexact = shipping_details.address.postal_code,
-                profile.city__iexact = shipping_details.address.city,
-                profile.street_address_billing__iexact = shipping_details.address.line1,
-                profile.street_address_shipping__iexact = shipping_details.address.line2,
-                profile.state_county__iexact = shipping_details.address.state,
+                profile.phone__iexact = shipping_details.phone
+                profile.country__iexact = shipping_details.address.country
+                profile.post_code__iexact = shipping_details.address.postal_code
+                profile.city__iexact = shipping_details.address.city
+                profile.street_address_billing__iexact = shipping_details.address.line1
+                profile.street_address_shipping__iexact = shipping_details.address.line2
+                profile.state_county__iexact = shipping_details.address.state
                 profile.save()
 
         invoice_exists = False
@@ -61,7 +61,7 @@ class StripeWH_Handler:
             try:
                 invoice = Invoice.objects.get(
                     name__iexact=shipping_details.name,
-                    email__iexact=shipping_details.email,
+                    email__iexact=billing_details.email,
                     phone__iexact=shipping_details.phone,
                     country__iexact=shipping_details.address.country,
                     post_code__iexact=shipping_details.address.postal_code,
@@ -90,7 +90,7 @@ class StripeWH_Handler:
             try:
                 invoice = Invoice.objects.create(
                     name=shipping_details.name,
-                    email=shipping_details.email,
+                    email=billing_details.email,
                     user_profile=profile,
                     phone=shipping_details.phone,
                     country=shipping_details.address.country,
