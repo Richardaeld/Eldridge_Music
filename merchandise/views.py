@@ -1,6 +1,8 @@
 from django.shortcuts import get_object_or_404, render, redirect, reverse
 from django.contrib import messages
 from django.db.models import Q
+
+from merchandise.forms import MerchForm
 from .models import Merch
 from django.conf import settings
 
@@ -52,7 +54,6 @@ def specials(request):
     return render(request, template, context)
 
 
-
 def details(request, merch_id):
 
     merch = get_object_or_404(Merch, pk=merch_id)
@@ -63,6 +64,20 @@ def details(request, merch_id):
     context = {
         'MEDIA_URL': MEDIA_URL,
         'merch': merch,
+    }
+
+    return render(request, template, context)
+
+
+def add_merch(request):
+    """
+    Allow superuser to add merchandise to store
+    """
+
+    form = MerchForm()
+    template = 'merchandise/add_merch.html'
+    context = {
+        'form': form,
     }
 
     return render(request, template, context)

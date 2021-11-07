@@ -1,0 +1,27 @@
+/* -------------------------------------------------------------------add merch---------------------------------------------------------------- */
+
+.merch-form {
+    margin-bottom: 5rem;
+}
+/* Resizes checkbox */
+.merch-form [type='checkbox'] {
+    width: 1rem;
+}
+/* Adds spacing to checkbox */
+.form-check {
+    margin-top: .5rem;
+}
+
+/* Removes base form templating and adds spacing */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    position: static;
+    left: 0;
+    transform: none;
+    margin-top: .5rem;
+}
+
+.form-group label {
+    margin-top: .5rem;
+}

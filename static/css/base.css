@@ -412,7 +412,8 @@ nav li {
 /* -------------------------------------------------------------------crispy forms---------------------------------------------------------------- */
 
 .form-group input,
-.form-group select {
+.form-group select,
+.form-group textarea {
     width:80%;
     border: 2px solid #333;
     border-radius: 5px;
