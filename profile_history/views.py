@@ -11,14 +11,22 @@ def profile(request):
 
     userProfile = get_object_or_404(User_Profile_History, user=request.user)
     
-    form = User_Profile_History_Form(instance=userProfile)
-    invoices = userProfile.invoices.all()
+    # form = User_Profile_History_Form(instance=userProfile)
+    # invoices = userProfile.invoices.all()
 
     if request.method == 'POST':
         form = User_Profile_History_Form(request.POST, instance=userProfile)
         if form.is_valid():
             form.save()
             messages.success(request, "Profile has been updated")
+        else:
+            messages.error(request, "Update failed. Please check the form for validity")
+    else:
+        form = User_Profile_History_Form(instance=userProfile)
+
+    invoices = userProfile.invoices.all()
+
+
 
     # invoice = InvoiceForm(initial={
     #     'name': userProfile.default_full_name,
