@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        {% if grand_total and not on_profile_history_page %}
+        {% if grand_total and not on_profile_history_page and not no_cart %}
 
             <p class="cart-header">Cart ({{ item_count }})</p>
             <div class="cart-popup-view custom-scroll">

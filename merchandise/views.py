@@ -74,9 +74,20 @@ def add_merch(request):
     Allow superuser to add merchandise to store
     """
 
-    form = MerchForm()
+    if request.method == 'POST':
+        form = MerchForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully created merchandise')
+            return redirect(reverse('add_merch'))
+        else:
+            messages.error(request, 'Failed to add merchandise. Please check the form for validity')
+    else:
+        form = MerchForm()
+
     template = 'merchandise/add_merch.html'
     context = {
+        "no_cart": True,
         'form': form,
     }
 

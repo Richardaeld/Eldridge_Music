@@ -82,6 +82,11 @@
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
 
               {% if request.user.is_authenticated %}
+                {% if request.user.is_superuser %}
+                  <li>
+                    <a class="dropdown-item" href="{% url 'add_merch' %}">Merchandise Management</a>
+                  </li>
+                {% endif %}
                 <li>
                   <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
                 </li>
