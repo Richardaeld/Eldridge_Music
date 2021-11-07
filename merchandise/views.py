@@ -92,3 +92,34 @@ def add_merch(request):
     }
 
     return render(request, template, context)
+
+
+def edit_merch(request, merch_id):
+    """
+    Allow superuser to edit merchandise in store
+    """
+
+    item = get_object_or_404(Merch, pk=merch_id)
+    form = MerchForm(instnace=item)
+    messages.info(request, f'You are editing this: {item.name}')
+
+    if request.method == 'POST':
+        form = MerchForm(request.POST, request.FILES, instance=item)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated merchandise')
+            return redirect(reverse('detail', args=[item.id]))
+        else:
+            messages.error(request, f'Failed to edit {item.name}. Please check the form for validity')
+    else:
+        form = MerchForm(instance=item)
+        messages.info(request, f'You are editing {item.name}')
+
+    template = 'merchandise/edit_merch.html'
+    context = {
+        "no_cart": True,
+        'form': form,
+        'item': item,
+    }
+
+    return render(request, template, context)
