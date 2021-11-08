@@ -31,6 +31,7 @@ select {
 
 .merch-text-body {
     padding: 1rem;
+    position: relative;
 }
 
 /* ------------------ General image*/
@@ -72,6 +73,33 @@ select {
                 0px 1px #333,
                 0px -1px 2px #333;
     background-color: rgba(253, 253, 253, 0.75);
+}
+
+.card-body {
+    position: relative;
+}
+
+.super-buttons {
+    position: absolute;
+    right: 1rem;
+    top: .5rem;
+    text-shadow: 1px 1px #333;
+    z-index: 1;
+}
+
+.super-buttons-details {
+    position: absolute;
+    right: 1rem;
+    top: .5rem;
+    text-shadow: 1px 1px #333;
+}
+
+.edit-merch {
+    color: #08eff7!important;
+}
+
+.delete-merch {
+    color: #cf1010!important;
 }
 
 /* ------------------------------------------------------------------- details ---------------------------------------------------------------- */

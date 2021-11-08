@@ -37,8 +37,19 @@
                     <!-- details -->
                     <div id="card-body" class="col-11 col-sm-10 col-md-7">
 
+                        <!-- edit/delete buttons -->
+                        {% if request.user.is_superuser %}
+                            <small class="super-buttons-details d-flex justify-content-end">
+                                <p>
+                                    <a href="{% url 'edit_merch' merch.id %}" class="edit-merch">Edit</a> |
+                                    <a href="{% url 'delete_merch' merch.id %}" class="delete-merch">Delete</a>
+                                </p>
+                            </small>
+                        {% endif %}
+
                         <!-- Merch Genreal Information -->
                         <div class="merch-text-body"> <!-- d-flex justify-content-between pb-3  -->
+
                             <!-- Merch name -->
                             <p class="merch-name mb-0">
                                 {{ merch | title }}
@@ -86,6 +97,7 @@
                                 </div>
 
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
+
                                 <div class="mb-3 mt-3 d-flex justify-content-between">
 
                                     <button type="submit" class="">
