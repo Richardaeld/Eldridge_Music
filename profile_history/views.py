@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404, render
+from django.contrib.auth.decorators import login_required
 
 from invoice.models import Invoice
 from .models import User_Profile_History
@@ -7,6 +8,7 @@ from django.contrib import messages
 from .forms import User_Profile_History_Form
 
 
+@login_required
 def profile(request):
 
     userProfile = get_object_or_404(User_Profile_History, user=request.user)

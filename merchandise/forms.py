@@ -1,6 +1,6 @@
 from django import forms
 from .models import Merch
-
+from .widgets import CustomClearableFileInput
 
 class MerchForm(forms.ModelForm):
 
@@ -8,12 +8,11 @@ class MerchForm(forms.ModelForm):
         model = Merch
         fields= '__all__'
 
+    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         for field_name, field in self.fields.items():
-            print(field)
-            print("-----------")
-            # if field.BooleanField:
-            #     print("I am ehre")
+            pass
             # field.widget.attrs['class'] = 'stripe-style-input'

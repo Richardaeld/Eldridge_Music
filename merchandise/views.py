@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, render, redirect, reverse
 from django.contrib import messages
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 
 from merchandise.forms import MerchForm
 from .models import Merch
@@ -69,10 +70,15 @@ def details(request, merch_id):
     return render(request, template, context)
 
 
+@login_required
 def add_merch(request):
     """
     Allow superuser to add merchandise to store
     """
+
+    if not request.user.is_superuser:
+        messages.error(request, "Only store owners are permitted to do that")
+        return redirect(reverse('home'))
 
     if request.method == 'POST':
         form = MerchForm(request.POST, request.FILES)
@@ -94,10 +100,15 @@ def add_merch(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_merch(request, merch_id):
     """
     Allow superuser to edit merchandise in store
     """
+
+    if not request.user.is_superuser:
+        messages.error(request, "Only store owners are permitted to do that")
+        return redirect(reverse('home'))
 
     item = get_object_or_404(Merch, pk=merch_id)
 
@@ -123,10 +134,15 @@ def edit_merch(request, merch_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_merch(request, merch_id):
     """
     Allow superuser to delete merchandise in store
     """
+
+    if not request.user.is_superuser:
+        messages.error(request, "Only store owners are permitted to do that")
+        return redirect(reverse('home'))
 
     if request.user.is_superuser:
         item = get_object_or_404(Merch, pk=merch_id)
