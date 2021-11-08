@@ -100,8 +100,6 @@ def edit_merch(request, merch_id):
     """
 
     item = get_object_or_404(Merch, pk=merch_id)
-    form = MerchForm(instnace=item)
-    messages.info(request, f'You are editing this: {item.name}')
 
     if request.method == 'POST':
         form = MerchForm(request.POST, request.FILES, instance=item)
