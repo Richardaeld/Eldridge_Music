@@ -76,10 +76,10 @@ def add_merch(request):
 
     if request.method == 'POST':
         form = MerchForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
+        if form.is_valid() and request.user.is_superuser:
+            item = form.save()
             messages.success(request, 'Successfully created merchandise')
-            return redirect(reverse('add_merch'))
+            return redirect(reverse('merch_details', args=[item.id]))
         else:
             messages.error(request, 'Failed to add merchandise. Please check the form for validity')
     else:
@@ -105,10 +105,10 @@ def edit_merch(request, merch_id):
 
     if request.method == 'POST':
         form = MerchForm(request.POST, request.FILES, instance=item)
-        if form.is_valid():
+        if form.is_valid() and request.user.is_superuser:
             form.save()
             messages.success(request, 'Successfully updated merchandise')
-            return redirect(reverse('detail', args=[item.id]))
+            return redirect(reverse('details', args=[item.id]))
         else:
             messages.error(request, f'Failed to edit {item.name}. Please check the form for validity')
     else:
@@ -123,3 +123,16 @@ def edit_merch(request, merch_id):
     }
 
     return render(request, template, context)
+
+
+def delete_merch(request, merch_id):
+    """
+    Allow superuser to delete merchandise in store
+    """
+
+    if request.user.is_superuser:
+        item = get_object_or_404(Merch, pk=merch_id)
+        item.delete()
+        messages.success(request, 'Merchandise has been deleted!')
+
+    return redirect(reverse('merchandise'))
