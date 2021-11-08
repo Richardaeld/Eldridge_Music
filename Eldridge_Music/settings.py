@@ -211,7 +211,10 @@ STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 
-if 'DEVELOPMENT' in os.environ:
+if os.path.exists('env.py'):
+    DEVELOPMENT = bool(int(os.environ.get("DEVELOPMENT")))
+
+if DEVELOPMENT:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'eldridgemusic@example.com'
 else:
