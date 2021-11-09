@@ -42,19 +42,19 @@
     text-shadow: 1px 1px #333;
     margin-top: .5rem;
     font-size: .75rem;
-    position: absolute;
+    /* position: absolute; */
 }
 
 .update-quantity {
     border: 2px solid #1bc732!important;
     background: linear-gradient(45deg, #138722, #1bc732, #18AD2C);
-    left: 0;
+    /* left: 0; */
 }
 
 .remove-quantity {
     border: 2px solid #C71C49!important;
     background: linear-gradient(45deg, #871332, #C71C49, #AD1840);
-    right: 0;
+    /* right: 0; */
 }
 /* Quantity adjustment buttons */
 .bag {
@@ -65,6 +65,14 @@
 
 .bag div {
     display: inline-block;
+}
+
+.adj-qty-size {
+    width:20%;
+}
+
+.adj-subtotal-size {
+    width:10%
 }
 
 .sub-button,
@@ -96,4 +104,82 @@
     height: 30px;
     text-align: center;
     border: 2px solid #333;
+}
+
+@media (max-width: 767.98px) {
+    table th,
+    table td,
+    table p,
+    .merch-name,
+    .grand-total,
+    .generic-button,
+    .keep-shopping-button {
+        font-size: .85rem;
+    }
+
+    .remove-quantity,
+    .update-quantity {
+        font-size: .7rem
+    }
+
+    .card-image {
+        height:100px;
+    }
+
+    .sub-button,
+    .in-bag,
+    .add-button  {
+        height: 20px;
+        line-height: 15px;
+        color: #fff;
+        vertical-align:middle;
+    }
+    .in-bag input {
+        height:20px;
+    }
+
+}
+
+@media (max-width: 575.98px) {
+    table th,
+    table td,
+    table p,
+    .merch-name,
+    .sub-button,
+    .add-button,
+    .in-bag,
+    .grand-total,
+    .generic-button,
+    .keep-shopping-button {
+        font-size: .65rem;
+    }
+
+    .remove-quantity,
+    .update-quantity {
+        font-size: .5rem;
+    }
+
+    .sub-button,
+    .in-bag,
+    .add-button  {
+        height: 15px;
+        line-height: 10px;
+        color: #fff;
+        vertical-align:middle;
+    }
+
+    .adj-qty-size {
+        width: 50%;
+    }
+
+    .in-bag input {
+        height:15px;
+    }
+
+    .card-image {
+        height:50px;
+    }
+
+
+
 }

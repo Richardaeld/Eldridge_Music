@@ -126,7 +126,6 @@ input:read-only {
     position: absolute;
     z-index: -1;
     width: 100%;
-    height: 100%;
     height: calc(100% - 188px);
     background-color: #faf9f6;
     /* background-color: #fff; */
@@ -483,6 +482,10 @@ box-shadow: 0px 0px 0px rgba(0, 0, 0, .5),
     /* logo */
     .logo-title {
         font-size: 1.5rem;
+    }
+    /* overlay for billing/checkout */
+    .white-overlay {
+        height: calc(100% - 94px);
     }
     /* general */
     nav li {

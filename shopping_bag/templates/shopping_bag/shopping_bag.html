@@ -7,12 +7,11 @@
     {% endblock %}
 
 {% block content %}
-    <div class="container-fluid"> <!-- container-fluid -->
-        <div class="row justify-content-center"> <!-- row justify-content-center -->
-            <!-- <div class="blank-overlay"></div> -->
+    <div class="container-fluid">
+        <div class="row justify-content-center">
             <div class="white-overlay"></div>
             <!-- Cards body -->
-            <div class="col-11 mt-4"> <!-- col-12 card -->
+            <div class="col-11 mt-4 mb-5">
                 <!-- header -->
                 <h2 class="mb-0">Cart</h2>
                 <hr>
@@ -20,17 +19,17 @@
                 {% if cart_items %}
                     <table class="w-100">
                         <tr class="bottom-hr">
-                            <th scope='col' class="px-3">Image</th>
+                            <th scope='col' class="px-3 d-none d-sm-block">Image</th>
                             <th scope='col' class="px-3">Name</th>
                             <th scope='col' class="px-3 text-center">Price</th>
-                            <th scope='col' class="px-3">Quantity</th>
-                            <th scope='col' class="ps-3 text-end">Subtotal</th>
+                            <th scope='col' class="px-sm-5 px-md-3 adj-qty-size">Quantity</th>
+                            <th scope='col' class="ps-2 ps-md-3 adj-subtotal-size text-end">Subtotal</th>
                         </tr>
                     <!-- Each item in table -->
                     {% for item in cart_items %}
                         <tr class="{% if not forloop.first %}top-hr{% endif %}">
                             <!-- Image -->
-                            <td class="px-3 width-15">
+                            <td class="px-3 d-none d-sm-block">
                                 <img class="card-image py-2" src="{% if item.item.image %}{{ item.item.image.url }}{% else %}/media/blank.png{% endif %}" alt="{{ item.item.name }}">
                             </td>
                             <!-- Name and sku -->
@@ -49,41 +48,37 @@
                                 </p>
                             </td>
                             <!-- Items quantity and ability to adjust quantity -->
-                            <td class="px-3">
-                                <!-- <form action="{% url 'adjust_cart' item.item_id %}" method="POST"> -->
-
+                            <td class="px-sm-5 px-md-3 adj-qty-size">
                                 <div class="bag" style="position: relative;">
-                                    <!-- {% csrf_token %} -->
-                                    <div id="" class="sub-button">
+                                    <div class="sub-button">
                                         <span>-</span>
                                     </div>
-                                    <div id="" class="in-bag">
-                                        <input type="number" name="amount" value="{{ item.amount }}" min="1" max="99"  > <!-- data_item_id="{{ item.item.id }}"   id="id_qty_{{ item.item_id }}"-->
+                                    <div class="in-bag">
+                                        <input type="number" name="amount" value="{{ item.amount }}" min="1" max="99">
                                     </div>
-                                    <div id="" class="add-button">
+                                    <div class="add-button">
                                         <span>+</span>
                                     </div>
-                                    <div class="d-flex justify-content-around">
+                                    <div class="d-flex justify-content-evenly">
                                         <form action="{% url 'adjust_cart' item.item_id %}" method="POST">
                                             {% csrf_token %}
-                                            <input type="hidden" style="font-size: 1rem;" name='amount' value="{{ item.amount }}" class="invisBag">
-                                            <button type="submit" class="update-quantity">
+                                            <input type="hidden" name='amount' value="{{ item.amount }}" class="invisBag">
+                                            <button type="submit" class=" update-quantity">
                                                 Update
                                             </button>
                                         </form>
                                         <form action="{% url 'remove_cart_item' item.item_id %}">
                                             {% csrf_token %}
-                                            <button type=submit class="remove-quantity">
+                                            <button type=submit class=" remove-quantity">
                                                 Remove
                                             </button>
                                         </form>
 
                                     </div>
                                 </div>
-                            <!-- </form> -->
                             </td>
-                            <!-- Items total -- quantity * price -->
-                            <td class="ps-3 width-15">
+                            <!-- Items total - quantity * price -->
+                            <td class="ps-2 ps-md-3 adj-subtotal-size">
                                 <p class="text-end">
                                     <strong>${% sub_total item.item.price item.amount %}</strong>
                                 </p>
@@ -93,12 +88,14 @@
                     {% endfor %}
                         <!-- Divider bar for total checkout cost -->
                         <tr aria-hidden="true">
-                            <td colspan="2"></td>
-                            <td colspan="3" class="bottom-hr"><p class="mt-5"></p></td>
+                            <td colspan="1" class="d-none d-sm-block"></td>
+                            <td colspan="1"></td>
+                            <td colspan="3" class="bottom-hr"><p class="mt-3 mt-md-5"></p></td>
                         </tr>
                         <!-- Sub-Total -->
                         <tr>
-                            <td colspan="2" aria-hidden="true"></td>
+                            <td colspan="1" aria-hidden="true" class="d-none d-sm-block"></td>
+                            <td colspan="1" aria-hidden="true"></td>
                             <td colspan="2">
                                 <p class="text-end pe-3 mt-2">
                                     Sub-Total:
@@ -112,7 +109,7 @@
                         </tr>
                         <!-- Delivery cost -->
                         <tr>
-                            <td colspan="1" aria-hidden="true"></td>
+                            <td colspan="1" aria-hidden="true" class="d-none d-sm-block"></td>
                             <td colspan="3">
                                 <p class="{% if delivery == 0 %} text-muted small{% endif %} text-end pe-3">
                                     Delivery:
@@ -126,7 +123,7 @@
                         </tr>
                         <!-- Grand total -->
                         <tr>
-                            <td colspan="1" aria-hidden="true"></td>
+                            <td colspan="1" aria-hidden="true" class="d-none d-sm-block"></td>
                             <td colspan="3" class="text-end pe-3">
                                 <p class="grand-total">
                                     <strong>Grand Total:</strong>
@@ -139,27 +136,19 @@
                             </td>
                         </tr>
                     </table>
-                    <a href="{% url 'invoice' %}" class=""> <!-- x-center-popup -->
-                        <button class="generic-button green-button">
-                            <p class="text-center mb-0">
-                                Go to secure checkout
-                                <i class="fas fa-lock"></i>
-                            </p>
-                        </button>
+                    <a href="{% url 'invoice' %}" class="generic-button green-button text-white p-2"> <!-- x-center-popup -->
+                        Go to secure checkout
+                        <i class="fas fa-lock"></i>
                     </a>
 
-                    <button class="keep-shopping-button" class="" >
-                        <a href="{% url 'merchandise' %}">
-                            <span class="p-2 white-text">Keep Shopping</span>
-                        </a>
-                    </button>
+                    <a href="{% url 'merchandise' %}" class="keep-shopping-button p-2">
+                        <span class="p-2 white-text">Keep Shopping</span>
+                    </a>
                 {% else %}
                     <!-- Empty cart -->
                     <h3>Your cart is empty.</h3>
-                    <a href="{% url 'merchandise' %}">
-                        <button class="keep-shopping-button">
-                            Keep Shopping
-                        </button>
+                    <a href="{% url 'merchandise' %}" class="keep-shopping-button p-2">
+                        Keep Shopping
                     </a>
                 {% endif %}
             </div>
