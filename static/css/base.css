@@ -232,9 +232,18 @@ nav li {
     z-index: 1;
 }
 
-.font-aws button {
+.font-aws button,
+.font-aws a {
+    margin-left: .5em;
+    margin-right: .5em;
     top:-25%;
     transform: translateY(25%);
+}
+
+.font-aws a i:before {
+    position: relative;
+    left: 25%;
+    transform: translateX(-25%);
 }
 
 .header-fontaws i {
