@@ -1,19 +1,16 @@
 from django.http.response import HttpResponse
-from django.shortcuts import render, get_object_or_404, redirect, redirect, reverse
+from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, redirect, reverse
 from django.conf import settings
 from django.views.decorators.http import require_POST
 from profile_history.forms import User_Profile_History_Form
-# from lessons.models import Lesson, Subscription, Image
 from profile_history.models import User_Profile_History
 from .forms import InvoiceForm
-# from lessons.views import findImage, createDictList
-# from lessons.models import Lesson, Subscription
 from django.contrib import messages
 from shopping_bag.contexts import cart_contents
 from .forms import InvoiceForm
 from merchandise.models import Merch
 from .models import Invoice, InvoiceLineItem
-
 import stripe
 import json
 
@@ -30,13 +27,14 @@ def cache_checkout_data(request):
         })
         return HttpResponse(status=200)
     except Exception as e:
-        messages.error(request, "Your invoice cannot be processed \
-            right now. Try again later.")
+        messages.error(request, (
+            'Your invoice cannot be processed '
+            'right now. Try again later.'
+        ))
         return HttpResponse(content=e, status=400)
 
 
 def invoice(request):
-
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -72,19 +70,22 @@ def invoice(request):
                     invoice_line_item.save()
                 except Merch.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in you bag wasn't found in our database."
-                        "Please call us for help!"
+                        "One of the products in you bag wasn't found "
+                        "in our database. Please call us for help!"
                     ))
                     invoice.delete()
                     return redirect(reverse('shopping_bag'))
 
             request.session['save_info'] = 'save-info' in request.POST
 
-            return redirect(reverse('checkout_success', args=[invoice.invoice_number]))
+            return redirect(reverse(
+                'checkout_success', args=[invoice.invoice_number]))
 
         else:
-            messages.error(request, 'There was an error with your form submission \
-                please check your form information')
+            messages.error(request, (
+                'There was an error with your form submission '
+                'please check your form information'
+            ))
 
     else:
 
@@ -110,8 +111,10 @@ def invoice(request):
                     'email': profile.user.email,
                     'phone': profile.default_phone,
                     'city': profile.default_city,
-                    'street_address_billing': profile.default_street_address_billing,
-                    'street_address_shipping': profile.default_street_address_shipping,
+                    'street_address_billing': (
+                        profile.default_street_address_billing),
+                    'street_address_shipping': (
+                        profile.default_street_address_shipping),
                     'state_county': profile.default_state_county,
                     'post_code': profile.default_post_code,
                     'country': profile.default_country,
@@ -133,7 +136,7 @@ def invoice(request):
         'client_secret': intent.client_secret,
     }
 
-    return render(request,template, context)
+    return render(request, template, context)
 
 
 def checkout_success(request, invoice_number):
@@ -155,20 +158,24 @@ def checkout_success(request, invoice_number):
             profile_data = {
                 'default_phone': invoice.phone,
                 'default_city': invoice.city,
-                'default_street_address_billing': invoice.street_address_billing,
-                'default_street_address_shipping': invoice.street_address_shipping,
+                'default_street_address_billing': (
+                    invoice.street_address_billing),
+                'default_street_address_shipping': (
+                    invoice.street_address_shipping),
                 'default_state_county': invoice.state_county,
                 'default_post_code': invoice.post_code,
                 'default_country': invoice.country,
             }
-            print(profile_data)
-            user_profile_history_form = User_Profile_History_Form(profile_data, instance=profile)
+            user_profile_history_form = User_Profile_History_Form(
+                profile_data, instance=profile)
             if user_profile_history_form.is_valid():
                 user_profile_history_form.save()
 
-    messages.success(request, f'Your Invoice was successfully processed! \
-        Your invoice number is {invoice_number}. A Confirmation \
-            email will be sent to {invoice.email}')
+    messages.success(request, (
+        f'Your Invoice was successfully processed! '
+        'Your invoice number is {invoice_number}. A Confirmation '
+        'email will be sent to {invoice.email}'
+    ))
 
     if 'cart' in request.session:
         del request.session['cart']
@@ -179,109 +186,3 @@ def checkout_success(request, invoice_number):
     }
 
     return render(request, template, context)
-
-
-# def checkout_lesson(request, lesson_id, lesson_sku):
-#     # if lesson_sku.find("les") != -1:
-#     #     lesson = get_object_or_404(Lesson, pk=lesson_id)
-#     # elif lesson_sku.find("sub") != -1:
-#     #     lesson = get_object_or_404(Subscription, pk=lesson_id)
-#     # else:
-#     #     messages.error(request, "An error occurred please try again later")
-
-#     # lesson.image = findImage(lesson.image)
-
-#     # if request.method == 'POST':
-    
-    
-    
-#     lesson_summary = {
-#         # 'is_lesson': lesson_subscription,
-#         # 'is_lesson': request.POST['is_lesson'],
-#         # 'prime_key': lesson_id,
-#         # 'pk': request.POST['pk'],
-#         # 'instrument': request.POST['instrument'],
-#         # 'level': request.POST['level'],
-#         # 'style': request.POST['style'],
-#         # 'month_duration': request.POST['month_duration'],
-#         # 'per_week': request.POST['per_week'],
-#         # 'minutes': request.POST['minutes'],
-#         # 'payment_type': request.POST['payment_type'],
-#         # 'price': request.POST['price'],
-#         # 'sku': lesson.sku,
-#     }
-
-#     # invoice = InvoiceForm()
-#     template = 'invoice/checkout.html'
-
-#     if request.user.is_authenticated:
-#         user = get_object_or_404(User_Profile_History, user=request.user)
-#         invoice = InvoiceForm(initial={
-#             'name': user.default_full_name,
-#             'email': user.default_email,
-#             'phone': user.default_phone,
-#             'city': user.default_city,
-#             'street_address_billing': user.default_street_address,
-#             'state_county': user.default_state_county,
-#             'post_code': user.default_post_code,
-#             'country': user.default_country,
-#         })
-#     else:
-#         invoice = InvoiceForm()
-#         user = None
-
-#     context = {
-#         # 'is_lesson': lesson_subscription, # is lesson or subscription
-#         'prime_key': lesson_id,
-#         'lesson_summary': lesson_summary, # pulls required form information
-#         # 'lesson': lesson, # Order informaiton for lesson/subscription
-#         'user': user, # user informaion
-#         'invoice': invoice # function for building form
-#     }
-
-#     return render(request, template, context)
-
-
-# def record_invoice(request, sku, item_pk):
-#     if sku.find("les") != -1:
-#         lesson = get_object_or_404(Lesson, pk=item_pk)
-
-#     elif sku.find("sub") != -1:
-#         lesson = get_object_or_404(Subscription, pk=item_pk)
-
-#     else:
-#         messages.error(request, "An error occurred please try again later")
-
-#     print("--------------------------------")
-#     print(lesson)
-#     print(request.POST.get('instrument', None))
-#     # for check in lesson.instrument:
-#     # list_time = list(map(lambda x: str(x), new_time[0:3]))
-#     # list_time = list(map(lambda x: str(x), lesson.instrument))
-#     # lesson.instruments = createDictList(lesson.instrument.all())
-#     # test = createDictList(lesson.instrument.all())
-#     # test123 = {
-#     #     "something": request.POST['instrument']
-#     # }
-#     # print(type(request.POST['price']))
-#     # print(test123)
-#     # print(request.POST.get('month_duration', None))
-#     # print(request.POST.get('instrument', None))
-#     try:
-#         instruments = lesson.instrument
-#         # intlist = list(map(lambda x: str(x), test))
-#         # print(intlist)
-#         print(request.POST['name'], "request")
-#         # if intlist.index(request.POST['instrument']):
-#             # print("I succeeded")
-#     except Exception as error:
-#         print("I VALUES ERRORED----------------")
-#         print(error)
-#         print("I VALUES ERRORED----------------")
-#         messages.error(request, "An error occurred please try again later")
-
-#     context= {
-
-#     }
-
-#     return redirect(reverse('home'))

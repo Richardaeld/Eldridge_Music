@@ -3,8 +3,8 @@ from decimal import Decimal
 from django.conf import settings
 from merchandise.models import Merch
 
-def cart_contents(request):
 
+def cart_contents(request):
     cart_items = []
     total = 0
     item_count = 0

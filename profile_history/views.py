@@ -21,8 +21,9 @@ def profile(request):
             form.save()
             messages.success(request, "Profile has been updated")
         else:
-            messages.error(request, "Update failed. \
-                Please check the form for validity.")
+            messages.error(request, (
+                'Update failed. Please check the form for validity.'
+            ))
     else:
         form = User_Profile_History_Form(instance=userProfile)
 
@@ -44,8 +45,8 @@ def invoice_history(request, invoice_number):
     invoice = get_object_or_404(Invoice, invoice_number=invoice_number)
 
     messages.info(request, (
-        f'This is a past confirmation for invoice number {invoice_number}. \
-        A conformation email was sent on the invoice date.'
+        f'This is a past confirmation for invoice number {invoice_number}. '
+        'A conformation email was sent on the invoice date.'
     ))
 
     template = 'invoice/checkout_success.html'

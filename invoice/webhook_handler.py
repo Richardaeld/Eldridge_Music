@@ -8,14 +8,14 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 
+
 class StripeWH_Handler:
     """
     Controls webhooks from Stripe
     """
 
-    def __init__(self,request):
+    def __init__(self, request):
         self.request = request
-
 
     def _send_confirmation_email(self, invoice):
         """
@@ -26,7 +26,7 @@ class StripeWH_Handler:
             'checkout/confirmation_email/confirmation_email_subject.txt',
             {'invoice': invoice}
         )
-        
+
         body = render_to_string(
             'checkout/confirmation_email/confirmation_email_body.txt',
             {'invoice': invoice, 'contact_email': settings.DEFAULT_FROM_EMAIL}
@@ -39,16 +39,16 @@ class StripeWH_Handler:
             [cust_email]
         )
 
-
-    def handle_event(self,event):
+    def handle_event(self, event):
         """
         Contorls generic/unknown/unexpected webhook
         """
         return HttpResponse(
-            content=f'Generic/Unknown/Unexpected webhook received: {event["type"]}',
+            content=f'Generic/Unknown/Unexpected \
+                webhook received: {event["type"]}',
             status=200)
 
-    def handle_payment_intent_succeeded(self,event):
+    def handle_payment_intent_succeeded(self, event):
         """
         Contorls payment_intent.succeeded webhook
         """
@@ -110,7 +110,8 @@ class StripeWH_Handler:
         if invoice_exists:
             self._send_confirmation_email(invoice)
             return HttpResponse(
-                content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
+                content=f'Webhook received: {event["type"]} | \
+                    SUCCESS: Verified order already in database',
                 status=200)
         else:
             invoice = None
@@ -146,11 +147,11 @@ class StripeWH_Handler:
 
         self._send_confirmation_email(invoice)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Created invoice in webhooks',
+            content=f'Webhook received: {event["type"]} | \
+                SUCCESS: Created invoice in webhooks',
             status=200)
 
-
-    def handle_payment_intent_payment_failed(self,event):
+    def handle_payment_intent_payment_failed(self, event):
         """
         Contorls payement_intent.payment_failed webhook
         """
