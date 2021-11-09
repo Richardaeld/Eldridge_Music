@@ -9,7 +9,9 @@ from django.conf import settings
 
 
 def merchandise(request):
-
+    """
+    Returns a view of all merchandise items
+    """
     merch = Merch.objects.all()
 
     # Used by user search bar
@@ -39,15 +41,15 @@ def merchandise(request):
 
 
 def specials(request):
-
+    """
+    Returns a view of all discounted merchandise items
+    """
     merch = Merch.objects.all()
-
     merch = merch.filter(special=True)
-
     MEDIA_URL = settings.MEDIA_URL
     template = 'merchandise/merchandise.html'
 
-    context={
+    context = {
         'MEDIA_URL': MEDIA_URL,
         'merchandise': merch,
     }
@@ -56,15 +58,15 @@ def specials(request):
 
 
 def used(request):
-
+    """
+    Returns a view of all used merchandise items
+    """
     merch = Merch.objects.all()
-
     merch = merch.filter(used=True)
-
     MEDIA_URL = settings.MEDIA_URL
     template = 'merchandise/merchandise.html'
 
-    context={
+    context = {
         'MEDIA_URL': MEDIA_URL,
         'merchandise': merch,
     }
@@ -73,9 +75,10 @@ def used(request):
 
 
 def details(request, merch_id):
-
+    """
+    Returns a detailed view of a single merchandise item
+    """
     merch = get_object_or_404(Merch, pk=merch_id)
-
     MEDIA_URL = settings.MEDIA_URL
     template = 'merchandise/details.html'
 
@@ -94,17 +97,18 @@ def add_merch(request):
     """
 
     if not request.user.is_superuser:
-        messages.error(request, "Only store owners are permitted to do that")
+        messages.error(request, "Only store owners are permitted to do that.")
         return redirect(reverse('home'))
 
     if request.method == 'POST':
         form = MerchForm(request.POST, request.FILES)
         if form.is_valid() and request.user.is_superuser:
             item = form.save()
-            messages.success(request, 'Successfully created merchandise')
+            messages.success(request, 'Successfully created merchandise.')
             return redirect(reverse('merch_details', args=[item.id]))
         else:
-            messages.error(request, 'Failed to add merchandise. Please check the form for validity')
+            messages.error(request, 'Failed to add merchandise. \
+                Please check the form for validity.')
     else:
         form = MerchForm()
 
@@ -136,7 +140,8 @@ def edit_merch(request, merch_id):
             messages.success(request, 'Successfully updated merchandise')
             return redirect(reverse('details', args=[item.id]))
         else:
-            messages.error(request, f'Failed to edit {item.name}. Please check the form for validity')
+            messages.error(request, f'Failed to edit {item.name}. \
+                Please check the form for validity.')
     else:
         form = MerchForm(instance=item)
         messages.info(request, f'You are editing {item.name}')
