@@ -113,6 +113,7 @@
       {% url 'merchandise' as merch_url %}
       {% find_page request.get_full_path 'details' as details_url %}
       {% find_page request.get_full_path 'specials' as specials_url %}
+      {% find_page request.get_full_path 'used' as used_url %}
       <!-- Sets url variables with query parameters in url -->
       {% find_active_search merch_url "?genre=Seasonal" as merch_seasonal_url %}
       {% find_active_search merch_url "?genre=Music Education" as merch_edu_url %}
@@ -140,7 +141,7 @@
 
               <!-- Merchandise links -->
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle {% if request.path == merch_url or details_url %} active {% endif %} me-5" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Piano Music Books</a>
+                <a class="nav-link dropdown-toggle {% if request.path == merch_url or details_url %} active {% endif %} me-5" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Piano Books</a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item {% if request.get_full_path == merch_url  %} active {% endif %}" {% if request.get_full_path == merch_url  %} aria-current="page" {% endif %} href="{% url 'merchandise' %}">All Music Books</a></li>
                   <li><hr class="dropdown-divider"></li>
@@ -155,6 +156,11 @@
               <!-- Specials -->
               <li class="nav-item">
                 <a class="nav-link me-5 {% if specials_url  %} active {% endif %}" {% if specials_url  %} aria-current="page" {% endif %} href="{% url 'specials' %}">Specials</a>
+              </li>
+
+              <!-- Used -->
+              <li class="nav-item">
+                <a class="nav-link me-5 {% if used_url  %} active {% endif %}" {% if used_url  %} aria-current="page" {% endif %} href="{% url 'used' %}">Used</a>
               </li>
 
             </ul>

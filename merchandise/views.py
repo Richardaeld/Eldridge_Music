@@ -55,6 +55,23 @@ def specials(request):
     return render(request, template, context)
 
 
+def used(request):
+
+    merch = Merch.objects.all()
+
+    merch = merch.filter(used=True)
+
+    MEDIA_URL = settings.MEDIA_URL
+    template = 'merchandise/merchandise.html'
+
+    context={
+        'MEDIA_URL': MEDIA_URL,
+        'merchandise': merch,
+    }
+
+    return render(request, template, context)
+
+
 def details(request, merch_id):
 
     merch = get_object_or_404(Merch, pk=merch_id)
