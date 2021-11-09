@@ -9,25 +9,19 @@
     <div class="container-fluid index-container-position">
         <div class="row justify-content-center justify-content-md-end">
 
-            <!-- <div class="col-5 index-intro header-shadow">
-                <p>
-                    <strong>EM Studio</strong> was designed to increase music exposure to people of all ages and locations. 
-                    Our music lessons are presented in an online environment to allow them to fit into anyones schedule.
-
-                </p>
-            </div> -->
-
-            <div class=" col-10 col-md-4 me-0 me-md-4 mt-5 index-signup">
+            <div class=" col-10 col-md-4 me-0 me-md-4 mt-5 index-special box-shadow">
                 <div class="row mb-4 justify-content-center">
 
                     <div class="col-12 mt-3">
                         <h2 class="text-uppercase y-center header-font px-3">View our used books!</h2>
                     </div>
 
-                    <div id="sign-up" class="col-8 mt-3 btn btn-light header-box">
-                        <button class="y-center remove-button">
-                            <span class="text-uppercase mb-0"><strong>Search</strong></span>
-                        </button>
+                    <div id="sign-up" class="col-8 mt-2"> <!-- btn btn-light header-box -->
+                        <a href="{% url 'used' %}">
+                            <button class="y-center keep-shopping-button giant-button">
+                                <span class="text-uppercase"><strong>Search</strong></span>
+                            </button>
+                        </a>
                     </div>
 
                 </div>
