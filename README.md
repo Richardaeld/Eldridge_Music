@@ -125,13 +125,19 @@ to peruse our selection and hopfully give some lightly used music books a second
 ### Wire Frame
 ### Live App
 ## Scalability
++ add different music book types, guitar, etc...
++ create a column for each guitar, etc...
 
 # Technology and Languages
 # Testing
 # Bugs and Other Problems
 
 ## Currnet Bugs
++ displaying roman numerals accurately -- django title tag -- no solution
+
 ## Other Problems
++ bootstraps toasts wouldnt function proper -- wrote own JS vanilla
++ Had to remove header that showed the page user was on because names were to big and caused a poor user experience
 
 # Deployment
 ## GitHub - GitPod
