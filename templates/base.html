@@ -38,7 +38,7 @@
     <header class="container-fluid fixed-top">
       <div class="row justify-content-end">
         <!-- Logo -->
-        <div class="col-4 d-none d-lg-block">
+        <div class="d-none d-lg-block header-fit">
           <h1 class="logo-title mb-0 mt-1">
             <a href="{% url 'home' %}">
               Eldridge Music<br>Book Emporium
@@ -46,10 +46,10 @@
           </h1>
         </div>
         <!-- Search bar -->
-        <div class="col-6 my-auto d-none d-lg-block">
-          <form method="GET" action="{% url 'merchandise' %}">
-            <div class="input-group">
-              <input class="form-control rounded-0" name="userquery" type="text" placeholder="Search Lessons">
+        <div class="col my-auto d-none d-lg-block">
+          <form method="GET" action="{% url 'merchandise' %}" class="d-flex justify-content-center ">
+            <div class="input-group input-bar-max">
+              <input class="form-control rounded-0 allauth-input-focus" name="userquery" type="text" placeholder="Search">
               <div class="input-group-append">
                 <button id="user-search-bar" class="btn btn-dark rounded-0" type="submit">
                   <span>
@@ -60,22 +60,27 @@
             </div>
           </form>
         </div>
-        <!-- Profile and shopping bag button -->
-        <div class="header-profile col-2 mt-2 mt-lg-0">
+        <!-- Profile, shopping cart, and search(mobile) buttons  -->
+        <div class="header-profile header-fit mt-2 mt-lg-0">
           <div class="font-aws dropdown">
-            <!-- Shopping bag button -->
+            <!-- Search button -->
+            <button id="mobile-search-reveal" class="d-block d-sm-block d-md-block d-lg-none remove-button header-fontaws" aria-label="Search">
+              <i class="fas fa-search shopping-bag-i" aria-hidden="true"></i>
+              Search
+            </button>
+            <!-- Shopping cart button -->
             <a href="{% url 'shopping_bag' %}">
-              <button class="remove-button shopping-bag-button" aria-label="shopping-cart">
+              <button class="remove-button header-fontaws" aria-label="shopping-cart">
                 <i class="fas fa-shopping-basket shopping-bag-i" aria-hidden="true"></i>
                 {% if grand_total %}
-                  ${{ grand_total|floatformat:2 }}
+                  <span>${{ grand_total|floatformat:2 }}</span>
                 {% else %}
                   <span>$0.00</span>
                 {% endif %}
               </button>
             </a>
             <!-- profile button -->
-            <button class="remove-button profile-button" type="button" id="profile-button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="remove-button header-fontaws" type="button" id="profile-button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fas fa-user-circle" aria-hidden="true"></i>
               <span>Profile</span>
             </button>
@@ -105,9 +110,16 @@
               {% endif %}
             </ul>
           </div>
+          
         </div>
+        
+
+
       </div>
 
+
+
+      
       <!-- Sets url variables -->
       {% url 'home' as home_url  %}
       {% url 'merchandise' as merch_url %}
@@ -167,6 +179,23 @@
           </div>
         </div>
       </nav>
+
+      <!-- Mobile search bar -->
+      <div id="mobile-search" class="col-12 invis my-3 mobile-search">
+        <form method="GET" action="{% url 'merchandise' %}">
+          <div class="input-group">
+            <input class="form-control rounded-0 allauth-input-focus" name="userquery" type="text" placeholder="Search" >
+            <div class="input-group-append">
+              <button id="mobile-user-search-bar" class="btn btn-dark rounded-0" type="submit">
+                <span>
+                  <i class="fas fa-search" aria-hidden="true"></i>
+                </span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
       <!-- Info header bar -->
       <div class="row">
         <div class="col-12 header-special">
@@ -203,8 +232,8 @@
     {% endblock %}
 
     {% block postload_js %}
-      <!-- Reveal toasts if they exist -->
-      <script type="text/javascript">
+    <script type="text/javascript">
+        // Reveal toasts if they exist
         var toastExist = document.getElementsByClassName('toast')
           if (toastExist.length > 0) {
             document.getElementsByClassName('toast')[0].style.opacity = "1";
@@ -218,6 +247,17 @@
               }, 2000);
             });
           }
+
+          // Reveals/hides mobile search bar
+          let searchBar = document.getElementById("mobile-search");
+          document.getElementById("mobile-search-reveal").addEventListener("click", function () {
+            if(searchBar.classList.contains("invis")) {
+              searchBar.classList.remove("invis");
+            } else {
+              searchBar.classList.add("invis");
+            }
+          })
+
       </script>
     {% endblock %}
 

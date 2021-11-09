@@ -34,7 +34,7 @@ a {
     text-decoration: none;
 }
 
-button[type='submit']:not(#user-search-bar),
+button[type='submit']:not(#user-search-bar):not(#mobile-user-search-bar),
 .keep-shopping-button,
 .generic-button {
     padding: .25em .5em;
@@ -46,7 +46,7 @@ button[type='submit']:not(#user-search-bar),
     color: #fff;
 }
 /* General submit button */
-button[type='submit']:not(#user-search-bar):not(.remove-quantity) {
+button[type='submit']:not(#user-search-bar):not(.remove-quantity):not(#mobile-user-search-bar) {
     /* padding: .25em .5em; */
     border: 2px solid #1bc732!important;
     /* border-radius: 5px; */
@@ -118,6 +118,7 @@ input:read-only {
     height: 100%;
     background: linear-gradient(135deg, #36a2cf, #30DFE6, #82650E, #9c19e6, #6021cf);
     background: linear-gradient(135deg, #36a2cf, #39ABDB, #30DFE6, #39ABDB, #36a2cf);
+    background: linear-gradient(135deg, #FFE082, #B39849, #FFE082, #B39849, #FFE082);
     color:#575757c0
 }
 
@@ -177,21 +178,40 @@ header {
     font-family: "LimeLight", sans-serif;
     font-size: 2rem;
     position: relative;
-    text-shadow: -4px -4px 5px #faedc65b,
-                -2px -2px 0px #cea52b,
-                0px 0px 3px rgba(0, 0, 0, .75);
+    text-shadow: -2px -2px 2px #faedc65b,
+                /* -1px -1px 0px #cea52b; */
+                /* 1px 1px 0px rgba(0, 0, 0, .75); */
+                /* 1px 1px 0px #82650e, */
+                /* 1px 1px 0px #a66e07, */
+                1px 1px 0px #9c7d21,
+                2px 2px 1px rgba(0, 0, 0, .75),
+                3px 3px rgba(0, 0, 0, 0.452);
     -webkit-background-clip: text;
+    /* color: #cea52b; */
+    /* color: #cea52b4d; */
 }
 
+.header-fit{
+    width:fit-content
+}
+.input-bar-max {
+    margin-right: 15%;
+    margin-left: 10%;
+    width: 70%;
+}
 nav li {
     font-size: 1.5rem;
 }
 
 .header-special {
     height: 2.5rem;
-    background-color: #4e4e4e;
     background-color: #9C7D21;
     background-color: #993C02;
+    background-color: #029599;
+    background-color: #A66E07;
+    background-color: #A61507;
+    background-color: #004B4D;
+    background-color: #4e4e4e;
     /* border-bottom: 2px solid #474747; */
 }
 
@@ -217,19 +237,12 @@ nav li {
     transform: translateY(25%);
 }
 
-.profile-button i {
-    font-size: 3rem;
+.header-fontaws i {
     font-size: 1.5rem;
 }
 
-.shopping-bag-button i {
-    font-size: 1.5rem;
-}
-
-.shopping-bag-button i,
-.shopping-bag-button span,
-.profile-button i,
-.profile-button span {
+.header-fontaws i,
+.header-fontaws span {
     display: block;
 }
 
@@ -239,6 +252,24 @@ nav li {
 
 .active {
     text-shadow: 1px 1px 1px #555!important;
+}
+
+.invis {
+    display: none;
+}
+
+/* mimics allauth focus */
+.allauth-input-focus:active + div,
+.allauth-input-focus:focus + div {
+box-shadow: 0px 0px 0px rgba(0, 0, 0, .5),
+    4px 4px #bcd8f5,
+    4px -4px #bcd8f5;
+}
+
+.allauth-input-focus + div {
+    position: relative;
+    left: 1px;
+    transition-duration: .15s;
 }
 
 /* -------------------------------------------------------------------toasts---------------------------------------------------------------- */
@@ -337,15 +368,11 @@ nav li {
                 -3px 3px #bcd8f5,
                 -3px -3px #bcd8f5,
                 3px -3px #bcd8f5;
-
-
 }
 
 .custom-allauth label:not([for='id_remember']){
     display: none;
 }
-
-
 
 .custom-allauth label[for='id_remember'],
 .custom-allauth input[id='id_remember'] {
@@ -430,48 +457,52 @@ nav li {
 
 /* -------------------------------------------------------------------breakpoints---------------------------------------------------------------- */
 @media (max-width: 575.98px) {
+    /* special bar (bottom of nav header)  */
     .header-special p {
         font-size: .9rem;
     }
 }
 
 @media (max-width: 767.98px) {
+    /* logo */
     .logo-title {
         font-size: 1rem;
     }
 }
 
 @media (max-width: 991.98px) {
+    /* logo */
     .logo-title {
         font-size: 1.5rem;
     }
+    /* general */
     nav li {
         font-size: 1rem;
     }
+
+    /* Profile, cart, search buttons */
     .font-aws {
         top: inherit;
         transform: translateY(0);
     }
-
     .header-profile {
         position: absolute;
-
+        top: -.25em;
     }
 
+    /* custom scroll bar */
     .custom-scroll::-webkit-scrollbar {
         width: 7px;
     }
 
+    /* Fixed position main header  */
     .nav-header-height {
         height: 112px;
     }
-
 }
 
 @media (max-width: 1199.98px) {
-
 }
 
 @media (max-width: 1399.98px) {
-
 }
