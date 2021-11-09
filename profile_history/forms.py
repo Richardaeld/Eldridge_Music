@@ -5,7 +5,6 @@ from .models import User_Profile_History
 class User_Profile_History_Form(forms.ModelForm):
     class Meta:
         model = User_Profile_History
-        # fields = ('default_full_name', 'default_email', 'default_phone', 'default_street_address', 'default_city', 'default_state_county', 'default_post_code', 'default_country',)
         exclude = ('user',)
 
     def __init__(self, *args, **kwargs):
@@ -15,8 +14,6 @@ class User_Profile_History_Form(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
-            # 'default_full_name': 'Full Name',
-            # 'default_email': 'Email Address',
             'default_phone': 'Phone Number',
             'default_city': 'City',
             'default_street_address_billing': 'Billing Street Address',
