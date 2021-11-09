@@ -61,12 +61,12 @@
           </form>
         </div>
         <!-- Profile and shopping bag button -->
-        <div class="header-profile col-2 mt-2 mt-lg-0"> <!--  mt-2 mt-lg-0-->
+        <div class="header-profile col-2 mt-2 mt-lg-0">
           <div class="font-aws dropdown">
             <!-- Shopping bag button -->
             <a href="{% url 'shopping_bag' %}">
-              <button class="remove-button shopping-bag-button">
-                <i class="fas fa-shopping-basket shopping-bag-i"></i>
+              <button class="remove-button shopping-bag-button" aria-label="shopping-cart">
+                <i class="fas fa-shopping-basket shopping-bag-i" aria-hidden="true"></i>
                 {% if grand_total %}
                   ${{ grand_total|floatformat:2 }}
                 {% else %}
@@ -75,11 +75,11 @@
               </button>
             </a>
             <!-- profile button -->
-            <button class="remove-button profile-button" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false" style="">
-              <i class="fas fa-user-circle"></i>
+            <button class="remove-button profile-button" type="button" id="profile-button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-user-circle" aria-hidden="true"></i>
               <span>Profile</span>
             </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <ul class="dropdown-menu" aria-labelledby="profile-button">
 
               {% if request.user.is_authenticated %}
                 {% if request.user.is_superuser %}
@@ -91,16 +91,16 @@
                   <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="{% url 'account_logout' %}">logout</a>
+                  <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
                 </li>
                 {% if request.user.is_superuser %}
                 {% endif %}
               {% else %}
                 <li>
-                  <a class="dropdown-item" href="{% url 'account_login' %}">login</a>
+                  <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="{% url 'account_signup' %}">Create account</a>
+                  <a class="dropdown-item" href="{% url 'account_signup' %}">Create Account</a>
                 </li>
               {% endif %}
             </ul>
@@ -110,18 +110,10 @@
 
       <!-- Sets url variables -->
       {% url 'home' as home_url  %}
-      <!-- {% url 'coaxsio' as coaxsio_url  %} -->
-      <!-- {% url 'lessons' as lesson_url %} -->
-      <!-- {% url 'subscriptions' as subs_url %} -->
       {% url 'merchandise' as merch_url %}
       {% find_page request.get_full_path 'details' as details_url %}
       {% find_page request.get_full_path 'specials' as specials_url %}
       <!-- Sets url variables with query parameters in url -->
-      <!-- {% find_active_search lesson_url "?instrument=Piano" as lesson_piano_url %}
-      {% find_active_search lesson_url "?instrument=Guitar" as lesson_guitar_url %}
-      {% find_active_search lesson_url "?instrument=Vocal" as lesson_vocal_url %}
-      {% find_active_search lesson_url "?instrument=Flute" as lesson_flute_url %} -->
-
       {% find_active_search merch_url "?genre=Seasonal" as merch_seasonal_url %}
       {% find_active_search merch_url "?genre=Music Education" as merch_edu_url %}
       {% find_active_search merch_url "?genre=Classical" as merch_classical_url %}
@@ -130,17 +122,17 @@
 
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-          <button class="navbar-toggler my-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler my-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation-bar" aria-controls="navigation-bar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent"> <!-- check id -->
+          <div class="collapse navbar-collapse" id="navigation-bar">
 
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0" id="navigation-bar">
 
               <!-- Responsive home logo/link -->
               <li class="nav-item">
                 <a class="nav-link {% if request.path == home_url  %} active {% endif %} me-5" {% if request.path == home_url  %} aria-current="page" {% endif %} href="{% url 'home' %}">
-                  <span class="d-block d-lg-none d-xl-none d-xxl-none logo-title pt-2 pb-0">Eldridge Music Studio</span>
+                  <span class="d-block d-lg-none d-xl-none d-xxl-none logo-title pt-2 pb-0">Eldridge Music Book Emporium</span>
                   <span class="d-block d-lg-none d-xl-none d-xxl-none mb-4"><hr class="dropdown-divider"></span>
                   <span>Home</span>
                 </a>
@@ -148,7 +140,7 @@
 
               <!-- Merchandise links -->
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle {% if request.path == merch_url or details_url %} active {% endif %} me-5" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Music Books</a>
+                <a class="nav-link dropdown-toggle {% if request.path == merch_url or details_url %} active {% endif %} me-5" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Piano Music Books</a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item {% if request.get_full_path == merch_url  %} active {% endif %}" {% if request.get_full_path == merch_url  %} aria-current="page" {% endif %} href="{% url 'merchandise' %}">All Music Books</a></li>
                   <li><hr class="dropdown-divider"></li>
@@ -160,42 +152,19 @@
                 </ul>
               </li>
 
-              <!-- lessons links -->
-              <!-- <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle {% if request.path == lesson_url  %} active {% endif %} me-5" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Lessons</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item {% if request.get_full_path == lesson_url  %} active {% endif %}" {% if request.get_full_path == lesson_url  %} aria-current="page" {% endif %} href="{% url 'lessons' %}">All Lessons</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item {% if request.get_full_path == lesson_piano_url %} active {% endif %}" {% if request.get_full_path == lesson_piano_url  %} aria-current="page" {% endif %} href="{% url 'lessons' %}?instrument=Piano">Piano</a></li>
-                    <li><a class="dropdown-item {% if request.get_full_path == lesson_guitar_url %} active {% endif %}" {% if request.get_full_path == lesson_guitar_url  %} aria-current="page" {% endif %} href="{% url 'lessons' %}?instrument=Guitar">Guitar</a></li>
-                    <li><a class="dropdown-item {% if request.get_full_path == lesson_vocal_url %} active {% endif %}" {% if request.get_full_path == lesson_vocal_url  %} aria-current="page" {% endif %} href="{% url 'lessons' %}?instrument=Vocal">Vocal</a></li>
-                    <li><a class="dropdown-item {% if request.get_full_path == lesson_flute_url %} active {% endif %}" {% if request.get_full_path == lesson_flute_url  %} aria-current="page" {% endif %} href="{% url 'lessons' %}?instrument=Flute">Flute</a></li>
-                </ul>
-              </li> -->
-              <!-- Specific lesson/subscription/special name -->
-              <!-- {% if details_url %}
-                <li class="nav-item">
-                  <a class="nav-link me-5 active" aria-current="page" href="#">{{ merch.name | truncatechars:25 }}</a>
-                </li>
-              {% endif %} -->
               <!-- Specials -->
               <li class="nav-item">
                 <a class="nav-link me-5 {% if specials_url  %} active {% endif %}" {% if specials_url  %} aria-current="page" {% endif %} href="{% url 'specials' %}">Specials</a>
               </li>
-              <!-- Online piano -->
-              <!-- <li class="nav-item">
-                <a class="nav-link {% if request.path == coaxsio_url  %} active {% endif %}" {% if request.path == coaxsio_url  %} aria-current="page" {% endif %} href="{% url 'coaxsio' %}">Online Piano</a>
-              </li> -->
 
             </ul>
-
           </div>
         </div>
       </nav>
       <!-- Info header bar -->
       <div class="row">
         <div class="col-12 header-special">
-          <p class="y-center mb-0">Free delivery for purchases over ${{ FREE_DELIVERY_THRESHOLD }}</p>
+          <p class="y-center mb-0 text-uppercase">Free Delivery for Purchases Over ${{ FREE_DELIVERY_THRESHOLD }}</p>
         </div>
       </div>
     </header>
@@ -243,8 +212,6 @@
               }, 2000);
             });
           }
-
-
       </script>
     {% endblock %}
 
