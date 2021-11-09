@@ -127,6 +127,7 @@ to peruse our selection and hopfully give some lightly used music books a second
 ## Scalability
 + add different music book types, guitar, etc...
 + create a column for each guitar, etc...
++ add a 'special' to the index page as a way to tempt users to make an additional purchase
 
 # Technology and Languages
 # Testing
