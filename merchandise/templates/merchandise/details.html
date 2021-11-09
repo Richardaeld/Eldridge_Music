@@ -10,12 +10,12 @@
     <div class="container-fluid">
         <div class="row justify-content-around">
             <div class="blank-overlay"></div>
-            <div id="card" class="col-10 col-lg-8 col-xl-6 mt-5">
+            <div id="card" class="col-12 col-md-10 col-xl-6 mt-5">
                 <!-- <div class=""> -->
                 <div class="row g-0 merch-card mb-3">
 
                     <!-- image -->
-                    <div class="col-10 col-sm-6 col-md-4 merch-image details-image">
+                    <div class="col-5 merch-image details-image">
                         <div class="merch-image-background"></div>
                         <!-- Floating header for cards - tells if discount or used book -->
                         {% if merch.special or merch.used %}
@@ -35,7 +35,7 @@
                     </div>
 
                     <!-- details -->
-                    <div id="card-body" class="col-11 col-sm-10 col-md-7">
+                    <div id="card-body" class="col-7">
 
                         <!-- edit/delete buttons -->
                         {% if request.user.is_superuser %}
@@ -58,7 +58,7 @@
                                 By: {{ merch.author }}
                             </p>
                             <!-- Merch description -->
-                            <p class="my-4">
+                            <p class="my-md-2 my-lg-4">
                                 {{ merch.description }}
                             </p>
                             <!-- Merch rating -->
@@ -80,9 +80,9 @@
                                 </p>
                             {% endif %}
 
-                            <form action="{% url 'add_to_cart' merch.id %}" method="POST">
+                            <form action="{% url 'add_to_cart' merch.id %}" method="POST" class="my-3">
                                 {% csrf_token %}
-                                <p class="merch-name">Quantity:</p>
+                                <p class="text-muted mb-0 ">Quantity:</p>
                                 <div id="bag" class="mx-0 px-0">
                                     <div id="remove-button" class="mx-0 px-0">
                                         <span>-</span>
@@ -97,14 +97,14 @@
 
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
 
-                                <div class="mb-3 mt-3 d-flex justify-content-between">
+                                <div class="d-flex justify-content-between">
 
-                                    <button type="submit">
-                                        <span class="p-2 white-text">Purchase</span>
+                                    <button type="submit" class="my-3">
+                                        <span class="p-0 p-sm-2 white-text">Purchase</span>
                                     </button>
 
-                                    <a href="{% url 'merchandise' %}" class="keep-shopping-button">
-                                        <span class="p-2 white-text">Keep Shopping</span>
+                                    <a href="{% url 'merchandise' %}" class="keep-shopping-button my-3">
+                                        <span class="p-0 p-sm-2 white-text">Keep Shopping</span>
                                     </a>
 
                                 </div>

@@ -11,7 +11,7 @@ select {
 .merch-card,
 .merch-image-background,
 .custom-scroll {
-    height: 25rem;
+    height: 30rem;
 }
 /* ------------------ General body for cards */
 .merch-card {
@@ -40,7 +40,8 @@ select {
 }
 
 .merch-image img {
-    height: 200px;
+    /* overflow: hidden; */
+    max-height: calc(25rem - 2rem);
     position: relative;
     background-size: contain;
     width: auto;
@@ -161,4 +162,42 @@ select {
 
 #add-button {
     
+}
+
+@media (max-width: 767.98px) {
+    .merch-card p,
+    .merch-card button,
+    .merch-card a {
+        font-size: .85rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .merch-card p,
+    .merch-card button,
+    .merch-card a,
+    #remove-button,
+    #add-button,
+    #in-bag {
+        font-size: .65rem;
+    }
+    #remove-button,
+    #in-bag,
+    #add-button  {
+        height: 15px;
+        line-height: 10px;
+        color: #fff;
+        vertical-align:middle;
+    }
+
+    #in-bag input {
+        height:15px;
+    }
+
+    .merch-card,
+    .merch-image-background,
+    .custom-scroll {
+        height: 25rem;
+    }
+
 }
