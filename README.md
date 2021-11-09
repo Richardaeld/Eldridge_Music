@@ -48,11 +48,67 @@
 --------------------------------------------------------------------------------------
 
 # Introduction
+Eldridge Music Book Emporium is dedicated to spreading the love and appreciation of music through the exchange of used and new music books. 
+We are a small mom and pop shop that is entering the 21st century with our first e-commerce store! Currently we have plans to expand our 
+music selection to include other books than Piano, however it might be some time until we make it that far. Until then please spend a moment 
+to peruse our selection and hopfully give some lightly used music books a second chance!
+
 # UX
 ## Goals
 ### User Stories
-### Developer Goals
-## Client Stories
++ As a shopper I want to view all merchandise.
+    + I opened the home page of Eldridge Music Book Emporium. I clicked on, 'Music Books' on the header and I saw a drop down menu. I then 
+    clicked on, 'All Music Books' and saw a list of all the music books of the site.
++ As a shopper I want to view a specific merchandise's detailed information.
+    + I opened the home page of Eldridge Music Book Emporium. I clicked on, 'Music Books' on the header and I saw a drop down menu. I then 
+    clicked on, 'All Music Books' and saw a list of all the music books of the site. I found a book I liked and clicked on the merchandise 
+    card and found all the detailed information I needed.
++ As a shopper I want to see all discounted merchandise.
+    + I opened the home page of Eldridge Music Book Emporium. I clicked on, 'Specials' on the header and was taken to a page containing 
+    all the discounted music books.
++ As a shopper I want to view all items in my cart.
+    + As I am shopping I'm curious how much money I am spending on my selected merchandise. I click on a cart icon in the top right corner 
+    of the page and I'm taken to a page where I can see all the items I have in my cart and the total amount of money it will cost me.
++ As a shopper I want to be able to sort the available products by their category.
+    + I opened the home page of Eldridge Music Book Emporium. I clicked on, 'Music Books' on the header and I saw a drop down menu. I then 
+    am able to select which category of music books I would like to view.
++ As a shopper I want to be able to search for an item by name, description, or composer.
+    + I opened the home page of Eldridge Music Book Emporium. I see a user input search bar and input the composer I am looking for. I am 
+    taken to a page containing all the books composed by the composer I input.
++ As a shopper I want to be sent a confirmation email after I checkout.
+    + As I am finishing shopping I click the, 'Go to secure checkout' button and I am taken to a from I must fill to check out. I finish 
+    form and after I submit it I am sent an email with detailed information about my order.
+
++ As a returning user I would like a create an account.
+    + I opened the home page of Eldridge Music Book Emporium. I click on the profile button on the top right corner of the page and I am 
+    able to click, 'Create Account'. I am taken to a page where I can start the process to create an acoount.
++ As a returning user I would like a confirmation email after registering.
+    + I opened the home page of Eldridge Music Book Emporium. I click on the profile button on the top right corner of the page and I am 
+    able to click, 'Create Account'. I am taken to a page where I can start the process to create an acoount and when I finish I am sent 
+    a confirmation email.
++ As a returning user I would like to easily login or logout.
+    + I opened the home page of Eldridge Music Book Emporium. I click on the profile button on the top right corner of the page and I am 
+    able to click, 'Login'. I am taken to a page and asked to login.
++ As a returning user I would like to recover my forgotten passord.
+    + I opened the home page of Eldridge Music Book Emporium. I click on the profile button on the top right corner of the page and I am 
+    able to click, 'Login'. I click a button 'Forgot Password?' and I am taken to a password reset page.
++ As a returning user I would like to have a personalized profile that has all my previous order information.
+    + I opened the home page of Eldridge Music Book Emporium. I click on the profile button on the top right corner of the page and I am 
+    able to click, 'Login'. I am taken to a page where I login. After I login I can clearly see all of my previous orders.
++ As a returning user I would like to update my shipping information.
+    + I opened the home page of Eldridge Music Book Emporium. I click on the profile button on the top right corner of the page and I am 
+    able to click, 'Login'. I am taken to a page where I login. After I login I can clearly see all of my shipping information. I update 
+    my shipping information and submit the changes.
+
++ As a store manager I want to be able to add merchandise.
+    + I login with my store manager account. I click on the profile button and select, 'Merchandise Management'. I am taken to a page 
+    where I can add a merchandise item.
++ As a store manager I want to be able to edit merchandise.
+    + I login with my store manager account. I search for and find the item that needs editing. On the top right corner of the merchandise 
+    card I see a button that says, 'edit'. I click this button and I am able to edit all the fields of the merchandise item
++ As a store manager I want to be able to delete merchandise.
+    + I login with my store manager account. I search for and find the item that needs to be removed from the store. On the top right 
+    corner of the merchandise card I see a button that says, 'delete'. I click the delete button and the item is removed from the store.
 
 # Design Choices
 ## Home
