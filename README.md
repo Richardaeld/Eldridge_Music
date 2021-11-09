@@ -139,6 +139,7 @@ to peruse our selection and hopfully give some lightly used music books a second
 ## Other Problems
 + bootstraps toasts wouldnt function proper -- wrote own JS vanilla
 + Had to remove header that showed the page user was on because names were to big and caused a poor user experience
++ User search bar off-center -- had to guess with a margin %
 
 # Deployment
 ## GitHub - GitPod
