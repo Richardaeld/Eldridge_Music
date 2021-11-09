@@ -4,3 +4,4 @@ __pycache__
 extra_commands_and_env_options.txt
 venv*
 env.py
+.vscode
