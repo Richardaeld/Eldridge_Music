@@ -19,7 +19,7 @@
                     <a href="{% url 'merch_details' merch.id %}" class="merch-image col-5">
                         <div class="merch-image-background"></div>
 
-                        <!-- Floating header for cards -- tells if discount or used book -->
+                        <!-- Floating header for cards - tells if discount or used book -->
                         {% if merch.special or merch.used %}
                             <div class="image-banner">
                                 {% if merch.special and merch.used %}
@@ -39,10 +39,9 @@
                     <!-- edit/delete buttons -->
                     {% if request.user.is_superuser %}
                         <small class="super-buttons d-flex justify-content-end">
-                            <p>
-                                <a href="{% url 'edit_merch' merch.id %}" class="edit-merch">Edit</a> |
-                                <a href="{% url 'delete_merch' merch.id %}" class="delete-merch">Delete</a>
-                            </p>
+                            <a href="{% url 'edit_merch' merch.id %}" class="edit-merch">Edit</a>
+                            <span> / </span>
+                            <a href="{% url 'delete_merch' merch.id %}" class="delete-merch">Delete</a>
                         </small>
                     {% endif %}
                     <!-- General merch information -->
