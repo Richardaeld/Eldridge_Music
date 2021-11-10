@@ -183,10 +183,11 @@ to peruse our selection and hopfully give some lightly used music books a second
 + GitHub houses the [master branch](https://github.com/Richardaeld/Eldridge_Music).
 
 ## Scalability
-+ add different instrument music book types -- create a column for each
-+ add a 'special' to the index page as a way to tempt users to make an additional purchase
-+ allow picutures to be clickable
-+ add a warning for superusers when they click the delete merchandise button
++ Different instrument music books could be added To expand the shop further.
+    + These new instrument books could be added to the apps navbar next to piano books or use the categories within piano books to be selectors.
++ The index page could feature a special that is a small contianer with a captioned image to help entice users to make a unexpected purchase.
++ Allow images to show a larger image (in a modal) if clicked.
++ Add a warning modal for superusers when they click the delete merchandise button
 
 # Technology and Languages
 + HTML - Skeleton frame of the application.
@@ -197,21 +198,37 @@ to peruse our selection and hopfully give some lightly used music books a second
         + Allauth - An app that allows login, log out, password recovery and more.
         + Stripe - An app that allows users to securely use their credit cards.
         + Postgres - The type of SQL server used to store infofrmation.
-        + Crispy Forms - 
+        + Crispy Forms - Allows for forms to easily, quickly, and neatly be created and configured.
 + AWS - A Server used to store static and media files
 
 # Testing
 + The **Testing** documentation can be found on [TESTING.md](TESTING.md).
 
 # Bugs and Other Problems
-
 ## Current Bugs
-+ displaying roman numerals accurately -- django title tag -- no solution
++ Roman numerals in names for merchandise items display inaccurately.
+    + Caused by:
+        + The use of Django's tag title `{% | title %}`.
+    + Thought(s):
+        + If title is removed from the name templating and superusers entered everything in 100% accurate this could be avoided.
+        + If a `text-transfrom: uppercase` css command is used it would solve this problem but create an overall poorer user experience.
 
 ## Other Problems
-+ bootstraps toasts wouldnt function proper -- wrote own JS vanilla
-+ Had to remove header that showed the page user was on because names were to big and caused a poor user experience
-+ User search bar off-center -- had to guess with a margin %
++ Bootstrap's toasts wouldn't show up on screen.
+    + Caused by:
+        + Some error with jQuery.
+    + Fix:
+        + Wrote custom JS script to reveal any toasts.
++ An active link header was originally used to display the name of the item a user was viewing however, some names proved to be to large.
+    + Caused by:
+        + Names longer than 15 characters.
+    + Fix:
+        + Removed the active link that showed users the name of the product they were on.
++ User search bar on the fixed header was evidently askew.
+    + Caused by:
+        + Responsive design header that used book strap fixed size cols and possibly a myriad of other problems.
+    + Fix:
+        + A combination of flex, guessed left/right margins, and Bootstrap.
 
 # Deployment
 ## GitHub - GitPod
