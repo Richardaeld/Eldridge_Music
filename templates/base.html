@@ -120,9 +120,9 @@
       {% find_page request.get_full_path 'used' as used_url %}
       <!-- Sets url variables with query parameters in url -->
       {% find_active_search merch_url "?genre=Seasonal" as merch_seasonal_url %}
-      {% find_active_search merch_url "?genre=Music&nbspEducation" as merch_edu_url %}
+      {% find_active_search merch_url "?genre=Music&nbsp;Education" as merch_edu_url %}
       {% find_active_search merch_url "?genre=Classical" as merch_classical_url %}
-      {% find_active_search merch_url "?genre=Video&nbspGame" as merch_video_game_url %}
+      {% find_active_search merch_url "?genre=Video&#160;Game" as merch_video_game_url %}
       {% find_active_search merch_url "?genre=Score" as merch_score_url %}
 
       <nav class="navbar navbar-expand-lg navbar-light">
@@ -150,9 +150,9 @@
                   <li><a class="dropdown-item {% if request.get_full_path == merch_url  %} active {% endif %}" {% if request.get_full_path == merch_url  %} aria-current="page" {% endif %} href="{% url 'merchandise' %}">All Music Books</a></li>
                   <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item {% if request.get_full_path == merch_seasonal %} active {% endif %}" {% if request.get_full_path == merch_seasonal %} aria-current="page" {% endif %} href="{% url 'merchandise' %}?genre=Seasonal">Seasonal</a></li>
-                    <li><a class="dropdown-item {% if request.get_full_path == merch_edu_url %} active {% endif %}" {% if request.get_full_path == merch_edu_url %} aria-current="page" {% endif %} href="{% url 'merchandise' %}?genre=Music&nbspEducation">Music Education</a></li>
+                    <li><a class="dropdown-item {% if request.get_full_path == merch_edu_url %} active {% endif %}" {% if request.get_full_path == merch_edu_url %} aria-current="page" {% endif %} href="{% url 'merchandise' %}?genre=Music Education">Music Education</a></li>
                     <li><a class="dropdown-item {% if request.get_full_path == merch_classical_url %} active {% endif %}" {% if request.get_full_path == merch_classical_url %} aria-current="page" {% endif %} href="{% url 'merchandise' %}?genre=Classical">Classical</a></li>
-                    <li><a class="dropdown-item {% if request.get_full_path == merch_video_game_url %} active {% endif %}" {% if request.get_full_path == merch_video_game_url %} aria-current="page" {% endif %} href="{% url 'merchandise' %}?genre=Video&nbspGame">Video Game</a></li>
+                    <li><a class="dropdown-item {% if request.get_full_path == merch_video_game_url %} active {% endif %}" {% if request.get_full_path == merch_video_game_url %} aria-current="page" {% endif %} href="{% url 'merchandise' %}?genre=Video Game">Video Game</a></li>
                     <li><a class="dropdown-item {% if request.get_full_path == merch_score_url %} active {% endif %}" {% if request.get_full_path == merch_score_url %} aria-current="page" {% endif %} href="{% url 'merchandise' %}?genre=Score">Score</a></li>
                 </ul>
               </li>
