@@ -111,29 +111,101 @@ to peruse our selection and hopfully give some lightly used music books a second
     corner of the merchandise card I see a button that says, 'delete'. I click the delete button and the item is removed from the store.
 
 # Design Choices
+## Base - header
++ Logo was given a layered effect that gives it a near shinning look
++ Search bar can be used to search: description, composer, name.
++ A profile icon and button allow users to access log in/out functions, superuser functions, and user profile.
++ A cark icon shows users how much they are spending and will take them to their cart
++ A bar that display's the sites current special.
+
 ## Home
++ A hero image was used with a musical theme.
++ A container with a header that displays the site's new or discounted items to help lure in more customers.
 
 ## login/logout/etc...
++ Allauth's templates were used with Bootstrap 4's styling.
++ Additional styling was added to give the templates a unique feeling.
+
 ## Merchandise
-# Specials
++ A warm and inviting linear gradient was used for the background.
++ Each Merchandise item has its own card that helps it stand out from the background.
++ A used and discount banner are added to merchandise with those tags. This helps users find a cheaper option.
++ Each card has general text and an image of the merchandise to give users all the basic information at a glance.
+    + All information has a character max to keep cards brief.
++ Each card is fitted with superuser edit/delete options for easy of inventory management.
+
+## Specials
++ A view that returns only discounted merchandise for the user to see in the same format as the Merchandise view
+
+## Used
++ A view that returns only used merchandise for the user to see in the same format as the Merchandise view
+
 ## Merchandise Details
-## Invoice/Checkout
++ A warm and inviting linear gradient was used for the background.
++ A single card is featured here with its full content unabbreviated.
+
 ## Cart
++ With nothing in the cart this view asks users to continue shopping.
++ This view allows users to see each item, its quantity, sub-total and more for quickly deciding if they are happy with their order before preceding to the checkout.
++ A convenient remove button is put in the quantity column for users to easilly remove an item.
++ A quantity adjustment input for users to easily adjust the amount of a merchandise item they want.
++ This view features a sub-total per item and a total item subtotal, along with a delivery total and grand total.
+
+## Invoice/Checkout
++ This view give shows a cart summary with grand total to be sure customers know what they are about to order.
++ An invoice a simple form that asks for the users basic shipping and payment information.
++ If the user is signed and has saved their basic informaition the aformentioned form will be prepopulated for the user.
++ This from also allows signed in users to update their information when they submit an invoice.
+
 ## Profile
++ This view allows users to see their basic shipping information and all previous invoices.
++ Two buttons located at the top of the form allow users to view their shipping information, previous invoices, or both.
++ User's can update their shipping information from the prefered shipping form on this view.
+
 ## Superuser Merchandise CRUD views
++ The add (Merchandise Management) view returns a blank merchandise model so a superuser can create a fully functional new item.
++ The edit view returns a prefilled merchandise model so a superuser can edit any part of the item.
++ The delete view deletes the item without a secondary view.
+
 ## Wireframe and Live Applications
 ### Wire Frame
++ Each wireframe contains curly brackets that give a description of its contents and what the filler (missing database data) content should be.
+![Wireframe of the index page](static/readme/wireframe/index-page-large.png "Wireframe of the index page")
++ Balsamiq was used for the planning process and wireframe creation.
++ Wireframes were made for all predetermined size variations of the application.
++ Wireframes were made for the modals to streamline their design. This also allowed for the modals to be shown without over complicating the wireframe design.
++ [Click here to view all wireframes associated to this project.](static/readme/wireframe "Location of wireframes")
+
 ### Live App
++ A fully functioning application can be found on [Heroku](https://eldridge-music.herokuapp.com/ "Deplayment location").
+![Index page of the Eldridge Music Book Emporium](static/readme/demo/demo-index-large.jpg "Index page of Eldridge Music Book Emporium")
++ GitHub's IDE GitPod was used for the construction process.
++ GitHub houses the [master branch](https://github.com/Richardaeld/Eldridge_Music).
+
 ## Scalability
-+ add different music book types, guitar, etc...
-+ create a column for each guitar, etc...
++ add different instrument music book types -- create a column for each
 + add a 'special' to the index page as a way to tempt users to make an additional purchase
++ allow picutures to be clickable
++ add a warning for superusers when they click the delete merchandise button
 
 # Technology and Languages
++ HTML - Skeleton frame of the application.
++ CSS - Beautifies the skeleton (HTML).
++ JavaScript - Allows for user interaction and limited dynamic function on the application.
++ Python - Allows dynamic function and back end programs to run. These programs (frameworks, libraries, and databases) are:
+    + Django - Allows use of templating, security, and other critical functions.
+        + Allauth - An app that allows login, log out, password recovery and more.
+        + Stripe - An app that allows users to securely use their credit cards.
+        + Postgres - The type of SQL server used to store infofrmation.
+        + Crispy Forms - 
++ AWS - A Server used to store static and media files
+
 # Testing
++ The **Testing** documentation can be found on [TESTING.md](TESTING.md).
+
 # Bugs and Other Problems
 
-## Currnet Bugs
+## Current Bugs
 + displaying roman numerals accurately -- django title tag -- no solution
 
 ## Other Problems
@@ -202,7 +274,7 @@ to peruse our selection and hopfully give some lightly used music books a second
     + Extremely helpful for explaining base HTML, CSS, and JavaScript principles.
 + [World Wide Web Consortium (W3C)](https://www.w3.org/)
     + Used to understand basic standardization practices for web-based apps.
-+[Django](https://docs.djangoproject.com/en/3.2/)
++ [Django](https://docs.djangoproject.com/en/3.2/)
     + A through guide to this massive and intricate frame work.
 
 
