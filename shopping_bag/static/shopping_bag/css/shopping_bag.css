@@ -39,22 +39,21 @@
 /* Quantity update buttons */
 .remove-quantity,
 .update-quantity {
-    text-shadow: 1px 1px #333;
+    /* text-shadow: 1px 1px #333; */
+    font-weight: bold;
     margin-top: .5rem;
     font-size: .75rem;
-    /* position: absolute; */
+    position: absolute;
 }
 
 .update-quantity {
-    border: 2px solid #1bc732!important;
-    background: linear-gradient(45deg, #138722, #1bc732, #18AD2C);
-    /* left: 0; */
+    color: #1bc732;
+    right:0;
 }
 
 .remove-quantity {
-    border: 2px solid #C71C49!important;
-    background: linear-gradient(45deg, #871332, #C71C49, #AD1840);
-    /* right: 0; */
+    color: #C71C49;
+    left:0;
 }
 /* Quantity adjustment buttons */
 .bag {
@@ -107,6 +106,7 @@
 }
 
 @media (max-width: 767.98px) {
+    /* Font responsiveness adj */
     table th,
     table td,
     table p,
@@ -116,16 +116,15 @@
     .keep-shopping-button {
         font-size: .85rem;
     }
-
+    /* Image responsiveness adj */
+    .card-image {
+        height:100px;
+    }
+    /* Quantity adjustment buttons */
     .remove-quantity,
     .update-quantity {
         font-size: .7rem
     }
-
-    .card-image {
-        height:100px;
-    }
-
     .sub-button,
     .in-bag,
     .add-button  {
@@ -141,6 +140,7 @@
 }
 
 @media (max-width: 575.98px) {
+    /* Font responsiveness adj */
     table th,
     table td,
     table p,
@@ -153,7 +153,13 @@
     .keep-shopping-button {
         font-size: .65rem;
     }
+    /* Image responsiveness adj */
+    .card-image {
+        height:50px;
+    }
 
+
+    /* Quantity adjustment buttons */
     .remove-quantity,
     .update-quantity {
         font-size: .5rem;
@@ -168,18 +174,12 @@
         vertical-align:middle;
     }
 
-    .adj-qty-size {
-        width: 50%;
-    }
-
     .in-bag input {
         height:15px;
     }
 
-    .card-image {
-        height:50px;
+    .adj-qty-size {
+        width: 50%;
     }
-
-
 
 }
