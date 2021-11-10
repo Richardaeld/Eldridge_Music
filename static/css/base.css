@@ -59,7 +59,7 @@ button[type='submit']:not(#user-search-bar):not(.remove-quantity):not(#mobile-us
     text-shadow: 1px 1px #333;
 }
 
-button[type='submit']:not(#user-search-bar):not(#mobile-user-search-bar):hover,
+button[type='submit']:not(#user-search-bar):not(#mobile-user-search-bar):not(.update-quantity):not(.remove-quantity):hover,
 .custom-allauth input[type='submit']:hover,
 .custom-allauth button:hover,
 .green-button:hover,
