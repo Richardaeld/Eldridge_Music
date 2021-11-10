@@ -130,6 +130,10 @@ button[type='submit']:not(#user-search-bar):not(#mobile-user-search-bar):hover,
 .text-shadow {
     text-shadow: -1px -1px 0px #a7a7a7;
 }
+/* generic link color */
+.link {
+    color: #8298FF;
+}
 
 /* -------------------------------------------------------------------Base---------------------------------------------------------------- */
 /* fixed header background color */

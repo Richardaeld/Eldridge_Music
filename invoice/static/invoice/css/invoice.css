@@ -10,9 +10,6 @@ legend {
 }
 
 .invoice {
-    /* background-color: #faf9f6; */
-    /* border: 2px solid #444; */
-    /* border-radius: 10px; */
     padding: 0 1.75em 2em 1.75em;
 }
 
@@ -23,8 +20,6 @@ legend {
 }
 
 .invoice h3 {
-    /* text-align: center; */
-    /* width: fit-content; */
     margin: 1.25em auto .5em auto;
 }
 
@@ -36,10 +31,12 @@ legend {
     border-bottom: 1px solid #a7a7a7;
 }
 
-
-
 .remember-checkbox-input {
     width: fit-content!important;
+}
+
+.link {
+    color: #8298FF;
 }
 
 /* ------------------------------------------------------------------- Merchandise summery ---------------------------------------------------------------- */
@@ -118,15 +115,6 @@ legend {
     display: inline-block;
     width: 45%;
 }
-
-.success-key {
-
-}
-
-.success-value {
-
-}
-
 
 /* ------------------------------------------------------------------- break points ---------------------------------------------------------------- */
 
