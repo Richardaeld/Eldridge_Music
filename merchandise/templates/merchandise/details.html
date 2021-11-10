@@ -82,7 +82,7 @@
 
                             <form action="{% url 'add_to_cart' merch.id %}" method="POST" class="my-3">
                                 {% csrf_token %}
-                                <p class="text-muted mb-0 ">Quantity:</p>
+                                <label for="id_qty_{{ merch.id }}" class="text-muted mb-0 ">Quantity:</label>
                                 <div id="bag" class="mx-0 px-0">
                                     <div id="remove-button" class="mx-0 px-0">
                                         <span>-</span>
