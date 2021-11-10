@@ -38,6 +38,8 @@ a {
 
 /* custom buttons */
 button[type='submit']:not(#user-search-bar):not(#mobile-user-search-bar),
+.custom-allauth input[type='submit'],
+.custom-allauth button,
 .bronze-button,
 .green-button {
     padding: .25em .5em;
@@ -49,13 +51,17 @@ button[type='submit']:not(#user-search-bar):not(#mobile-user-search-bar),
     color: #fff!important;
 }
 
-button[type='submit']:not(#user-search-bar):not(.remove-quantity):not(#mobile-user-search-bar) {
+button[type='submit']:not(#user-search-bar):not(.remove-quantity):not(#mobile-user-search-bar),
+.custom-allauth input[type='submit'],
+.custom-allauth button {
     border: 2px solid #1bc732!important;
     background: linear-gradient(45deg, #138722, #1bc732, #18AD2C);
     text-shadow: 1px 1px #333;
 }
 
 button[type='submit']:not(#user-search-bar):not(#mobile-user-search-bar):hover,
+.custom-allauth input[type='submit']:hover,
+.custom-allauth button:hover,
 .green-button:hover,
 .bronze-button:hover {
     transform: scale(1.1);
@@ -255,7 +261,7 @@ box-shadow: 0px 0px 0px rgba(0, 0, 0, .5),
 }
 
 .custom-toast {
-    transition-duration: 1s;
+    transition-duration: .25s;
     background: #fff;
 }
 
@@ -287,11 +293,11 @@ box-shadow: 0px 0px 0px rgba(0, 0, 0, .5),
     overflow-x: hidden;
 }
 
-.x-center-popup {
+.x-center-toast-button {
     position: relative;
     left:25%;
-    transform: translateX(-25%);
 }
+
 
 .cart-header {
     font-weight: bold;
@@ -300,13 +306,15 @@ box-shadow: 0px 0px 0px rgba(0, 0, 0, .5),
 .link,
 .link:visited,
 .link:link {
-    color: #5CCEFF;
+    /* color: #5CCEFF; */
+    color: #8298FF;
     /* color: #E67730; */
     transition-duration: .25s;
 }
 
 .link:hover {
-    color: #459BBF;
+    /* color: #459BBF; */
+    color: #465cbb;
 }
 
 .custom-allauth input,
@@ -328,7 +336,6 @@ box-shadow: 0px 0px 0px rgba(0, 0, 0, .5),
 .custom-allauth input:active,
 .custom-allauth input:focus {
     outline: none;
-    border: 3px solid #EB36FF;
     border: 2px solid #8ab5f9;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, .5),
                 3px 3px #bcd8f5,
@@ -357,40 +364,10 @@ box-shadow: 0px 0px 0px rgba(0, 0, 0, .5),
     padding: 0 1.75em 2em 1.75em;
 }
 
-.custom-allauth input[type='submit'],
-.custom-allauth button {
-    border: 3px outset #5CCEFF!important;
-    border: 3px solid #5CCEFF!important;
-    border-radius: 5px;
-    background-color: #fff!important;
-    padding: .5em 1em;
-    box-shadow: 3px 3px 2px rgba(0, 0, 0, .5);
-    margin-bottom: .5rem;
-    width: fit-content;
-    transition-duration: .25s;
-    color: #333;
-}
-
-.custom-allauth input[type='submit']:hover,
-.custom-allauth button:hover {
-    transform: scale(1.1);
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, .25);
-
-}
-
 /* add something for the single h3 in email */
 .custom-allauth h2 {
-    text-shadow: 1px 0px 2px #a7a7a7,
-                -1px 0px #a7a7a7,
-                0px 1px #a7a7a7,
-                0px -1px 2px #a7a7a7;
-    color: transparent;
     font-size: 2rem;
     position: relative;
-    text-shadow: -4px -4px 5px #faedc65b,
-                -2px -2px 0px #cea52b,
-                0px 0px 1px rgba(0, 0, 0, .75);
-    -webkit-background-clip: text;
     margin-top: .75rem;
 }
 
