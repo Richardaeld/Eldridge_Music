@@ -232,9 +232,80 @@ to peruse our selection and hopfully give some lightly used music books a second
 
 # Deployment
 ## GitHub - GitPod
++ Go to the location of the original repository in GitHub, [https://github.com/Richardaeld/Eldridge_Music](https://github.com/Richardaeld/Eldridge_Music).
++ Click on the **Code** button to get the drop-down menu.
++ Copy the HTTPS address provided.
++ Create a new GitHub/GitPod project (to house the new clone) and then open this new project.
++ Go to the Bash and type, `git clone <HTTPS>`, paste the HTTPS address found in the GitHub page (don't forget the space after "clone") and press enter.
++ A clone will be created within a new folder called "Eldridge_Music" (name of the original repository).
++ Unpack everything from this new folder to the root of the GitPod project tree and the project will be setup within GitPod (minus the database which we will setup shortly).
+
 ### Requirements
-### Heroku
+### Stripe
++ Go to **Stripe.com** and click **Start now**.
++ Create a new account.
++ Click **Developer** tab
++ Click **API Keys** to find **Publishable Key** and **Secret Key**
++ Click **Webhooks** tab
++ click **Add endpoint** and enter the new apps heroku address with **/invoice/wh/** at the end of the address
++ Stripe will now provide you with a **Signing secret key**
+
 ### AWS
++ Go to **aws.amazon.com**
++ Create a new account
++ Log in and click, **My Account** and then **AWS Management Console**
++ Create S3 bucket:
+    + Search for and select service **S3**
+    + Click **Create bucket**
+    + Name the new bucket and uncheck **Block all public access**
+    + Create Bucket
++ Configure bucket:
+    + 
+
+### Email
+### Heroku
++ Log into Heroku.
++ Create a new app on Heroku by clicking **New** and following the directions.
++ Link Heroku and GitHub:
+    + Log into Heroku.
+    + From the **Personal apps** page, click on the new app that was just created in Heroku.
+    + Click on **Deploy**.
+    + Click on **GitHub** from **Deployment method** section.
+    + Enter your GitHub information and the name of the cloned repository into the "Connect to GitHub" section.
+
++ Create a postgres SQL server.
+    + From your new apps base page, click on **Resources**.
+    + Click on **Find more add-ons**.
+    + Select **Postgres**.
+    + Finish setup.
+
+<!-- new section just for heroku keys -->
++ Share `env.py` information with Heroku.
+    + Click on **Settings**.
+    + Click on **Reveal Config Vars** from **Config Vars** section.
+    + Add all of the `env.py` key and value pairs without their quotations.
+        + (key) == (value)
+        + Development == 0
+        + USE_AWS == True
+        + DATABASE_UTL == (key provided from Postgres server)
+        + SECRET_KEY == (any django secret key)
+        + STRIPE_PUBLIC_KEY == (provided by **Stripe** as **Publishable key**)
+        + STRIPE_SECRET_KEY == (provided by **Stripe** as **Secret Key**)
+        + STRIPE_WH_SECRET == (provided by **Stripe** as **Webhook Signing Secret**)
+        + AWS_ACCESS_KEY_ID == (provided by **AWS**)
+        + AWS_SECRET_ACCESS_KEY == (provided by **AWS**)
+        + EMAIL_HOST_USER == (provided by **email provider**)
+        + EMAIL_HOST_PASS == (provided by **email provider**)
+
+
++ Enable automatic deployment or manually deploy updates.
+    + Automatic Deployment:
+        + Click on **Deploy**.
+        + Click on **Enable Automatic Deploys** in **automatic deploys** section.
+        + Click on **Deploy Branch** in **manual deploy** section to start initial deployment.
+    + Manual Deployment:
+        + Click on **Deploy Branch** in **manual deploy** section any time there is content you want to update the active app with.
+
 ### Return Emails
 
 # Tools and Credits
@@ -271,8 +342,11 @@ to peruse our selection and hopfully give some lightly used music books a second
     + Used for tinkering and creating CSS art.
 + [Inkscape](https://inkscape.org/)
     + Used to create scalable vector graphics (SVG).
-+ [RandomKeygen](https://randomkeygen.com/)
-    + Used to create random secret key for "env.py"
+<!-- + [RandomKeygen](https://randomkeygen.com/)
+    + Used to create random secret key for "env.py" -->
+<!-- Need key for django -->
+<!-- Add aws -->
+<!-- stripe -->
 + [PEP8 online](http://pep8online.com/)
     + Used to identify errors in Python.
 
