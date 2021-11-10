@@ -96,6 +96,7 @@ select {
     right: 1rem;
     top: .5rem;
     text-shadow: 1px 1px #333;
+    z-index: 1;
 }
 
 .edit-merch {
