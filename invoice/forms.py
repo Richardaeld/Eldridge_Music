@@ -7,9 +7,9 @@ class InvoiceForm(forms.ModelForm):
         model = Invoice
         fields = (
             'name', 'email', 'phone', 'street_address_billing',
-            'street_address_shipping','city', 'state_county',
+            'street_address_shipping', 'city', 'state_county',
             'post_code', 'country',
-            )
+        )
 
     def __init__(self, *args, **kwargs):
         """
@@ -38,4 +38,3 @@ class InvoiceForm(forms.ModelForm):
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
-

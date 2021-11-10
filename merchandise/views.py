@@ -3,9 +3,9 @@ from django.contrib import messages
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 
+from django.conf import settings
 from merchandise.forms import MerchForm
 from .models import Merch
-from django.conf import settings
 
 
 def merchandise(request):
@@ -107,8 +107,10 @@ def add_merch(request):
             messages.success(request, 'Successfully created merchandise.')
             return redirect(reverse('merch_details', args=[item.id]))
         else:
-            messages.error(request, 'Failed to add merchandise. \
-                Please check the form for validity.')
+            messages.error(request, (
+                'Failed to add merchandise. '
+                'Please check the form for validity.'
+            ))
     else:
         form = MerchForm()
 
@@ -140,8 +142,10 @@ def edit_merch(request, merch_id):
             messages.success(request, 'Successfully updated merchandise')
             return redirect(reverse('details', args=[item.id]))
         else:
-            messages.error(request, f'Failed to edit {item.name}. \
-                Please check the form for validity.')
+            messages.error(request, (
+                f'Failed to edit {item.name}. '
+                f'Please check the form for validity.'
+            ))
     else:
         form = MerchForm(instance=item)
         messages.info(request, f'You are editing {item.name}')

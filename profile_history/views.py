@@ -1,10 +1,9 @@
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 from invoice.models import Invoice
 from .models import User_Profile_History
-from invoice.forms import InvoiceForm
-from django.contrib import messages
 from .forms import User_Profile_History_Form
 
 
@@ -46,7 +45,7 @@ def invoice_history(request, invoice_number):
 
     messages.info(request, (
         f'This is a past confirmation for invoice number {invoice_number}. '
-        'A conformation email was sent on the invoice date.'
+        f'A conformation email was sent on the invoice date.'
     ))
 
     template = 'invoice/checkout_success.html'

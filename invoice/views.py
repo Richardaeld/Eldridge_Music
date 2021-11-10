@@ -1,16 +1,17 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect, redirect, reverse
-from django.conf import settings
 from django.views.decorators.http import require_POST
-from profile_history.forms import User_Profile_History_Form
-from profile_history.models import User_Profile_History
-from .forms import InvoiceForm
 from django.contrib import messages
+
+from django.conf import settings
 from shopping_bag.contexts import cart_contents
 from .forms import InvoiceForm
+from profile_history.forms import User_Profile_History_Form
+from profile_history.models import User_Profile_History
 from merchandise.models import Merch
 from .models import Invoice, InvoiceLineItem
+
 import stripe
 import json
 
@@ -173,8 +174,8 @@ def checkout_success(request, invoice_number):
 
     messages.success(request, (
         f'Your Invoice was successfully processed! '
-        'Your invoice number is {invoice_number}. A Confirmation '
-        'email will be sent to {invoice.email}'
+        f'Your invoice number is {invoice_number}. A Confirmation '
+        f'email will be sent to {invoice.email}'
     ))
 
     if 'cart' in request.session:
