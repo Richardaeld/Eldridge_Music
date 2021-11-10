@@ -30,7 +30,7 @@
                         <tr class="{% if not forloop.first %}top-hr{% endif %}">
                             <!-- Image -->
                             <td class="px-3 d-none d-sm-block">
-                                <img class="card-image py-2" src="{% if item.item.image %}{{ item.item.image.url }}{% else %}/media/blank.png{% endif %}" alt="{{ item.item.name }}">
+                                <img class="card-image py-2" src="{% if item.item.image %}{{ item.item.image.url }}{% else %}{{ MEDIA_URL }}blank.png{% endif %}" alt="{{ item.item.name }}">
                             </td>
                             <!-- Name and sku -->
                             <td class="px-3 width-20">
