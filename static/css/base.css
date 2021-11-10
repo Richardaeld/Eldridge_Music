@@ -1,6 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Limelight&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
+/* .text-raleway {
+    font-family: "Raleway", sans-serif!important;
+} */
 
 /* -------------------------------------------------------------------General---------------------------------------------------------------- */
 body {
@@ -11,13 +13,13 @@ body {
     min-height: 100vh;
 }
 
+.white-text {
+    color:#fff!important;
+}
+
 .remove-button {
     background-color: inherit;
     border: none;
-}
-
-.text-raleway {
-    font-family: "Raleway", sans-serif!important;
 }
 
 .y-center {
@@ -34,35 +36,30 @@ a {
     text-decoration: none;
 }
 
+/* custom buttons */
 button[type='submit']:not(#user-search-bar):not(#mobile-user-search-bar),
-.keep-shopping-button,
-.generic-button {
+.bronze-button,
+.green-button {
     padding: .25em .5em;
     border-radius: 5px;
     box-shadow: 3px 3px 2px rgba(0, 0, 0, .5);
     margin-bottom: .5rem;
     width: fit-content;
     transition-duration: .25s;
-    color: #fff;
+    color: #fff!important;
 }
-/* General submit button */
+
 button[type='submit']:not(#user-search-bar):not(.remove-quantity):not(#mobile-user-search-bar) {
-    /* padding: .25em .5em; */
     border: 2px solid #1bc732!important;
-    /* border-radius: 5px; */
     background: linear-gradient(45deg, #138722, #1bc732, #18AD2C);
-    /* box-shadow: 3px 3px 2px rgba(0, 0, 0, .5); */
-    /* margin-bottom: .5rem; */
-    /* width: fit-content; */
-    /* transition-duration: .25s; */
-    /* color: #fff; */
     text-shadow: 1px 1px #333;
 }
 
-button[type='submit']:hover {
+button[type='submit']:not(#user-search-bar):not(#mobile-user-search-bar):hover,
+.green-button:hover,
+.bronze-button:hover {
     transform: scale(1.1);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, .25);
-
 }
 
 .green-button {
@@ -71,53 +68,19 @@ button[type='submit']:hover {
     text-shadow: 1px 1px #333;
 }
 
-/* Keep shopping button */
-.keep-shopping-button {
-    /* padding: .25em .5em; */
+.bronze-button {
     border: 2px solid #705a18;
-    /* border-radius: 5px; */
     background: linear-gradient(45deg, #CEA52B, #705a18, #CEA52B);
-    /* box-shadow: 3px 3px 2px rgba(0, 0, 0, .5); */
-    /* margin-bottom: .5rem; */
-    /* margin-top: .5rem; */
-    /* width: fit-content; */
-    /* transition-duration: .25s; */
-    /* color: #fff; */
     text-shadow: 1px 1px #5e5e5e;
 }
 
-.white-text {
-    color:#fff!important;
-}
-
-.keep-shopping-button:hover {
-    transform: scale(1.1);
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, .25);
-}
-
-input:read-only {
-    background-color: rgba(239, 239, 239, 0.3);
-    color: rgb(84, 84, 84);
-    border-color: rgba(118, 118, 118, 0.3);
-}
-
-.box-shadow {
-    box-shadow: -1px 0px 2px  rgba(0, 0, 0, .5),
-            inset -1px -1px 2px  rgba(0, 0, 0, .25),
-                0px -1px 2px  rgba(0, 0, 0, .5);
-}
-
-.text-shadow {
-    text-shadow: -1px -1px 0px #a7a7a7;
-}
-
+/* overlays for background image */
 .blank-overlay {
     position: absolute;
     z-index: -1;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #36a2cf, #30DFE6, #82650E, #9c19e6, #6021cf);
-    background: linear-gradient(135deg, #36a2cf, #39ABDB, #30DFE6, #39ABDB, #36a2cf);
+    /* background: linear-gradient(135deg, #36a2cf, #39ABDB, #30DFE6, #39ABDB, #36a2cf); */
     background: linear-gradient(135deg, #FFE082, #B39849, #FFE082, #B39849, #FFE082);
     color:#575757c0
 }
@@ -128,7 +91,6 @@ input:read-only {
     width: 100%;
     height: calc(100% - 188px);
     background-color: #faf9f6;
-    /* background-color: #fff; */
 }
 
 /* custom scroll bar */
@@ -150,6 +112,7 @@ input:read-only {
     background: #252525;
 }
 
+/* general widths */
 .width-15 {
     width: 15%;
 }
@@ -157,14 +120,23 @@ input:read-only {
 .width-20 {
     width: 20%;
 }
-
-
-/* -------------------------------------------------------------------Base---------------------------------------------------------------- */
-header {
-    background-color: #faf9f6;
-    /* background-color: #fff; */
+/* general shadows */
+.box-shadow {
+    box-shadow: -1px 0px 2px  rgba(0, 0, 0, .5),
+            inset -1px -1px 2px  rgba(0, 0, 0, .25),
+                0px -1px 2px  rgba(0, 0, 0, .5);
 }
 
+.text-shadow {
+    text-shadow: -1px -1px 0px #a7a7a7;
+}
+
+/* -------------------------------------------------------------------Base---------------------------------------------------------------- */
+/* fixed header background color */
+header {
+    background-color: #faf9f6;
+}
+/* logo */
 .logo-title,
 .logo-title a:visited,
 .logo-title a:link {
@@ -178,40 +150,29 @@ header {
     font-size: 2rem;
     position: relative;
     text-shadow: -2px -2px 2px #faedc65b,
-                /* -1px -1px 0px #cea52b; */
-                /* 1px 1px 0px rgba(0, 0, 0, .75); */
-                /* 1px 1px 0px #82650e, */
-                /* 1px 1px 0px #a66e07, */
                 1px 1px 0px #9c7d21,
                 2px 2px 1px rgba(0, 0, 0, .75),
                 3px 3px rgba(0, 0, 0, 0.452);
     -webkit-background-clip: text;
-    /* color: #cea52b; */
-    /* color: #cea52b4d; */
 }
 
 .header-fit{
     width:fit-content
 }
+/* user search bar */
 .input-bar-max {
     margin-right: 15%;
     margin-left: 10%;
     width: 70%;
 }
+/* link li's */
 nav li {
     font-size: 1.5rem;
 }
-
+/* header bar for specials, ex. free delivery */
 .header-special {
     height: 2.5rem;
-    background-color: #9C7D21;
-    background-color: #993C02;
-    background-color: #029599;
-    background-color: #A66E07;
-    background-color: #A61507;
-    background-color: #004B4D;
     background-color: #4e4e4e;
-    /* border-bottom: 2px solid #474747; */
 }
 
 .header-special p {
@@ -221,7 +182,7 @@ nav li {
     text-shadow:-2px -2px 0px #faf9f6,
     0px 0px 3px rgba(0, 0, 0, .75);
 }
-
+/* font awesome icons */
 .font-aws {
     position: relative;
     display: flex;
@@ -257,11 +218,11 @@ nav li {
 .nav-header-height {
     height: 188px;
 }
-
+/* sets an navigation link to active, used with JS */
 .active {
     text-shadow: 1px 1px 1px #555!important;
 }
-
+/* Removes item from display */
 .invis {
     display: none;
 }
@@ -330,7 +291,6 @@ box-shadow: 0px 0px 0px rgba(0, 0, 0, .5),
 
 .cart-header {
     font-weight: bold;
-    /* text-transform: uppercase; */
 }
 /* -------------------------------------------------------------------allauth---------------------------------------------------------------- */
 .link,
@@ -364,11 +324,6 @@ box-shadow: 0px 0px 0px rgba(0, 0, 0, .5),
 .custom-allauth input:active,
 .custom-allauth input:focus {
     outline: none;
-    /* box-shadow: inset 2px 2px rgba(0, 0, 0, .5),
-                inset -2px -2px rgba(0, 0, 0, .5);
-    padding: .25em; */
-    /* border: 4px solid #40CF5A; */
-    /* border: 3px solid #BD17CF; */
     border: 3px solid #EB36FF;
     border: 2px solid #8ab5f9;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, .5),
@@ -391,23 +346,17 @@ box-shadow: 0px 0px 0px rgba(0, 0, 0, .5),
     margin-left: .75rem;
 }
 
-/* .custom-allauth input[type=submit] */
-
 .custom-allauth {
     background-color: #faf9f6;
-    /* background: linear-gradient(-45deg, #faf9f6, #d1d1d1); */
     border: 2px solid #444;
     border-radius: 10px;
     padding: 0 1.75em 2em 1.75em;
 }
 
-/* .input-button ----------------FIND AND REMOVE */
-
 .custom-allauth input[type='submit'],
 .custom-allauth button {
     border: 3px outset #5CCEFF!important;
     border: 3px solid #5CCEFF!important;
-    /* border: 3px solid #E67730!important; */
     border-radius: 5px;
     background-color: #fff!important;
     padding: .5em 1em;

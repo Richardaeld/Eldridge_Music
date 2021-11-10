@@ -136,18 +136,18 @@
                             </td>
                         </tr>
                     </table>
-                    <a href="{% url 'invoice' %}" class="generic-button green-button text-white p-2"> <!-- x-center-popup -->
+                    <a href="{% url 'invoice' %}" class="green-button p-2"> <!-- x-center-popup -->
                         Go to secure checkout
                         <i class="fas fa-lock"></i>
                     </a>
 
-                    <a href="{% url 'merchandise' %}" class="keep-shopping-button p-2">
+                    <a href="{% url 'merchandise' %}" class="bronze-button p-2">
                         <span class="p-2 white-text">Keep Shopping</span>
                     </a>
                 {% else %}
                     <!-- Empty cart -->
                     <h3>Your cart is empty.</h3>
-                    <a href="{% url 'merchandise' %}" class="keep-shopping-button p-2">
+                    <a href="{% url 'merchandise' %}" class="bronze-button p-2">
                         Keep Shopping
                     </a>
                 {% endif %}
