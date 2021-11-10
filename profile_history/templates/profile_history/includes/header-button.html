@@ -11,7 +11,7 @@ function hideRevealProfile() {
     if(button.classList.contains("header-button-inactive")){
         button.classList.remove("header-button-inactive");
         content.classList.remove("hide-content");
-        content.scrollIntoView({block: "nearest"});
+        content.getElementsByTagName("h3")[0].scrollIntoView({block: "nearest"});
     } else {
         button.classList.add("header-button-inactive");
         content.classList.add("hide-content");
@@ -19,8 +19,7 @@ function hideRevealProfile() {
 }
 
 // Sets up listeners for button clicks
-document.getElementById("general-information-button").addEventListener("click", hideRevealProfile);
-document.getElementById("current-lessons-button").addEventListener("click", hideRevealProfile);
-document.getElementById("previous-lessons-button").addEventListener("click", hideRevealProfile);
+document.getElementById("shipping-information-button").addEventListener("click", hideRevealProfile);
+document.getElementById("previous-invoice-button").addEventListener("click", hideRevealProfile);
 
 </script>

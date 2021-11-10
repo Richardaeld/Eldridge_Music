@@ -1,7 +1,6 @@
 
 /* ------------------------------------------------------------------- General ---------------------------------------------------------------- */
 .custom-form input,
-/* .custom-form label, */
 .custom-form select {
     margin-top: 1em;
 }
@@ -12,10 +11,6 @@
     border-radius: 10px;
     padding: 0 1.75em 2em 1.75em;
 }
-
-/* .custom-form label {
-    width: 50%;
-} */
 
 .custom-form input,
 .custom-form select {
@@ -31,16 +26,23 @@
 }
 
 .custom-form h3 {
-    width: fit-content;
+    text-align: center;
     margin: 1.25em auto .5em auto;
 }
 
-/* -------------------------------------------------------------------Header Button and JS add/remove classes---------------------------------------------------------------- */
+/* invoice link color */
+.invoice-link {
+    color: #28BEFC!important;
+}
+
+/* -------------------------------------------------------------------Header Button, submit button and JS add/remove classes---------------------------------------------------------------- */
 .header-button {
     padding: .25em .5em;
-    border: 3px solid #1bc732!important;
+    /* border: 3px solid #1bc732!important; */
+    border: 3px solid #39ABDB!important;
     border-radius: 5px;
-    background: linear-gradient(45deg, #138722, #1bc732, #18AD2C);
+    /* background: linear-gradient(45deg, #138722, #1bc732, #18AD2C); */
+    background: linear-gradient(45deg, #36a2cf, #30DFE6, #36a2cf);
     box-shadow: 3px 3px 2px rgba(0, 0, 0, .5);
     transition-duration: .25s;
     color: #fff;
@@ -55,7 +57,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    transform: translateX(-50%) scale(1.1);
+    transform: translateX(-50%) scale(1.1)!important;
 }
 
 .header-button:hover {

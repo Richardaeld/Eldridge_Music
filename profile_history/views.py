@@ -26,9 +26,11 @@ def profile(request):
     else:
         form = User_Profile_History_Form(instance=userProfile)
 
+    full_name = userProfile.user.get_full_name()
     invoices = userProfile.invoices.all()
 
     context = {
+        'full_name': full_name,
         'form': form,
         'invoices': invoices,
         'on_profile_history_page': True

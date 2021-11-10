@@ -14,20 +14,17 @@
             <div class="col-10 mt-5 custom-form box-shadow">
 
                 <div id="profile-buttons" class="row justify-content-center text-center">
-                    <button id="general-information-button" class="col-12 col-md-3 header-button">
-                        Update genreal information
+                    <button id="shipping-information-button" class="col-12 col-md-3 header-button">
+                        Update Shipping Information
                     </button>
-                    <button id="current-lessons-button" class="col-12 col-md-3 header-button header-button-inactive ">
-                        View current lesson(s)
-                    </button>
-                    <button id="previous-lessons-button" class="col-12 col-md-3 header-button header-button-inactive">
-                        View previous lesson(s)
+                    <button id="previous-invoice-button" class="col-12 col-md-3 header-button header-button-inactive">
+                        View Previous Invoice(s)
                     </button>
                 </div>
 
-                <div id="general-information" class="row justify-content-center">
+                <div id="shipping-information" class="row justify-content-center">
                     <div class="col-12">
-                        <h3>Profile General Information</h3>
+                        <h3>{{ full_name | truncatechars:25 }}'s Prefered Shipping Info</h3>
                         <hr>
                         <form action="{% url 'profile' %}" method="POST">
                             {% csrf_token %}
@@ -37,36 +34,32 @@
                     </div>
                 </div>
 
-                <div id="current-lessons" class="row justify-content-center hide-content">
+                <div id="previous-invoice" class="row justify-content-center hide-content">
                     <div class="col-12">
-                        <h3>Current Lesson(s)</h3>
-                        <hr>
-                    </div>
-                </div>
-
-                <div id="previous-lessons" class="row justify-content-center hide-content">
-                    <div class="col-12">
-                        <h3>Previous Lesson(s)</h3>
+                        <h3>Previous Invoices(s)</h3>
                         <hr>
                         <table class='w-100'>
                             <tr class="w-100">
-                                <th>Invoice Number</th>
-                                <th>Date</th>
-                                <th>Items</th>
-                                <th>Order Total</th>
+                                <th scope="col">Invoice Number</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Items</th>
+                                <th scope="col">Order Total</th>
                             </tr>
+                            <!-- <tr aria-hidden="true">
+                                <td colspan="4" class="p-1"></td>
+                            </tr> -->
                             {% for invoice in invoices %}
                             <tr>
-                                <th>
-                                    <a href="{% url 'invoice_history' invoice.invoice_number %}">
+                                <td>
+                                    <a href="{% url 'invoice_history' invoice.invoice_number %}" class="invoice-link text-shadow">
                                         {{ invoice.invoice_number | truncatechars:8 }}
                                     </a>
-                                </th>
-                                <th>
+                                </td>
+                                <td>
                                     {{ invoice.date_time }}
-                                </th>
+                                </td>
 
-                                <th>
+                                <td>
                                     <ul class="list-unstyled">
                                         {% for item in invoice.lineitems.all %}
                                         <li>
@@ -74,11 +67,11 @@
                                         </li>
                                         {% endfor %}
                                     </ul>
-                                </th>
+                                </td>
 
-                                <th>
+                                <td>
                                     {{ invoice.grand_total }}
-                                </th>
+                                </td>
 
                             </tr>
                             {% endfor %}
