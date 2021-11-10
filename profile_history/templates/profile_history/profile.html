@@ -51,7 +51,7 @@
                             {% for invoice in invoices %}
                             <tr>
                                 <td>
-                                    <a href="{% url 'invoice_history' invoice.invoice_number %}" class="invoice-link text-shadow">
+                                    <a href="{% url 'invoice_history' invoice.invoice_number %}" class="link text-shadow">
                                         {{ invoice.invoice_number | truncatechars:8 }}
                                     </a>
                                 </td>
