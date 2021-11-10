@@ -30,10 +30,6 @@
     margin: 1.25em auto .5em auto;
 }
 
-/* invoice link color */
-.invoice-link {
-    color: #28BEFC!important;
-}
 
 /* -------------------------------------------------------------------Header Button, submit button and JS add/remove classes---------------------------------------------------------------- */
 .header-button {
