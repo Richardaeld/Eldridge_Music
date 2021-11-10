@@ -258,9 +258,47 @@ to peruse our selection and hopfully give some lightly used music books a second
     + Search for and select service **S3**
     + Click **Create bucket**
     + Name the new bucket and uncheck **Block all public access**
-    + Create Bucket
+    + Click **Create Bucket**
 + Configure bucket:
-    + 
+    + Click on newly created bucket's name.
+    + Click on **Properites** tab.
+    + Click on **Static website hosting**.
+    + Click on **Use this bucket to host a website** and fill out index/error document with default information and save.
+    + Click on **Permissions** tab.
+    + Click on **CORS configuration** and paste in code [CORES config](AWS.txt).
+    + Click on **Bucket Policy** tab and then click **Policy Generator**.
+    + For **Type of Policy** select **S3 Bucket Policy**.
+    + For **Principal** enter `*`.
+    + For **Actions** select **GetObject**.
+    + Enter buckets**ARN** into this forms ARN input.
+    + Click **Add statement** then **Generate Policy** and copy the policy generated.
+    + Paste this copied policy into the **Bucket Policy**
+    + add a `/*` onto the end of the value of the key **Resource**
+        + Ex. `"Resource": "<bucket ARN>/*"`
+    + Click save.
+    + Click **Access Control List** tab.
+    + Click on **Public access** and set **List objects** and save.
+
++ Create and configure IAM
+    + Go to services menu and select **IAM**.
+    + Under **Access Management** click **Groups** and the **create a new group**.
+    + Enter a name, select **next step** twice, and then **Create group**.
+    + Under **Access Management** click **Policies** and then **Create Policy**.
+    + Click **JSON** tab and then click **import managed policy**.
+    + Search for **s3**, select **AmazonS3FullAccess**, and click **Import**.
+    + Replace the value of **Resource** with [IAM JSON Resource](AWS.txt)
+    + Click **Review policy**.
+    + Give the policy a name and description.
+    + Click **Create policy**.
+    + Under **Access Management** click **Groups**.
+    + Click recently created group and **Attach Policy**.
+    + Search for policy that was just created, select said policy and click **Attach Policy**.
+    + Under **Access Management** click **Users** and then **Add User**.
+    + Create a name for user (add suffix '-staticfiles-user'), give them **Programmatic access**, and click **Next**.
+    + Put newly created user in **IAM Group** and keep clicking **next** until user has been created in **IAM Group**.
+    + Download **.csv** and save this file. You will not be able to download it again
+
+
 
 ### Email
 ### Heroku

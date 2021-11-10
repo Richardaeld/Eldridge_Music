@@ -1,0 +1,23 @@
+CORS Config:
+
+[
+  {
+      "AllowedHeaders": [
+          "Authorization"
+      ],
+      "AllowedMethods": [
+          "GET"
+      ],
+      "AllowedOrigins": [
+          "*"
+      ],
+      "ExposeHeaders": []
+  }
+]
+
+IAM JSON Resource:
+
+"Resource": [
+    "<ARN>",
+    "<ARN>/*"
+]
