@@ -330,10 +330,10 @@ to peruse our selection and hopfully give some lightly used music books a second
         + STRIPE_PUBLIC_KEY == (provided by **Stripe** as **Publishable key**)
         + STRIPE_SECRET_KEY == (provided by **Stripe** as **Secret Key**)
         + STRIPE_WH_SECRET == (provided by **Stripe** as **Webhook Signing Secret**)
-        + AWS_ACCESS_KEY_ID == (provided by **AWS**)
-        + AWS_SECRET_ACCESS_KEY == (provided by **AWS**)
-        + EMAIL_HOST_USER == (provided by **email provider**)
-        + EMAIL_HOST_PASS == (provided by **email provider**)
+        + AWS_ACCESS_KEY_ID == (provided by **AWS .csv** as **Access Key Id**)
+        + AWS_SECRET_ACCESS_KEY == (provided by **AWS .csv** as **Secret Access Key**)
+        + EMAIL_HOST_USER == (Gmail address return email will be sent from)
+        + EMAIL_HOST_PASS == (provided by **email provider** as **Ass Password**)
 
 
 + Enable automatic deployment or manually deploy updates.
@@ -344,7 +344,24 @@ to peruse our selection and hopfully give some lightly used music books a second
     + Manual Deployment:
         + Click on **Deploy Branch** in **manual deploy** section any time there is content you want to update the active app with.
 
-### Return Emails
+### Django.settings
++ In the Django.settings file:
+    + Update **ALLOWED_HOSTS** to the web address of the deployed heroku app.
+    + update **STORAGE_BUCKET_NAME** to the name of the bucket created in [AWS](#aws).
+    + Update **AWS_S3_REGION_NAME** to the region the becket was created in [AWS](#aws).
+
+### Return Emails with Gmail
++ Log into a Gmail account
++ Go to **settings** and click **Accounts and Import**
++ Under **Change account settings** click on **Other Google Account Settings**.
++ Click on the **security** tab, click on **2-Step Verification**, and then **Get Started**.
++ Verify your setting choice and turn on **2-Step Verification**.
++ Go back to **Other Google Account Settings** and click **Security**.
++ Click on **App passwords**.
++ Select **mail** for the app.
++ Select **Other** for the device and enter **Django**.
++ Gamil will provide you with a email, app password.
+
 
 # Tools and Credits
 ## Tools
