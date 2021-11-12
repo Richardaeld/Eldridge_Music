@@ -1,12 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib import messages
 
+from django.conf import settings
 from merchandise.models import Merch
 
 
 def shopping_bag(request):
+    MEDIA_URL = settings.MEDIA_URL
     template = 'shopping_bag/shopping_bag.html'
-    return render(request, template)
+    context = {
+        'MEDIA_URL': MEDIA_URL,
+    }
+    return render(request, template, context)
 
 
 def add_to_cart(request, item_id):
