@@ -399,7 +399,7 @@ to peruse our selection and hopfully give some lightly used music books a second
     + Used to create scalable vector graphics (SVG).
 <!-- + [RandomKeygen](https://randomkeygen.com/)
     + Used to create random secret key for "env.py" -->
-<!-- Need key for django -->
+<!-- Need key for django  https://miniwebtool.com/django-secret-key-generator/ -->
 <!-- Add aws -->
 <!-- stripe -->
 + [PEP8 online](http://pep8online.com/)
