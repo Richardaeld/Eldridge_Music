@@ -101,7 +101,6 @@ class StripeWH_Handler:
                     state_county__iexact=shipping_details.address.state,
                     grand_total=grand_total,
                     original_cart=cart,
-                    orginal=True,
                     # Is causing dupilicate invoices to be created
                     stripe_pid=pid,
                 )
