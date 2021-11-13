@@ -26,7 +26,6 @@ class InvoiceForm(forms.ModelForm):
             'street_address_shipping': 'Street Address Shipping',
             'state_county': 'State',
             'post_code': 'Post Code',
-            'country': 'Country'
         }
 
         self.fields['name'].widget.attrs['autofocus'] = True

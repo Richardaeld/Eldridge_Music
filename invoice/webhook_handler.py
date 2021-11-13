@@ -87,6 +87,7 @@ class StripeWH_Handler:
         invoice_exists = False
         attempt = 1
         while attempt <= 5:
+
             try:
                 invoice = Invoice.objects.get(
                     name__iexact=shipping_details.name,
