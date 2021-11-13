@@ -86,7 +86,7 @@ class StripeWH_Handler:
 
         invoice_exists = False
         attempt = 1
-        while attempt <= 5:
+        while attempt <= 15:
 
             try:
                 invoice = Invoice.objects.get(
