@@ -99,9 +99,9 @@ class StripeWH_Handler:
                     street_address_billing__iexact=shipping_details.address.line1,
                     street_address_shipping__iexact=shipping_details.address.line2,
                     state_county__iexact=shipping_details.address.state,
-                    # grand_total=grand_total,
-                    # original_cart=cart,
-                    stripe_pid=pid,
+                    grand_total=grand_total,
+                    original_cart=cart,
+                    # stripe_pid=pid,
                 )
 
                 invoice_exists = True
