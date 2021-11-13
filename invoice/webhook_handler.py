@@ -101,7 +101,7 @@ class StripeWH_Handler:
                     state_county__iexact=shipping_details.address.state,
                     # grand_total=grand_total,
                     # original_cart=cart,
-                    # stripe_pid=pid,
+                    stripe_pid=pid,
                 )
 
                 invoice_exists = True
