@@ -102,7 +102,7 @@ class StripeWH_Handler:
                     grand_total=grand_total,
                     original_cart=cart,
                     # Below is causing dupilicate invoices to be created
-                    # stripe_pid=pid,
+                    stripe_pid=pid,
                 )
 
                 invoice_exists = True
@@ -121,9 +121,6 @@ class StripeWH_Handler:
                 status=200)
         else:
             invoice = None
-            print("---------------------------------")
-            print(pid)
-            print("---------------------------------")
             try:
                 invoice = Invoice.objects.create(
                     name=shipping_details.name,

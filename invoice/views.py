@@ -26,9 +26,6 @@ def cache_checkout_data(request):
             'save_info': request.POST.get('save_info'),
             'username': request.user,
         })
-        print(pid)
-        print(stripe.api_key)
-        print(intent)
 
         return HttpResponse(status=200)
     except Exception as e:
