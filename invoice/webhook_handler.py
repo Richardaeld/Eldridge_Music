@@ -25,12 +25,12 @@ class StripeWH_Handler:
         """
         cust_email = invoice.email
         subject = render_to_string(
-            'checkout/confirmation_email/confirmation_email_subject.txt',
+            'invoice/confirmation_email/confirmation_email_subject.txt',
             {'invoice': invoice}
         )
 
         body = render_to_string(
-            'checkout/confirmation_email/confirmation_email_body.txt',
+            'invoice/confirmation_email/confirmation_email_body.txt',
             {'invoice': invoice, 'contact_email': settings.DEFAULT_FROM_EMAIL}
         )
 
