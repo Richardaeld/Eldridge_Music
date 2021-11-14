@@ -121,6 +121,9 @@ class StripeWH_Handler:
                 status=200)
         else:
             invoice = None
+            print("---------------------------------")
+            print(pid)
+            print("---------------------------------")
             try:
                 invoice = Invoice.objects.create(
                     name=shipping_details.name,
