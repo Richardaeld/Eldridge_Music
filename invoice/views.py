@@ -61,9 +61,10 @@ def invoice(request):
         if invoice_form.is_valid():
             invoice = invoice_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
-            invoice.strip_pid = pid
+            invoice.stripe_pid = pid
             invoice.original_cart = json.dumps(cart)
             invoice.save()
+
             for item_id, item_data in cart.items():
                 try:
                     item = Merch.objects.get(id=item_id)
