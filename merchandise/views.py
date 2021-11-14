@@ -140,7 +140,7 @@ def edit_merch(request, merch_id):
         if form.is_valid() and request.user.is_superuser:
             form.save()
             messages.success(request, 'Successfully updated merchandise')
-            return redirect(reverse('details', args=[item.id]))
+            return redirect(reverse('merch_details', args=[item.id]))
         else:
             messages.error(request, (
                 f'Failed to edit {item.name}. '
