@@ -47,9 +47,8 @@ class StripeWH_Handler:
         """
         return HttpResponse(
             content=(
-                f'Generic/Unknown/Unexpected '
-                f'webhook received: {event["type"]}'),
-            status=200)
+                f'Generic/Unknown/Unexpected webhook received: {event["type"]}'),
+                status=200)
 
     def handle_payment_intent_succeeded(self, event):
         """
