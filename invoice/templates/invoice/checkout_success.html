@@ -129,7 +129,7 @@
 
                         <!-- Billing information -->
                         <h4 class="receipt-hr my-3">Billing Info</h4>
-                        
+
                         <!-- Sub-total -->
                         <p class="success-key">
                             Cart Sub-Total:
@@ -157,7 +157,9 @@
                 </div>
 
                 {% if from_profile %}
-                    <h1>make to profile button</h1>
+                    <a href="{% url 'profile' %}" class="bronze-button my-3 inline-b">
+                        <span class="p-0 p-sm-2">Back to Profile</span>
+                    </a>
                 {% endif %}
 
             </div>
