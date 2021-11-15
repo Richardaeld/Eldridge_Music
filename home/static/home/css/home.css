@@ -59,6 +59,10 @@
     color: #fff!important;
 }
 
+.giant-button:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
 /* -------------------------------------------------------------------breakpoints---------------------------------------------------------------- */
 
 @media (max-width: 991.98px) {
