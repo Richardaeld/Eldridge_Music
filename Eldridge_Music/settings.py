@@ -20,14 +20,7 @@ if os.path.exists('env.py'):
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-+o=af2mt!rdq*qx3o%pwv35+x10liltohnge&k+2+arcvnej6o'
-
-
+# Django secret key
 if os.path.exists('env.py'):
     SECRET_KEY = os.environ.get('SECRET_KEY')
 else:
@@ -54,17 +47,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     # Allauth extras
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+
     # Created apps
     'home',
     'merchandise',
-    # 'lessons',
     'shopping_bag',
-    # 'coaxsio',
     'invoice',
     'profile_history',
 
@@ -99,7 +92,8 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',  # Required by allauth
+                # Required by allauth
+                'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'shopping_bag.contexts.cart_contents',
@@ -137,13 +131,6 @@ WSGI_APPLICATION = 'Eldridge_Music.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
@@ -211,8 +198,6 @@ STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 
-# if os.path.exists('env.py'):
-#     DEVELOPMENT = bool(int(os.environ.get("DEVELOPMENT")))
 
 if bool(int(os.environ.get("DEVELOPMENT"))):
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

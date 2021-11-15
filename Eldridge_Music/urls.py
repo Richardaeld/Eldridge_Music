@@ -22,10 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('', include('home.urls')),
-    path('lessons/', include('lessons.urls')),
     path('merchandise/', include('merchandise.urls')),
     path('shopping_bag/', include('shopping_bag.urls')),
-    path('coaxsio/', include('coaxsio.urls')),
     path('invoice/', include('invoice.urls')),
     path('profile/', include('profile_history.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
