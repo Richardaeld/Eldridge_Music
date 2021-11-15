@@ -27,7 +27,7 @@ def profile(request):
         form = User_Profile_History_Form(instance=userProfile)
 
     full_name = userProfile.user.get_full_name()
-    invoices = userProfile.invoices.all()
+    invoices = userProfile.invoices.all().order_by('-date_time')
 
     context = {
         'full_name': full_name,
