@@ -212,6 +212,12 @@ to peruse our selection and hopfully give some lightly used music books a second
     + Thought(s):
         + If title is removed from the name templating and superusers entered everything in 100% accurate this could be avoided.
         + If a `text-transfrom: uppercase` css command is used it would solve this problem but create an overall poorer user experience.
++ Checkbox on superuser/admin add/edit merchandise will not style border.
+    + Caused by:
+        + Unknown.
+    + Thought(s):
+        + `!important` was used to attempt to override any existing style but this did not work. All the class styles were looked though from browser inspect and a problem could not be seen. Furthermore, From what browser inspect shows this checkbox should look like the rest.
+
 
 ## Other Problems
 + Bootstrap's toasts wouldn't show up on screen.
