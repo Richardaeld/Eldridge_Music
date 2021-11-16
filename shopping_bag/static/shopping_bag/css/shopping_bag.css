@@ -97,6 +97,9 @@
 
 .in-bag  {
     width:60%;
+}
+
+.in-bag input {
     border-radius: 0%!important;
 }
 
