@@ -118,6 +118,8 @@
     .merch-name,
     .grand-total,
     .generic-button,
+    .bronze-button,
+    .green-button,
     .keep-shopping-button {
         font-size: .85rem;
     }
@@ -154,6 +156,8 @@
     .in-bag,
     .grand-total,
     .generic-button,
+    .bronze-button,
+    .green-button,
     .keep-shopping-button {
         font-size: .65rem;
     }

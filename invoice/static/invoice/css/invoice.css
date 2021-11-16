@@ -102,23 +102,43 @@
     border-bottom: 1px solid #a7a7a7;
 }
 
+.key-value-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .success-key,
 .success-value {
     display: inline-block;
     width: 45%;
+
 }
 
 .row:before .row:after {
     display: flex!important;
 }
 
+.break-words {
+    overflow-wrap: break-word;
+}
+
 /* ---------- break points */
 
 @media (max-width: 767.98px) {
+    /* forms */
     .invoice-card input,
     .invoice-card select {
         width:95%;
     }
-
+    /* animation spinner size */
+    .loading-spinner i {
+        font-size: 7rem;
+    }
 }
-
+@media (max-width: 575.98px) {
+    /* animation spinner size */
+    .loading-spinner i {
+        font-size: 5rem;
+    }
+}
