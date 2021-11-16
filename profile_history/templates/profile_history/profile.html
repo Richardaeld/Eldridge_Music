@@ -40,9 +40,9 @@
                         <hr>
                         <table class='w-100'>
                             <tr class="w-100">
-                                <th scope="col">Invoice Number</th>
-                                <th scope="col" class="d-none d-md-block">Date</th>
-                                <th scope="col" class="text-center">Items</th>
+                                <th scope="col" class="pe-2">Invoice Number</th>
+                                <th scope="col" class="d-none d-md-block text-center pe-2">Date</th>
+                                <th scope="col" class="text-center pe-2">Items</th>
                                 <th scope="col">Order Total</th>
                             </tr>
                             <!-- <tr aria-hidden="true">
@@ -51,18 +51,18 @@
                             {% for invoice in invoices %}
                             <tr>
                                 <td>
-                                    <a href="{% url 'invoice_history' invoice.invoice_number %}" class="link text-shadow py-3">
+                                    <a href="{% url 'invoice_history' invoice.invoice_number %}" class="link text-shadow py-3 pe-2">
                                         {{ invoice.invoice_number | truncatechars:8 }}
                                     </a>
                                 </td>
-                                <td class="d-none d-md-block py-3">
+                                <td class="d-none d-md-block py-3 pe-2">
                                     {{ invoice.date_time }}
                                 </td>
 
                                 <td>
                                     <ul class="list-unstyled py-3 mb-0">
                                         {% for item in invoice.lineitems.all %}
-                                        <li class="px-2">
+                                        <li class="pe-2">
                                             ({{ item.amount }}) {{ item.item.name }}
                                         </li>
                                         {% endfor %}
