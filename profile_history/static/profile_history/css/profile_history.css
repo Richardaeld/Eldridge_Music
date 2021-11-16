@@ -77,3 +77,9 @@ button[type="submit"]:hover {
         width:95%;
     }
 }
+
+@media (max-width: 575.98px) {
+    .date-remove {
+        display: none;
+    }
+}
