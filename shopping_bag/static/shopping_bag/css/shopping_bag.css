@@ -130,6 +130,7 @@
     /* Quantity adjustment buttons */
     .remove-quantity,
     .update-quantity {
+        margin-top: 1rem;
         /* font-size: .7rem */
     }
     .sub-button,
@@ -159,7 +160,7 @@
     .bronze-button,
     .green-button,
     .keep-shopping-button {
-        font-size: .65rem;
+        /* font-size: .65rem; */
     }
     /* Image responsiveness adj */
     .card-image {

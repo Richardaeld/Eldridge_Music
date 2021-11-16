@@ -62,14 +62,14 @@
                                     <div class="d-flex">
                                         <form action="{% url 'remove_cart_item' item.item_id %}">
                                             {% csrf_token %}
-                                            <button type="submit" class=" remove-quantity remove-button">
+                                            <button type="submit" class="remove-quantity remove-button">
                                                 Remove
                                             </button>
                                         </form>
                                         <form action="{% url 'adjust_cart' item.item_id %}" method="POST">
                                             {% csrf_token %}
-                                            <input type="hidden" name='amount' value="{{ item.amount }}" class="invisBag">
-                                            <button type="submit" class=" update-quantity remove-button">
+                                            <input type="hidden" name="amount" value="{{ item.amount }}" class="invisBag">
+                                            <button type="submit" class="update-quantity remove-button">
                                                 Update
                                             </button>
                                         </form>
