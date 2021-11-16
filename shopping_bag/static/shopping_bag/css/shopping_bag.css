@@ -53,6 +53,7 @@
 
 .remove-quantity {
     color: #C71C49;
+    color: #bee610;
     left:0;
 }
 /* ---------- General Quantity adjustment buttons */
@@ -96,7 +97,7 @@
 
 .in-bag  {
     width:60%;
-    border-radius: 0%;
+    border-radius: 0%!important;
 }
 
 .in-bag input {
