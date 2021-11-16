@@ -100,7 +100,8 @@
 }
 
 .in-bag input {
-    border-radius: 0%!important;
+    border-radius: 0%;
+    -webkit-border-radius: 0%;
 }
 
 .in-bag input {
