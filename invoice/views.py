@@ -1,6 +1,7 @@
 from django.http.response import HttpResponse
-from django.shortcuts import render, get_object_or_404
-from django.shortcuts import redirect, redirect, reverse
+from django.shortcuts import (
+    render, get_object_or_404, redirect, reverse
+)
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 

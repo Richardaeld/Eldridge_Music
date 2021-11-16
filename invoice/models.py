@@ -56,7 +56,7 @@ class Invoice(models.Model):
         """
         self.invoice_total = (
             self.lineitems.aggregate(
-            (Sum('lineitem_total'))['lineitem_total__sum']) or 0
+                (Sum('lineitem_total'))['lineitem_total__sum']) or 0
         )
         if self.invoice_total < settings.FREE_DELIVERY_THRESHOLD:
             self.delivery_total = (
