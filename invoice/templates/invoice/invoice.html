@@ -45,17 +45,17 @@
                             {{ invoice_form.state_county | as_crispy_field }}
                             {{ invoice_form.post_code | as_crispy_field }}
                             {{ invoice_form.country | as_crispy_field }}
+                            <!-- Remember information checkbox or create/login account -->
+                            {% if user.is_authenticated %}
+                                <label for="id-save-info" class="mt-4"><strong>Remember my information</strong></label>
+                                <input type="checkbox" name="save-info" id="id-save-info" class="remember-checkbox-input">
+                            {% else %}
+                                <label class="mt-4">
+                                    <a href="{% url 'account_signup' %}" class="link">Create a new account</a> or
+                                    <a href="{% url 'account_login' %}" class="link">Login</a> to save this information
+                                </label>
+                            {% endif %}
                         </fieldset>
-                        <!-- Remember information checkbox or create/login account -->
-                        {% if user.is_authenticated %}
-                            <label for="id-save-info" class="mt-4"><strong>Remember my information</strong></label>
-                            <input type="checkbox" name="save-info" id="id-save-info" class="remember-checkbox-input">
-                        {% else %}
-                            <label for="id-save-info" class="mt-4">
-                                <a href="{% url 'account_signup' %}" class="link">Create a new account</a> or
-                                <a href="{% url 'account_login' %}" class="link">Login</a> to save this information
-                            </label>
-                        {% endif %}
 
                         <!-- Stripe input and display areas -->
                         <fieldset>
@@ -112,7 +112,7 @@
                             {% endfor %}
                             <!-- Divider bar for total checkout cost -->
                             <tr aria-hidden="true">
-                                <td colspan="3" class="invoice-bottom-hr mt-3"></td>
+                                <td colspan="4" class="invoice-bottom-hr mt-3"></td>
                             </tr>
                             <!-- Sub-total -->
                             <tr>
@@ -121,7 +121,7 @@
                                         Sub-Total:
                                     </p>
                                 </td>
-                                <td>
+                                <td colspan="2">
                                     <p class="text-end mt-3">
                                         <strong>${{ total | floatformat:2 }}</strong>
                                     </p>
@@ -134,7 +134,7 @@
                                         Delivery Cost:
                                     </p>
                                 </td>
-                                <td>
+                                <td colspan="2">
                                     <p class="text-end">
                                         <strong>${{ delivery|floatformat:2 }}</strong>
                                     </p>
@@ -147,7 +147,7 @@
                                         Grand Total:
                                     </p>
                                 </td>
-                                <td>
+                                <td colspan="2">
                                     <p class="text-end mb-1">
                                         <strong>${{ grand_total|floatformat:2 }}</strong>
                                     </p>
