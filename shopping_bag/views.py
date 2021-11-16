@@ -23,7 +23,7 @@ def add_to_cart(request, item_id):
     if item_id in list(cart.keys()):
         cart[item_id] += amount
         messages.success(
-            request, f'{item.name}\'s quantity is now {cart[item_id]}')
+            request, f'{item.name}\'s quantity is now: {cart[item_id]}')
     else:
         cart[item_id] = amount
         messages.success(request, f'({amount}) - {item.name} added to cart')
