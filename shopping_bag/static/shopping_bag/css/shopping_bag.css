@@ -106,11 +106,6 @@
     border: 2px solid #333;
 }
 
-
-.row:before .row:after {
-    display: flex!important;
-}
-
 @media (max-width: 767.98px) {
     /* Font responsiveness adj */
     table th,
