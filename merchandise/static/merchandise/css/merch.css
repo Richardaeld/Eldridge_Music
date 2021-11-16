@@ -1,7 +1,7 @@
 /* ---------- General */
-.custom-scroll {
+/* .custom-scroll {
     overflow-y:auto;
-}
+} */
 
 select {
     padding: .25rem;
@@ -9,8 +9,7 @@ select {
 
 /* Height of cards -- set for proper scroll wheel function and appearance */
 .merch-card,
-.merch-image-background,
-.custom-scroll {
+.merch-image-background {
    min-height: 30rem;
 }
 
@@ -218,8 +217,7 @@ select {
     }
 
 
-    .merch-image-background,
-    .custom-scroll {
+    .merch-image-background {
         height: 100%;
     }
 
