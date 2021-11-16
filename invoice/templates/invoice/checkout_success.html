@@ -52,8 +52,8 @@
 
                         <!-- Items in cart -->
                         <h4 class="receipt-hr my-3">Cart Details</h4>
-                        <div class="key-value-container">
-                            {% for item in invoice.lineitems.all %}
+                        {% for item in invoice.lineitems.all %}
+                            <div class="key-value-container">
                                 <!-- Item name -->
                                 <p class="success-key">
                                     {{ item.item.name }}
@@ -62,8 +62,8 @@
                                 <p class="success-value">
                                     {{ item.amount }} @ {{ item.item.price }} each
                                 </p>
-                            {% endfor %}
-                        </div>
+                            </div>
+                        {% endfor %}
 
                         <!-- Delivery information -->
                         <h4 class="receipt-hr my-3">Delivery Information</h4>

@@ -116,7 +116,9 @@
 }
 
 .row:before .row:after {
-    display: flex!important;
+    font-size: 0;
+    height: 0;
+    width: 0;
 }
 
 .break-words {

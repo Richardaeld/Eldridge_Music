@@ -122,6 +122,23 @@ select {
 
 }
 
+#in-bag input {
+    border-radius: 0%;
+    -webkit-border-radius: 0%;
+}
+
+/* prevents cards from running out of space */
+.merch-card {
+    height: auto;
+}
+
+
+.merch-image-background,
+.custom-scroll {
+    height: 100%;
+}
+
+
 #bag {
     width:100%;
     font-size: 0;
