@@ -36,17 +36,18 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <p class="mt-3 mb-1 text-end">
+                    <p class="mb-3 mt-1 text-end">
                         <strong>
                         Total{% if free_delivery_delta > 0 %} (Exc. delivery){% endif %}:
-                        <span class="">${{ total | floatformat:2 }}</span>
+                        <span>${{ total | floatformat:2 }}</span>
                         </strong>
+                        {% if free_delivery_delta > 0 %}
+                            <br>
+                            <span class="mb-0 pb-3 text-end text-muted">
+                                Spend <strong>${{ free_delivery_delta }}</strong> more to get free delivery!
+                            </span>
+                        {% endif %}
                     </p>
-                    {% if free_delivery_delta > 0 %}
-                        <p class="mb-0 p-2 text-center">
-                            Spend <strong>${{ free_delivery_delta }}</strong> more to get free delivery!
-                        </p>
-                    {% endif %}
                     <a href="{% url 'shopping_bag' %}" class="x-center-toast-button generic-button green-button white-text inline-b">
                             Go to secure checkout
                         <i class="fas fa-lock"></i>
