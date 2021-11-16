@@ -3,10 +3,10 @@
 // Hides and reveals content from push of button
 function hideRevealProfile() {
     // Finds and sets variables from this.id
-    let buttonId = this.id
+    let buttonId = this.id;
     let button = document.getElementById(buttonId);
-    let contentId = buttonId.split("-", 2).join("-")
-    let content = document.getElementById(contentId)
+    let contentId = buttonId.split("-", 2).join("-");
+    let content = document.getElementById(contentId);
     // Hides and reveals content
     if(button.classList.contains("header-button-inactive")){
         button.classList.remove("header-button-inactive");

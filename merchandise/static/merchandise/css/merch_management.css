@@ -1,4 +1,4 @@
-/* -------------------------------------------------------------------add merch---------------------------------------------------------------- */
+/* ---------- Add merch */
 
 .merch-form {
     margin-bottom: 5rem;
@@ -32,16 +32,13 @@ input[type='file'] {
     min-height: 100%;
     opacity: 0;
     cursor: pointer!important;
-
 }
 
 .image-button {
     position: relative;
     cursor: pointer!important;
-
 }
 
 .widget-checkbox {
     width: fit-content!important;
 }
-

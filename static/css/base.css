@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Limelight&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-/* @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
-/* .text-raleway {
-    font-family: "Raleway", sans-serif!important;
-} */
-
-/* -------------------------------------------------------------------General---------------------------------------------------------------- */
+/* ---------- General */
 body {
     position: relative;
     font-family: "Roboto", sans-serif;
@@ -86,7 +81,6 @@ button[type='submit']:not(#user-search-bar):not(#mobile-user-search-bar):not(.up
     z-index: -1;
     width: 100%;
     height: 100%;
-    /* background: linear-gradient(135deg, #36a2cf, #39ABDB, #30DFE6, #39ABDB, #36a2cf); */
     background: linear-gradient(135deg, #FFE082, #B39849, #FFE082, #B39849, #FFE082);
     color:#575757c0
 }
@@ -129,7 +123,7 @@ button[type='submit']:not(#user-search-bar):not(#mobile-user-search-bar):not(.up
 /* general shadows */
 .box-shadow {
     box-shadow: -1px 0px 2px  rgba(0, 0, 0, .5),
-            inset -1px -1px 2px  rgba(0, 0, 0, .25),
+                inset -1px -1px 2px  rgba(0, 0, 0, .25),
                 0px -1px 2px  rgba(0, 0, 0, .5);
 }
 
@@ -143,7 +137,7 @@ button[type='submit']:not(#user-search-bar):not(#mobile-user-search-bar):not(.up
 .inline-b {
     display: inline-block;
 }
-/* -------------------------------------------------------------------Base---------------------------------------------------------------- */
+/* ---------- Base */
 /* fixed header background color */
 header {
     background-color: #faf9f6;
@@ -192,7 +186,7 @@ nav li {
     color: transparent;
     text-align: center;
     text-shadow:-2px -2px 0px #faf9f6,
-    0px 0px 3px rgba(0, 0, 0, .75);
+                0px 0px 3px rgba(0, 0, 0, .75);
 }
 /* font awesome icons */
 .font-aws {
@@ -243,8 +237,8 @@ nav li {
 .allauth-input-focus:active + div,
 .allauth-input-focus:focus + div {
 box-shadow: 0px 0px 0px rgba(0, 0, 0, .5),
-    4px 4px #bcd8f5,
-    4px -4px #bcd8f5;
+            4px 4px #bcd8f5,
+            4px -4px #bcd8f5;
 }
 
 .allauth-input-focus + div {
@@ -253,7 +247,7 @@ box-shadow: 0px 0px 0px rgba(0, 0, 0, .5),
     transition-duration: .15s;
 }
 
-/* -------------------------------------------------------------------toasts---------------------------------------------------------------- */
+/* ---------- Toasts */
 .message-container {
     position: fixed;
     z-index: 99999999;
@@ -300,22 +294,18 @@ box-shadow: 0px 0px 0px rgba(0, 0, 0, .5),
     left:25%;
 }
 
-
 .cart-header {
     font-weight: bold;
 }
-/* -------------------------------------------------------------------allauth---------------------------------------------------------------- */
+/* ---------- Allauth */
 .link,
 .link:visited,
 .link:link {
-    /* color: #5CCEFF; */
     color: #8298FF;
-    /* color: #E67730; */
     transition-duration: .25s;
 }
 
 .link:hover {
-    /* color: #459BBF; */
     color: #465cbb;
 }
 
@@ -376,8 +366,8 @@ box-shadow: 0px 0px 0px rgba(0, 0, 0, .5),
 .custom-allauth hr {
     width: 50%;
 }
-/* -------------------------------------------------------------------crispy forms---------------------------------------------------------------- */
 
+/* ---------- Crispy forms */
 .form-group input,
 .form-group select,
 .form-group textarea {
@@ -392,10 +382,9 @@ box-shadow: 0px 0px 0px rgba(0, 0, 0, .5),
 
 .form-group select:invalid {
     color: rgb(118, 118, 118);
-    /* color: red!important; */
 }
 
-/* -------------------------------------------------------------------breakpoints---------------------------------------------------------------- */
+/* ---------- Breakpoints */
 @media (max-width: 575.98px) {
     /* special bar (bottom of nav header)  */
     .header-special p {
@@ -443,10 +432,4 @@ box-shadow: 0px 0px 0px rgba(0, 0, 0, .5),
     .nav-header-height {
         height: 112px;
     }
-}
-
-@media (max-width: 1199.98px) {
-}
-
-@media (max-width: 1399.98px) {
 }

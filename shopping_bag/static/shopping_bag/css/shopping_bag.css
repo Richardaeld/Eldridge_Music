@@ -1,3 +1,4 @@
+/* ----------General */
 /* card body */
 .card {
     margin: 2em;
@@ -39,7 +40,6 @@
 /* Quantity update buttons */
 .remove-quantity,
 .update-quantity {
-    /* text-shadow: 1px 1px #333; */
     font-weight: bold;
     margin-top: .5rem;
     font-size: .75rem;
@@ -55,7 +55,7 @@
     color: #C71C49;
     left:0;
 }
-/* Quantity adjustment buttons */
+/* ---------- General Quantity adjustment buttons */
 .bag {
     position: relative;
     font-size: 0;
@@ -136,7 +136,6 @@
     .in-bag input {
         height:20px;
     }
-
 }
 
 @media (max-width: 575.98px) {
@@ -157,7 +156,6 @@
     .card-image {
         height:50px;
     }
-
 
     /* Quantity adjustment buttons */
     .remove-quantity,

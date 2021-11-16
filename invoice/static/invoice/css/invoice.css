@@ -1,8 +1,4 @@
-/* ------------------------------------------------------------------- invoice card general ---------------------------------------------------------------- */
-legend {
-
-}
-
+/* ---------- invoice card general */
 .invoice input,
 .invoice select {
     margin-top: 1em;
@@ -35,13 +31,13 @@ legend {
     width: fit-content!important;
 }
 
-/* ------------------------------------------------------------------- Merchandise summery ---------------------------------------------------------------- */
+/* ---------- Merchandise summery */
 .summary-image {
     height:100px;
     max-width:75px
 }
 
-/* ------------------------------------------------------------------- Submit button ---------------------------------------------------------------- */
+/* ---------- Submit button */
 .invoice-card button {
     position: relative;
     left:50%;
@@ -52,7 +48,7 @@ legend {
     transform: translateX(-50%) scale(1.1);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, .25);
 }
-/* ------------------------------------------------------------------- stripe ---------------------------------------------------------------- */
+/* ---------- stripe */
 
 .StripeElement{
     height: 40px;
@@ -67,7 +63,7 @@ legend {
     left: 50%;
     transform: translateX(-50%);
 }
-/* loading overlay with animation */
+/* ---------- loading overlay with animation */
 .loading-overlay {
     display: none;
     position:fixed;
@@ -82,12 +78,11 @@ legend {
     position: fixed;
     left: 50%;
     top: calc(50% - 94px);
-    transform: translate(-50% -50%) scale(2.5);
+    transform: translate(-50%, -50%) scale(2.5);
 }
 
 .loading-spinner i {
     font-size: 10rem;
-    /* transform: scale(10); */
     color: #21ec3c;
 }
 
@@ -100,7 +95,7 @@ legend {
 
 }
 
-/* ------------------------------------------------------------------- checkout success ---------------------------------------------------------------- */
+/* ---------- checkout success */
 
 .receipt-hr {
     width: fit-content;
@@ -113,7 +108,7 @@ legend {
     width: 45%;
 }
 
-/* ------------------------------------------------------------------- break points ---------------------------------------------------------------- */
+/* ---------- break points */
 
 @media (max-width: 767.98px) {
     .invoice-card input,
