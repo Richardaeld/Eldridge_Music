@@ -11,8 +11,18 @@ select {
 .merch-card,
 .merch-image-background,
 .custom-scroll {
-    height: 30rem;
+   min-height: 30rem;
 }
+
+/* prevents cards from running out of space on details*/
+.merch-card-details {
+    height: auto;
+}
+
+.merch-image-background-details {
+    height: 100%;
+}
+
 /* ---------- General body for cards */
 .merch-card {
     box-shadow: 4px 4px 2px rgba(0, 0, 0, .35),
@@ -35,7 +45,9 @@ select {
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    /* align-content: space-around; */
+    /* flex-grow: 5; */
 }
 
 .card-body {
@@ -127,16 +139,7 @@ select {
     -webkit-border-radius: 0%;
 }
 
-/* prevents cards from running out of space */
-.merch-card {
-    height: auto;
-}
 
-
-.merch-image-background,
-.custom-scroll {
-    height: 100%;
-}
 
 
 #bag {

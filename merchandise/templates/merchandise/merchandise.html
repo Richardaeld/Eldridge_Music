@@ -90,3 +90,9 @@
 </div>
 
 {% endblock %}
+
+{% block postload_js %}
+{{ block.super }}
+<script src="{% static 'merchandise/js/merch.js' %}"></script>
+
+{% endblock %}
