@@ -42,7 +42,7 @@
                             <tr class="w-100">
                                 <th scope="col">Invoice Number</th>
                                 <th scope="col" class="d-none d-md-block">Date</th>
-                                <th scope="col">Items</th>
+                                <th scope="col" class="text-center">Items</th>
                                 <th scope="col">Order Total</th>
                             </tr>
                             <!-- <tr aria-hidden="true">
@@ -62,7 +62,7 @@
                                 <td>
                                     <ul class="list-unstyled py-3 mb-0">
                                         {% for item in invoice.lineitems.all %}
-                                        <li>
+                                        <li class="px-2">
                                             ({{ item.amount }}) {{ item.item.name }}
                                         </li>
                                         {% endfor %}

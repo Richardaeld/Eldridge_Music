@@ -130,18 +130,18 @@
     /* Quantity adjustment buttons */
     .remove-quantity,
     .update-quantity {
-        font-size: .7rem
+        /* font-size: .7rem */
     }
     .sub-button,
     .in-bag,
     .add-button  {
-        height: 20px;
-        line-height: 15px;
+        /* height: 20px;
+        line-height: 15px; */
         color: #fff;
         vertical-align:middle;
     }
     .in-bag input {
-        height:20px;
+        /* height:20px; */
     }
 }
 
@@ -169,20 +169,20 @@
     /* Quantity adjustment buttons */
     .remove-quantity,
     .update-quantity {
-        font-size: .5rem;
+        /* font-size: .5rem; */
     }
 
     .sub-button,
     .in-bag,
     .add-button  {
-        height: 15px;
-        line-height: 10px;
+        /* height: 15px;
+        line-height: 10px; */
         color: #fff;
         vertical-align:middle;
     }
 
     .in-bag input {
-        height:15px;
+        /* height:15px; */
     }
 
     .adj-qty-size {

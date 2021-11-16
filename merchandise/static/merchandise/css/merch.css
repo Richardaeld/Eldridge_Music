@@ -183,14 +183,14 @@ select {
     #remove-button,
     #in-bag,
     #add-button  {
-        height: 20px;
-        line-height: 15px;
+        /* height: 20px; */
+        /* line-height: 15px; */
         color: #fff;
-        vertical-align:middle;
+        vertical-align: middle;
     }
 
     #in-bag input {
-        height:20px;
+        /* height:20px; */
     }
 
     .merch-card {
