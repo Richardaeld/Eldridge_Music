@@ -12,7 +12,7 @@ function AddButtonFunction(addButton, addButtonIndex) {
             bag.value = bagContent;
             invisBag.value = bagContent;
         }
-    })
+    });
 }
 
 // Removes one from bag total, to a min of 1
@@ -28,11 +28,11 @@ function subButtonFunction(subButton, subButtonIndex) {
             bag.value = bagContent;
             invisBag.value = bagContent;
         }
-    })
+    });
 }
 
 // Doesn't allow users to change numbers with direct keyboard input past 1-99
-let findInputs = document.querySelectorAll(".in-bag > input")
+let findInputs = document.querySelectorAll(".in-bag > input");
 findInputs.forEach(addFloorCeiling);
 function addFloorCeiling(input) {
     input.addEventListener("change", function() {
