@@ -259,6 +259,12 @@ box-shadow: 0px 0px 0px rgba(0, 0, 0, .5),
 .custom-toast {
     transition-duration: .25s;
     background: #fff;
+    opacity: 0;
+}
+
+.reveal-toast {
+    opacity: 1!important;
+    height: auto;
 }
 
 .pointer {
@@ -285,7 +291,7 @@ box-shadow: 0px 0px 0px rgba(0, 0, 0, .5),
 }
 
 .cart-popup-view {
-    height: 200px;
+    height: 200px!important;
     overflow-x: hidden;
 }
 
@@ -396,6 +402,10 @@ box-shadow: 0px 0px 0px rgba(0, 0, 0, .5),
     /* logo */
     .logo-title {
         font-size: 1rem;
+    }
+    /* view height of items */
+    .cart-popup-view {
+        height: 100px;
     }
 }
 

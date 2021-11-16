@@ -226,13 +226,10 @@
         // Reveal toasts if they exist
         var toastExist = document.getElementsByClassName('toast')
           if (toastExist.length > 0) {
-            document.getElementsByClassName('toast')[0].style.opacity = "1";
-            document.getElementsByClassName('toast')[0].style.height = "auto";
-
+            document.getElementsByClassName('toast')[0].classList.add("reveal-toast");
             document.getElementsByClassName('close-button')[0].addEventListener('click', function() {
-              document.getElementsByClassName('toast')[0].style.opacity = "0";
+            document.getElementsByClassName('toast')[0].classList.remove("reveal-toast");
               setTimeout(function() {
-                document.getElementsByClassName('toast')[0].style.height = "0px";
                 document.getElementsByClassName("message-container")[0].style.display = "none";
               }, 500);
             });
