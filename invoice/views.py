@@ -21,7 +21,7 @@ def cache_checkout_data(request):
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
-        intent = stripe.PaymentIntent.modify(pid, metadata={
+        stripe.PaymentIntent.modify(pid, metadata={
             'cart': json.dumps(request.session.get('cart', {})),
             'save_info': request.POST.get('save_info'),
             'username': request.user,
@@ -114,8 +114,12 @@ def invoice(request):
                     'email': profile.user.email,
                     'phone': profile.default_phone,
                     'city': profile.default_city,
-                    'street_address_billing': profile.default_street_address_billing,
-                    'street_address_shipping': profile.default_street_address_shipping,
+                    'street_address_billing': (
+                        profile.default_street_address_billing
+                    ),
+                    'street_address_shipping': (
+                        profile.default_street_address_shipping
+                    ),
                     'state_county': profile.default_state_county,
                     'post_code': profile.default_post_code,
                     'country': profile.default_country,
@@ -159,8 +163,12 @@ def checkout_success(request, invoice_number):
             profile_data = {
                 'default_phone': invoice.phone,
                 'default_city': invoice.city,
-                'default_street_address_billing': invoice.street_address_billing,
-                'default_street_address_shipping': invoice.street_address_shipping,
+                'default_street_address_billing': (
+                    invoice.street_address_billing
+                ),
+                'default_street_address_shipping': (
+                    invoice.street_address_shipping
+                ),
                 'default_state_county': invoice.state_county,
                 'default_post_code': invoice.post_code,
                 'default_country': invoice.country,

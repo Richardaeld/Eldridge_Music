@@ -47,8 +47,9 @@ class StripeWH_Handler:
         """
         return HttpResponse(
             content=(
-                f'Generic/Unknown/Unexpected webhook received: {event["type"]}'),
-                status=200)
+                f'Generic/Unknown/Unexpected webhook'
+                f'received: {event["type"]}'),
+            status=200)
 
     def handle_payment_intent_succeeded(self, event):
         """
@@ -76,10 +77,16 @@ class StripeWH_Handler:
             if save_info:
                 profile.phone__iexact = shipping_details.phone
                 profile.country__iexact = shipping_details.address.country
-                profile.post_code__iexact = shipping_details.address.postal_code
+                profile.post_code__iexact = (
+                    shipping_details.address.postal_code
+                )
                 profile.city__iexact = shipping_details.address.city
-                profile.street_address_billing__iexact = shipping_details.address.line1
-                profile.street_address_shipping__iexact = shipping_details.address.line2
+                profile.street_address_billing__iexact = (
+                    shipping_details.address.line1
+                )
+                profile.street_address_shipping__iexact = (
+                    shipping_details.address.line2
+                )
                 profile.state_county__iexact = shipping_details.address.state
                 profile.save()
 
@@ -95,8 +102,12 @@ class StripeWH_Handler:
                     country__iexact=shipping_details.address.country,
                     post_code__iexact=shipping_details.address.postal_code,
                     city__iexact=shipping_details.address.city,
-                    street_address_billing__iexact=shipping_details.address.line1,
-                    street_address_shipping__iexact=shipping_details.address.line2,
+                    street_address_billing__iexact=(
+                        shipping_details.address.line1
+                    ),
+                    street_address_shipping__iexact=(
+                        shipping_details.address.line2
+                    ),
                     state_county__iexact=shipping_details.address.state,
                     grand_total=grand_total,
                     original_cart=cart,
@@ -115,8 +126,9 @@ class StripeWH_Handler:
             self._send_confirmation_email(invoice)
             return HttpResponse(
                 content=(
-                    f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database'),
-                    status=200)
+                    f'Webhook received: {event["type"]} |'
+                    f'SUCCESS: Verified order already in database'),
+                status=200)
         else:
             invoice = None
             try:
@@ -152,8 +164,9 @@ class StripeWH_Handler:
         self._send_confirmation_email(invoice)
         return HttpResponse(
             content=(
-                f'Webhook received: {event["type"]} | SUCCESS: Created invoice in webhooks'),
-                status=200)
+                f'Webhook received: {event["type"]} |'
+                f'SUCCESS: Created invoice in webhooks'),
+            status=200)
 
     def handle_payment_intent_payment_failed(self, event):
         """
