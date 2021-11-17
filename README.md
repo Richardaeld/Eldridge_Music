@@ -200,6 +200,7 @@ to peruse our selection and hopfully give some lightly used music books a second
 + Add a warning modal for superusers when they click the delete merchandise button.
 + A counter that tells the user how many merchandise items are being displayed for current search.
 + Ways of sorting displayed merchandise items.
++ Add ability to calculate tax.
 
 # Technology and Languages
 + HTML - Skeleton frame of the application.
