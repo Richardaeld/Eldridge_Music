@@ -556,7 +556,7 @@
 
 ---
 
-### Testing Superuser Add Merchandise
+### Testing Superuser's Ability to Add Merchandise
 
 ---
 
@@ -570,7 +570,7 @@
 
 #### Assumptions(s):
 + The tester will have a pre-existing superuser account. The tester will keep a record of the account.
-+ The tester will keep a record of any and all created merchandise. Including the merchandise name, and sku
++ The tester will keep a record of any and all created merchandise. Including the merchandise's name and sku
 + The tester will create a test specific sku with each merchandise item.
 + The tester will add an image to the merchandise item and keep a record of the image name.
 + The tester will have an image to upload as a merchandise image.
@@ -592,7 +592,7 @@
     + The test name, the merchandise name, sku, and that these are test merchandise.
 1. A image was used to fullfill the test's requirements, record:
     + The test name, the image name, and that these are test image(s).
-1. If the merchandise item is incorrect, record:
+1. If the merchandise item information is incorrect, record:
     + The test name, the merchandise name, merchandise sku, anticipated information, actual information, and a brief description of the problem.
 1. If any links or images are broken, record:
     + The test name, image or link name, and a brief description of the problem.
@@ -601,7 +601,7 @@
 
 ---
 
-### test - 15
+### Testing Superuser's Ability to Edit Merchandise
 
 ---
 
@@ -609,12 +609,37 @@
 + As a store manager I want to be able to edit merchandise.
 
 #### Expectation(s):
++ Any superuser can edit merchandise.
 + The page content fills appropriately and doesn't spill out beyond obvious borders.
 + The page content doesn't overlap and is easy to read.
 
 #### Assumptions(s):
++ The tester will have a pre-existing superuser account. The tester will keep a record of the account.
++ The tester will keep a record of any and all edited merchandise. Including the merchandise's new name, new sku, old name, and old sku.
++ The tester will edit sku's with a test specific sku.
++ The tester will add an image to the merchandise item and keep a record of the image name.
++ The tester will have an image to upload as a merchandise image.
++ The tester will not edit any real merchandise and will create merchandise just to edit.
+
 #### Testing Step(s):
+1. Load the **Index View** of Eldridge Music.
+1. Log into account.
+1. Proceed to the **Detail view** of any test merchandise.
+1. Select the **Edit** button on the top right corner of the merchandise card.
+1. Edit this merchandise item and submit.
+1. Find the merchandise and check for accuracy.
+1. Edit a test merchandise item with an image.
+1. Find the merchandise and check for accuracy.
+
 #### Documented Result(s):
+1. A user account was created to fulfill the test's requirements or a pre-existing account was used, record:
+    + The username, email address of the account, and that this is a test account.
+1. A merchandise item was edited to fullfill the test's requirements, record:
+    + The test name, the merchandise name, sku, and that these are test merchandise.
+1. A image was used to fullfill the test's requirements, record:
+    + The test name, the image name, and that these are test image(s).
+1. If the merchandise item information is incorrect, record:
+    + The test name, the merchandise name, merchandise sku, anticipated information, actual information, and a brief description of the problem.
 1. If any links or images are broken, record:
     + The test name, image or link name, and a brief description of the problem.
 1. If any content has bad UX, record:
@@ -622,7 +647,7 @@
 
 ---
 
-### test - 16
+### Testing Superuser's Ability to Delete Merchandise
 
 ---
 
@@ -630,12 +655,32 @@
 + As a store manager I want to be able to delete merchandise.
 
 #### Expectation(s):
++ Any superuser can delete merchandise.
 + The page content fills appropriately and doesn't spill out beyond obvious borders.
 + The page content doesn't overlap and is easy to read.
 
 #### Assumptions(s):
++ The tester will have a pre-existing superuser account. The tester will keep a record of the account.
++ The tester will keep a record of any and all deleted merchandise. Including the merchandise's name and sku.
++ The tester will keep a record of any image name that is appart of a merchandise item.
++ The tester will not delete any real merchandise and will create merchandise just to delete.
+
 #### Testing Step(s):
+1. Load the **Index View** of Eldridge Music.
+1. Log into account.
+1. Proceed to the **Detail view** of any test merchandise.
+1. Select the **Delete** button on the top right corner of the merchandise card.
+1. Be sure merchandise was deleted.
+
 #### Documented Result(s):
+1. A user account was created to fulfill the test's requirements or a pre-existing account was used, record:
+    + The username, email address of the account, and that this is a test account.
+1. A merchandise item was deleted to fullfill the test's requirements, record:
+    + The test name, the merchandise name, sku, and that these are test merchandise.
+1. A image was used to fullfill the test's requirements, record:
+    + The test name, the image name, and that these are test image(s).
+1. If the merchandise item is not deleted, record:
+    + The test name, the merchandise name, merchandise sku, and that this was supposed to be deleted.
 1. If any links or images are broken, record:
     + The test name, image or link name, and a brief description of the problem.
 1. If any content has bad UX, record:
@@ -646,6 +691,8 @@
 
 ## Program Tests
 ### BrowserStack
++ Removed from test because of usage limit being reached.
+
 ### Lighthouse
 + Identifies problems with performance, accessibility, best practices, and SEO.
 ![Light house results](static/readme/testing/lighthouse-fat-raccoon.jpg "Light house results")
