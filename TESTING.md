@@ -162,6 +162,7 @@
 + All items chosen for purchase will be displayed in cart view with the proper amounts.
 + The no delivery fee function operates correctly.
 + Sub-total and grand total calculate properly in the **cart** and **cart icon**
++ Success toasts show up for each item added to the cart and the toast contains all the correct information.
 + The page content fills appropriately and doesn't spill out beyond obvious borders.
 + The page content doesn't overlap and is easy to read.
 
@@ -204,7 +205,7 @@
 
 ---
 
-### test - 5
+### Testing Piano Book Categories
 
 ---
 
@@ -212,12 +213,24 @@
 + As a shopper I want to be able to sort the available products by their category.
 
 #### Expectation(s):
++ Each Category will display all the correct merchandise.
 + The page content fills appropriately and doesn't spill out beyond obvious borders.
 + The page content doesn't overlap and is easy to read.
 
 #### Assumptions(s):
++ The tester knows all merchandise items that should appear in each category.
++ The tester knows the total of merchandise items that should appear in each category.
+
 #### Testing Step(s):
+1. Load the **Index View** of Eldridge Music.
+1. Click on **Piano Books** on the navigation bar.
+1. Click on **Seasonal** from the **Piano Books** drop-down menu.
+1. Check the view for the correct number of merchandise items.
+1. Check each additional category under **Piano Books** until all categories have been checked.
+
 #### Documented Result(s):
+1. If a category doesn't have the correct number of merchandise items, record:
+    + The test name, the category, the total amount of merchandise items present, a brief description of the problem, and the incorrect merchandise item present or item missing.
 1. If any links or images are broken, record:
     + The test name, image or link name, and a brief description of the problem.
 1. If any content has bad UX, record:
@@ -225,7 +238,7 @@
 
 ---
 
-### test - 6
+### Testing User Search Bar
 
 ---
 
@@ -233,12 +246,26 @@
 + As a shopper I want to be able to search for an item by name, description, or composer.
 
 #### Expectation(s):
++ User search bar returns correct information when a user submits a item name or its composer(s).
 + The page content fills appropriately and doesn't spill out beyond obvious borders.
 + The page content doesn't overlap and is easy to read.
 
 #### Assumptions(s):
++ The tester knows all the books two composers have in database.
++ The tester know the names of four different books in database.
+
 #### Testing Step(s):
+1. Load the **Index View** of Eldridge Music.
+1. Enter a composers name into the user search bar.
+1. Check returns for correct information.
+1. Repeat step 2 - 3.
+1. Enter a merchandise item's name into the user search bar.
+1. Check returns for correct information.
+1. Repeat step 5 - 6, three more times.
+
 #### Documented Result(s):
+1. If any user search returns are incorrect, record:
+    + The test name, if a composer or item name was being searched for, and a brief description of the problem.
 1. If any links or images are broken, record:
     + The test name, image or link name, and a brief description of the problem.
 1. If any content has bad UX, record:
@@ -246,7 +273,7 @@
 
 ---
 
-### test - 7
+### Testing Confirmation Email for Purchase
 
 ---
 
@@ -254,12 +281,35 @@
 + As a shopper I want to be sent a confirmation email after I checkout.
 
 #### Expectation(s):
++ A confirmation email will be sent out after a purchse.
 + The page content fills appropriately and doesn't spill out beyond obvious borders.
 + The page content doesn't overlap and is easy to read.
 
 #### Assumptions(s):
++ The tester knows the dummy codes for Stripe
++ The tester has access to an email account.
++ The tester already has an account created with Eldridge Music Book Emporium.
++ The tester know the content of a confirmation email.
++ The tester will have their invoice #, date, sub-total, delivery-total, grand total, and contact information written down.
++ The tester knows how to use an e-commerce store.
+
 #### Testing Step(s):
+1. Load the **Index View** of Eldridge Music.
+1. Be sure there is no current session or log out of current session.
+1. Put multiple merchandise items into the cart with different quantity amounts.
+1. Proceed to checkout and finalize checkout.
+1. Check over content of confirmation email.
+1. Load the **Index View** of Eldridge Music.
+1. Log into an account.
+1. Repeat steps 3 - 5.
+
 #### Documented Result(s):
+1. If the success toast does not display or displays incorrect information, record:
+    + The test name, if the tester was logged in, anticipated toast information, actual toast information, and a bried description of the problem.
+1. If the confirmation email is not received, record:
+    + The test name, if the tester was logged in, the email name, the invoice #, and a bried description of the problem
+1. If any of the email content is incorrect, record:
+    + The test name, if the tester was logged in, the content expected, and actual content, and a bried description of the problem.
 1. If any links or images are broken, record:
     + The test name, image or link name, and a brief description of the problem.
 1. If any content has bad UX, record:
