@@ -53,6 +53,8 @@
 
 ### Testing All Merchandise View
 
+---
+
 #### User Story
 + As a shopper I want to view all merchandise.
 
@@ -81,6 +83,8 @@
 ---
 
 ### test - 2
+
+---
 
 #### User Story
 + As a shopper I want to view a specific merchandise's detailed information.
