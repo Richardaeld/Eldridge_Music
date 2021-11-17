@@ -17,8 +17,8 @@ class User_Profile_History_Form(forms.ModelForm):
         placeholders = {
             'default_phone': 'Phone Number',
             'default_city': 'City',
-            'default_street_address_billing': 'Billing Street Address',
-            'default_street_address_shipping': 'Shipping Street Address',
+            'default_street_address_billing': 'Billing Street 1',
+            'default_street_address_shipping': 'Shipping Street 2',
             'default_state_county': 'State',
             'default_post_code': 'Post Code',
             'default_country': 'Country',

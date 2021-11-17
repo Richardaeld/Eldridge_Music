@@ -22,8 +22,8 @@ class InvoiceForm(forms.ModelForm):
             'email': 'Email Address',
             'phone': 'Phone Number',
             'city': 'City',
-            'street_address_billing': 'Street Address Billing',
-            'street_address_shipping': 'Street Address Shipping',
+            'street_address_billing': 'Street Address 1',
+            'street_address_shipping': 'Street Address 2',
             'state_county': 'State',
             'post_code': 'Post Code',
         }
