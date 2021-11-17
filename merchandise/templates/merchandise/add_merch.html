@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_meta %}
+    <meta name="description" content="This is the superuser's page to add merchandise to store">
+{% endblock %}
+
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'merchandise/css/merch_management.css' %}">
 {% endblock %}

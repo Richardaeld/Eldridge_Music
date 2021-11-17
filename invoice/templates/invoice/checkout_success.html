@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_meta %}
+    <meta name="description" content="This is your invoice">
+{% endblock %}
+
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'invoice/css/invoice.css' %}">
 {% endblock %}

@@ -2,6 +2,10 @@
 {% load static %}
 {% load discount %}
 
+{% block extra_meta %}
+    <meta name="description" content="This is the detailed view of {{ merch }}">
+{% endblock %}
+
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'merchandise/css/merch.css' %}">
 {% endblock %}

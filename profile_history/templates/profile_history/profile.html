@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_meta %}
+    <meta name="description" content="This is the user profile page">
+{% endblock %}
+
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'profile_history/css/profile_history.css' %}">
 {% endblock %}

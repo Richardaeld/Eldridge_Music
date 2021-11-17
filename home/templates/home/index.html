@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_meta %}
+    <meta name="description" content="Home page of Eldridge Music Book Emporium">
+{% endblock %}
+
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
 {% endblock %}

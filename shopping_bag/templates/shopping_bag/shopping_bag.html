@@ -2,6 +2,10 @@
 {% load static %}
 {% load form_calc %}
 
+{% block extra_meta %}
+    <meta name="description" content="This is the users shopping cart">
+{% endblock %}
+
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'shopping_bag/css/shopping_bag.css' %}">
     {% endblock %}
