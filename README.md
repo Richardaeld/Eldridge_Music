@@ -3,22 +3,23 @@
 [Eldridge Music Book Emporium - Introduction](#eldridge-music-book-emporium---introduction)
 
 [UX](#ux)
-+ [Goals](#goals)
-    + [User Stories](#user-stories)
-    + [Developer Goals](#developer-goals)
-+ [Client Stories](#client-stories)
+<!-- + [Goals](#goals) -->
++ [User Stories](#user-stories)
+    <!-- + [Developer Goals](#developer-goals) -->
+<!-- + [Client Stories](#client-stories) -->
 
 [Design Choices](#design-choices)
 + [Home](#home)
 + [Login-Logout-Etc...](#login-logout-etc...)
 + [Merchandise](#merchandise)
 + [Specials](#specials)
++ [Used](#used)
 + [Merchandise Details](#merchandise-details)
-+ [Invoice - Checkout](#invoice---checkout)
 + [Cart](#cart)
++ [Invoice - Checkout](#invoice---checkout)
 + [Profile](#profile)
-+ [Return Emails](#return-emails)
 + [Superuser Merchandise CRUD views](#superuser-merchandise-crud-views)
++ [Return Emails](#return-emails)
 + [Wireframe and Live Applications](#wireframe-and-live-applications)
     + [Wire Frame](#wire-frame)
     + [Live App](#live-app)
@@ -29,14 +30,18 @@
 [Testing](#testing)
 
 [Bugs and Other Problems](#bugs-and-other-problems)
-+ [Currnet Bugs](#currnet-bugs)
++ [Current Bugs](#currnet-bugs)
 + [Other Problems](#other-problems)
 
 [Deployment](#deployment)
 + [GitHub - GitPod](#github---gitpod)
 + [Requirements](#requirements)
-+ [Heroku](#heroku)
++ [Stripe](#stripe)
 + [AWS](#aws)
++ [Heroku](#heroku)
++ [Heroku Variables](#heroku-variables)
++ [Django.settings](#django.settings)
++ [Return Emails with Gmail](#Return-emails-with-gmail)
 
 [Tools and Credits](#tools-and-credits)
 + [Tools](#tools)
@@ -151,7 +156,7 @@ to peruse our selection and hopfully give some lightly used music books a second
 + A quantity adjustment input for users to easily adjust the amount of a merchandise item they want.
 + This view features a sub-total per item and a total item subtotal, along with a delivery total and grand total.
 
-## Invoice/Checkout
+## Invoice - Checkout
 + This view give shows a cart summary with grand total to be sure customers know what they are about to order.
 + An invoice a simple form that asks for the users basic shipping and payment information.
 + If the user is signed and has saved their basic informaition the aformentioned form will be prepopulated for the user.
@@ -166,6 +171,8 @@ to peruse our selection and hopfully give some lightly used music books a second
 + The add (Merchandise Management) view returns a blank merchandise model so a superuser can create a fully functional new item.
 + The edit view returns a prefilled merchandise model so a superuser can edit any part of the item.
 + The delete view deletes the item without a secondary view.
+
+## Return Emails
 
 ## Wireframe and Live Applications
 ### Wire Frame
@@ -327,7 +334,7 @@ to peruse our selection and hopfully give some lightly used music books a second
 
 
 
-### Email
+<!-- ### Email -->
 ### Heroku
 + Log into Heroku.
 + Create a new app on Heroku by clicking **New** and following the directions.
