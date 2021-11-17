@@ -344,7 +344,7 @@ to peruse our selection and hopfully give some lightly used music books a second
     + Select **Postgres**.
     + Finish setup.
 
-<!-- new section just for heroku keys -->
+### Heroku Variables
 + Share `env.py` information with Heroku.
     + Click on **Settings**.
     + Click on **Reveal Config Vars** from **Config Vars** section.
@@ -392,12 +392,18 @@ to peruse our selection and hopfully give some lightly used music books a second
 
 # Tools and Credits
 ## Tools
++ [Adobe Color Wheel](https://color.adobe.com/create/color-wheel)
+    + Used to help pick color schemes.
++ [Amazon Web Services](https://aws.amazon.com/)
+    + Used to store static and media files.
 + [Balsamiq](https://balsamiq.com/)
     + Used to produce the wireframes.
 + [Bootstrap](https://getbootstrap.com/)
     + Used as framework.
 + [BrowserStack](https://www.browserstack.com/)
     + Used to check for compatibility errors.
++ [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/)
+    + Used to create random secret key for Django
 + [GitHub](https://github.com/)
     + Used for version control and deploys application information to Heroku.
 + [GitPod](https://www.gitpod.io/)
@@ -406,31 +412,29 @@ to peruse our selection and hopfully give some lightly used music books a second
     + Imported font families from here.
 + [Heroku](https://www.heroku.com/)
     + Site where application is deployed.
++ [Inkscape](https://inkscape.org/)
+    + Used to create scalable vector graphics (SVG).
 + [Jigsaw (Validation Service)](https://jigsaw.w3.org/css-validator/)
     + Used to identify errors in CSS.
++ [JSFiddle](https://jsfiddle.net/)
+    + Used for tinkering and creating CSS art.
 + [JSHint](https://jshint.com/)
     + Used to identify errors in JavaScript.
 + [Lighthouse](https://developers.google.com/web/tools/lighthouse)
     + Used to check for performance, accessibility, best practices, and SEO.
++ [PEP8 online](http://pep8online.com/)
+    + Used to identify errors in Python.
 + [Pingdom](https://tools.pingdom.com/)
     + Used to check load time.
++ [Stripe](https://stripe.com/)
+    + Used to allow users to make payemnts with credit cards.
 + [Techsini](https://techsini.com/multi-mockup/)
     + Used for their viewable responsiveness PNG.
 + [TinyPNG](https://tinypng.com/)
     + Used to Minimize KB load per image.
 + [W3C Validator](https://validator.w3.org/)
     + Used to identify errors in markup.
-+ [JSFiddle](https://jsfiddle.net/)
-    + Used for tinkering and creating CSS art.
-+ [Inkscape](https://inkscape.org/)
-    + Used to create scalable vector graphics (SVG).
-<!-- + [RandomKeygen](https://randomkeygen.com/)
-    + Used to create random secret key for "env.py" -->
-<!-- Need key for django  https://miniwebtool.com/django-secret-key-generator/ -->
-<!-- Add aws -->
-<!-- stripe -->
-+ [PEP8 online](http://pep8online.com/)
-    + Used to identify errors in Python.
+
 
 ## Credits
 ### Code Citations
