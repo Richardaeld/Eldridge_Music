@@ -68,9 +68,9 @@
 
 #### Testing Step(s):
 1. Load the **Index View** of Eldridge Music.
-1. Click on **Piano Books**.
-1. Click on **All Music Books**.
-1. Count number of merchandise items displayed in this view
+1. Click on **Piano Books** on the navigation bar.
+1. Click on **All Music Books** from the **Piano Books** drop-down menu.
+1. Count number of merchandise items displayed in this view.
 
 #### Documented Result(s):
 1. If there is an incorrect number of displayed merchandise items, record:
@@ -122,12 +122,28 @@
 + As a shopper I want to see all discounted merchandise.
 
 #### Expectation(s):
++ All the items with the boolean tag **special** will be displayed as discounted merchandise with a discount value.
 + The page content fills appropriately and doesn't spill out beyond obvious borders.
 + The page content doesn't overlap and is easy to read.
 
 #### Assumptions(s):
++ The tester knows how many merchandise items are on discount.
++ The tester knows where the discount tag is displayed on the details view.
++ The tester knows the correct selling value for each item.
+
 #### Testing Step(s):
+1. Load the **Index View** of Eldridge Music.
+1. Click on **speials** on the navigation bar.
+1. Count the discounted merchandise displayed.
+1. Check each item for both the discount tag and the updated price value.
+
 #### Documented Result(s):
+1. If there is an incorrect number of displayed discount merchandise items, record:
+    + The test name, number of displayed merchandise items, and a description of the problem.
+1. If a discounted merchandise item is displayed without a discount value, recored:
+    + The test name, merchandise item name, and a description of the problem.
+1. If a discounted merchandise item is displayed with an incorrect new price, recored:
+    + The test name, merchandise item name, anticipated price, and a description of the problem.
 1. If any links or images are broken, record:
     + The test name, image or link name, and a brief description of the problem.
 1. If any content has bad UX, record:
@@ -135,7 +151,7 @@
 
 ---
 
-### test - 4
+### Testing Shopping Cart
 
 ---
 
@@ -143,12 +159,44 @@
 + As a shopper I want to view all items in my cart.
 
 #### Expectation(s):
++ All items chosen for purchase will be displayed in cart view with the proper amounts.
++ The no delivery fee function operates correctly.
++ Sub-total and grand total calculate properly in the **cart** and **cart icon**
 + The page content fills appropriately and doesn't spill out beyond obvious borders.
 + The page content doesn't overlap and is easy to read.
 
 #### Assumptions(s):
++ The tester will write down all merchandise they have chosen to purchase and their amounts.
++ The tester knows there is an empty cart page and what it's supposed to look like.
++ The tester will watch the **cart total** and be sure it updates as they add merchandise to their cart.
++ The tester will start the test with an empty cart.
++ The tester knows that with a purchase of more then $50 there is no delivery fee.
++ The tester is watch the success toasts and checking for their accuracy.
+
 #### Testing Step(s):
+1. Load the **Index View** of Eldridge Music.
+1. Click on the **cart** icon at the top right corner of the view.
+1. Check for the correct empty cart page.
+1. Click on **Piano Books** on the navigation bar.
+1. Click on **All Music Books** from the **Piano Books** drop-down menu.
+1. Choose a random merchandise item with a random quantity amount and add that to the cart.
+1. Repeat step 4 - 6, four to nine times more.
+1. Click on the **cart** icon at the top right corner of the view.
+1. Check for a correct grand total, delivery total, and sub-total.
+1. Empty cart.
+1. Repeat steps 4 - 7. This time ending with a grand total under $50
+1. Check for a correct grand total, delivery total, and sub-total.
+
+
 #### Documented Result(s):
+1. If the empty cart view does not display with an empty cart, record:
+    + The test name, and a brief description of the problem.
+1. If the delivery cost doesn't update correctly according to the free delivery threshold, record:
+    + The test name, all items with their quantities in the cart, and a brief description of the problem.
+1. If the success toast doesn't work or displays incorrect information, record:
+    + The test name, all items with their quantities in the cart, the last item and amount choosen, and a brief description of the problem.
+1. If the sub-total, delivery total, grand total do not appropriately sum up, record:
+    + The test name, all items with their quantities in the cart, and a brief description of the problem
 1. If any links or images are broken, record:
     + The test name, image or link name, and a brief description of the problem.
 1. If any content has bad UX, record:
