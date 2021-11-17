@@ -18,7 +18,7 @@
 
 # Testing
 ## Developer Testing Specifications
-### Developer Tested Systems
+### Developer Testing Systems
 + Windows 10 (Chrome 87**, Edge 87**, Firefox 84**)
     + Chrome
         + Developed in Chrome.
@@ -47,10 +47,201 @@
     + Once in portrait.
     + Once with random moments of spam clicking and switching between landscape/portrait. This final test is critical to ensure tablet and mobile users have an enjoyable experience.
 
-## Developer Testing Specifications
-### Developer Testing Systems
-### Developer Testing Methods
 ## Developer Tests
+
+### Testing All Merchandise View
+
+---
+
+#### User Story
++ As a shopper I want to view all merchandise.
+
+#### Expectation(s):
++ The page content fills appropriately and doesn't spill out beyond obvious borders.
++ The page content doesn't overlap and is easy to read.
++ All the items in the merchandise model will be displayed.
+
+#### Assumptions(s):
++ The tester knows how many merchandise items are in the database.
+
+#### Testing Step(s):
+1. Load the **Index View** of Eldridge Music.
+1. Click on **Piano Books**.
+1. Click on **All Music Books**.
+1. Count number of merchandise items displayed in this view
+
+#### Documented Result(s):
+1. Record number of displayed merchandise items
+
+### test - 2
+
+---
+
+#### User Story
++ As a shopper I want to view a specific merchandise's detailed information.
+
+#### Expectation(s):
+#### Assumptions(s):
+#### Testing Step(s):
+#### Documented Result(s):
+
+### test - 3
+
+---
+
+#### User Story
++ As a shopper I want to see all discounted merchandise.
+
+#### Expectation(s):
+#### Assumptions(s):
+#### Testing Step(s):
+#### Documented Result(s):
+
+### test - 4
+
+---
+
+#### User Story
++ As a shopper I want to view all items in my cart.
+#### Expectation(s):
+#### Assumptions(s):
+#### Testing Step(s):
+#### Documented Result(s):
+
+### test - 5
+
+---
+
+#### User Story
++ As a shopper I want to be able to sort the available products by their category.
+#### Expectation(s):
+#### Assumptions(s):
+#### Testing Step(s):
+#### Documented Result(s):
+
+### test - 6
+
+---
+
+#### User Story
++ As a shopper I want to be able to search for an item by name, description, or composer.
+#### Expectation(s):
+#### Assumptions(s):
+#### Testing Step(s):
+#### Documented Result(s):
+
+### test - 7
+
+---
+
+#### User Story
++ As a shopper I want to be sent a confirmation email after I checkout.
+#### Expectation(s):
+#### Assumptions(s):
+#### Testing Step(s):
+#### Documented Result(s):
+
+### test - 8
+
+---
+
+#### User Story
++ As a returning user I would like a create an account.
+#### Expectation(s):
+#### Assumptions(s):
+#### Testing Step(s):
+#### Documented Result(s):
+
+### test - 9
+
+---
+
+#### User Story
++ As a returning user I would like a confirmation email after registering.
+#### Expectation(s):
+#### Assumptions(s):
+#### Testing Step(s):
+#### Documented Result(s):
+
+### test - 10
+
+---
+
+#### User Story
++ As a returning user I would like to easily login or logout.
+#### Expectation(s):
+#### Assumptions(s):
+#### Testing Step(s):
+#### Documented Result(s):
+
+### test - 11
+
+---
+
+#### User Story
++ As a returning user I would like to recover my forgotten passord.
+#### Expectation(s):
+#### Assumptions(s):
+#### Testing Step(s):
+#### Documented Result(s):
+
+### test - 12
+
+---
+
+#### User Story
++ As a returning user I would like to have a personalized profile that has all my previous order information.
+#### Expectation(s):
+#### Assumptions(s):
+#### Testing Step(s):
+#### Documented Result(s):
+
+### test - 13
+
+---
+
+#### User Story
++ As a returning user I would like to update my shipping information.
+#### Expectation(s):
+#### Assumptions(s):
+#### Testing Step(s):
+#### Documented Result(s):
+
+### test - 14
+
+---
+
+#### User Story
++ As a store manager I want to be able to add merchandise.
+#### Expectation(s):
+#### Assumptions(s):
+#### Testing Step(s):
+#### Documented Result(s):
+
+### test - 15
+
+---
+
+#### User Story
++ As a store manager I want to be able to edit merchandise.
+#### Expectation(s):
+#### Assumptions(s):
+#### Testing Step(s):
+#### Documented Result(s):
+
+### test - 16
+
+---
+
+#### User Story
++ As a store manager I want to be able to delete merchandise.
+#### Expectation(s):
+#### Assumptions(s):
+#### Testing Step(s):
+#### Documented Result(s):
+
+
+
 
 
 ## Program Tests
