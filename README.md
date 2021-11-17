@@ -217,7 +217,20 @@ to peruse our selection and hopfully give some lightly used music books a second
         + Unknown.
     + Thought(s):
         + `!important` was used to attempt to override any existing style but this did not work. All the class styles were looked though from browser inspect and a problem could not be seen. Furthermore, From what browser inspect shows this checkbox should look like the rest.
-
++ On a Safari browsers the invoice view doesnt open as the responsive size that it should.
+    + Caused by:
+        + Safari.
+    + Attemped fix(s):
+        + Various snippets of code from Stack Overflow.
+    + Thought(s):
+        + The problem seems to be a combination of having a table in a responsive bootstrap design.
++ Scroll bar doesn't show up in success toast on safari browsers.
+    + Caused by:
+        + Safari.
+    + Attemped fix(s):
+        + Various snippets of code from Stack Overflow.
+    + Thought(s):
+        + This could be a setting in safari.
 
 ## Other Problems
 + Bootstrap's toasts wouldn't show up on screen.
@@ -235,6 +248,14 @@ to peruse our selection and hopfully give some lightly used music books a second
         + Responsive design header that used book strap fixed size cols and possibly a myriad of other problems.
     + Fix:
         + A combination of flex, guessed left/right margins, and Bootstrap.
++ Favicon doesnt show up on allauth views.
+    + Caused by:
+        + Inability to push `MEDIA_URL` to view for use.
++ Create new account focuses on middle input when page opens.
+    + Caused by:
+        + Allauth.
+    + Thought(s):
+        + The focus could be changed with JS or finding the place where Allauth asignes focus.
 
 # Deployment
 ## GitHub - GitPod
