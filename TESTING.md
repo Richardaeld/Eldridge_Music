@@ -288,7 +288,7 @@
 #### Assumptions(s):
 + The tester knows the dummy codes for Stripe
 + The tester has access to an email account.
-+ The tester already has an account created with Eldridge Music Book Emporium.
++ The tester will create an account for this test, and will keep a record of the account.
 + The tester know the content of a confirmation email.
 + The tester will have their invoice #, date, sub-total, delivery-total, grand total, and contact information written down.
 + The tester knows how to use an e-commerce store.
@@ -310,6 +310,8 @@
     + The test name, if the tester was logged in, the email name, the invoice #, and a bried description of the problem
 1. If any of the email content is incorrect, record:
     + The test name, if the tester was logged in, the content expected, and actual content, and a bried description of the problem.
+1. A user account was created to fulfill the test's requirements, record:
+    + The username, email address of the account, and that this is a test account.
 1. If any links or images are broken, record:
     + The test name, image or link name, and a brief description of the problem.
 1. If any content has bad UX, record:
@@ -317,28 +319,7 @@
 
 ---
 
-### test - 8
-
----
-
-#### User Story
-+ As a returning user I would like a create an account.
-
-#### Expectation(s):
-+ The page content fills appropriately and doesn't spill out beyond obvious borders.
-+ The page content doesn't overlap and is easy to read.
-
-#### Assumptions(s):
-#### Testing Step(s):
-#### Documented Result(s):
-1. If any links or images are broken, record:
-    + The test name, image or link name, and a brief description of the problem.
-1. If any content has bad UX, record:
-    + The test name, screen resolution, browser/device, view (page), and a brief description of the bad UX.
-
----
-
-### test - 9
+### Testing Account Confirmation Email
 
 ---
 
@@ -346,12 +327,31 @@
 + As a returning user I would like a confirmation email after registering.
 
 #### Expectation(s):
++ A confirmation email will be sent out at the end of the account creation process.
 + The page content fills appropriately and doesn't spill out beyond obvious borders.
 + The page content doesn't overlap and is easy to read.
 
 #### Assumptions(s):
++ The tester has access to an email account.
++ The tester will create an account for this test, and will keep a record of the account.
++ The tester knows the content of both the confirmation email and the confirmation page.
+
 #### Testing Step(s):
+1. Load the **Index View** of Eldridge Music.
+1. Click on the **Profile** icon.
+1. Click on **Create Account**.
+1. Fill out information and submit.
+1. Open the email account the confirmation email was sent to and open the confirmation email.
+1. Select the confirmation string.
+1. Check the information provided here is correct and then confirm.
+
 #### Documented Result(s):
+1. A user account was created to fulfill the test's requirements, record:
+    + The username, email address of the account, and that this is a test account.
+1. If the information provided on the confirmation email or the confirmation page is incorrect, record:
+    + The test name, the incorrect information, the anticipated information, and a brief description of the problem
+1. If no confirmation email is received, record:
+    + The test name, the email used, the account name used, and a bried description of the problem.
 1. If any links or images are broken, record:
     + The test name, image or link name, and a brief description of the problem.
 1. If any content has bad UX, record:
@@ -359,7 +359,53 @@
 
 ---
 
-### test - 10
+### Testing Account Creation
+
+---
+
+#### User Story
++ As a returning user I would like a create an account.
+
+#### Expectation(s):
++ An account can be created, accessed, and updated.
++ The page content fills appropriately and doesn't spill out beyond obvious borders.
++ The page content doesn't overlap and is easy to read.
+
+#### Assumptions(s):
++ The tester has access to an email account.
++ The tester will create an account for this test, and will keep a record of the account.
+
+#### Testing Step(s):
+1. Load the **Index View** of Eldridge Music.
+1. Click on the **Profile** icon.
+1. Click on **Create Account**.
+1. Fill out information and submit.
+1. Open the email account the confirmation email was sent to and open the confirmation email.
+1. Select the confirmation string.
+1. Confirm for a new account.
+1. Log in with new account.
+1. Click on the **Profile** icon.
+1. Click on the **Profile** button.
+1. Update **Shipping Info** and submit.
+1. Check for correctness.
+
+#### Documented Result(s):
+1. A user account was created to fulfill the test's requirements, record:
+    + The username, email address of the account, and that this is a test account.
+1. If the new account does not accept the login information, record:
+    + The test name, the email name, the user name, and a bried description of the problem.
+1. If the new account information does not update, record:
+    + The test name, the email name, the username, the anticipated information updated, and a brief description of the problem.
+1. If any links or images are broken, record:
+    + The test name, image or link name, and a brief description of the problem.
+1. If any content has bad UX, record:
+    + The test name, screen resolution, browser/device, view (page), and a brief description of the bad UX.
+
+
+
+---
+
+### Testing Login and Logout
 
 ---
 
@@ -367,12 +413,33 @@
 + As a returning user I would like to easily login or logout.
 
 #### Expectation(s):
++ The tester can login and logout.
 + The page content fills appropriately and doesn't spill out beyond obvious borders.
 + The page content doesn't overlap and is easy to read.
 
 #### Assumptions(s):
++ The tester will create an account for this test or use a pre-existing account. The tester will keep a record of the account.
+
 #### Testing Step(s):
+1. Load the **Index View** of Eldridge Music.
+1. Click on the **Profile** icon.
+1. Click on the **Login** button.
+1. Log into Eldridge Music Book Emporium.
+1. Click on the **Profile** icon.
+1. Click on the **Profile** button.
+1. Check for correct profile page.
+1. Click on the **Profile** icon.
+1. Click on the **Logout** button.
+1. Click on the **Profile** icon.
+1. Check for correct content of drop-down.
+
 #### Documented Result(s):
+1. A user account was created to fulfill the test's requirements or a pre-existing account was used, record:
+    + The username, email address of the account, and that this is a test account.
+1. If the login information was not accepted, record:
+    + The test name, the email name, the username, and a brief description of the problem.
+1. If the logout was not accepted , record:
+    + The test name, the username, the email name, and a brief description of the problem.
 1. If any links or images are broken, record:
     + The test name, image or link name, and a brief description of the problem.
 1. If any content has bad UX, record:
@@ -380,7 +447,7 @@
 
 ---
 
-### test - 11
+### Testing Password Recovery
 
 ---
 
@@ -388,12 +455,32 @@
 + As a returning user I would like to recover my forgotten passord.
 
 #### Expectation(s):
++ A user can recover/change their current password.
 + The page content fills appropriately and doesn't spill out beyond obvious borders.
 + The page content doesn't overlap and is easy to read.
 
 #### Assumptions(s):
++ The tester will create an account for this test or use a pre-existing account. The tester will keep a record of the account.
+
 #### Testing Step(s):
+1. Load the **Index View** of Eldridge Music.
+1. Click on the **Profile** icon.
+1. Click on the **Login** button.
+1. Click on **Forgot Password?**.
+1. Enter email for account and submit.
+1. Open the email account the change password email was sent to and open the change password email.
+1. Click on the change password string.
+1. Create a new passwrod and submit.
+1. Login with the new password.
+
+
 #### Documented Result(s):
+1. A user account was created to fulfill the test's requirements or a pre-existing account was used, record:
+    + The username, email address of the account, and that this is a test account.
+1. If no change password email is received, record:
+    + The test name, the email used, the account name used, and a bried description of the problem.
+1. If the new password does not work, record:
+    + The test name, the username, the email name, and a brief description of the problem.
 1. If any links or images are broken, record:
     + The test name, image or link name, and a brief description of the problem.
 1. If any content has bad UX, record:
