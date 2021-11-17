@@ -148,6 +148,9 @@ to peruse our selection and hopfully give some lightly used music books a second
 ## Merchandise Details
 + A warm and inviting linear gradient was used for the background.
 + A single card is featured here with its full content unabbreviated.
++ A used tag is added to all previously used merchandise.
++ A discount tag is added to all merchandise that is being sold at a discounted value
++ Any item being sold at a discounted value shows both the old price and the new price
 
 ## Cart
 + With nothing in the cart this view asks users to continue shopping.
