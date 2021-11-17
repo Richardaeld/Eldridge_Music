@@ -59,9 +59,9 @@
 + As a shopper I want to view all merchandise.
 
 #### Expectation(s):
++ All the items in the merchandise model will be displayed.
 + The page content fills appropriately and doesn't spill out beyond obvious borders.
 + The page content doesn't overlap and is easy to read.
-+ All the items in the merchandise model will be displayed.
 
 #### Assumptions(s):
 + The tester knows how many merchandise items are in the database.
@@ -82,7 +82,7 @@
 
 ---
 
-### test - 2
+### Testing Merchandise Detailed Information View
 
 ---
 
@@ -90,11 +90,31 @@
 + As a shopper I want to view a specific merchandise's detailed information.
 
 #### Expectation(s):
-#### Assumptions(s):
-#### Testing Step(s):
-#### Documented Result(s):
++ The tester will check five different detail views.
++ The page content fills appropriately and doesn't spill out beyond obvious borders.
++ The page content doesn't overlap and is easy to read.
 
-### test - 3
+#### Assumptions(s):
++ The tester knows the content that should display for each product they look at.
++ The tester knows multiple ways to get to a details view
+
+#### Testing Step(s):
+1. Load the **Index View** of Eldridge Music.
+1. The tester will navigate to the details view of a merchandise item.
+1. The tester will check all the information of this merchandise item for correctness.
+1. The tester will repeat steps steps 1 - 3 choosing a different path to the details view each time.
+
+#### Documented Result(s):
+1. If any information of the merchandise item is incorrect, record:
+    + The test name, merchandise item name, a brief description of the incorrect material.
+1. If any links or images are broken, record:
+    + The test name, image or link name, and a brief description of the problem.
+1. If any content has bad UX, record:
+    + The test name, screen resolution, browser/device, view (page), and a brief description of the bad UX.
+
+---
+
+### Testing Discounted Merchandise View
 
 ---
 
@@ -102,9 +122,18 @@
 + As a shopper I want to see all discounted merchandise.
 
 #### Expectation(s):
++ The page content fills appropriately and doesn't spill out beyond obvious borders.
++ The page content doesn't overlap and is easy to read.
+
 #### Assumptions(s):
 #### Testing Step(s):
 #### Documented Result(s):
+1. If any links or images are broken, record:
+    + The test name, image or link name, and a brief description of the problem.
+1. If any content has bad UX, record:
+    + The test name, screen resolution, browser/device, view (page), and a brief description of the bad UX.
+
+---
 
 ### test - 4
 
@@ -112,10 +141,20 @@
 
 #### User Story
 + As a shopper I want to view all items in my cart.
+
 #### Expectation(s):
++ The page content fills appropriately and doesn't spill out beyond obvious borders.
++ The page content doesn't overlap and is easy to read.
+
 #### Assumptions(s):
 #### Testing Step(s):
 #### Documented Result(s):
+1. If any links or images are broken, record:
+    + The test name, image or link name, and a brief description of the problem.
+1. If any content has bad UX, record:
+    + The test name, screen resolution, browser/device, view (page), and a brief description of the bad UX.
+
+---
 
 ### test - 5
 
@@ -123,10 +162,20 @@
 
 #### User Story
 + As a shopper I want to be able to sort the available products by their category.
+
 #### Expectation(s):
++ The page content fills appropriately and doesn't spill out beyond obvious borders.
++ The page content doesn't overlap and is easy to read.
+
 #### Assumptions(s):
 #### Testing Step(s):
 #### Documented Result(s):
+1. If any links or images are broken, record:
+    + The test name, image or link name, and a brief description of the problem.
+1. If any content has bad UX, record:
+    + The test name, screen resolution, browser/device, view (page), and a brief description of the bad UX.
+
+---
 
 ### test - 6
 
@@ -134,10 +183,20 @@
 
 #### User Story
 + As a shopper I want to be able to search for an item by name, description, or composer.
+
 #### Expectation(s):
++ The page content fills appropriately and doesn't spill out beyond obvious borders.
++ The page content doesn't overlap and is easy to read.
+
 #### Assumptions(s):
 #### Testing Step(s):
 #### Documented Result(s):
+1. If any links or images are broken, record:
+    + The test name, image or link name, and a brief description of the problem.
+1. If any content has bad UX, record:
+    + The test name, screen resolution, browser/device, view (page), and a brief description of the bad UX.
+
+---
 
 ### test - 7
 
@@ -145,10 +204,20 @@
 
 #### User Story
 + As a shopper I want to be sent a confirmation email after I checkout.
+
 #### Expectation(s):
++ The page content fills appropriately and doesn't spill out beyond obvious borders.
++ The page content doesn't overlap and is easy to read.
+
 #### Assumptions(s):
 #### Testing Step(s):
 #### Documented Result(s):
+1. If any links or images are broken, record:
+    + The test name, image or link name, and a brief description of the problem.
+1. If any content has bad UX, record:
+    + The test name, screen resolution, browser/device, view (page), and a brief description of the bad UX.
+
+---
 
 ### test - 8
 
@@ -156,10 +225,20 @@
 
 #### User Story
 + As a returning user I would like a create an account.
+
 #### Expectation(s):
++ The page content fills appropriately and doesn't spill out beyond obvious borders.
++ The page content doesn't overlap and is easy to read.
+
 #### Assumptions(s):
 #### Testing Step(s):
 #### Documented Result(s):
+1. If any links or images are broken, record:
+    + The test name, image or link name, and a brief description of the problem.
+1. If any content has bad UX, record:
+    + The test name, screen resolution, browser/device, view (page), and a brief description of the bad UX.
+
+---
 
 ### test - 9
 
@@ -167,10 +246,20 @@
 
 #### User Story
 + As a returning user I would like a confirmation email after registering.
+
 #### Expectation(s):
++ The page content fills appropriately and doesn't spill out beyond obvious borders.
++ The page content doesn't overlap and is easy to read.
+
 #### Assumptions(s):
 #### Testing Step(s):
 #### Documented Result(s):
+1. If any links or images are broken, record:
+    + The test name, image or link name, and a brief description of the problem.
+1. If any content has bad UX, record:
+    + The test name, screen resolution, browser/device, view (page), and a brief description of the bad UX.
+
+---
 
 ### test - 10
 
@@ -178,10 +267,20 @@
 
 #### User Story
 + As a returning user I would like to easily login or logout.
+
 #### Expectation(s):
++ The page content fills appropriately and doesn't spill out beyond obvious borders.
++ The page content doesn't overlap and is easy to read.
+
 #### Assumptions(s):
 #### Testing Step(s):
 #### Documented Result(s):
+1. If any links or images are broken, record:
+    + The test name, image or link name, and a brief description of the problem.
+1. If any content has bad UX, record:
+    + The test name, screen resolution, browser/device, view (page), and a brief description of the bad UX.
+
+---
 
 ### test - 11
 
@@ -189,10 +288,20 @@
 
 #### User Story
 + As a returning user I would like to recover my forgotten passord.
+
 #### Expectation(s):
++ The page content fills appropriately and doesn't spill out beyond obvious borders.
++ The page content doesn't overlap and is easy to read.
+
 #### Assumptions(s):
 #### Testing Step(s):
 #### Documented Result(s):
+1. If any links or images are broken, record:
+    + The test name, image or link name, and a brief description of the problem.
+1. If any content has bad UX, record:
+    + The test name, screen resolution, browser/device, view (page), and a brief description of the bad UX.
+
+---
 
 ### test - 12
 
@@ -200,10 +309,20 @@
 
 #### User Story
 + As a returning user I would like to have a personalized profile that has all my previous order information.
+
 #### Expectation(s):
++ The page content fills appropriately and doesn't spill out beyond obvious borders.
++ The page content doesn't overlap and is easy to read.
+
 #### Assumptions(s):
 #### Testing Step(s):
 #### Documented Result(s):
+1. If any links or images are broken, record:
+    + The test name, image or link name, and a brief description of the problem.
+1. If any content has bad UX, record:
+    + The test name, screen resolution, browser/device, view (page), and a brief description of the bad UX.
+
+---
 
 ### test - 13
 
@@ -211,10 +330,20 @@
 
 #### User Story
 + As a returning user I would like to update my shipping information.
+
 #### Expectation(s):
++ The page content fills appropriately and doesn't spill out beyond obvious borders.
++ The page content doesn't overlap and is easy to read.
+
 #### Assumptions(s):
 #### Testing Step(s):
 #### Documented Result(s):
+1. If any links or images are broken, record:
+    + The test name, image or link name, and a brief description of the problem.
+1. If any content has bad UX, record:
+    + The test name, screen resolution, browser/device, view (page), and a brief description of the bad UX.
+
+---
 
 ### test - 14
 
@@ -222,10 +351,20 @@
 
 #### User Story
 + As a store manager I want to be able to add merchandise.
+
 #### Expectation(s):
++ The page content fills appropriately and doesn't spill out beyond obvious borders.
++ The page content doesn't overlap and is easy to read.
+
 #### Assumptions(s):
 #### Testing Step(s):
 #### Documented Result(s):
+1. If any links or images are broken, record:
+    + The test name, image or link name, and a brief description of the problem.
+1. If any content has bad UX, record:
+    + The test name, screen resolution, browser/device, view (page), and a brief description of the bad UX.
+
+---
 
 ### test - 15
 
@@ -233,10 +372,20 @@
 
 #### User Story
 + As a store manager I want to be able to edit merchandise.
+
 #### Expectation(s):
++ The page content fills appropriately and doesn't spill out beyond obvious borders.
++ The page content doesn't overlap and is easy to read.
+
 #### Assumptions(s):
 #### Testing Step(s):
 #### Documented Result(s):
+1. If any links or images are broken, record:
+    + The test name, image or link name, and a brief description of the problem.
+1. If any content has bad UX, record:
+    + The test name, screen resolution, browser/device, view (page), and a brief description of the bad UX.
+
+---
 
 ### test - 16
 
@@ -244,11 +393,18 @@
 
 #### User Story
 + As a store manager I want to be able to delete merchandise.
+
 #### Expectation(s):
++ The page content fills appropriately and doesn't spill out beyond obvious borders.
++ The page content doesn't overlap and is easy to read.
+
 #### Assumptions(s):
 #### Testing Step(s):
 #### Documented Result(s):
-
+1. If any links or images are broken, record:
+    + The test name, image or link name, and a brief description of the problem.
+1. If any content has bad UX, record:
+    + The test name, screen resolution, browser/device, view (page), and a brief description of the bad UX.
 
 
 
