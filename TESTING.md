@@ -49,9 +49,9 @@
 
 ## Developer Tests
 
-### Testing All Merchandise View
-
 ---
+
+### Testing All Merchandise View
 
 #### User Story
 + As a shopper I want to view all merchandise.
@@ -78,9 +78,9 @@
 1. If any content has bad UX, record:
     + The test name, screen resolution, browser/device, view (page), and a brief description of the bad UX.
 
-### test - 2
-
 ---
+
+### test - 2
 
 #### User Story
 + As a shopper I want to view a specific merchandise's detailed information.
