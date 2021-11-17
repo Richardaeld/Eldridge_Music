@@ -187,7 +187,7 @@ to peruse our selection and hopfully give some lightly used music books a second
 + [Click here to view all wireframes associated to this project.](static/readme/wireframe "Location of wireframes")
 
 ### Live App
-+ A fully functioning application can be found on [Heroku](https://eldridge-music.herokuapp.com/ "Deplayment location").
++ [A fully functioning application can be found here, on Heroku](https://eldridge-music.herokuapp.com/ "Deplayment location").
 ![Index page of the Eldridge Music Book Emporium](static/readme/demo/demo-index-large.jpg "Index page of Eldridge Music Book Emporium")
 + GitHub's IDE GitPod was used for the construction process.
 + GitHub houses the [master branch](https://github.com/Richardaeld/Eldridge_Music).
