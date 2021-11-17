@@ -488,7 +488,7 @@
 
 ---
 
-### test - 12
+### Testing Invoice Remember Information
 
 ---
 
@@ -496,12 +496,26 @@
 + As a returning user I would like to have a personalized profile that has all my previous order information.
 
 #### Expectation(s):
++ When **Remember My Information** box is checked it will update users **Shipping Information**.
 + The page content fills appropriately and doesn't spill out beyond obvious borders.
 + The page content doesn't overlap and is easy to read.
 
 #### Assumptions(s):
++ The tester will create an account for this test or use a pre-existing account. The tester will keep a record of the account.
++ Tester knows Striped dummy codes.
+
 #### Testing Step(s):
+1. Load the **Index View** of Eldridge Music.
+1. Proceed through to checkout with any combination of items in the cart.
+1. Fill out shipping information and check **Remember My Information**.
+1. Submit order with Stripe's dummy information.
+1. Open **Profile view** and check to see if **Shipping Information** has been updated.
+
 #### Documented Result(s):
+1. A user account was created to fulfill the test's requirements or a pre-existing account was used, record:
+    + The username, email address of the account, and that this is a test account.
+1. If the **Shipping Information** is not updated, record:
+    + The test name, the email name, the username, the information anticipated, the actual information, and a brief description of the problem.
 1. If any links or images are broken, record:
     + The test name, image or link name, and a brief description of the problem.
 1. If any content has bad UX, record:
@@ -509,7 +523,7 @@
 
 ---
 
-### test - 13
+### Testing Updating Shipping Information from Profile View
 
 ---
 
@@ -517,12 +531,24 @@
 + As a returning user I would like to update my shipping information.
 
 #### Expectation(s):
++ The **Shipping Information** is updatable from **Profile View**.
 + The page content fills appropriately and doesn't spill out beyond obvious borders.
 + The page content doesn't overlap and is easy to read.
 
 #### Assumptions(s):
++ The tester will create an account for this test or use a pre-existing account. The tester will keep a record of the account.
+
 #### Testing Step(s):
+1. Load the **Index View** of Eldridge Music.
+1. Proceed to **Profile View**.
+1. Change all the information found within **Shipping Information** and update.
+1. Check for correctness.
+
 #### Documented Result(s):
+1. A user account was created to fulfill the test's requirements or a pre-existing account was used, record:
+    + The username, email address of the account, and that this is a test account.
+1. If the **Shipping Information** does not update, record:
+    + The test name, the email name, the username, the information anticipated, the actual information, and a brief description of the problem.
 1. If any links or images are broken, record:
     + The test name, image or link name, and a brief description of the problem.
 1. If any content has bad UX, record:
@@ -530,7 +556,7 @@
 
 ---
 
-### test - 14
+### Testing Superuser Add Merchandise
 
 ---
 
@@ -538,12 +564,36 @@
 + As a store manager I want to be able to add merchandise.
 
 #### Expectation(s):
++ Any superuser can add merchandise.
 + The page content fills appropriately and doesn't spill out beyond obvious borders.
 + The page content doesn't overlap and is easy to read.
 
 #### Assumptions(s):
++ The tester will have a pre-existing superuser account. The tester will keep a record of the account.
++ The tester will keep a record of any and all created merchandise. Including the merchandise name, and sku
++ The tester will create a test specific sku with each merchandise item.
++ The tester will add an image to the merchandise item and keep a record of the image name.
++ The tester will have an image to upload as a merchandise image.
+
 #### Testing Step(s):
+1. Load the **Index View** of Eldridge Music.
+1. Log into account.
+1. Click on the **Profile** icon.
+1. Click on the **Merchandise Management** button
+1. Create a new merchandise item.
+1. Find the new item and check for accuracy.
+1. Create a new merchandise item with an image.
+1. Find the new item and check for accuracy.
+
 #### Documented Result(s):
+1. A user account was created to fulfill the test's requirements or a pre-existing account was used, record:
+    + The username, email address of the account, and that this is a test account.
+1. A merchandise item was created to fullfill the test's requirements, record:
+    + The test name, the merchandise name, sku, and that these are test merchandise.
+1. A image was used to fullfill the test's requirements, record:
+    + The test name, the image name, and that these are test image(s).
+1. If the merchandise item is incorrect, record:
+    + The test name, the merchandise name, merchandise sku, anticipated information, actual information, and a brief description of the problem.
 1. If any links or images are broken, record:
     + The test name, image or link name, and a brief description of the problem.
 1. If any content has bad UX, record:
