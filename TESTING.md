@@ -71,7 +71,12 @@
 1. Count number of merchandise items displayed in this view
 
 #### Documented Result(s):
-1. Record number of displayed merchandise items
+1. If there is an incorrect number of displayed merchandise items, record:
+    + The test name, number of displayed merchandise items, and a description of the problem.
+1. If any links or images are broken, record:
+    + The test name, image or link name, and a brief description of the problem.
+1. If any content has bad UX, record:
+    + The test name, screen resolution, browser/device, view (page), and a brief description of the bad UX.
 
 ### test - 2
 
