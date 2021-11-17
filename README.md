@@ -194,7 +194,9 @@ to peruse our selection and hopfully give some lightly used music books a second
     + These new instrument books could be added to the apps navbar next to piano books or use the categories within piano books to be selectors.
 + The index page could feature a special that is a small contianer with a captioned image to help entice users to make a unexpected purchase.
 + Allow images to show a larger image (in a modal) if clicked.
-+ Add a warning modal for superusers when they click the delete merchandise button
++ Add a warning modal for superusers when they click the delete merchandise button.
++ A counter that tells the user how many merchandise items are being displayed for current search.
++ Ways of sorting displayed merchandise items.
 
 # Technology and Languages
 + HTML - Skeleton frame of the application.
