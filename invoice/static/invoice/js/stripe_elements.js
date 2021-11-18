@@ -71,8 +71,8 @@ form.addEventListener('submit', function(ev) {
                     phone: $.trim(form.phone.value),
                     email: $.trim(form.email.value),
                     address:{
-                        line1: $.trim(form.street_address_billing.value),
-                        line2: $.trim(form.street_address_shipping.value),
+                        line1: $.trim(form.street_address_1.value),
+                        line2: $.trim(form.street_address_2.value),
                         city: $.trim(form.city.value),
                         country: $.trim(form.country.value),
                         state: $.trim(form.state_county.value),
@@ -83,8 +83,8 @@ form.addEventListener('submit', function(ev) {
                 name: $.trim(form.name.value),
                 phone: $.trim(form.phone.value),
                 address:{
-                    line1: $.trim(form.street_address_billing.value),
-                    line2: $.trim(form.street_address_shipping.value),
+                    line1: $.trim(form.street_address_1.value),
+                    line2: $.trim(form.street_address_2.value),
                     city: $.trim(form.city.value),
                     country: $.trim(form.country.value),
                     postal_code: $.trim(form.post_code.value),
