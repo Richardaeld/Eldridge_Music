@@ -184,8 +184,8 @@ to peruse our selection and hopfully give some lightly used music books a second
 + Balsamiq was used for the planning process and wireframe creation.
 + Wireframes were made for all predetermined size variations of the application.
 + Wireframes were made for the modals to streamline their design. This also allowed for the modals to be shown without over complicating the wireframe design.
-+ [Click here to view all wireframe file associated to this project.](readme/wireframes/ "Location of wireframe files")
-+ [Click here to view all the wireframes associated to this project.](readme/WIREFRAMES.md/ "Location of wireframes")
++ [Click here to view all wireframe files associated to this project.](readme/wireframes/ "Location of wireframe files")
++ [Click here to view all the wireframes images associated to this project.](readme/WIREFRAMES.md/ "Location of wireframes")
 
 ### Live App
 + [A fully functioning application can be found here, on Heroku](https://eldridge-music.herokuapp.com/ "Deplayment location").

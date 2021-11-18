@@ -1,2 +1,2 @@
-[](readme/header-large.jpg)
-[](readme/header-expanded-large.jpg)
+[](readme/wireframes/header-large.jpg)
+[](wireframes/header-expanded-large.jpg)
