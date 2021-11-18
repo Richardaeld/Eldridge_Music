@@ -119,10 +119,7 @@ select {
     color: #C71C49!important;
 }
 
-/* ---------- Details */
-.details-image img {
-}
-
+/* ---------- Details View */
 #in-bag input {
     border-radius: 0%;
     -webkit-border-radius: 0%;
@@ -178,41 +175,22 @@ select {
 }
 
 @media (max-width: 575.98px) {
-    .merch-card p,
-    .merch-card button,
-    .merch-card a,
-    #remove-button,
-    #add-button,
-    #in-bag {
-        /* font-size: .65rem; */
-    }
     #remove-button,
     #in-bag,
     #add-button  {
-        /* height: 20px; */
-        /* line-height: 15px; */
         color: #fff;
         vertical-align: middle;
-    }
-
-    #in-bag input {
-        /* height:20px; */
     }
 
     .merch-card {
         height: auto;
     }
 
-
     .merch-image-background {
         height: 100%;
     }
 
-
     .merch-image img {
         padding: 0;
-        /* top:50%; */
-        /* max-height: calc(25rem - 2rem); */
-
     }
 }

@@ -131,63 +131,16 @@
     .remove-quantity,
     .update-quantity {
         margin-top: 1rem;
-        /* font-size: .7rem */
-    }
-    .sub-button,
-    .in-bag,
-    .add-button  {
-        /* height: 20px;
-        line-height: 15px; */
-        color: #fff;
-        vertical-align:middle;
-    }
-    .in-bag input {
-        /* height:20px; */
     }
 }
 
 @media (max-width: 575.98px) {
-    /* Font responsiveness adj */
-    table th,
-    table td,
-    table p,
-    .merch-name,
-    .sub-button,
-    .add-button,
-    .in-bag,
-    .grand-total,
-    .generic-button,
-    .bronze-button,
-    .green-button,
-    .keep-shopping-button {
-        /* font-size: .65rem; */
-    }
     /* Image responsiveness adj */
     .card-image {
         height:50px;
     }
 
-    /* Quantity adjustment buttons */
-    .remove-quantity,
-    .update-quantity {
-        /* font-size: .5rem; */
-    }
-
-    .sub-button,
-    .in-bag,
-    .add-button  {
-        /* height: 15px;
-        line-height: 10px; */
-        color: #fff;
-        vertical-align:middle;
-    }
-
-    .in-bag input {
-        /* height:15px; */
-    }
-
     .adj-qty-size {
         width: 50%;
     }
-
 }

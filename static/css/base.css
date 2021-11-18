@@ -138,7 +138,7 @@ button[type='submit']:not(#user-search-bar):not(#mobile-user-search-bar):not(.up
 }
 /* generic link color */
 .link {
-    color: #8298FF;
+    color: #00b7eb;
 }
 .inline-b {
     display: inline-block;
@@ -440,9 +440,6 @@ box-shadow: 0px 0px 0px rgba(0, 0, 0, .5),
     /* view height of items */
     .cart-popup-view {
         height: 100px;
-    }
-    .toast-body {
-        /* height: 50px; */
     }
 }
 
