@@ -695,29 +695,29 @@
 
 ### Lighthouse
 + Identifies problems with performance, accessibility, best practices, and SEO.
-![Light house results](static/readme/testing/lighthouse-fat-raccoon.jpg "Light house results")
+![Light house results](readme/images/lighthouse.jpg "Light house results")
 + Lists two vulnerabilities.
     + The use of jQuery@3.4.1
     + No CSP found in enforcement mode.
 
 ### JigSaw
 + Identifies errors in CSS
-![Jigsaw results](static/readme/testing/w3c-jigsaw.jpg "Jigsaw results")
+![Jigsaw results](readme/images/jigsaw.jpg "Jigsaw results")
 + Warnings are present for some of the vendor extensions, but those extensions are necessary and the errors can be ignored.
 
 ### W3C Validator
 + Identifies errors in HTML.
 + Helpful for proper semantic HTML and ARIA standard practices.
-![W3C validator results](static/readme/testing/w3c.jpg "W3c validator results")
+![W3C validator results](readme/images/w3c.jpg "W3c validator results")
 + Warnings are present for some of the JS because of the use of type, but those errors can be ignored.
 
 ### JSHint
 + Identifies errors in JS.
-![JSHint results](static/readme/testing/jshint.jpg)
+![JSHint results](readme/images/jshint.jpg)
 
 ### PEP8 online
 + Identifies errors in Python.
-![PEP8 results](static/readme/testing/pep8.jpg)
+![PEP8 results](readme/images/pep8.jpg)
 
 # Return to README
 + [Return to the README.md](README.md)

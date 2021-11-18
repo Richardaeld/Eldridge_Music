@@ -180,15 +180,15 @@ to peruse our selection and hopfully give some lightly used music books a second
 ## Wireframe and Live Applications
 ### Wire Frame
 + Each wireframe contains curly brackets that give a description of its contents and what the filler (missing database data) content should be.
-![Wireframe of the index page](static/readme/wireframe/index-page-large.png "Wireframe of the index page")
+![Wireframe of the index page](readme/wireframes/home-large.jpg "Wireframe of the index page")
 + Balsamiq was used for the planning process and wireframe creation.
 + Wireframes were made for all predetermined size variations of the application.
 + Wireframes were made for the modals to streamline their design. This also allowed for the modals to be shown without over complicating the wireframe design.
-+ [Click here to view all wireframes associated to this project.](static/readme/wireframe "Location of wireframes")
++ [Click here to view all wireframes associated to this project.](readme/wireframes/ "Location of wireframes")
 
 ### Live App
 + [A fully functioning application can be found here, on Heroku](https://eldridge-music.herokuapp.com/ "Deplayment location").
-![Index page of the Eldridge Music Book Emporium](static/readme/demo/demo-index-large.jpg "Index page of Eldridge Music Book Emporium")
+![Index page of the Eldridge Music Book Emporium](readme/images/live-site.jpg "Index page of Eldridge Music Book Emporium")
 + GitHub's IDE GitPod was used for the construction process.
 + GitHub houses the [master branch](https://github.com/Richardaeld/Eldridge_Music).
 
@@ -326,7 +326,7 @@ to peruse our selection and hopfully give some lightly used music books a second
     + Under **Access Management** click **Policies** and then **Create Policy**.
     + Click **JSON** tab and then click **import managed policy**.
     + Search for **s3**, select **AmazonS3FullAccess**, and click **Import**.
-    + Replace the value of **Resource** with [IAM JSON Resource](AWS.txt)
+    + Replace the value of **Resource** with [IAM JSON Resource](readme/AWS.txt)
     + Click **Review policy**.
     + Give the policy a name and description.
     + Click **Create policy**.
