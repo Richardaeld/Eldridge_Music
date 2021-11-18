@@ -85,11 +85,14 @@
                         <!-- Street Address -->
                         <div class="key-value-container">
                             <p class="success-key">
-                                Atreet Address:
+                                Street Address:
                             </p>
                             <p class="success-value">
-                                {{ invoice.street_address_1 }}<br>
-                                {{ invoice.street_address_2 }}
+                                {{ invoice.street_address_1 }}
+                                {% if invoice.street_address_2 != None %}
+                                    <br>
+                                    {{ invoice.street_address_2 }}
+                                {% endif %}
                             </p>
                         </div>
 
