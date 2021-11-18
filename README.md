@@ -447,7 +447,8 @@ to peruse our selection and hopfully give some lightly used music books a second
     + Used to Minimize KB load per image.
 + [W3C Validator](https://validator.w3.org/)
     + Used to identify errors in markup.
-<!-- https://jsonformatter.org/ -->
++ [JSON formatter](https://jsonformatter.org/)
+    + Used to read long strings of JSON
 
 ## Credits
 ### Code Citations
