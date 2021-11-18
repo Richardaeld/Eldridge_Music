@@ -18,7 +18,7 @@
 
             <!-- body for checkout success -->
             <div class="col-10 mt-3 invoice">
-                <h3>Thank you for shopping with us!</h3>
+                <h3>Thank You For Shopping With Us!</h3>
                 <hr>
                 <p>Your invoice information is below. A confirmation email will be sent to {{ invoice.email }}</p>
                 <!-- User information/delivery form -->
@@ -42,7 +42,7 @@
                         <!-- Order date -->
                         <div class="key-value-container">
                             <p class="success-key">
-                                Order Date:
+                                Invoice Date:
                             </p>
 
                             <p class="success-value">
@@ -99,6 +99,16 @@
                             </p>
                             <p class="success-value">
                                 {{ invoice.city }}
+                            </p>
+                        </div>
+
+                        <!-- State -->
+                        <div class="key-value-container">
+                            <p class="success-key">
+                                State:
+                            </p>
+                            <p class="success-value">
+                                {{ invoice.state_county }}
                             </p>
                         </div>
 
