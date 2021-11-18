@@ -8,7 +8,7 @@
 + [Program Tests](#program-tests)
     + [BrowserStack](#browserstack)
     + [Lighthouse](#lighthouse)
-    + [JigSaw]
+    + [JigSaw](#jigsaw)
     + [W3C Validator](#w3c-validator)
     + [JSHint](#jshint)
     + [PEP8 Online](#pep8-online)
