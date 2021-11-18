@@ -14,8 +14,8 @@
     <div class="container-fluid">
         <div class="row justify-content-around">
             <div class="blank-overlay"></div>
+            <!-- card container -->
             <div id="card" class="col-12 col-md-10 col-xl-6 mt-5">
-                <!-- <div class=""> -->
                 <div class="row g-0 merch-card merch-card-details mb-3">
 
                     <!-- image -->
@@ -51,7 +51,7 @@
                         {% endif %}
 
                         <!-- Merch Genreal Information -->
-                        <div class="merch-text-body"> <!-- d-flex justify-content-between pb-3  -->
+                        <div class="merch-text-body">
 
                             <!-- Merch name -->
                             <p class="merch-name mb-0">
@@ -83,9 +83,10 @@
                                     <strong>${{ merch.price }}</strong>
                                 </p>
                             {% endif %}
-
+                            <!-- Quantity adjustment and submission form -->
                             <form action="{% url 'add_to_cart' merch.id %}" method="POST" class="my-3">
                                 {% csrf_token %}
+                                <!-- Quantity adjustment -->
                                 <label for="id_qty_{{ merch.id }}" class="text-muted small mb-0 ">Quantity:</label>
                                 <div id="bag" class="mx-0 px-0">
                                     <div id="remove-button" class="mx-0 px-0">
@@ -98,11 +99,9 @@
                                         <span>+</span>
                                     </div>
                                 </div>
-
+                                <!-- Submit and keep shopping buttons -->
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
-
                                 <div class="d-flex justify-content-between">
-
                                     <button type="submit" class="my-3">
                                         <span class="p-0 p-sm-2">Purchase</span>
                                     </button>
@@ -110,7 +109,6 @@
                                     <a href="{% url 'merchandise' %}" class="bronze-button my-3">
                                         <span class="p-0 p-sm-2">Keep Shopping</span>
                                     </a>
-
                                 </div>
                             </form>
                         </div>

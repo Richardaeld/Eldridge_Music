@@ -92,7 +92,6 @@
 @keyframes circle-spin {
     0%{transform: rotate(0turn);}
     100%{transform: rotate(1turn);}
-
 }
 
 /* ---------- checkout success */
@@ -112,7 +111,6 @@
 .success-value {
     display: inline-block;
     width: 45%;
-
 }
 
 .break-words {

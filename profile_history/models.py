@@ -6,6 +6,10 @@ from django.dispatch import receiver
 
 
 class User_Profile_History(models.Model):
+    """
+    User profile used for remembering default
+    shipping information and invoice history
+    """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     default_phone = models.CharField(max_length=20, null=True, blank=True)
     default_street_address_1 = models.CharField(
@@ -29,6 +33,9 @@ class User_Profile_History(models.Model):
 
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
+    """
+    Creates/updates use profiles
+    """
     if created:
         User_Profile_History.objects.create(user=instance)
     instance.user_profile_history.save()

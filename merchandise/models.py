@@ -3,7 +3,9 @@ from django.db.models.fields import DateField
 
 
 class Music_Style(models.Model):
-
+    """
+    Used to create genres of music to group merchandise into
+    """
     class Meta:
         verbose_name_plural = 'Music Styles'
 
@@ -14,7 +16,9 @@ class Music_Style(models.Model):
 
 
 class Merch(models.Model):
-
+    """
+    Store merchandise item
+    """
     class Meta:
         verbose_name_plural = 'Merchandise'
 

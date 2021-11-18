@@ -1,4 +1,4 @@
-/* ---------- Add merch */
+/* ---------- General */
 
 .merch-form {
     margin-bottom: 5rem;
@@ -25,7 +25,7 @@
 .form-group label {
     margin-top: .5rem;
 }
-
+/* ---------- Image widget */
 input[type='file'] {
     position: absolute;
     min-width: 100%;

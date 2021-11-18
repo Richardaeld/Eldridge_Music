@@ -45,8 +45,6 @@ select {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-content: space-around; */
-    /* flex-grow: 5; */
 }
 
 .card-body {
@@ -96,7 +94,6 @@ select {
     margin-left: 3px;
 }
 
-
 /* ---------- General Superuser/admin buttons */
 .super-buttons {
     position: absolute;
@@ -124,22 +121,12 @@ select {
 
 /* ---------- Details */
 .details-image img {
-    /* width:80%; */
-
-    /* height: auto; */
-    /* max-height: calc(25rem - 2rem); */
-
-
-
 }
 
 #in-bag input {
     border-radius: 0%;
     -webkit-border-radius: 0%;
 }
-
-
-
 
 #bag {
     width:100%;

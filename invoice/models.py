@@ -8,7 +8,9 @@ from django.db.models import Sum
 
 
 class Invoice(models.Model):
-    # User/General Information
+    """
+    Order invoice form
+    """
     invoice_number = models.CharField(
         max_length=52, null=False, blank=False, editable=False
     )

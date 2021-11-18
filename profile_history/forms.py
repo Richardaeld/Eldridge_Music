@@ -24,6 +24,7 @@ class User_Profile_History_Form(forms.ModelForm):
             'default_country': 'Country',
         }
 
+        # Crispy forms configuration
         self.fields['default_phone'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if field != 'default_country':

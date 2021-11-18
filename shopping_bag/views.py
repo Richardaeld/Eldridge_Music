@@ -6,6 +6,9 @@ from merchandise.models import Merch
 
 
 def shopping_bag(request):
+    """
+    Shows contents of cart
+    """
     MEDIA_URL = settings.MEDIA_URL
     template = 'shopping_bag/shopping_bag.html'
     context = {
@@ -15,6 +18,9 @@ def shopping_bag(request):
 
 
 def add_to_cart(request, item_id):
+    """
+    Adds item to cart
+    """
     amount = int(request.POST.get('amount'))
     redirect_url = request.POST.get('redirect_url')
     cart = request.session.get('cart', {})
@@ -33,6 +39,9 @@ def add_to_cart(request, item_id):
 
 
 def adjust_cart(request, item_id):
+    """
+    Adjusts amount of an item in cart
+    """
     item = get_object_or_404(Merch, pk=item_id)
     amount = int(request.POST.get('amount'))
     cart = request.session.get('cart', {})
@@ -48,6 +57,9 @@ def adjust_cart(request, item_id):
 
 
 def remove_cart_item(request, item_id):
+    """
+    Deletes an item from the cart
+    """
     try:
         item = get_object_or_404(Merch, pk=item_id)
         cart = request.session.get('cart', {})

@@ -126,7 +126,7 @@
       {% find_active_search merch_url "?genre=Music_Education" as merch_edu_url %}
       {% find_active_search merch_url "?genre=Classical" as merch_classical_url %}
       {% find_active_search merch_url "?genre=Video_Game" as merch_video_game_url %}
-
+      <!-- Main navigation bar -->
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
           <button class="navbar-toggler my-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation-bar" aria-controls="navigation-bar" aria-expanded="false" aria-label="Toggle navigation">
@@ -227,7 +227,7 @@
     {% block postload_js %}
     <script type="text/javascript">
         // Reveal toasts if they exist
-        var toastExist = document.getElementsByClassName('toast')
+        var toastExist = document.getElementsByClassName('toast');
           if (toastExist.length > 0) {
             document.getElementsByClassName('toast')[0].classList.add("reveal-toast");
             document.getElementsByClassName('close-button')[0].addEventListener('click', function() {
@@ -246,7 +246,7 @@
             } else {
               searchBar.classList.add("invis");
             }
-          })
+          });
 
       </script>
     {% endblock %}

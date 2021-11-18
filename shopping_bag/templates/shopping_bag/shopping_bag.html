@@ -14,7 +14,7 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="white-overlay"></div>
-            <!-- Cards body -->
+            <!-- Card body -->
             <div class="col-11 mt-4 mb-5">
                 <!-- header -->
                 <h2 class="mb-0">Cart</h2>
@@ -54,6 +54,7 @@
                             <!-- Items quantity and ability to adjust quantity -->
                             <td class="px-0 px-lg-3 adj-qty-size">
                                 <div class="bag" style="position: relative;">
+                                    <!-- Adjust quantity buttons -->
                                     <div class="sub-button">
                                         <span>-</span>
                                     </div>
@@ -63,6 +64,7 @@
                                     <div class="add-button">
                                         <span>+</span>
                                     </div>
+                                    <!-- Remove or update quantity buttons -->
                                     <div class="d-flex">
                                         <form action="{% url 'remove_cart_item' item.item_id %}">
                                             {% csrf_token %}
@@ -142,7 +144,7 @@
                     <!-- checkout or keep shopping buttons -->
                     <div class="d-flex justify-content-end">
 
-                        <a href="{% url 'invoice' %}" class="green-button p-2 inline-b"> <!-- x-center-popup -->
+                        <a href="{% url 'invoice' %}" class="green-button p-2 inline-b">
                             Go to secure checkout
                             <i class="fas fa-lock ps-1"></i>
                         </a>

@@ -7,6 +7,9 @@ from merchandise.models import Merch
 
 
 def cart_contents(request):
+    """
+    Allows contents of cart to be seen in toast and other wise across app
+    """
     cart_items = []
     total = 0
     item_count = 0

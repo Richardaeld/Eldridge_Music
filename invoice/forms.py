@@ -28,6 +28,7 @@ class InvoiceForm(forms.ModelForm):
             'post_code': 'Post Code',
         }
 
+        # Crispy forms configration
         self.fields['name'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if field != 'country':
