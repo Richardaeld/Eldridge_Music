@@ -49,8 +49,8 @@ def invoice(request):
             'email': request.POST['email'],
             'phone': request.POST['phone'],
             'city': request.POST['city'],
-            'street_address_billing': request.POST['street_address_billing'],
-            'street_address_shipping': request.POST['street_address_shipping'],
+            'street_address_1': request.POST['street_address_1'],
+            'street_address_2': request.POST['street_address_2'],
             'state_county': request.POST['state_county'],
             'post_code': request.POST['post_code'],
             'country': request.POST['country'],
@@ -115,12 +115,8 @@ def invoice(request):
                     'email': profile.user.email,
                     'phone': profile.default_phone,
                     'city': profile.default_city,
-                    'street_address_billing': (
-                        profile.default_street_address_billing
-                    ),
-                    'street_address_shipping': (
-                        profile.default_street_address_shipping
-                    ),
+                    'street_address_1': profile.default_street_address_1,
+                    'street_address_2': profile.default_street_address_2,
                     'state_county': profile.default_state_county,
                     'post_code': profile.default_post_code,
                     'country': profile.default_country,
@@ -164,12 +160,8 @@ def checkout_success(request, invoice_number):
             profile_data = {
                 'default_phone': invoice.phone,
                 'default_city': invoice.city,
-                'default_street_address_billing': (
-                    invoice.street_address_billing
-                ),
-                'default_street_address_shipping': (
-                    invoice.street_address_shipping
-                ),
+                'default_street_address_1': invoice.street_address_1,
+                'default_street_address_2': invoice.street_address_2,
                 'default_state_county': invoice.state_county,
                 'default_post_code': invoice.post_code,
                 'default_country': invoice.country,

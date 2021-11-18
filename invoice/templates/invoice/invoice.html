@@ -43,8 +43,8 @@
                         <fieldset>
                             <legend class="mt-3 small"><strong>Delivery</strong></legend>
                             {{ invoice_form.phone | as_crispy_field }}
-                            {{ invoice_form.street_address_billing | as_crispy_field }}
-                            {{ invoice_form.street_address_shipping | as_crispy_field }}
+                            {{ invoice_form.street_address_1 | as_crispy_field }}
+                            {{ invoice_form.street_address_2 | as_crispy_field }}
                             {{ invoice_form.city | as_crispy_field }}
                             {{ invoice_form.state_county | as_crispy_field }}
                             {{ invoice_form.post_code | as_crispy_field }}

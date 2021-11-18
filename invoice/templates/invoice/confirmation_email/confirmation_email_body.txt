@@ -9,7 +9,8 @@ Delivery Total: ${{ invoice.delivery_total }}
 Grand Total: ${{ invoice.grand_total }}
 
 Your merchandise will be shipped to:
-{{ invoice.street_address_billing }}
+{{ invoice.street_address_1 }}
+{{ invoice.street_address_2 }}
 {{ invoice.city }}, {{ invoice.state_county }} {{ invoice.post_code }}
 
 We have your phone number on file as {{ invoice.phone }}.

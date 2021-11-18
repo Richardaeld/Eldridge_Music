@@ -6,8 +6,8 @@ class InvoiceForm(forms.ModelForm):
     class Meta:
         model = Invoice
         fields = (
-            'name', 'email', 'phone', 'street_address_billing',
-            'street_address_shipping', 'city', 'state_county',
+            'name', 'email', 'phone', 'street_address_1',
+            'street_address_2', 'city', 'state_county',
             'post_code', 'country',
         )
 
@@ -22,8 +22,8 @@ class InvoiceForm(forms.ModelForm):
             'email': 'Email Address',
             'phone': 'Phone Number',
             'city': 'City',
-            'street_address_billing': 'Street Address 1',
-            'street_address_shipping': 'Street Address 2',
+            'street_address_1': 'Street Address 1',
+            'street_address_2': 'Street Address 2',
             'state_county': 'State',
             'post_code': 'Post Code',
         }

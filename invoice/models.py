@@ -22,15 +22,11 @@ class Invoice(models.Model):
     stripe_pid = models.CharField(
         max_length=254, null=False, blank=False, default=''
     )
-    street_address_billing = models.CharField(
-        max_length=80, null=False, blank=False
-    )
-    street_address_shipping = models.CharField(
-        max_length=80, null=True, blank=True
-    )
+    street_address_1 = models.CharField(max_length=80, null=False, blank=False)
+    street_address_2 = models.CharField(max_length=80, null=True, blank=True)
     city = models.CharField(max_length=40, null=False, blank=False)
-    state_county = models.CharField(max_length=80, null=True, blank=True)
-    post_code = models.CharField(max_length=20, null=True, blank=True)
+    state_county = models.CharField(max_length=80, null=False, blank=False)
+    post_code = models.CharField(max_length=20, null=False, blank=False)
     country = CountryField(blank_label='Country *', null=False, blank=False)
     date_time = models.DateTimeField(auto_now_add=True)
     delivery_total = models.DecimalField(
