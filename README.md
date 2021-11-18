@@ -296,10 +296,10 @@ to peruse our selection and hopfully give some lightly used music books a second
 + Log in and click, **My Account** and then **AWS Management Console**
 
 ### Create S3 bucket:
-    + Search for and select service **S3**
-    + Click **Create bucket**
-    + Name the new bucket and uncheck **Block all public access**
-    + Click **Create Bucket**
++ Search for and select service **S3**
++ Click **Create bucket**
++ Name the new bucket and uncheck **Block all public access**
++ Click **Create Bucket**
 + Configure bucket:
     + Click on newly created bucket's name.
     + Click on **Properites** tab.
@@ -321,23 +321,23 @@ to peruse our selection and hopfully give some lightly used music books a second
     + Click on **Public access** and set **List objects** and save.
 
 ### Create and configure IAM
-    + Go to services menu and select **IAM**.
-    + Under **Access Management** click **Groups** and the **create a new group**.
-    + Enter a name, select **next step** twice, and then **Create group**.
-    + Under **Access Management** click **Policies** and then **Create Policy**.
-    + Click **JSON** tab and then click **import managed policy**.
-    + Search for **s3**, select **AmazonS3FullAccess**, and click **Import**.
-    + Replace the value of **Resource** with [IAM JSON Resource](readme/AWS.txt)
-    + Click **Review policy**.
-    + Give the policy a name and description.
-    + Click **Create policy**.
-    + Under **Access Management** click **Groups**.
-    + Click recently created group and **Attach Policy**.
-    + Search for policy that was just created, select said policy and click **Attach Policy**.
-    + Under **Access Management** click **Users** and then **Add User**.
-    + Create a name for user (add suffix '-staticfiles-user'), give them **Programmatic access**, and click **Next**.
-    + Put newly created user in **IAM Group** and keep clicking **next** until user has been created in **IAM Group**.
-    + Download **.csv** and save this file. You will not be able to download it again
++ Go to services menu and select **IAM**.
++ Under **Access Management** click **Groups** and the **create a new group**.
++ Enter a name, select **next step** twice, and then **Create group**.
++ Under **Access Management** click **Policies** and then **Create Policy**.
++ Click **JSON** tab and then click **import managed policy**.
++ Search for **s3**, select **AmazonS3FullAccess**, and click **Import**.
++ Replace the value of **Resource** with [IAM JSON Resource](readme/AWS.txt)
++ Click **Review policy**.
++ Give the policy a name and description.
++ Click **Create policy**.
++ Under **Access Management** click **Groups**.
++ Click recently created group and **Attach Policy**.
++ Search for policy that was just created, select said policy and click **Attach Policy**.
++ Under **Access Management** click **Users** and then **Add User**.
++ Create a name for user (add suffix '-staticfiles-user'), give them **Programmatic access**, and click **Next**.
++ Put newly created user in **IAM Group** and keep clicking **next** until user has been created in **IAM Group**.
++ Download **.csv** and save this file. You will not be able to download it again
 
 ## Return Emails with Gmail
 + Log into a Gmail account
@@ -355,17 +355,17 @@ to peruse our selection and hopfully give some lightly used music books a second
 + Log into Heroku.
 + Create a new app on Heroku by clicking **New** and following the directions.
 ### Link Heroku and GitHub:
-    + Log into Heroku.
-    + From the **Personal apps** page, click on the new app that was just created in Heroku.
-    + Click on **Deploy**.
-    + Click on **GitHub** from **Deployment method** section.
-    + Enter your GitHub information and the name of the cloned repository into the "Connect to GitHub" section.
++ Log into Heroku.
++ From the **Personal apps** page, click on the new app that was just created in Heroku.
++ Click on **Deploy**.
++ Click on **GitHub** from **Deployment method** section.
++ Enter your GitHub information and the name of the cloned repository into the "Connect to GitHub" section.
 
 ### Create a postgres SQL server.
-    + From your new apps base page, click on **Resources**.
-    + Click on **Find more add-ons**.
-    + Select **Postgres**.
-    + Finish setup.
++ From your new apps base page, click on **Resources**.
++ Click on **Find more add-ons**.
++ Select **Postgres**.
++ Finish setup.
 
 ### Heroku Variables
 + Share `env.py` information with Heroku.
@@ -387,12 +387,12 @@ to peruse our selection and hopfully give some lightly used music books a second
 
 
 ### Enable automatic deployment or manually deploy updates.
-    + Automatic Deployment:
-        + Click on **Deploy**.
-        + Click on **Enable Automatic Deploys** in **automatic deploys** section.
-        + Click on **Deploy Branch** in **manual deploy** section to start initial deployment.
-    + Manual Deployment:
-        + Click on **Deploy Branch** in **manual deploy** section any time there is content you want to update the active app with.
++ Automatic Deployment:
+    + Click on **Deploy**.
+    + Click on **Enable Automatic Deploys** in **automatic deploys** section.
+    + Click on **Deploy Branch** in **manual deploy** section to start initial deployment.
++ Manual Deployment:
+    + Click on **Deploy Branch** in **manual deploy** section any time there is content you want to update the active app with.
 
 ## Django.settings
 + In the Django.settings file:
