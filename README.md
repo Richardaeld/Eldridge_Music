@@ -180,7 +180,7 @@ to peruse our selection and hopfully give some lightly used music books a second
 ## Wireframe and Live Applications
 ### Wire Frame
 + Each wireframe contains curly brackets that give a description of its contents and what the filler (missing database data) content should be.
-![Wireframe of the index page](readme/wireframes/home-large.jpg "Wireframe of the index page")
+![Wireframe of the index page](readme/wireframes/merchandise-large.jpg "Wireframe of the index page")
 + Balsamiq was used for the planning process and wireframe creation.
 + Wireframes were made for all predetermined size variations of the application.
 + Wireframes were made for the modals to streamline their design. This also allowed for the modals to be shown without over complicating the wireframe design.
@@ -188,7 +188,7 @@ to peruse our selection and hopfully give some lightly used music books a second
 
 ### Live App
 + [A fully functioning application can be found here, on Heroku](https://eldridge-music.herokuapp.com/ "Deplayment location").
-![Index page of the Eldridge Music Book Emporium](readme/images/live-site.jpg "Index page of Eldridge Music Book Emporium")
+![Index page of the Eldridge Music Book Emporium](readme/images/live-app.jpg "Index page of Eldridge Music Book Emporium")
 + GitHub's IDE GitPod was used for the construction process.
 + GitHub houses the [master branch](https://github.com/Richardaeld/Eldridge_Music).
 
@@ -305,7 +305,7 @@ to peruse our selection and hopfully give some lightly used music books a second
     + Click on **Static website hosting**.
     + Click on **Use this bucket to host a website** and fill out index/error document with default information and save.
     + Click on **Permissions** tab.
-    + Click on **CORS configuration** and paste in code [CORES config](AWS.txt).
+    + Click on **CORS configuration** and paste in code [CORES config](readme/AWS.txt).
     + Click on **Bucket Policy** tab and then click **Policy Generator**.
     + For **Type of Policy** select **S3 Bucket Policy**.
     + For **Principal** enter `*`.
