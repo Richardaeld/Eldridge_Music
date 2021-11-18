@@ -184,7 +184,8 @@ to peruse our selection and hopfully give some lightly used music books a second
 + Balsamiq was used for the planning process and wireframe creation.
 + Wireframes were made for all predetermined size variations of the application.
 + Wireframes were made for the modals to streamline their design. This also allowed for the modals to be shown without over complicating the wireframe design.
-+ [Click here to view all wireframes associated to this project.](readme/wireframes/ "Location of wireframes")
++ [Click here to view all wireframe file associated to this project.](readme/wireframes/ "Location of wireframe files")
++ [Click here to view all the wireframes associated to this project.](readme/WIREFRAMES.md/ "Location of wireframes")
 
 ### Live App
 + [A fully functioning application can be found here, on Heroku](https://eldridge-music.herokuapp.com/ "Deplayment location").
@@ -280,8 +281,7 @@ to peruse our selection and hopfully give some lightly used music books a second
 + A clone will be created within a new folder called "Eldridge_Music" (name of the original repository).
 + Unpack everything from this new folder to the root of the GitPod project tree and the project will be setup within GitPod (minus the database which we will setup shortly).
 
-### Requirements
-### Stripe
+## Stripe
 + Go to **Stripe.com** and click **Start now**.
 + Create a new account.
 + Click **Developer** tab
@@ -290,11 +290,12 @@ to peruse our selection and hopfully give some lightly used music books a second
 + click **Add endpoint** and enter the new apps heroku address with **/invoice/wh/** at the end of the address
 + Stripe will now provide you with a **Signing secret key**
 
-### AWS
+## AWS
 + Go to **aws.amazon.com**
 + Create a new account
 + Log in and click, **My Account** and then **AWS Management Console**
-+ Create S3 bucket:
+
+### Create S3 bucket:
     + Search for and select service **S3**
     + Click **Create bucket**
     + Name the new bucket and uncheck **Block all public access**
@@ -319,7 +320,7 @@ to peruse our selection and hopfully give some lightly used music books a second
     + Click **Access Control List** tab.
     + Click on **Public access** and set **List objects** and save.
 
-+ Create and configure IAM
+### Create and configure IAM
     + Go to services menu and select **IAM**.
     + Under **Access Management** click **Groups** and the **create a new group**.
     + Enter a name, select **next step** twice, and then **Create group**.
@@ -338,20 +339,29 @@ to peruse our selection and hopfully give some lightly used music books a second
     + Put newly created user in **IAM Group** and keep clicking **next** until user has been created in **IAM Group**.
     + Download **.csv** and save this file. You will not be able to download it again
 
+## Return Emails with Gmail
++ Log into a Gmail account
++ Go to **settings** and click **Accounts and Import**
++ Under **Change account settings** click on **Other Google Account Settings**.
++ Click on the **security** tab, click on **2-Step Verification**, and then **Get Started**.
++ Verify your setting choice and turn on **2-Step Verification**.
++ Go back to **Other Google Account Settings** and click **Security**.
++ Click on **App passwords**.
++ Select **mail** for the app.
++ Select **Other** for the device and enter **Django**.
++ Gamil will provide you with a email, app password.
 
-
-<!-- ### Email -->
-### Heroku
+## Heroku
 + Log into Heroku.
 + Create a new app on Heroku by clicking **New** and following the directions.
-+ Link Heroku and GitHub:
+### Link Heroku and GitHub:
     + Log into Heroku.
     + From the **Personal apps** page, click on the new app that was just created in Heroku.
     + Click on **Deploy**.
     + Click on **GitHub** from **Deployment method** section.
     + Enter your GitHub information and the name of the cloned repository into the "Connect to GitHub" section.
 
-+ Create a postgres SQL server.
+### Create a postgres SQL server.
     + From your new apps base page, click on **Resources**.
     + Click on **Find more add-ons**.
     + Select **Postgres**.
@@ -376,7 +386,7 @@ to peruse our selection and hopfully give some lightly used music books a second
         + EMAIL_HOST_PASS == (provided by **email provider** as **Ass Password**)
 
 
-+ Enable automatic deployment or manually deploy updates.
+### Enable automatic deployment or manually deploy updates.
     + Automatic Deployment:
         + Click on **Deploy**.
         + Click on **Enable Automatic Deploys** in **automatic deploys** section.
@@ -384,23 +394,11 @@ to peruse our selection and hopfully give some lightly used music books a second
     + Manual Deployment:
         + Click on **Deploy Branch** in **manual deploy** section any time there is content you want to update the active app with.
 
-### Django.settings
+## Django.settings
 + In the Django.settings file:
     + Update **ALLOWED_HOSTS** to the web address of the deployed heroku app.
     + update **STORAGE_BUCKET_NAME** to the name of the bucket created in [AWS](#aws).
     + Update **AWS_S3_REGION_NAME** to the region the becket was created in [AWS](#aws).
-
-### Return Emails with Gmail
-+ Log into a Gmail account
-+ Go to **settings** and click **Accounts and Import**
-+ Under **Change account settings** click on **Other Google Account Settings**.
-+ Click on the **security** tab, click on **2-Step Verification**, and then **Get Started**.
-+ Verify your setting choice and turn on **2-Step Verification**.
-+ Go back to **Other Google Account Settings** and click **Security**.
-+ Click on **App passwords**.
-+ Select **mail** for the app.
-+ Select **Other** for the device and enter **Django**.
-+ Gamil will provide you with a email, app password.
 
 
 # Tools and Credits
