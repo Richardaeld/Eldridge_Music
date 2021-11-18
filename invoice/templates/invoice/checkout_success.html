@@ -85,32 +85,11 @@
                         <!-- Street Address -->
                         <div class="key-value-container">
                             <p class="success-key">
-                                Shipping Address:
+                                Atreet Address:
                             </p>
                             <p class="success-value">
-                                {{ invoice.street_address_shipping }}
-                            </p>
-                        </div>
-
-                        <!-- if invoice has street_address_billing -->
-                        {% if invoice.street_address_billing %}
-                            <div class="key-value-container">
-                                <p class="success-key">
-                                    Billing Address:
-                                </p>
-                                <p class="success-value">
-                                    {{ invoice.street_address_billing }}
-                                </p>
-                            </div>
-                        {% endif %}
-
-                        <!-- county -->
-                        <div class="key-value-container">
-                            <p class="success-key">
-                                County:
-                            </p>
-                            <p class="success-value">
-                                {{ invoice.state_county }}
+                                {{ invoice.street_address_1 }}<br>
+                                {{ invoice.street_address_2 }}
                             </p>
                         </div>
 
