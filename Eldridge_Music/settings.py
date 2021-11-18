@@ -35,7 +35,7 @@ else:
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['eldridge-music.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
