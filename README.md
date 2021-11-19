@@ -43,7 +43,7 @@
 + [Return Emails with Gmail](#Return-emails-with-gmail)
 
 + [Heroku Variables](#heroku-variables)
-+ [Django settings](#django-settings)
++ [Django Settings](#django-settings)
 
 [Tools and Credits](#tools-and-credits)
 + [Tools](#tools)
