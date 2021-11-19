@@ -16,9 +16,9 @@
     + [Testing Password Recovery](#testing-password-recovery)
     + [Testing Invoice Remember Information](#testing-invoice-remember-information)
     + [Testing Updating Shipping Information from Profile View](#testing-updating-shipping-information-from-profile-view)
-    + [Testing Superuser's Ability to Add Merchandise](#testing-superuser's-ability-to-add-merchandise)
-    + [Testing Superuser's Ability to Edit Merchandise](#testing-superuser's-ability-to-edit-merchandise)
-    + [Testing Superuser's Ability to Delete Merchandise](#testing-superuser's-ability-to-delete-merchandise)
+    + [Testing Superusers Ability to Add Merchandise](#testing-superusers-ability-to-add-merchandise)
+    + [Testing Superusers Ability to Edit Merchandise](#testing-superusers-ability-to-edit-merchandise)
+    + [Testing Superusers Ability to Delete Merchandise](#testing-superusers-ability-to-delete-merchandise)
 + [Program Tests](#program-tests)
     + [BrowserStack](#browserstack)
     + [Lighthouse](#lighthouse)
@@ -570,7 +570,7 @@
 
 ---
 
-### Testing Superuser's Ability to Add Merchandise
+### Testing Superuser Ability to Add Merchandise
 
 ---
 
@@ -615,7 +615,7 @@
 
 ---
 
-### Testing Superuser's Ability to Edit Merchandise
+### Testing Superuser Ability to Edit Merchandise
 
 ---
 
@@ -661,7 +661,7 @@
 
 ---
 
-### Testing Superuser's Ability to Delete Merchandise
+### Testing Superuser Ability to Delete Merchandise
 
 ---
 
