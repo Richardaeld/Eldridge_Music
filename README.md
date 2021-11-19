@@ -15,7 +15,7 @@
     + [Cart](#cart)
     + [Invoice - Checkout](#invoice---checkout)
     + [Profile](#profile)
-    + [Superuser Merchandise C.R.U.D. views](#superuser-merchandise-c.r.u.d.-views)
+    + [Superuser Merchandise CRUD views](#superuser-merchandise-crud-views)
     + [Return Emails](#return-emails)
     + [Wireframe and Live App](#wireframe-and-live-app)
         + [Wireframe](#wire-frame)
@@ -177,7 +177,7 @@ to peruse our selection and hopfully give some lightly used music books a life!
 + Two buttons located at the top of the form allow users to select if they want to view their shipping information, previous invoices, or both.
 + Users can update their shipping information from the preferred shipping form on this view.
 
-### Superuser Merchandise C.R.U.D. Views
+### Superuser Merchandise CRUD Views
 + The **add_merch view** (Merchandise Management) returns a blank merchandise model so a superuser can create a fully functional new merchandise item.
 + The **edit_merch view** returns a prefilled merchandise model so a superuser can edit any field of the item.
 + The **delete** button removes the merchandise item from the database without a secondary view.
