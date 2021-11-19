@@ -1,6 +1,6 @@
 
 # Contents
-[Eldridge Music Book Emporium - Introduction](#eldridge-music-book-emporium---introduction)
+[Eldridge Music Book Emporium - Introduction](#introduction)
 
 [UX](#ux)
 + [User Stories](#user-stories)
@@ -38,8 +38,10 @@
     + [Create and Configure IAM](#create-and-configure-iam)
 + [Return Emails with Gmail](#Return-emails-with-gmail)
 + [Heroku](#heroku)
-+ [Requirements](#requirements)
-+ [Heroku Variables](#heroku-variables)
+    + [Link Heroku with Github](#link-heroku-and-github)
+    + [Create a Postgres SQL Server](#create-a-postgres-sql-server)
+    + [Heroku Variables](#heroku-variables)
+    + [Enable Automatic Deployment or Manually Deploy Updates](#enable-automatic-deployment-or-manually-deploy-updates)
 + [Django.settings](#django.settings)
 
 [Tools and Credits](#tools-and-credits)
@@ -114,7 +116,7 @@ to peruse our selection and hopfully give some lightly used music books a second
     corner of the merchandise card I see a button that says, 'delete'. I click the delete button and the item is removed from the store.
 
 ## Design Choices
-### Base - header
+### Base - Header
 + Logo was given a layered effect that gives it a near shinning look
 + Search bar can be used to search: description, composer, name.
 + A profile icon and button allow users to access log in/out functions, superuser functions, and user profile.
@@ -168,7 +170,7 @@ to peruse our selection and hopfully give some lightly used music books a second
 + Two buttons located at the top of the form allow users to view their shipping information, previous invoices, or both.
 + User's can update their shipping information from the prefered shipping form on this view.
 
-### Superuser Merchandise CRUD views
+### Superuser Merchandise CRUD Views
 + The add (Merchandise Management) view returns a blank merchandise model so a superuser can create a fully functional new item.
 + The edit view returns a prefilled merchandise model so a superuser can edit any part of the item.
 + The delete view deletes the item without a secondary view.
@@ -268,6 +270,14 @@ to peruse our selection and hopfully give some lightly used music books a second
         + Allauth.
     + Thought(s):
         + The focus could be changed with JS or finding the place where Allauth asignes focus.
++ Phone landscape view is limited.
+    + Caused:
+        + App header and phone on-screen keyboard.
+    + Thought(s):
+        + JS could be used to allow header to scroll out of view until it is needed.
+            + This could conflict with Bootstraps and Jquery function.
+            + This was an idea for this project, however because of limited time it wasnt implemented.
+            + This could be implemented on all mobile sized screens and would greatly increase viewable real-estate.
 
 # Deployment
 ## GitHub - GitPod
@@ -293,7 +303,7 @@ to peruse our selection and hopfully give some lightly used music books a second
 + Create a new account
 + Log in and click, **My Account** and then **AWS Management Console**
 
-### Create S3 bucket:
+### Create S3 Bucket:
 + Search for and select service **S3**
 + Click **Create bucket**
 + Name the new bucket and uncheck **Block all public access**
@@ -359,7 +369,7 @@ to peruse our selection and hopfully give some lightly used music books a second
 + Click on **GitHub** from **Deployment method** section.
 + Enter your GitHub information and the name of the cloned repository into the "Connect to GitHub" section.
 
-### Create a postgres SQL server.
+### Create a Postgres SQL Server.
 + From your new apps base page, click on **Resources**.
 + Click on **Find more add-ons**.
 + Select **Postgres**.
@@ -384,7 +394,7 @@ to peruse our selection and hopfully give some lightly used music books a second
         + EMAIL_HOST_PASS == (provided by **email provider** as **Ass Password**)
 
 
-### Enable automatic deployment or manually deploy updates.
+### Enable Automatic Deployment or Manually Deploy Updates.
 + Automatic Deployment:
     + Click on **Deploy**.
     + Click on **Enable Automatic Deploys** in **automatic deploys** section.
