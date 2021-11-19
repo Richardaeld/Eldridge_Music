@@ -31,7 +31,7 @@ else:
 if os.path.exists('env.py'):
     DEBUG = bool(int(os.environ.get("DEVELOPMENT")))
 else:
-    DEBUG = 'DEVELOPMENT' in os.environ
+    DEBUG = bool(int(os.environ.get("DEVELOPMENT"))) in os.environ
 
 
 ALLOWED_HOSTS = ['eldridge-music.herokuapp.com', '127.0.0.1']
