@@ -15,7 +15,7 @@
     + [Cart](#cart)
     + [Invoice - Checkout](#invoice---checkout)
     + [Profile](#profile)
-    + [Superuser Merchandise CRUD views](#superuser-merchandise-crud-views)
+    + [Superuser Merchandise C.R.U.D. views](#superuser-merchandise-c.r.u.d.-views)
     + [Return Emails](#return-emails)
     + [Wireframe and Live App](#wireframe-and-live-app)
         + [Wireframe](#wire-frame)
@@ -32,16 +32,17 @@
 
 [Deployment](#deployment)
 + [GitHub - GitPod](#github---gitpod)
++ [Heroku](#heroku)
+    + [Link Heroku with Github](#link-heroku-and-github)
+    + [Create a Postgres SQL Server](#create-a-postgres-sql-server)
+    + [Enable Automatic Deployment or Manually Deploy Updates](#enable-automatic-deployment-or-manually-deploy-updates)
 + [Stripe](#stripe)
 + [AWS](#aws)
     + [Create S3 Bucket](#create-s3-bucket)
     + [Create and Configure IAM](#create-and-configure-iam)
 + [Return Emails with Gmail](#Return-emails-with-gmail)
-+ [Heroku](#heroku)
-    + [Link Heroku with Github](#link-heroku-and-github)
-    + [Create a Postgres SQL Server](#create-a-postgres-sql-server)
-    + [Heroku Variables](#heroku-variables)
-    + [Enable Automatic Deployment or Manually Deploy Updates](#enable-automatic-deployment-or-manually-deploy-updates)
+
++ [Heroku Variables](#heroku-variables)
 + [Django.settings](#django.settings)
 
 [Tools and Credits](#tools-and-credits)
@@ -121,103 +122,104 @@ to peruse our selection and hopfully give some lightly used music books a second
 
 ## Design Choices
 ### Base - Header
-+ Logo was given a layered effect that gives it a near shinning look
-+ Search bar can be used to search: description, composer, name.
-+ A profile icon and button allow users to access log in/out functions, superuser functions, and user profile.
-+ A cark icon shows users how much they are spending and will take them to their cart
-+ A bar that display's the sites current special.
++ Logo was given a layered effect that gives it a textured look.
++ The **user search bar** can be used to search: composer or name.
++ A **profile** button allow's users to access log in/out functions, superuser functions, and user profile.
++ A **cart** button shows users how much they are spending and will take them to their cart.
++ A **special header** bar that display's the sites current special or deal.
 
 ### Home
-+ A hero image was used with a musical theme.
-+ A container with a header that displays the site's new or discounted items to help lure in more customers.
++ A Musically themed hero image was used.
++ A single container is used on this page. This merchandise special container displays the site's new or discounted items to help give the site a hook.
 
 ### login - logout - etc...
-+ Allauth's templates were used with Bootstrap 4's styling.
-+ Additional styling was added to give the templates a unique feeling.
++ Allauth's templates were used with Bootstrap 4's styling. This greatly simplified the construction process.
++ Additional styling was added to give the templates a more unique look.
 
 ### Merchandise
 + A warm and inviting linear gradient was used for the background.
 + Each Merchandise item has its own card that helps it stand out from the background.
-+ A used and discount banner are added to merchandise with those tags. This helps users find a cheaper option.
-+ Each card has general text and an image of the merchandise to give users all the basic information at a glance.
++ A **used** and **discount** banner are added to merchandise with those tags. This helps users find a cheaper option.
++ Each card has some general text and an image of the merchandise to give users all the basic information at a glance.
     + All information has a character max to keep cards brief.
-+ Each card is fitted with superuser edit/delete options for easy of inventory management.
++ Each card is fitted with some **superuser edit/delete** options for easy of inventory management.
 
 ### Specials
-+ A view that returns only discounted merchandise for the user to see in the same format as the Merchandise view
++ A view that returns only discounted merchandise for the user to see in the same format as the Merchandise view.
 
 ### Used
-+ A view that returns only used merchandise for the user to see in the same format as the Merchandise view
++ A view that returns only used merchandise for the user to see in the same format as the Merchandise view.
 
 ### Merchandise Details
 + A warm and inviting linear gradient was used for the background.
 + A single card is featured here with its full content unabbreviated.
-+ A used tag is added to all previously used merchandise.
-+ A discount tag is added to all merchandise that is being sold at a discounted value
-+ Any item being sold at a discounted value shows both the old price and the new price
++ A **used** tag is added to any used merchandise.
++ A **discount** tag is added to all merchandise that is being sold at a discounted value.
++ Any item being sold at a discounted value shows both the old price and the new price.
 
 ### Cart
 + With nothing in the cart this view asks users to continue shopping.
-+ This view allows users to see each item, its quantity, sub-total and more for quickly deciding if they are happy with their order before preceding to the checkout.
-+ A convenient remove button is put in the quantity column for users to easilly remove an item.
-+ A quantity adjustment input for users to easily adjust the amount of a merchandise item they want.
-+ This view features a sub-total per item and a total item subtotal, along with a delivery total and grand total.
++ This view allows users to see each item, its quantity, sub-total, and more for quickly deciding if they are happy with their invoice before preceding to the checkout.
++ A convenient **remove** button is put in the quantity column for users to easily remove an item.
++ A pair of **-** and **+** quantity adjustment input buttons are in each merchandise item row for users to easily adjust the amount of a merchandise item they want.
++ This view features a sub-total per item and a total item sub, delivery and grand total.
 
 ### Invoice - Checkout
-+ This view give shows a cart summary with grand total to be sure customers know what they are about to order.
-+ An invoice a simple form that asks for the users basic shipping and payment information.
-+ If the user is signed and has saved their basic informaition the aformentioned form will be prepopulated for the user.
-+ This from also allows signed in users to update their information when they submit an invoice.
++ This view features a sub-total per item and a total item sub, delivery and grand total.
++ A crispy form that asks for the users basic shipping and payment information.
++ If the user is signed in, the invoice form will be prepopulated from the users prefered shipping information.
++ The crispy form will allow users to update their prefered shippinginformation when they submit an invoice.
 
 ### Profile
 + This view allows users to see their basic shipping information and all previous invoices.
 + Two buttons located at the top of the form allow users to view their shipping information, previous invoices, or both.
 + User's can update their shipping information from the prefered shipping form on this view.
 
-### Superuser Merchandise CRUD Views
+### Superuser Merchandise C.R.U.D. Views
 + The add (Merchandise Management) view returns a blank merchandise model so a superuser can create a fully functional new item.
 + The edit view returns a prefilled merchandise model so a superuser can edit any part of the item.
 + The delete view deletes the item without a secondary view.
 
 ### Return Emails
++ Each email has a custom appearance which includes the users name, all their invoice information and shipping address.
++ Each email has a customer support email on it.
 
 ## Wireframe and Live App
 ### Wireframe
-+ Each wireframe contains curly brackets that give a description of its contents and what the filler (missing database data) content should be.
-![Wireframe of the index page](readme/wireframes/merchandise-large.jpg "Wireframe of the index page")
++ Each wireframe that contains curly brackets details JS or button function.
+![Wireframe of the home page](readme/wireframes/merchandise-large.jpg "Wireframe of the home page")
 + Balsamiq was used for the planning process and wireframe creation.
 + Wireframes were made for all predetermined size variations of the application.
-+ Wireframes were made for the modals to streamline their design. This also allowed for the modals to be shown without over complicating the wireframe design.
-+ [Click here to view all wireframe files associated to this project.](readme/wireframes/ "Location of wireframe files")
 + [Click here to view all the wireframes images associated to this project.](readme/WIREFRAMES.md/ "Location of wireframes")
++ [Click here to view all wireframe files associated to this project.](readme/wireframes/ "Location of wireframe files")
 
 ### Live App
 + [A fully functioning application can be found here, on Heroku](https://eldridge-music.herokuapp.com/ "Deplayment location").
 ![Index page of the Eldridge Music Book Emporium](readme/images/live-app.jpg "Index page of Eldridge Music Book Emporium")
-+ GitHub's IDE GitPod was used for the construction process.
++ The VSCode IDE was used for the construction process.
 + GitHub houses the [master branch](https://github.com/Richardaeld/Eldridge_Music).
 
 ## Scalability
 + Different instrument music books could be added To expand the shop further.
-    + These new instrument books could be added to the apps navbar next to piano books or use the categories within piano books to be selectors.
-+ The index page could feature a special that is a small contianer with a captioned image to help entice users to make a unexpected purchase.
-+ Allow images to show a larger image (in a modal) if clicked.
-+ Add a warning modal for superusers when they click the delete merchandise button.
-+ A counter that tells the user how many merchandise items are being displayed for current search.
-+ Ways of sorting displayed merchandise items.
++ The home page could have a second merchandise special container that features a single special. This special could be a captioned image, 
+with a timer to help entice users to make an impulse purchase.
++ Allow images to show an image modal when clicked.
++ Add a warning modal for superusers when they click the delete merchandise button. This could stop accidental deletes.
++ A counter that tells the user how many merchandise items are being displayed for current search or on the current page.
++ Different ways of sorting displayed merchandise items. These could include: price, composer, etc....
 + Add ability to calculate tax.
 
 # Technology and Languages
 + HTML - Skeleton frame of the application.
 + CSS - Beautifies the skeleton (HTML).
-+ JavaScript - Allows for user interaction and limited dynamic function on the application.
++ JavaScript - Allows for user interaction and dynamic function on the application.
 + Python - Allows dynamic function and back end programs to run. These programs (frameworks, libraries, and databases) are:
     + Django - Allows use of templating, security, and other critical functions.
         + Allauth - An app that allows login, log out, password recovery and more.
         + Stripe - An app that allows users to securely use their credit cards.
         + Postgres - The type of SQL server used to store infofrmation.
-        + Crispy Forms - Allows for forms to easily, quickly, and neatly be created and configured.
-+ AWS - A Server used to store static and media files
+        + Crispy Forms - Allows for forms to be easily, quickly, and neatly created and configured.
++ AWS - A Server used to store static and media files.
 
 # Testing
 + The **Testing** documentation can be found on [TESTING.md](TESTING.md).
@@ -234,7 +236,8 @@ to peruse our selection and hopfully give some lightly used music books a second
     + Caused by:
         + Unknown.
     + Thought(s):
-        + `!important` was used to attempt to override any existing style but this did not work. All the class styles were looked though from browser inspect and a problem could not be seen. Furthermore, From what browser inspect shows this checkbox should look like the rest.
+        + `!important` was used to attempt to override any existing style but this did not work. All the class styles were looked 
+        though from browser inspect and a problem could not be seen. Furthermore, From what browser inspect shows this checkbox should look like the rest.
 + On a Safari browsers the invoice view doesnt open as the responsive size that it should.
     + Caused by:
         + Safari.
@@ -263,12 +266,16 @@ to peruse our selection and hopfully give some lightly used music books a second
         + Removed the active link that showed users the name of the product they were on.
 + User search bar on the fixed header was evidently askew.
     + Caused by:
-        + Responsive design header that used book strap fixed size cols and possibly a myriad of other problems.
+        + Responsive design header that used Bootstrap, fixed size cols, and possibly a myriad of other problems.
     + Fix:
-        + A combination of flex, guessed left/right margins, and Bootstrap.
+        + A combination of `display: flex`, guessed left/right margins, and Bootstrap.
 + Favicon doesnt show up on allauth views.
     + Caused by:
         + Inability to push `MEDIA_URL` to view for use.
+    + Fix:
+        + Added `MEDIA_URL` to all views possible.
+    + Thought(s):
+        + Still won't display right on all views because of inability to push `MEDIA_URL` to Allauth templates.
 + Create new account focuses on middle input when page opens.
     + Caused by:
         + Allauth.
@@ -291,16 +298,41 @@ to peruse our selection and hopfully give some lightly used music books a second
 + Create a new GitHub/GitPod project (to house the new clone) and then open this new project.
 + Go to the Bash and type, `git clone <HTTPS>`, paste the HTTPS address found in the GitHub page (don't forget the space after "clone") and press enter.
 + A clone will be created within a new folder called "Eldridge_Music" (name of the original repository).
-+ Unpack everything from this new folder to the root of the GitPod project tree and the project will be setup within GitPod (minus the database which we will setup shortly).
++ Unpack everything from this new folder to the root of the GitPod project tree and the foundation of the project will be setup within GitPod.
+
+## Heroku
++ Log into Heroku.
++ Create a new app on Heroku by clicking **New** and following the directions.
+
+### Link Heroku and GitHub:
++ Log into Heroku.
++ From the **Personal apps** page, click on the new app that was just created in Heroku.
++ Click on **Deploy**.
++ Click on **GitHub** from **Deployment method** section.
++ Enter your GitHub information and the name of the cloned repository into the "Connect to GitHub" section.
+
+### Create a Postgres SQL Server.
++ From your new apps base page, click on **Resources**.
++ Click on **Find more add-ons**.
++ Select **Postgres**.
++ Finish setup.
+
+### Enable Automatic Deployment or Manually Deploy Updates.
++ Automatic Deployment:
+    + Click on **Deploy**.
+    + Click on **Enable Automatic Deploys** in **Automatic Deploys** section.
+    + Click on **Deploy Branch** in **Manual Deploy** section to start initial deployment.
++ Manual Deployment:
+    + Click on **Deploy Branch** in **Manual Deploy** section any time there is content you want to update the active app with.
 
 ## Stripe
 + Go to **Stripe.com** and click **Start now**.
 + Create a new account.
-+ Click **Developer** tab
-+ Click **API Keys** to find **Publishable Key** and **Secret Key**
-+ Click **Webhooks** tab
-+ click **Add endpoint** and enter the new apps heroku address with **/invoice/wh/** at the end of the address
-+ Stripe will now provide you with a **Signing secret key**
++ Click **Developer** tab.
++ Click **API Keys** to find **Publishable Key** and **Secret Key**.
++ Click **Webhooks** tab.
++ click **Add endpoint** and enter the new apps heroku address with **/invoice/wh/** at the end of the address.
++ Stripe will now provide you with a **Signing secret key**.
 
 ## AWS
 + Go to **aws.amazon.com**
@@ -334,7 +366,7 @@ to peruse our selection and hopfully give some lightly used music books a second
 
 ### Create and Configure IAM
 + Go to services menu and select **IAM**.
-+ Under **Access Management** click **Groups** and the **create a new group**.
++ Under **Access Management** click **Groups** and the **Create a new group**.
 + Enter a name, select **next step** twice, and then **Create group**.
 + Under **Access Management** click **Policies** and then **Create Policy**.
 + Click **JSON** tab and then click **import managed policy**.
@@ -363,28 +395,12 @@ to peruse our selection and hopfully give some lightly used music books a second
 + Select **Other** for the device and enter **Django**.
 + Gamil will provide you with a email, app password.
 
-## Heroku
-+ Log into Heroku.
-+ Create a new app on Heroku by clicking **New** and following the directions.
-### Link Heroku and GitHub:
-+ Log into Heroku.
-+ From the **Personal apps** page, click on the new app that was just created in Heroku.
-+ Click on **Deploy**.
-+ Click on **GitHub** from **Deployment method** section.
-+ Enter your GitHub information and the name of the cloned repository into the "Connect to GitHub" section.
-
-### Create a Postgres SQL Server.
-+ From your new apps base page, click on **Resources**.
-+ Click on **Find more add-ons**.
-+ Select **Postgres**.
-+ Finish setup.
-
-### Heroku Variables
+## Heroku Variables
 + Share `env.py` information with Heroku.
     + Click on **Settings**.
     + Click on **Reveal Config Vars** from **Config Vars** section.
     + Add all of the `env.py` key and value pairs without their quotations.
-        + (key) == (value)
+        + Ex. (key) == (value)
         + Development == 0
         + USE_AWS == True
         + DATABASE_UTL == (key provided from Postgres server)
@@ -395,16 +411,7 @@ to peruse our selection and hopfully give some lightly used music books a second
         + AWS_ACCESS_KEY_ID == (provided by **AWS .csv** as **Access Key Id**)
         + AWS_SECRET_ACCESS_KEY == (provided by **AWS .csv** as **Secret Access Key**)
         + EMAIL_HOST_USER == (Gmail address return email will be sent from)
-        + EMAIL_HOST_PASS == (provided by **email provider** as **Ass Password**)
-
-
-### Enable Automatic Deployment or Manually Deploy Updates.
-+ Automatic Deployment:
-    + Click on **Deploy**.
-    + Click on **Enable Automatic Deploys** in **automatic deploys** section.
-    + Click on **Deploy Branch** in **manual deploy** section to start initial deployment.
-+ Manual Deployment:
-    + Click on **Deploy Branch** in **manual deploy** section any time there is content you want to update the active app with.
+        + EMAIL_HOST_PASS == (provided by **email provider** as **As Password**)
 
 ## Django.settings
 + In the Django.settings file:
@@ -426,11 +433,9 @@ to peruse our selection and hopfully give some lightly used music books a second
 + [BrowserStack](https://www.browserstack.com/)
     + Used to check for compatibility errors.
 + [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/)
-    + Used to create random secret key for Django
+    + Used to create random secret key for Django.
 + [GitHub](https://github.com/)
     + Used for version control and deploys application information to Heroku.
-+ [GitPod](https://www.gitpod.io/)
-    + Integrated development environment used.
 + [Google Fonts](https://fonts.google.com/)
     + Imported font families from here.
 + [Heroku](https://www.heroku.com/)
@@ -443,6 +448,8 @@ to peruse our selection and hopfully give some lightly used music books a second
     + Used for tinkering and creating CSS art.
 + [JSHint](https://jshint.com/)
     + Used to identify errors in JavaScript.
++ [JSON formatter](https://jsonformatter.org/)
+    + Used to read long strings of JSON
 + [Lighthouse](https://developers.google.com/web/tools/lighthouse)
     + Used to check for performance, accessibility, best practices, and SEO.
 + [PEP8 online](http://pep8online.com/)
@@ -450,15 +457,16 @@ to peruse our selection and hopfully give some lightly used music books a second
 + [Pingdom](https://tools.pingdom.com/)
     + Used to check load time.
 + [Stripe](https://stripe.com/)
-    + Used to allow users to make payemnts with credit cards.
+    + Used to allow users to make payments with credit cards.
 + [Techsini](https://techsini.com/multi-mockup/)
     + Used for their viewable responsiveness PNG.
 + [TinyPNG](https://tinypng.com/)
     + Used to Minimize KB load per image.
++ [VSCode](https://code.visualstudio.com/)
+    + Integrated development environment used.
 + [W3C Validator](https://validator.w3.org/)
     + Used to identify errors in markup.
-+ [JSON formatter](https://jsonformatter.org/)
-    + Used to read long strings of JSON
+
 
 ## Credits
 ### Code Citations
