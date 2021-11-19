@@ -3,8 +3,22 @@
     + [Developer Testing Systems](#developer-testing-systems)
     + [Developer Testing Methods](#developer-testing-methods)
 + [Developer Tests](#developer-tests)
-
-
+    + [Testing All Merchandise View](#testing-all-merchandise-view)
+    + [Testing Merchandise Detailed Information View](#testing-merchandise-detailed-information-view)
+    + [Testing Discounted Merchandise View](#testing-discounted-merchandise-view)
+    + [Testing Shopping Cart](#testing-shopping-cart)
+    + [Testing Piano Book Categories](#testing-piano-book-categories)
+    + [Testing User Search Bar](#testing-user-search-bar)
+    + [Testing Confirmation Email for Purchase](#testing-confirmation-email-for-purchase)
+    + [Testing Account Confirmation Email](#testing-account-confirmation-email)
+    + [Testing Account Creation](#testing-account-creation)
+    + [Testing Login and Logout](#testing-login-and-logout)
+    + [Testing Password Recovery](#testing-password-recovery)
+    + [Testing Invoice Remember Information](#testing-invoice-remember-information)
+    + [Testing Updating Shipping Information from Profile View](#testing-updating-shipping-information-from-profile-view)
+    + [Testing Superuser's Ability to Add Merchandise](#testing-superuser's-ability-to-add-merchandise)
+    + [Testing Superuser's Ability to Edit Merchandise](#testing-superuser's-ability-to-edit-merchandise)
+    + [Testing Superuser's Ability to Delete Merchandise](#testing-superuser's-ability-to-delete-merchandise)
 + [Program Tests](#program-tests)
     + [BrowserStack](#browserstack)
     + [Lighthouse](#lighthouse)
@@ -56,7 +70,7 @@
 ---
 
 #### User Story
-+ As a shopper I want to view all merchandise.
++ As a shopper I want to view all the merchandise in the store.
 
 #### Expectation(s):
 + All the items in the merchandise model will be displayed.
@@ -74,7 +88,7 @@
 
 #### Documented Result(s):
 1. If there is an incorrect number of displayed merchandise items, record:
-    + The test name, number of displayed merchandise items, and a description of the problem.
+    + The test name, number of displayed merchandise items, and a brief description of the problem.
 1. If any links or images are broken, record:
     + The test name, image or link name, and a brief description of the problem.
 1. If any content has bad UX, record:
@@ -96,17 +110,17 @@
 
 #### Assumptions(s):
 + The tester knows the content that should display for each product they look at.
-+ The tester knows multiple ways to get to a details view
++ The tester knows multiple ways to get to a details view.
 
 #### Testing Step(s):
 1. Load the **Index View** of Eldridge Music.
-1. The tester will navigate to the details view of a merchandise item.
-1. The tester will check all the information of this merchandise item for correctness.
-1. The tester will repeat steps steps 1 - 3 choosing a different path to the details view each time.
+1. Navigate to the details view of a merchandise item.
+1. Check all the information of this merchandise item for correctness.
+1. Repeat steps steps 1 - 3 choosing a different path to the details view each time.
 
 #### Documented Result(s):
 1. If any information of the merchandise item is incorrect, record:
-    + The test name, merchandise item name, a brief description of the incorrect material.
+    + The test name, merchandise item name, incorrect information, anticipated information, and a brief description of the problem.
 1. If any links or images are broken, record:
     + The test name, image or link name, and a brief description of the problem.
 1. If any content has bad UX, record:
@@ -128,13 +142,13 @@
 
 #### Assumptions(s):
 + The tester knows how many merchandise items are on discount.
-+ The tester knows where the discount tag is displayed on the details view.
++ The tester knows where the discount tag is displayed on the details and merchandise view.
 + The tester knows the correct selling value for each item.
 
 #### Testing Step(s):
 1. Load the **Index View** of Eldridge Music.
-1. Click on **speials** on the navigation bar.
-1. Count the discounted merchandise displayed.
+1. Click on **Speials** on the navigation bar.
+1. Count the discounted merchandise items displayed.
 1. Check each item for both the discount tag and the updated price value.
 
 #### Documented Result(s):
@@ -143,7 +157,7 @@
 1. If a discounted merchandise item is displayed without a discount value, recored:
     + The test name, merchandise item name, and a description of the problem.
 1. If a discounted merchandise item is displayed with an incorrect new price, recored:
-    + The test name, merchandise item name, anticipated price, and a description of the problem.
+    + The test name, merchandise item name, anticipated price, actual price, and a description of the problem.
 1. If any links or images are broken, record:
     + The test name, image or link name, and a brief description of the problem.
 1. If any content has bad UX, record:
@@ -156,7 +170,7 @@
 ---
 
 #### User Story
-+ As a shopper I want to view all items in my cart.
++ As a shopper I want to view all the items in my cart.
 
 #### Expectation(s):
 + All items chosen for purchase will be displayed in cart view with the proper amounts.
@@ -172,7 +186,7 @@
 + The tester will watch the **cart total** and be sure it updates as they add merchandise to their cart.
 + The tester will start the test with an empty cart.
 + The tester knows that with a purchase of more then $50 there is no delivery fee.
-+ The tester is watch the success toasts and checking for their accuracy.
++ The tester will watch the success toasts and check for their accuracy.
 
 #### Testing Step(s):
 1. Load the **Index View** of Eldridge Music.
@@ -243,7 +257,7 @@
 ---
 
 #### User Story
-+ As a shopper I want to be able to search for an item by name, description, or composer.
++ As a shopper I want to be able to search for an item by name or composer.
 
 #### Expectation(s):
 + User search bar returns correct information when a user submits a item name or its composer(s).
@@ -251,21 +265,21 @@
 + The page content doesn't overlap and is easy to read.
 
 #### Assumptions(s):
-+ The tester knows all the books two composers have in database.
++ The tester knows all the books from two different composers in the database.
 + The tester know the names of four different books in database.
 
 #### Testing Step(s):
 1. Load the **Index View** of Eldridge Music.
 1. Enter a composers name into the user search bar.
 1. Check returns for correct information.
-1. Repeat step 2 - 3.
+1. Repeat step 2 - 3 with a different composer.
 1. Enter a merchandise item's name into the user search bar.
 1. Check returns for correct information.
-1. Repeat step 5 - 6, three more times.
+1. Repeat step 5 - 6, three more times each with a different name.
 
 #### Documented Result(s):
 1. If any user search returns are incorrect, record:
-    + The test name, if a composer or item name was being searched for, and a brief description of the problem.
+    + The test name, if a composer or item name was being searched for, that composer or item name, and a brief description of the problem.
 1. If any links or images are broken, record:
     + The test name, image or link name, and a brief description of the problem.
 1. If any content has bad UX, record:
@@ -291,7 +305,6 @@
 + The tester will create an account for this test, and will keep a record of the account.
 + The tester know the content of a confirmation email.
 + The tester will have their invoice #, date, sub-total, delivery-total, grand total, and contact information written down.
-+ The tester knows how to use an e-commerce store.
 
 #### Testing Step(s):
 1. Load the **Index View** of Eldridge Music.
@@ -305,11 +318,11 @@
 
 #### Documented Result(s):
 1. If the success toast does not display or displays incorrect information, record:
-    + The test name, if the tester was logged in, anticipated toast information, actual toast information, and a bried description of the problem.
+    + The test name, if the tester was logged in, anticipated toast information, actual toast information, and a brief description of the problem.
 1. If the confirmation email is not received, record:
-    + The test name, if the tester was logged in, the email name, the invoice #, and a bried description of the problem
+    + The test name, if the tester was logged in, the email name, the invoice #, and a brief description of the problem
 1. If any of the email content is incorrect, record:
-    + The test name, if the tester was logged in, the content expected, and actual content, and a bried description of the problem.
+    + The test name, if the tester was logged in, the content expected, and actual content, and a brief description of the problem.
 1. A user account was created to fulfill the test's requirements, record:
     + The username, email address of the account, and that this is a test account.
 1. If any links or images are broken, record:
@@ -351,7 +364,7 @@
 1. If the information provided on the confirmation email or the confirmation page is incorrect, record:
     + The test name, the incorrect information, the anticipated information, and a brief description of the problem
 1. If no confirmation email is received, record:
-    + The test name, the email used, the account name used, and a bried description of the problem.
+    + The test name, the email used, the account name used, and a brief description of the problem.
 1. If any links or images are broken, record:
     + The test name, image or link name, and a brief description of the problem.
 1. If any content has bad UX, record:
@@ -393,7 +406,7 @@
 1. A user account was created to fulfill the test's requirements, record:
     + The username, email address of the account, and that this is a test account.
 1. If the new account does not accept the login information, record:
-    + The test name, the email name, the user name, and a bried description of the problem.
+    + The test name, the email name, the user name, and a brief description of the problem.
 1. If the new account information does not update, record:
     + The test name, the email name, the username, the anticipated information updated, and a brief description of the problem.
 1. If any links or images are broken, record:
@@ -430,6 +443,7 @@
 1. Check for correct profile page.
 1. Click on the **Profile** icon.
 1. Click on the **Logout** button.
+1. Log out.
 1. Click on the **Profile** icon.
 1. Check for correct content of drop-down.
 
@@ -478,7 +492,7 @@
 1. A user account was created to fulfill the test's requirements or a pre-existing account was used, record:
     + The username, email address of the account, and that this is a test account.
 1. If no change password email is received, record:
-    + The test name, the email used, the account name used, and a bried description of the problem.
+    + The test name, the email used, the account name used, and a brief description of the problem.
 1. If the new password does not work, record:
     + The test name, the username, the email name, and a brief description of the problem.
 1. If any links or images are broken, record:
@@ -496,25 +510,25 @@
 + As a returning user I would like to have a personalized profile that has all my previous order information.
 
 #### Expectation(s):
-+ When **Remember My Information** box is checked it will update users **Shipping Information**.
++ When **Remember My Information** box is checked it will update users shipping information.
 + The page content fills appropriately and doesn't spill out beyond obvious borders.
 + The page content doesn't overlap and is easy to read.
 
 #### Assumptions(s):
 + The tester will create an account for this test or use a pre-existing account. The tester will keep a record of the account.
-+ Tester knows Striped dummy codes.
++ Tester knows Stripe dummy codes.
 
 #### Testing Step(s):
 1. Load the **Index View** of Eldridge Music.
 1. Proceed through to checkout with any combination of items in the cart.
 1. Fill out shipping information and check **Remember My Information**.
 1. Submit order with Stripe's dummy information.
-1. Open **Profile view** and check to see if **Shipping Information** has been updated.
+1. Open **Profile view** and check to see if shipping information has been updated.
 
 #### Documented Result(s):
 1. A user account was created to fulfill the test's requirements or a pre-existing account was used, record:
     + The username, email address of the account, and that this is a test account.
-1. If the **Shipping Information** is not updated, record:
+1. If the shipping information is not updated, record:
     + The test name, the email name, the username, the information anticipated, the actual information, and a brief description of the problem.
 1. If any links or images are broken, record:
     + The test name, image or link name, and a brief description of the problem.
@@ -531,7 +545,7 @@
 + As a returning user I would like to update my shipping information.
 
 #### Expectation(s):
-+ The **Shipping Information** is updatable from **Profile View**.
++ The shipping information is updatable from **Profile View**.
 + The page content fills appropriately and doesn't spill out beyond obvious borders.
 + The page content doesn't overlap and is easy to read.
 
@@ -541,13 +555,13 @@
 #### Testing Step(s):
 1. Load the **Index View** of Eldridge Music.
 1. Proceed to **Profile View**.
-1. Change all the information found within **Shipping Information** and update.
+1. Change all the information found within shipping information and update.
 1. Check for correctness.
 
 #### Documented Result(s):
 1. A user account was created to fulfill the test's requirements or a pre-existing account was used, record:
     + The username, email address of the account, and that this is a test account.
-1. If the **Shipping Information** does not update, record:
+1. If the shipping information does not update, record:
     + The test name, the email name, the username, the information anticipated, the actual information, and a brief description of the problem.
 1. If any links or images are broken, record:
     + The test name, image or link name, and a brief description of the problem.
@@ -570,7 +584,7 @@
 
 #### Assumptions(s):
 + The tester will have a pre-existing superuser account. The tester will keep a record of the account.
-+ The tester will keep a record of any and all created merchandise. Including the merchandise's name and sku
++ The tester will keep a record of any and all created merchandise. This includes the merchandise's name and sku
 + The tester will create a test specific sku with each merchandise item.
 + The tester will add an image to the merchandise item and keep a record of the image name.
 + The tester will have an image to upload as a merchandise image.
@@ -615,7 +629,7 @@
 
 #### Assumptions(s):
 + The tester will have a pre-existing superuser account. The tester will keep a record of the account.
-+ The tester will keep a record of any and all edited merchandise. Including the merchandise's new name, new sku, old name, and old sku.
++ The tester will keep a record of any and all edited merchandise. This includes the merchandise's new name, new sku, old name, and old sku.
 + The tester will edit sku's with a test specific sku.
 + The tester will add an image to the merchandise item and keep a record of the image name.
 + The tester will have an image to upload as a merchandise image.
@@ -661,7 +675,7 @@
 
 #### Assumptions(s):
 + The tester will have a pre-existing superuser account. The tester will keep a record of the account.
-+ The tester will keep a record of any and all deleted merchandise. Including the merchandise's name and sku.
++ The tester will keep a record of any and all deleted merchandise. This includes the merchandise's name and sku.
 + The tester will keep a record of any image name that is appart of a merchandise item.
 + The tester will not delete any real merchandise and will create merchandise just to delete.
 
@@ -685,8 +699,6 @@
     + The test name, image or link name, and a brief description of the problem.
 1. If any content has bad UX, record:
     + The test name, screen resolution, browser/device, view (page), and a brief description of the bad UX.
-
-
 
 
 ## Program Tests
