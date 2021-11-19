@@ -87,7 +87,7 @@ to peruse our selection and hopfully give some lightly used music books a life!
 + As a new user I would like a create an account.
     + I opened the home page of Eldridge Music Book Emporium. I clicked on the **profile** button on the top right corner of the page. A drop-down menu 
     appeared below the **profile** button and I clicked, **Create Account**. I was taken to a page where I started the process of creating an account.
-+ As a new user I would like a confirmation email after registering.
++ As a new user I would like to receive a confirmation email after registering.
     + I opened the home page of Eldridge Music Book Emporium. I clicked on the **profile** button on the top right corner of the page. A drop-down menu 
     appeared below the **profile** button and I clicked, **Create Account**. I was taken to a page where I started the process of creating an account. 
     I checked my email account and found a confirmation email regarding my newly created account.
