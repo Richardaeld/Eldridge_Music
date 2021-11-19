@@ -48,7 +48,6 @@
 [Tools and Credits](#tools-and-credits)
 + [Tools](#tools)
 + [Credits](#credits)
-    + [Code Citations](#code-citations)
     + [References and Ideas](#references-and-ideas)
 + [Acknowledgements](#acknowledgements)
 
@@ -474,7 +473,6 @@ for a specific product, with a timer to help entice users to make an impulse pur
 
 
 ## Credits
-### Code Citations
 ### References and Ideas
 + [Bootstrap](https://getbootstrap.com/)
     + A framework used to help speed up development and provide a better overall UX.
