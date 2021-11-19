@@ -43,7 +43,7 @@
 + [Return Emails with Gmail](#Return-emails-with-gmail)
 
 + [Heroku Variables](#heroku-variables)
-+ [Django.settings](#django.settings)
++ [Django settings](#django-settings)
 
 [Tools and Credits](#tools-and-credits)
 + [Tools](#tools)
@@ -415,8 +415,9 @@ for a specific product, with a timer to help entice users to make an impulse pur
         + EMAIL_HOST_USER == (Gmail address return email will be sent from)
         + EMAIL_HOST_PASS == (provided by **email provider** as **As Password**)
 
-## Django.settings
-+ In the Django.settings file:
+## Django Settings
++ Open the core django app.
++ Open the settings.py file:
     + Update **ALLOWED_HOSTS** to the web address of the deployed Heroku app.
     + Update **STORAGE_BUCKET_NAME** to the name of the bucket created in [AWS](#aws).
     + Update **AWS_S3_REGION_NAME** to the region the bucket was created in [AWS](#aws).
