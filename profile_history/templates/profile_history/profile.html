@@ -47,7 +47,7 @@
                                 <th scope="col" class="pe-3">Invoice Number</th>
                                 <th scope="col" class="date-remove text-center pe-3">Date</th>
                                 <th scope="col" class="text-center pe-3">Items</th>
-                                <th scope="col">Order Total</th>
+                                <th scope="col">Invoice Total</th>
                             </tr>
                             {% for invoice in invoices %}
                             <tr>
@@ -73,7 +73,7 @@
                                 </td>
                                 <!-- Grand total -->
                                 <td>
-                                    {{ invoice.grand_total }}
+                                    ${{ invoice.grand_total }}
                                 </td>
 
                             </tr>

@@ -60,7 +60,7 @@
                                 </p>
                                 <!-- Item quantity and amount -->
                                 <p class="success-value">
-                                    {{ item.amount }} @ {{ item.item.price }} each
+                                    {{ item.amount }} @ ${{ item.item.price }} each
                                 </p>
                             </div>
                         {% endfor %}
@@ -151,7 +151,7 @@
                                 Cart Sub-Total:
                             </p>
                             <p class="success-value">
-                                {{ invoice.invoice_total }}
+                                ${{ invoice.invoice_total }}
                             </p>
                         </div>
 
@@ -161,7 +161,7 @@
                                 Delivery Total:
                             </p>
                             <p class="success-value">
-                                {{ invoice.delivery_total }}
+                                ${{ invoice.delivery_total }}
                             </p>
                         </div>
 
@@ -171,7 +171,7 @@
                                 Grand Total:
                             </p>
                             <p class="success-value">
-                                {{ invoice.grand_total }}
+                                ${{ invoice.grand_total }}
                             </p>
                         </div>
                     </div>
