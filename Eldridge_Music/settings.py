@@ -33,7 +33,6 @@ if os.path.exists('env.py'):
 else:
     DEBUG = 'DEVELOPMENT' in os.environ
 
-DEBUG = True
 
 ALLOWED_HOSTS = ['eldridge-music.herokuapp.com', '127.0.0.1']
 

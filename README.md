@@ -254,6 +254,13 @@ for a specific product, with a timer to help entice users to make an impulse pur
         + Various snippets of code from Stack Overflow.
     + Thought(s):
         + May be caused by a setting in Safari.
++ Scroll bar doesn't show up in the success toast on Firefox browsers.
+    + Caused by:
+        + Firefox browser or missing vendor extensions.
+    + Attempted fix(s):
+        + None.
+    + Thought(s):
+        + The addition of `-webkit-` or `-moz-` vendor extensions to the scroll bar styles could fix this issue.
 
 ## Other Problems
 + Bootstrap's toasts do not show up on screen.
