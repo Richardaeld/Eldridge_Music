@@ -27,7 +27,7 @@
 [Testing](#testing)
 
 [Bugs and Other Problems](#bugs-and-other-problems)
-+ [Current Bugs](#currnet-bugs)
++ [Current Bugs](#current-bugs)
 + [Other Problems](#other-problems)
 
 [Deployment](#deployment)
