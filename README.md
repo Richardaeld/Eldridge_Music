@@ -7,7 +7,7 @@
 + [Design Choices](#design-choices)
     + [Base - Header](#base---header)
     + [Home](#home)
-    + [Login - Logout - Etc...](#login-logout-etc...)
+    + [Login - Logout - Etc...](#login---logout---etc...)
     + [Merchandise](#merchandise)
     + [Specials](#specials)
     + [Used](#used)
