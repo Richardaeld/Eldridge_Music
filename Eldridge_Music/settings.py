@@ -26,13 +26,6 @@ if os.path.exists('env.py'):
 else:
     SECRET_KEY = 'SECRET_KEY' in os.environ
 
-
-# SECURITY WARNING: don't run with debug turned on in production!
-# if os.path.exists('env.py'):
-#     DEBUG = bool(int(os.environ.get("DEVELOPMENT")))
-# else:
-#     DEBUG = 'DEVELOPMENT' in os.environ
-
 DEBUG = False
 
 ALLOWED_HOSTS = ['eldridge-music.herokuapp.com', '127.0.0.1']
