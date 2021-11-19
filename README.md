@@ -7,7 +7,7 @@
 + [Design Choices](#design-choices)
     + [Base - Header](#base---header)
     + [Home](#home)
-    + [Login - Logout - Etc...](#login---logout---etc...)
+    + [All Account Login - Logout - Management Views](#all-account-login---logout---management-views)
     + [Merchandise](#merchandise)
     + [Specials](#specials)
     + [Used](#used)
@@ -133,7 +133,7 @@ to peruse our selection and hopfully give some lightly used music books a life!
 + A musically themed hero image is used.
 + A single container is used on this page to show the current specials. This container displays the site's new or discounted items to help give the site a hook.
 
-### login - logout - etc...
+### All Account Login - Logout - Management Views
 + Allauth's templates were used with Bootstrap 4's styling. This greatly simplified the programming process.
 + Additional styling was added to give the templates a more unique look.
 
