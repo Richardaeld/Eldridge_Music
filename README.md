@@ -493,3 +493,4 @@ for a specific product, with a timer to help entice users to make an impulse pur
 # Acknowledgements
 + Emily Eldridge for help with revising the grammar and flow of this README document.
 + Felipe Souza Alarcon for his suggestion of simplifying this project, his help, and guidance.
++ JoGorska_5p for being a great tester.
