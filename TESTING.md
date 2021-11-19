@@ -101,7 +101,7 @@
 ---
 
 #### User Story
-+ As a shopper I want to view a specific merchandise's detailed information.
++ As a shopper I want to view detailed information about a piece of merchandise.
 
 #### Expectation(s):
 + The tester will check five different detail views.
@@ -224,7 +224,7 @@
 ---
 
 #### User Story
-+ As a shopper I want to be able to sort the available products by their category.
++ As a shopper I want to be able to search available products by their category.
 
 #### Expectation(s):
 + Each Category will display all the correct merchandise.
@@ -257,7 +257,7 @@
 ---
 
 #### User Story
-+ As a shopper I want to be able to search for an item by name or composer.
++ As a shopper I want to be able to search for an item by its name or composer.
 
 #### Expectation(s):
 + User search bar returns correct information when a user submits a item name or its composer(s).
@@ -292,7 +292,7 @@
 ---
 
 #### User Story
-+ As a shopper I want to be sent a confirmation email after I checkout.
++ As a shopper I want to receive a confirmation email upon checkout
 
 #### Expectation(s):
 + A confirmation email will be sent out after a purchse.
@@ -337,7 +337,7 @@
 ---
 
 #### User Story
-+ As a returning user I would like a confirmation email after registering.
++ As a new user I would like a confirmation email after registering.
 
 #### Expectation(s):
 + A confirmation email will be sent out at the end of the account creation process.
@@ -377,7 +377,7 @@
 ---
 
 #### User Story
-+ As a returning user I would like a create an account.
++ As a new user I would like a create an account.
 
 #### Expectation(s):
 + An account can be created, accessed, and updated.
@@ -466,7 +466,7 @@
 ---
 
 #### User Story
-+ As a returning user I would like to recover my forgotten passord.
++ As a returning user I would like to recover my forgotten password.
 
 #### Expectation(s):
 + A user can recover/change their current password.
