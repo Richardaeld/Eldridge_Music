@@ -18,7 +18,7 @@
     + [Superuser Merchandise CRUD views](#superuser-merchandise-crud-views)
     + [Return Emails](#return-emails)
     + [Wireframe and Live App](#wireframe-and-live-app)
-        + [Wireframe](#wire-frame)
+        + [Wireframe](#wireframe)
         + [Live App](#live-app)
     + [Scalability](#scalability)
 
