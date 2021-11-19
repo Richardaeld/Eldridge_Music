@@ -3,27 +3,24 @@
 [Eldridge Music Book Emporium - Introduction](#eldridge-music-book-emporium---introduction)
 
 [UX](#ux)
-<!-- + [Goals](#goals) -->
 + [User Stories](#user-stories)
-    <!-- + [Developer Goals](#developer-goals) -->
-<!-- + [Client Stories](#client-stories) -->
-
-[Design Choices](#design-choices)
-+ [Home](#home)
-+ [Login-Logout-Etc...](#login-logout-etc...)
-+ [Merchandise](#merchandise)
-+ [Specials](#specials)
-+ [Used](#used)
-+ [Merchandise Details](#merchandise-details)
-+ [Cart](#cart)
-+ [Invoice - Checkout](#invoice---checkout)
-+ [Profile](#profile)
-+ [Superuser Merchandise CRUD views](#superuser-merchandise-crud-views)
-+ [Return Emails](#return-emails)
-+ [Wireframe and Live Applications](#wireframe-and-live-applications)
-    + [Wire Frame](#wire-frame)
-    + [Live App](#live-app)
-+ [Scalability](#scalability)
++ [Design Choices](#design-choices)
+    + [Base - Header](#base---header)
+    + [Home](#home)
+    + [Login - Logout - Etc...](#login-logout-etc...)
+    + [Merchandise](#merchandise)
+    + [Specials](#specials)
+    + [Used](#used)
+    + [Merchandise Details](#merchandise-details)
+    + [Cart](#cart)
+    + [Invoice - Checkout](#invoice---checkout)
+    + [Profile](#profile)
+    + [Superuser Merchandise CRUD views](#superuser-merchandise-crud-views)
+    + [Return Emails](#return-emails)
+    + [Wireframe and Live App](#wireframe-and-live-app)
+        + [Wireframe](#wire-frame)
+        + [Live App](#live-app)
+    + [Scalability](#scalability)
 
 [Technology and Languages](#technology-and-languages)
 
@@ -35,13 +32,15 @@
 
 [Deployment](#deployment)
 + [GitHub - GitPod](#github---gitpod)
-+ [Requirements](#requirements)
 + [Stripe](#stripe)
 + [AWS](#aws)
+    + [Create S3 Bucket](#create-s3-bucket)
+    + [Create and Configure IAM](#create-and-configure-iam)
++ [Return Emails with Gmail](#Return-emails-with-gmail)
 + [Heroku](#heroku)
++ [Requirements](#requirements)
 + [Heroku Variables](#heroku-variables)
 + [Django.settings](#django.settings)
-+ [Return Emails with Gmail](#Return-emails-with-gmail)
 
 [Tools and Credits](#tools-and-credits)
 + [Tools](#tools)
@@ -59,8 +58,7 @@ music selection to include other books than Piano, however it might be some time
 to peruse our selection and hopfully give some lightly used music books a second chance!
 
 # UX
-## Goals
-### User Stories
+## User Stories
 + As a shopper I want to view all merchandise.
     + I opened the home page of Eldridge Music Book Emporium. I clicked on, 'Music Books' on the header and I saw a drop down menu. I then 
     clicked on, 'All Music Books' and saw a list of all the music books of the site.
@@ -115,23 +113,23 @@ to peruse our selection and hopfully give some lightly used music books a second
     + I login with my store manager account. I search for and find the item that needs to be removed from the store. On the top right 
     corner of the merchandise card I see a button that says, 'delete'. I click the delete button and the item is removed from the store.
 
-# Design Choices
-## Base - header
+## Design Choices
+### Base - header
 + Logo was given a layered effect that gives it a near shinning look
 + Search bar can be used to search: description, composer, name.
 + A profile icon and button allow users to access log in/out functions, superuser functions, and user profile.
 + A cark icon shows users how much they are spending and will take them to their cart
 + A bar that display's the sites current special.
 
-## Home
+### Home
 + A hero image was used with a musical theme.
 + A container with a header that displays the site's new or discounted items to help lure in more customers.
 
-## login/logout/etc...
+### login - logout - etc...
 + Allauth's templates were used with Bootstrap 4's styling.
 + Additional styling was added to give the templates a unique feeling.
 
-## Merchandise
+### Merchandise
 + A warm and inviting linear gradient was used for the background.
 + Each Merchandise item has its own card that helps it stand out from the background.
 + A used and discount banner are added to merchandise with those tags. This helps users find a cheaper option.
@@ -139,46 +137,46 @@ to peruse our selection and hopfully give some lightly used music books a second
     + All information has a character max to keep cards brief.
 + Each card is fitted with superuser edit/delete options for easy of inventory management.
 
-## Specials
+### Specials
 + A view that returns only discounted merchandise for the user to see in the same format as the Merchandise view
 
-## Used
+### Used
 + A view that returns only used merchandise for the user to see in the same format as the Merchandise view
 
-## Merchandise Details
+### Merchandise Details
 + A warm and inviting linear gradient was used for the background.
 + A single card is featured here with its full content unabbreviated.
 + A used tag is added to all previously used merchandise.
 + A discount tag is added to all merchandise that is being sold at a discounted value
 + Any item being sold at a discounted value shows both the old price and the new price
 
-## Cart
+### Cart
 + With nothing in the cart this view asks users to continue shopping.
 + This view allows users to see each item, its quantity, sub-total and more for quickly deciding if they are happy with their order before preceding to the checkout.
 + A convenient remove button is put in the quantity column for users to easilly remove an item.
 + A quantity adjustment input for users to easily adjust the amount of a merchandise item they want.
 + This view features a sub-total per item and a total item subtotal, along with a delivery total and grand total.
 
-## Invoice - Checkout
+### Invoice - Checkout
 + This view give shows a cart summary with grand total to be sure customers know what they are about to order.
 + An invoice a simple form that asks for the users basic shipping and payment information.
 + If the user is signed and has saved their basic informaition the aformentioned form will be prepopulated for the user.
 + This from also allows signed in users to update their information when they submit an invoice.
 
-## Profile
+### Profile
 + This view allows users to see their basic shipping information and all previous invoices.
 + Two buttons located at the top of the form allow users to view their shipping information, previous invoices, or both.
 + User's can update their shipping information from the prefered shipping form on this view.
 
-## Superuser Merchandise CRUD views
+### Superuser Merchandise CRUD views
 + The add (Merchandise Management) view returns a blank merchandise model so a superuser can create a fully functional new item.
 + The edit view returns a prefilled merchandise model so a superuser can edit any part of the item.
 + The delete view deletes the item without a secondary view.
 
-## Return Emails
+### Return Emails
 
-## Wireframe and Live Applications
-### Wire Frame
+## Wireframe and Live App
+### Wireframe
 + Each wireframe contains curly brackets that give a description of its contents and what the filler (missing database data) content should be.
 ![Wireframe of the index page](readme/wireframes/merchandise-large.jpg "Wireframe of the index page")
 + Balsamiq was used for the planning process and wireframe creation.
@@ -320,7 +318,7 @@ to peruse our selection and hopfully give some lightly used music books a second
     + Click **Access Control List** tab.
     + Click on **Public access** and set **List objects** and save.
 
-### Create and configure IAM
+### Create and Configure IAM
 + Go to services menu and select **IAM**.
 + Under **Access Management** click **Groups** and the **create a new group**.
 + Enter a name, select **next step** twice, and then **Create group**.
