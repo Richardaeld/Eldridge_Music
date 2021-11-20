@@ -219,9 +219,9 @@ for a specific product, with a timer to help entice users to make an impulse pur
 + Add ability to calculate tax.
 + Rating system:
     + Change number rating to a star count. This would look better and remove the need for a text input.
-        + This system could have its numbers updated to use the standard 5 or 10 star system.
-    + Add a validation system to allow only those who have purchased a product to rate it
-    
+        + This system could have its numbers updated to use a standard 5 or 10 star system.
+    + Add a validation system to allow only those who have purchased a product to rate it.
+
 # Technology and Languages
 + HTML - Skeleton frame of the application.
 + CSS - Beautifies the skeleton (HTML).
