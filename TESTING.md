@@ -529,12 +529,15 @@
 1. Navigate to the **Details View** of a merchandise item.
 1. Record the number of ratings for the product as well as the current star rating.
 1. Multiply the current average rating by the number of total reviews. Record this number.
+    + Math step 1.
 1. Click on **Click to Rate**.
 1. Input a random number 1 - 9.
 1. Click **Rate Me!**.
 1. Add your star rating to the number you calculated in step 4. Record this number.
+    + Math step 3.
 1. Check that the success toast appears.
 1. Divide the number in step 8 by the total number of ratings (original number of ratings plus 1).
+    + Math step 5.
 1. Record the number and compare with the new star rating.
 1. Repeat steps 3 - 10 choosing a different path to the **Details View** each time.
 
