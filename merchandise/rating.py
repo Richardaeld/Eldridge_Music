@@ -8,9 +8,11 @@ def add_rating(merch):
         avg_rating = 0
         merch_rating_list = []
         all_ratings = Merch_Rating.objects.all().filter(merchandise_id=item.id)
-        for rating in all_ratings:
-            merch_rating_list.append(rating.rating)
-
+        try:
+            for rating in all_ratings:
+                merch_rating_list.append(rating.rating)
+        except:
+                merch_rating_list.append(all_ratings.rating)
         number_of_ratings = len(merch_rating_list)
         if number_of_ratings != 0:
             total_rating = sum(merch_rating_list)
