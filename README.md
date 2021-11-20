@@ -512,7 +512,8 @@ for a specific product, with a timer to help entice users to make an impulse pur
     + Used to understand basic standardization practices for web-based apps.
 + [Django](https://docs.djangoproject.com/en/3.2/)
     + A through guide to this intricate frame work.
-
++ [Code Institute](https://codeinstitute.net/)
++ Code Institute's Boutique Ado for a great foundation to make a ecommerce site
 
 # Acknowledgements
 + Emily Eldridge for help with revising the grammar and flow of this README document.
