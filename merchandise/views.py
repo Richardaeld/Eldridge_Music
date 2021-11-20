@@ -98,7 +98,7 @@ def details(request, merch_id):
     number_of_ratings = len(merch_rating_list)
     if number_of_ratings != 0:
         total_rating = sum(merch_rating_list)
-        avg_rating = total_rating / number_of_ratings
+        avg_rating = round(total_rating / number_of_ratings, 2)
     merch.avg_rating = avg_rating
     merch.number_of_ratings = number_of_ratings
 
@@ -118,21 +118,36 @@ def rating_form(request, merch_id):
     """
     profile = User_Profile_History.objects.get(user=request.user)
     merch = get_object_or_404(Merch, pk=merch_id)
+    rating = request.POST['rating']
     if request.method == 'POST':
         form_data = {
             'rated_by': profile,
-            'rating': request.POST['rating'],
+            'rating': rating,
             'merchandise_id': merch,
         }
 
         try:
-            rating = get_object_or_404(Merch_Rating, merchandise_id=merch.id)
-            form = RatingForm(form_data, instance=rating)
-            if form.is_valid():
-                form.save(commit=True)
-        except:
+            has_rating = int(
+                Merch_Rating.objects.filter(
+                    rated_by=profile, merchandise_id=merch.id).count())
+            rating_instance = Merch_Rating.objects.filter(
+                rated_by=profile, merchandise_id=merch.id).get()
+
+            if has_rating >= 1:
+                form = RatingForm(form_data, instance=rating_instance)
+                if form.is_valid():
+                    messages.success(
+                        request, f'You rated {merch}, as a {rating} out of 9'
+                    )
+                    form.save(commit=True)
+                    return redirect(reverse('merch_details', args=[merch.id]))
+
+        except Exception as e:
             form = RatingForm(form_data)
             if form.is_valid():
+                messages.success(
+                    request, f'You rated {merch}, as a {rating} out of 9'
+                )
                 form.save()
 
     return redirect(reverse('merch_details', args=[merch.id]))
