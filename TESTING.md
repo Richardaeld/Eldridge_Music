@@ -548,15 +548,6 @@
 1. If any content has bad UX, record:
     + The test name, screen resolution, browser/device, view (page), and a brief description of the bad UX.
 
-
-
-
-
-
-
-
-
-
 ---
 
 ### Testing Invoice Function Remember My Information
