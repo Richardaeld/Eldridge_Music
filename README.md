@@ -92,6 +92,10 @@ to peruse our selection and hopfully give some lightly used music books a life!
     appeared below the **profile** button and I clicked, **Create Account**. I was taken to a page where I started the process of creating an account. 
     I checked my email account and found a confirmation email regarding my newly created account.
 
++ As a returning customer I would like to rate products I have purchased.
+    + I opened the home page of Eldridge Music Book Emporium. I entered the title of a book I purchased in the **user input search bar** and clicked on the 
+    merchandise card to get its **Details View**. I clicked on **Click to Rate**. I entered my rating in the text box that appeared and clicked **Rate me!**. 
+    I was able to see the updated average rating.
 + As a returning user I would like to easily login or logout.
     + I opened the home page of Eldridge Music Book Emporium. I clicked on the **profile** button on the top right corner of the page. A drop-down menu 
     appeared below the **profile** button and I clicked, **Login**. I was taken to a page to login.
@@ -140,9 +144,10 @@ to peruse our selection and hopfully give some lightly used music books a life!
 + A warm and inviting linear gradient was used for the background.
 + Each merchandise item has its own card that helps it stand out from the background.
 + A **used** and **discount** banner are added to merchandise with those tags. This helps users identify discounted books.
-+ Each card features general text and an image of the product which gives users all the necessary information at a glance.
++ Each card features general text, an image of the product, and a product rating which gives users all the necessary information at a glance.
     + All merchandise information is limited to a maximum character count to keep cards brief.
 + Each card is fitted with some **superuser edit/delete** options for ease of inventory management.
++ A star rating feature allows users to actively see total ratings and average rating of a product.
 
 ### Specials
 + A view that returns only discounted merchandise for the user to see in the same format as the **merchandise view**.
@@ -156,6 +161,9 @@ to peruse our selection and hopfully give some lightly used music books a life!
 + A **used** tag is added to any used merchandise.
 + A **discount** tag is added to all merchandise that is being sold at a discounted value.
 + Any item being sold at a discounted value shows both the old price and the new price.
++ Each card is fitted with some **superuser edit/delete** options for ease of inventory management.
++ A star rating feature allows users to actively see total ratings and average rating of a product.
++ If a user is logged in the user can rate products.
 
 ### Cart
 + With nothing in the cart, this view directs users back to the **merchandise view**.
@@ -209,6 +217,10 @@ for a specific product, with a timer to help entice users to make an impulse pur
 + A counter that tells the user how many merchandise items are being displayed in the current search or on the current page.
 + Add different ways of sorting displayed merchandise items. These could include: price, composer, etc....
 + Add ability to calculate tax.
++ Rating system:
+    + Change number rating to a star count. This would look better and remove the need for a text input.
+        + This system couls have its numbers updated to use a more standard 5 or 10 star system.
+    + Add a validation system to only allows that have purchased a product to rate it.
 
 # Technology and Languages
 + HTML - Skeleton frame of the application.
