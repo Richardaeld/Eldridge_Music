@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.fields import DateField
 
+from profile_history.models import User_Profile_History
 
 class Music_Style(models.Model):
     """
@@ -46,3 +47,16 @@ class Merch(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Merch_Rating(models.Model):
+    """
+    Keeps track of ratings for items
+    """
+    rated_by = models.ForeignKey(
+        User_Profile_History, on_delete=models.DO_NOTHING
+    )
+    rating = models.DecimalField(max_digits=1, decimal_places=0)
+    merchandise_id = models.ForeignKey(
+        Merch, on_delete=models.CASCADE
+    )
