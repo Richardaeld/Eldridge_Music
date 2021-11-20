@@ -152,14 +152,14 @@
                         <a href="{% url 'merchandise' %}" class="bronze-button p-2 inline-b">
                             Keep Shopping
                         </a>
-                        {% else %}
-                        <!-- Empty cart -->
-                        <h3>Your cart is empty.</h3>
-                        <a href="{% url 'merchandise' %}" class="bronze-button p-2 inline-b">
-                            Keep Shopping
-                        </a>
-                        {% endif %}
                     </div>
+                    {% else %}
+                    <!-- Empty cart -->
+                    <h3>Your cart is empty.</h3>
+                    <a href="{% url 'merchandise' %}" class="bronze-button p-2 inline-b">
+                        Keep Shopping
+                    </a>
+                    {% endif %}
             </div>
         </div>
     </div>
