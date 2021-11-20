@@ -82,12 +82,12 @@
                                        {{ merch.avg_rating }} of 9
                                     </span>
                                     {% endif %}
-                                        {% csrf_token %}
-                                        <div class="inline-d w-100" style="margin-left:25%; margin-right:25%;">
-                                            <input id="rate-me-input" class="invis w-50 mt-3 ms-2 rate-input text-center" type="number" placeholder="Input 1 - 9" name="rating" min="1" max="9">
-                                            <button id="rate-me-button" class=" w-50 invis bronze-button mt-3 ms-2 mb-4">Rate Me!</button>
-                                        </div>
-                                    </p>
+                                    {% csrf_token %}
+                                    <div class="inline-d w-100" style="margin-left:25%; margin-right:25%;">
+                                        <input id="rate-me-input" class="invis w-50 mt-3 ms-2 rate-input text-center" type="number" placeholder="Input 1 - 9" name="rating" min="1" max="9">
+                                        <button id="rate-me-button" class=" w-50 invis bronze-button mt-3 ms-2 mb-4">Rate Me!</button>
+                                    </div>
+                                </p>
                             </form>
 
                             <!-- Merch price -->
