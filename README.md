@@ -478,6 +478,8 @@ for a specific product, with a timer to help entice users to make an impulse pur
     + Used to identify errors in JavaScript.
 + [JSON formatter](https://jsonformatter.org/)
     + Used to read long strings of JSON
++ [jQuery](https://jquery.com/)
+    + JS library used with Bootstrap.
 + [Lighthouse](https://developers.google.com/web/tools/lighthouse)
     + Used to check for performance, accessibility, best practices, and SEO.
 + [PEP8 online](http://pep8online.com/)
@@ -498,6 +500,8 @@ for a specific product, with a timer to help entice users to make an impulse pur
 
 ## Credits
 ### References and Ideas
++ [Allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)
+    + Used for all login, logout, and account management.
 + [Bootstrap](https://getbootstrap.com/)
     + A framework used to help speed up development and provide a better overall UX.
 + [MDN Web Docs](https://developer.mozilla.org/en-US/)
