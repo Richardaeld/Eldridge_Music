@@ -30,7 +30,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['eldridge-music.herokuapp.com', '127.0.0.1']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -57,7 +56,6 @@ INSTALLED_APPS = [
     # 3rd party apps
     'crispy_forms',
     'storages',
-
 ]
 
 MIDDLEWARE = [
