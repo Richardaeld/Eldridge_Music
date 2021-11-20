@@ -120,6 +120,33 @@ select {
 }
 
 /* ---------- Details View */
+.clickable {
+    cursor:pointer
+}
+
+.fit-content {
+    width: fit-content;
+}
+
+.rate-input {
+    border: 2px solid #333;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, .5);
+    transition-duration: .25s;
+    border-radius: 5px;
+
+}
+
+.rate-input:active,
+.rate-input:focus {
+    outline: none;
+    border: 2px solid #8ab5f9;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, .5),
+                3px 3px #bcd8f5,
+                -3px 3px #bcd8f5,
+                -3px -3px #bcd8f5,
+                3px -3px #bcd8f5;
+}
+
 #in-bag input {
     border-radius: 0%;
     -webkit-border-radius: 0%;

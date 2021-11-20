@@ -35,3 +35,19 @@ document.getElementById("in-bag").getElementsByTagName("input")[0].addEventListe
         bag.value = 1;
     }
 });
+
+//-------------------- Makes rating input visible and hidden
+let rateReveal = document.getElementById("rate-me");
+if (rateReveal != null) {
+    rateReveal.addEventListener("click", function() {
+        let input = document.getElementById("rate-me-input");
+        let button = document.getElementById("rate-me-button");
+        if (input.classList.contains("invis")) {
+            input.classList.remove("invis");
+            button.classList.remove("invis");
+        } else {
+            input.classList.add("invis");
+            button.classList.add("invis");
+        }
+    });
+}

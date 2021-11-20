@@ -70,7 +70,14 @@
                             <!-- Merch rating -->
                             <p>
                                 <i class="fas fa-star"></i>
-                                {{ merch.rating }} / 5
+                                <!-- {{ merch.rating }} / 5 -->
+                                {% if merch.avg_rating == 0 %}
+                                <span class="text-muted small">
+                                    No Current Ratings
+                                </span>
+                                {% else %}
+                                    {{ merch.avg_rating }} of 9
+                                {% endif %}
                             </p>
 
                             <!-- Merch price -->

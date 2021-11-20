@@ -4,8 +4,10 @@ from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 
 from django.conf import settings
-from merchandise.forms import MerchForm
-from .models import Merch
+from merchandise.forms import MerchForm, RatingForm
+from profile_history.models import User_Profile_History
+from .models import Merch, Merch_Rating
+from .rating import add_rating
 
 
 def merchandise(request):
@@ -13,6 +15,7 @@ def merchandise(request):
     Returns a view of all merchandise items
     """
     merch = Merch.objects.all()
+    add_rating(merch)
 
     # Used by user search bar
     if request.GET:
@@ -46,6 +49,8 @@ def specials(request):
     """
     merch = Merch.objects.all()
     merch = merch.filter(special=True)
+    add_rating(merch)
+
     MEDIA_URL = settings.MEDIA_URL
     template = 'merchandise/merchandise.html'
 
@@ -63,6 +68,8 @@ def used(request):
     """
     merch = Merch.objects.all()
     merch = merch.filter(used=True)
+    add_rating(merch)
+
     MEDIA_URL = settings.MEDIA_URL
     template = 'merchandise/merchandise.html'
 
@@ -81,13 +88,42 @@ def details(request, merch_id):
     merch = get_object_or_404(Merch, pk=merch_id)
     MEDIA_URL = settings.MEDIA_URL
     template = 'merchandise/details.html'
+    add_rating(merch)
 
     context = {
+        # "avg_rating": avg_rating,
         'MEDIA_URL': MEDIA_URL,
         'merch': merch,
     }
 
     return render(request, template, context)
+
+
+@login_required
+def rating_form(request, merch_id):
+    """
+    Allows users to rate items
+    """
+    profile = User_Profile_History.objects.get(user=request.user)
+    merch = get_object_or_404(Merch, pk=merch_id)
+    if request.method == 'POST':
+        form_data = {
+            'rated_by': profile,
+            'rating': request.POST['rating'],
+            'merchandise_id': merch,
+        }
+
+        try:
+            rating = get_object_or_404(Merch_Rating, merchandise_id=merch.id)
+            form = RatingForm(form_data, instance=rating)
+            if form.is_valid():
+                form.save(commit=True)
+        except:
+            form = RatingForm(form_data)
+            if form.is_valid():
+                form.save()
+
+    return redirect(reverse('merchandise'))
 
 
 @login_required

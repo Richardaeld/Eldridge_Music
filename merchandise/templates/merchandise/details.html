@@ -66,10 +66,30 @@
                                 {{ merch.description }}
                             </p>
                             <!-- Merch rating -->
-                            <p>
-                                <i class="fas fa-star"></i>
-                                {{ merch.rating }} / 5
-                            </p>
+                            {% if request.user.is_authenticated %}
+                                <span id="rate-me" class="small text-muted clickable fit-content">Click to Rate</span>
+                            {% endif %}
+                            <form action="{% url 'rating_form' merch.id %}" method="POST">
+                                <p>
+                                    ({{merch.number_of_ratings}})
+                                    <i class="fas fa-star"></i>
+                                    <!-- {{ merch.rating }} / 5 -->
+                                    {% if merch.avg_rating == 0 %}
+                                    <span class="text-muted small inline-d w-50">
+                                        No Current Ratings
+                                    </span>
+                                    {% else %}
+                                    <span class="inline-d w-50">
+                                       {{ merch.avg_rating }} of 9
+                                    </span>
+                                    {% endif %}
+                                        {% csrf_token %}
+                                        <div class="inline-d w-100" style="margin-left:25%; margin-right:25%;">
+                                            <input id="rate-me-input" class="invis w-50 mt-3 ms-2 rate-input text-center" type="number" placeholder="Input 1 - 9" name="rating" min="1" max="9">
+                                            <button id="rate-me-button" class=" w-50 invis bronze-button mt-3 ms-2 mb-4">Rate Me!</button>
+                                        </div>
+                                    </p>
+                            </form>
 
                             <!-- Merch price -->
                             {% if merch.special %}
