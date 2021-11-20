@@ -135,7 +135,7 @@ def rating_form(request, merch_id):
             if form.is_valid():
                 form.save()
 
-    return redirect(reverse('merchandise'))
+    return redirect(reverse('merch_details', args=[merch.id]))
 
 
 @login_required
