@@ -309,6 +309,11 @@ for a specific product, with a timer to help entice users to make an impulse pur
         + JS could be used to allow the header to scroll out of view until it is needed.
             + This could conflict with Bootstrap's and Jquery's function.
             + This could be implemented on all mobile sized screens and would greatly increase the viewable real-estate.
++ User rating's **Rate Me!** button will not submit.
+    + Caused by:
+        + JS validation designed to stop users from submitting multiple ratings at a single time.
+    + Thought(s):
+        + Back end logic prepared to handle multiple submissions would make this JS validation obsolete.
 
 # Deployment
 ## GitHub - GitPod
