@@ -19,10 +19,10 @@ def merchandise(request):
 
     # Used by user search bar
     if request.GET:
-        add_rating(merch)
         if 'genre' in request.GET:
             genre = request.GET['genre']
             merch = merch.filter(style__style=(genre))
+            add_rating(merch)
 
         if 'userquery' in request.GET:
             query = request.GET['userquery']
@@ -32,6 +32,7 @@ def merchandise(request):
 
             queries = Q(name__icontains=query) | Q(author__icontains=query)
             merch = merch.filter(queries)
+            add_rating(merch)
 
     MEDIA_URL = settings.MEDIA_URL
     template = 'merchandise/merchandise.html'
