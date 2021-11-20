@@ -19,6 +19,7 @@ def merchandise(request):
 
     # Used by user search bar
     if request.GET:
+        add_rating(merch)
         if 'genre' in request.GET:
             genre = request.GET['genre']
             merch = merch.filter(style__style=(genre))
