@@ -26,7 +26,7 @@ if os.path.exists('env.py'):
 else:
     SECRET_KEY = 'SECRET_KEY' in os.environ
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['eldridge-music.herokuapp.com', '127.0.0.1']
 
