@@ -14,6 +14,7 @@
     + [Testing Account Confirmation Email](#testing-account-confirmation-email)
     + [Testing Login and Logout](#testing-login-and-logout)
     + [Testing Password Recovery](#testing-password-recovery)
+    + [Testing Merchandise Rating System](#testing-merchandise-rating-system)
     + [Testing Invoice Function Remember My Information](#testing-invoice-function-remember-my-information)
     + [Testing Updating Shipping Information from Profile View](#testing-updating-shipping-information-from-profile-view)
     + [Testing the Superuser Function to Add Merchandise](#testing-the-superuser-function-to-add-merchandise)
@@ -110,13 +111,13 @@
 
 #### Assumptions(s):
 + The tester knows the content that should display for each product they look at.
-+ The tester knows multiple ways to get to a details view.
++ The tester knows multiple ways to get to a **Details View**.
 
 #### Testing Step(s):
 1. Load the **Home View** of Eldridge Music.
-1. Navigate to the details view of a merchandise item.
+1. Navigate to the **Details View** of a merchandise item.
 1. Check all the information of this merchandise item for correctness.
-1. Repeat steps 1 - 3 choosing a different path to the details view each time.
+1. Repeat steps 1 - 3 choosing a different path to the **Details View** each time.
 
 #### Documented Result(s):
 1. If any information for the merchandise item is incorrect, record:
@@ -487,7 +488,6 @@
 1. Create a new password and submit.
 1. Login with the new password.
 
-
 #### Documented Result(s):
 1. Upon creation of a test account or using a pre-existing account, record:
     + The username, email address of the account, and state that this is a test account.
@@ -499,6 +499,63 @@
     + The test name, image or link name, and a brief description of the problem.
 1. If any content has bad UX, record:
     + The test name, screen resolution, browser/device, view (page), and a brief description of the bad UX.
+
+
+### Testing Merchandise Rating System
+
+---
+
+#### User Story
++ As a shopper I want to add a rating to a piece of merchandise.
+
+#### Expectation(s):
++ The tester will rate three different pieces of merchandise.
++ The page content fills appropriately and doesn't spill out beyond obvious borders.
++ The page content doesn't overlap and is easy to read.
+
+#### Assumptions(s):
++ The tester knows the the current number of ratings and the current average rating of each piece of merchandise.
++ The tester knows multiple ways to get to a **Details View**.
+
+#### Testing Step(s):
+1. Load the **Home View** of Eldridge Music.
+1. Navigate to the **Details View** of a merchandise item.
+1. Record the number of ratings for the product as well as the current star rating.
+1. Multiply the current average rating by the number of total reviews. Record this number.
+    + Numerator = current_avg_rating * total_reviews
+    + Denominator = total_reviews
+1. Click on **Click to Rate**.
+1. Input a random number 1 - 9.
+1. Click **Rate Me!**.
+1. Add your star rating to the number you calculated in step 4. Record this number.
+    + Numerator = Numerator + rating_picked
+1. Check that the success toast appears.
+1. Divide the number in step 8 by the total number of ratings (original number of ratings plus 1).
+    + Denominator = Denominator + 1
+    + new_avg =  Numerator + Denominator
+1. Record the number and compare with the new star rating.
+1. Repeat steps 3 - 10 choosing a different path to the **Details View** each time.
+
+#### Documented Result(s):
+1. If the star rating is missing, record:
+    + The test name, merchandise item name, and a brief description of the problem.
+1. If the star rating counter is incorrect, record:
+    + The test name, merchandise item name, incorrect count, anticipated count, and a brief description of the problem.
+1. If the star rating is incorrect, record:
+    + The test name, merchandise item name, incorrect rating, anticipated rating, formulas used, and a brief description of the problem.
+1. If any links or images are broken, record:
+    + The test name, image or link name, and a brief description of the problem.
+1. If any content has bad UX, record:
+    + The test name, screen resolution, browser/device, view (page), and a brief description of the bad UX.
+
+
+
+
+
+
+
+
+
 
 ---
 
