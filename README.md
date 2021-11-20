@@ -147,7 +147,7 @@ to peruse our selection and hopfully give some lightly used music books a life!
 + Each card features general text, an image of the product, and a product rating which gives users all the necessary information at a glance.
     + All merchandise information is limited to a maximum character count to keep cards brief.
 + Each card is fitted with some **superuser edit/delete** options for ease of inventory management.
-+ A star rating feature allows users to actively see total ratings and average rating of a product.
++ A star rating feature allows users to see total ratings and the average rating of a product.
 
 ### Specials
 + A view that returns only discounted merchandise for the user to see in the same format as the **merchandise view**.
@@ -162,8 +162,8 @@ to peruse our selection and hopfully give some lightly used music books a life!
 + A **discount** tag is added to all merchandise that is being sold at a discounted value.
 + Any item being sold at a discounted value shows both the old price and the new price.
 + Each card is fitted with some **superuser edit/delete** options for ease of inventory management.
-+ A star rating feature allows users to actively see total ratings and average rating of a product.
-+ If a user is logged in the user can rate products.
++ A star rating feature allows users to see total ratings and the average rating of the product.
++ If a user is logged they can rate products.
 
 ### Cart
 + With nothing in the cart, this view directs users back to the **merchandise view**.
@@ -219,9 +219,9 @@ for a specific product, with a timer to help entice users to make an impulse pur
 + Add ability to calculate tax.
 + Rating system:
     + Change number rating to a star count. This would look better and remove the need for a text input.
-        + This system couls have its numbers updated to use a more standard 5 or 10 star system.
-    + Add a validation system to only allows that have purchased a product to rate it.
-
+        + This system could have its numbers updated to use the standard 5 or 10 star system.
+    + Add a validation system to allow only those who have purchased a product to rate it
+    
 # Technology and Languages
 + HTML - Skeleton frame of the application.
 + CSS - Beautifies the skeleton (HTML).
