@@ -88,7 +88,19 @@ def details(request, merch_id):
     merch = get_object_or_404(Merch, pk=merch_id)
     MEDIA_URL = settings.MEDIA_URL
     template = 'merchandise/details.html'
-    add_rating(merch)
+
+    avg_rating = 0
+    merch_rating_list = []
+    all_ratings = Merch_Rating.objects.all().filter(merchandise_id=merch.id)
+    for rating in all_ratings:
+        merch_rating_list.append(rating.rating)
+
+    number_of_ratings = len(merch_rating_list)
+    if number_of_ratings != 0:
+        total_rating = sum(merch_rating_list)
+        avg_rating = total_rating / number_of_ratings
+    merch.avg_rating = avg_rating
+    merch.number_of_ratings = number_of_ratings
 
     context = {
         # "avg_rating": avg_rating,
