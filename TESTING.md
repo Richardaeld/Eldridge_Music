@@ -522,17 +522,17 @@
 1. Navigate to the **Details View** of a merchandise item.
 1. Record the number of ratings for the product as well as the current star rating.
 1. Multiply the current average rating by the number of total reviews. Record this number.
-    + Numerator = current_avg_rating * total_reviews
-    + Denominator = total_reviews
+    + a = current_avg_rating * total_reviews
+    + z = total_reviews
 1. Click on **Click to Rate**.
 1. Input a random number 1 - 9.
 1. Click **Rate Me!**.
 1. Add your star rating to the number you calculated in step 4. Record this number.
-    + Numerator = Numerator + rating_picked
+    + b = a + rating_picked
 1. Check that the success toast appears.
 1. Divide the number in step 8 by the total number of ratings (original number of ratings plus 1).
-    + Denominator = Denominator + 1
-    + new_avg =  Numerator + Denominator
+    + y = z + 1
+    + new_avg =  b + y
 1. Record the number and compare with the new star rating.
 1. Repeat steps 3 - 10 choosing a different path to the **Details View** each time.
 
