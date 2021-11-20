@@ -3,6 +3,7 @@ from django.db.models.fields import DateField
 
 from profile_history.models import User_Profile_History
 
+
 class Music_Style(models.Model):
     """
     Used to create genres of music to group merchandise into
